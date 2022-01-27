@@ -17,6 +17,7 @@
     "noImplicitAny": false,
     "jsx": "preserve",
     "baseUrl": "./",
+    "types": ["node"],
     "paths": {
       "*": ["devtools/ts/declaredModules/*"]
     },

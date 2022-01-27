@@ -1,3 +1,4 @@
+import React from 'react'
 import createEmotionServer from '@emotion/server/create-instance'
 
 import createEmotionCache from './utils/createEmotionCache'

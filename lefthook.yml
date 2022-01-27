@@ -1,0 +1,6 @@
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+
+pre-commit:
+  commands:
+    test:
+      run: npm run prettify && npm run test:eslint && npm run test:ts-types

@@ -1,5 +1,6 @@
 import path from 'path'
 
+import createFolder from '../../../utils/node/createFolder.js'
 import convertImage from '../../../utils/images/convertImage.js'
 import type { Props as ConvertImageProps } from '../../../utils/images/convertImage.js'
 
@@ -9,18 +10,20 @@ import type { Props as ConvertImageProps } from '../../../utils/images/convertIm
 export default async function generateLogoAssets() {
   const rootPath = path.join(process.cwd(), 'public', 'images', 'logo')
   const logoPath = path.join(rootPath, 'logo.svg')
-  const folderOutputPath = path.join(rootPath, 'assets')
-  const applePath = path.join(folderOutputPath, 'apple')
-  const sizesPath = path.join(folderOutputPath, 'sizes')
-  const pngLogoPath = path.join(folderOutputPath, 'logo.png')
+  const outputFolderPath = path.join(rootPath, 'assets')
+  const applePath = path.join(outputFolderPath, 'apple')
+  const sizesPath = path.join(outputFolderPath, 'sizes')
+  const pngLogoPath = path.join(outputFolderPath, 'logo.png')
+
+  await createFolder({ paths: [outputFolderPath, applePath, sizesPath] })
 
   const getSizeIconName = (name: string) => path.join(sizesPath, name)
   const getAppleIconName = (name: string) => path.join(applePath, name)
 
   const iconList = [
     {
-      filePath: logoPath,
       outputPath: pngLogoPath,
+      filePath: logoPath,
       format: 'png',
       width: 512,
       height: 512,
@@ -71,7 +74,11 @@ export default async function generateLogoAssets() {
 
   await Promise.all(
     iconList.map(async (icon: ConvertImageProps) => {
-      await convertImage(icon)
+      try {
+        await convertImage(icon)
+      } catch (error) {
+        throw new Error(`${icon.outputPath} Failed: ${error}`)
+      }
     }),
   )
 }

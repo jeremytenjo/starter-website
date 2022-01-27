@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import theme from '../src/theme/theme'
+import theme from '../theme/theme'
 
-import setMuiDocumentData from '../src/theme/mui/setMuiDocumentData.tsx'
+import setMuiDocumentData from '../theme/mui/setMuiDocumentData.tsx'
 
 export default class MyDocument extends Document {
   render() {

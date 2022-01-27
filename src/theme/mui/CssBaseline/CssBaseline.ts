@@ -1,4 +1,3 @@
-import poppins400Font from '../../tokens/typography/fonts/poppins/regular.woff2'
 import colors from '../../tokens/colors'
 
 export default {
@@ -8,7 +7,7 @@ export default {
             font-family: 'Poppins400';
             font-style: normal;
             font-display: swap;
-            src: url(${poppins400Font}) format('woff2');
+            src: url('/fonts/poppins/regular.woff2') format('woff2');
           }     
        
           * {

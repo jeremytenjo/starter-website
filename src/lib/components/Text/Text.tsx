@@ -3,15 +3,15 @@ import Typography, { type TypographyProps } from '@mui/material/Typography'
 
 type Props = {
   text: string
-  as?: any
+  tag?: any
 } & TypographyProps
 
 /**
  * [Docs](https://material-ui.com/api/typography/)
  */
-export default function Text({ text, as = 'p', variant = 'body1', ...props }: Props) {
+export default function Text({ text, tag = 'p', variant = 'body1', ...props }: Props) {
   return (
-    <Typography component={as} variant={variant} {...props}>
+    <Typography component={tag} variant={variant} {...props}>
       {text}
     </Typography>
   )

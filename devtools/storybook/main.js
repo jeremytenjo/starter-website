@@ -14,8 +14,4 @@ module.exports = {
   features: {
     storyStoreV7: true,
   },
-  core: {
-    // https://github.com/eirslett/storybook-builder-vite
-    builder: 'storybook-builder-vite',
-  },
 }

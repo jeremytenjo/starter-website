@@ -20,6 +20,7 @@ export const muiTheme = createTheme({
 export default function MaterialUiThemeProvider({ children }) {
   return (
     <ThemeProvider theme={muiTheme}>
+      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       {children}
     </ThemeProvider>

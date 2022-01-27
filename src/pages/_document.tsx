@@ -1,21 +1,22 @@
 import * as React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import theme from '../theme/theme'
 
-import setMuiDocumentData from '../theme/mui/setMuiDocumentData.tsx'
+import tokens from '../theme/tokens/tokens'
+import setMuiDocumentData from '../theme/mui/setMuiDocumentData'
 
-export default class MyDocument extends Document {
+type DocumentProps = {
+  emotionStyleTags: any
+}
+
+export default class MyDocument extends Document<DocumentProps> {
   render() {
     return (
       <Html lang='en'>
         <Head>
           {/* PWA primary color */}
-          <meta name='theme-color' content={theme.palette.primary.main} />
-          <link rel='shortcut icon' href='/static/favicon.ico' />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
-          />
+          <meta name='theme-color' content={tokens.colors.primary.main} />
+          <link rel='icon' type='image/svg+xml' href='/images/logo/logo.svg' />
+
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>

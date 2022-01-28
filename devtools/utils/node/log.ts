@@ -1,4 +1,5 @@
 import emoji from 'node-emoji'
+// https://github.com/chalk/chalk
 import chalk from 'chalk'
 // https://github.com/sindresorhus/ora
 import ora from 'ora'

@@ -1,5 +1,12 @@
 import emoji from 'node-emoji'
 import chalk from 'chalk'
+// https://github.com/sindresorhus/ora
+import ora from 'ora'
+
+type Return = {
+  spinner: any
+  chalk: any
+}
 
 /**
  * [Emoji List](https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json)
@@ -7,7 +14,7 @@ import chalk from 'chalk'
  * @example
  * log(`hello`)
  */
-module.exports = (
+export default function log(
   rawMessage,
   {
     error,
@@ -21,8 +28,8 @@ module.exports = (
     raw,
     loading,
     trace = true,
-  } = {},
-) => {
+  }: any = {},
+): Return {
   let message = chalk[color](rawMessage)
   message = `${startEmoji ? emoji.get(startEmoji) : ''}  ${message} ${
     endEmoji ? emoji.get(endEmoji) : ''
@@ -38,12 +45,13 @@ module.exports = (
     console.log()
     console.log(chalk.keyword('orange')(rawMessage))
     console.log()
-    return null
+    return { spinner: null, chalk }
   } else if (loading) {
     console.log()
-    console.log(chalk.cyan(rawMessage))
-    console.log()
-    return null
+    const spinner = ora(rawMessage).start()
+    spinner.text = rawMessage
+
+    return { spinner, chalk }
   } else if (success) {
     if (step !== '') message = `${chalk.green(rawMessage)}`
     if (step !== '') step = `${chalk.magenta(step)}`
@@ -55,4 +63,6 @@ module.exports = (
   if (raw) console.log(rawMessage)
   else console.log(`${chalk.cyan(`${step ? `[${step}]` : ''}`)} ${message}`)
   if (space) console.log()
+
+  return { spinner: null, chalk }
 }

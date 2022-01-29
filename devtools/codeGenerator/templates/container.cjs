@@ -17,7 +17,7 @@ const files = [
     export default function ${name}Ui() {        
       return (
         <Box>
-          hello
+        ${name}
         </Box>
       )
     }`,

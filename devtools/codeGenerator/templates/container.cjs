@@ -15,10 +15,10 @@ const files = [
     import Box from '@mui/material/Box'
 
     type Props = {
-
+      name: string
     }
 
-    export default function ${name}Ui(props: Props) {        
+    export default function ${name}Ui({name}: Props) {        
       return (
         <Box>
         ${name}

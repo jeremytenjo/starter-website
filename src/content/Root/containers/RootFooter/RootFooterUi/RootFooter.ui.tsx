@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 
-import type IconSchema from '../../../../../data/schemas/IconSchema'
+import type IconSchema from '../../../../../data/commonSchemas/IconSchema'
 
 type Props = {
   icon: IconSchema

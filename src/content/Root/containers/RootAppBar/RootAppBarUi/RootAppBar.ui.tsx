@@ -1,8 +1,8 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 
-import type ImageSchema from '../../../../../data/schemas/ImageSchema'
-import type IconSchema from '../../../../../data/schemas/IconSchema'
+import type ImageSchema from '../../../../../data/commonSchemas/ImageSchema'
+import type IconSchema from '../../../../../data/commonSchemas/IconSchema'
 
 type Props = {
   profilePhoto: ImageSchema

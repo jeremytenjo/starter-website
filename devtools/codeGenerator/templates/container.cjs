@@ -14,7 +14,11 @@ const files = [
     template: ({ name }) => `import React from 'react'
     import Box from '@mui/material/Box'
 
-    export default function ${name}Ui() {        
+    type Props = {
+
+    }
+
+    export default function ${name}Ui(props: Props) {        
       return (
         <Box>
         ${name}

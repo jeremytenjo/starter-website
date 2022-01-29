@@ -5,11 +5,6 @@ const files = [
     
     import ${name}Ui from './${name}Ui/${name}.ui'
 
-    type Props = { 
-      loading: boolean 
-      empty: boolean 
-    }
-    
     export default function ${name}() {        
       return <${name}Ui />
     }`,

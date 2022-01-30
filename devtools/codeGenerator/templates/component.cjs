@@ -4,7 +4,7 @@ const files = [
     template: ({ name, helpers }) => `import React from 'react'       
     import Box from '@mui/material/Box'
   
-    type Props = { name: string }
+    export type Props = { name: string }
   
     export default function ${helpers.changeCase.pascalCase(name)}({ name }: Props) {
       return (

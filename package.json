@@ -2,6 +2,7 @@
   "name": "website-starter",
   "version": "5.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,6 +11,7 @@
     "test:ts-types": "tsc --noemit",
     "prettify": "node --loader  ts-node/esm ./devtools/prettier/scripts/runPrettier/runPrettier.ts",
     "helpers:generate-logo-assets": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
+    "helpers:create-icon": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/createIcon/run.ts",
     "prepare": "npx @arkweid/lefthook install"
   },
   "dependencies": {
@@ -30,6 +32,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "command-line-args": "^5.2.0",
     "concurrently": "^7.0.0",
+    "enquirer": "^2.3.6",
     "eslint": "^8.7.0",
     "eslint-config-next": "^12.0.9",
     "fs-extra": "^10.0.0",

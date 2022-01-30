@@ -1,19 +1,23 @@
 const files = [
   {
     path: ({ name }) => `${name}.tsx`,
-    template: ({ name, helpers }) => `import React from 'react'       
+    template: ({ name, helpers }) => {
+      const namePascalCase = helpers.changeCase.pascalCase(name)
+      const propsName = `${namePascalCase}Props`
+      return `import React from 'react'       
     import Box from '@mui/material/Box'
   
-    export type Props = { name: string }
+    export type ${propsName} = { name: string }
   
-    export default function ${helpers.changeCase.pascalCase(name)}({ name }: Props) {
+    export default function ${namePascalCase}({ name }: ${propsName}) {
       return (
         <Box>
          ${name}
         </Box>
       );
     }
-      `,
+      `
+    },
   },
 ]
 

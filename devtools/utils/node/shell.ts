@@ -1,4 +1,6 @@
-const concurrently = require('concurrently')
+import concurrently from 'concurrently'
+
+type Props = string | string[]
 
 /**
  * @example
@@ -8,7 +10,7 @@ const concurrently = require('concurrently')
 // run concurrently
  * shell(['npm run start:app', 'npm run start:storybook'])
  */
-module.exports = async function shell(commands) {
+export default async function shell(commands: Props) {
   const _commands = typeof commands === 'string' ? [commands] : commands
 
   const { result } = concurrently(_commands, {

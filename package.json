@@ -2,17 +2,18 @@
   "name": "website-starter",
   "version": "5.0.0",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
     "build": "next build",
     "serve": "next start",
     "test:eslint": "eslint ./ --fix",
     "test:ts-types": "tsc --noemit",
     "prettify": "node --loader  ts-node/esm ./devtools/prettier/scripts/runPrettier/runPrettier.ts",
-    "helpers:generate-logo-assets": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
-    "helpers:create-icon": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/createIcon/run.ts",
-    "prepare": "npx @arkweid/lefthook install"
+    "helpers:generate-logo-assets": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
+    "helpers:create-icon": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/createIcon/run.ts",
+    "prepare": "npx @arkweid/lefthook install",
+    "temp:setTypeToModule": "node ./devtools/utils/pkgJson/setTypeToModule.cjs"
   },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
@@ -20,6 +21,7 @@
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.3.1",
+    "edit-json-file": "^1.7.0",
     "emotion-theming": "^11.0.0",
     "next": "^12.0.9",
     "react": "^17.0.2",

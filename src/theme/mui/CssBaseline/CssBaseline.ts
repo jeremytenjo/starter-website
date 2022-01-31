@@ -4,7 +4,7 @@ export default {
   MuiCssBaseline: {
     styleOverrides: `
           @font-face {
-            font-family: 'Poppins400';
+            font-family: 'PoppinsRegular';
             font-style: normal;
             font-display: swap;
             src: url('/fonts/poppins/regular.woff2') format('woff2');

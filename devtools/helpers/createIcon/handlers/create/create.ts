@@ -1,5 +1,5 @@
 import createFile from '../../../../utils/node/createFile.js'
-import removePropertiesFromTag from '../../../../utils/regex/removePropertiesFromTag.js'
+import removeSVGProps from '../../../../utils/svg/removeSVGProps.js'
 
 type Props = {
   name: string
@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default async function create({ name, svgString, outputPath }: Props) {
-  const svgStringWithoutWidthHeight = await removePropertiesFromTag({
+  const svgStringWithoutWidthHeight = await removeSVGProps({
     string: svgString,
     propsToRemove: ['width', 'height'],
   })

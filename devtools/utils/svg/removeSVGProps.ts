@@ -5,10 +5,7 @@ type Props = {
   propsToRemove: string[]
 }
 
-export default async function removePropertiesFromTag({
-  string,
-  propsToRemove = [],
-}: Props) {
+export default async function removeSVGProps({ string, propsToRemove = [] }: Props) {
   const propsToRemoveObject = {}
 
   propsToRemove.forEach((prop) => {

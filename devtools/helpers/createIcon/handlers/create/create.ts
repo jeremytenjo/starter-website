@@ -1,4 +1,5 @@
 import createFile from '../../../../utils/node/createFile.js'
+import removePropertiesFromTag from '../../../../utils/regex/removePropertiesFromTag.js'
 
 type Props = {
   name: string
@@ -7,11 +8,15 @@ type Props = {
 }
 
 export default async function create({ name, svgString, outputPath }: Props) {
+  const svgStringWithoutWidthHeight = await removePropertiesFromTag({
+    string: svgString,
+    propsToRemove: ['width', 'height'],
+  })
   const svg = `import React from 'react'
 import { createSvgIcon } from '@mui/material'
 
 export default createSvgIcon(
-  ${svgString},
+  ${svgStringWithoutWidthHeight},
   '${name}',
 )`
 

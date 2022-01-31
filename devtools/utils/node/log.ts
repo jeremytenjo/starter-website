@@ -67,3 +67,5 @@ export default function log(
 
   return { spinner: null, chalk }
 }
+
+export { chalk }

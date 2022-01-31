@@ -1,3 +1,4 @@
+// https://react-svgr.com/docs/options/#expand-props
 import { transform } from '@svgr/core'
 
 export default async function convertSVGToReactSVG({ svgString }) {

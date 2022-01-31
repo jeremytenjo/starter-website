@@ -14,7 +14,7 @@ export default class MyDocument extends Document<DocumentProps> {
       <Html lang='en'>
         <Head>
           {/* PWA primary color */}
-          <meta name='theme-color' content={tokens.colors.primary.main} />
+          <meta name='theme-color' content={tokens.colors.themeColor} />
           <link rel='icon' type='image/svg+xml' href='/images/logo/logo.svg' />
 
           {/* Inject MUI styles first to match with the prepend: true configuration. */}

@@ -11,7 +11,7 @@
     "test:ts-types": "tsc --noemit",
     "prettify": "node --loader  ts-node/esm ./devtools/prettier/scripts/runPrettier/runPrettier.ts",
     "helpers:generate-logo-assets": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
-    "helpers:create-icon": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/createIcon/run.ts",
+    "helpers:create-icon": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",
     "prepare": "npx @arkweid/lefthook install",
     "temp:setTypeToModule": "node ./devtools/utils/pkgJson/setTypeToModule.cjs"
   },

@@ -1,4 +1,4 @@
-import createFile from '../../../../../utils/node/createFile.js'
+import createFile from '../../../../utils/node/createFile.js'
 
 type Props = {
   name: string

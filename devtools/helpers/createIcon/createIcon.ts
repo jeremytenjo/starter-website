@@ -1,7 +1,7 @@
 import path from 'path'
 
-import log from '../../../utils/node/log.js'
-import copyToClipboard from '../../../utils/node/copyToClipboard.js'
+import log from '../../utils/node/log.js'
+import copyToClipboard from '../../utils/node/copyToClipboard.js'
 
 import enquireSVGData from './handlers/enquireSVGData/enquireSVGData.js'
 import create from './handlers/create/create.js'

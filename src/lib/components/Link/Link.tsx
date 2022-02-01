@@ -6,8 +6,9 @@ type LinkPropsEdited = Omit<LinkProps, 'href'>
 
 type Props = LinkPropsEdited & {
   href: any
-  sx?: any
   children: any
+  newTab?: boolean
+  sx?: any
   onClick?: any
 }
 
@@ -25,10 +26,19 @@ export default function Link(props: Props) {
 }
 
 // https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-functional-component
-const LinkContent = React.forwardRef(({ onClick, href, content, sx }: any, ref) => {
-  return (
-    <Box component='a' href={href} onClick={onClick} ref={ref} sx={sx}>
-      {content}
-    </Box>
-  )
-})
+const LinkContent = React.forwardRef(
+  ({ onClick, href, content, sx, newTab }: any, ref) => {
+    const newTabProps = newTab
+      ? {
+          rel: 'noopener',
+          target: '_blank',
+        }
+      : {}
+
+    return (
+      <Box component='a' href={href} onClick={onClick} ref={ref} sx={sx} {...newTabProps}>
+        {content}
+      </Box>
+    )
+  },
+)

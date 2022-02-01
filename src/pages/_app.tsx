@@ -21,7 +21,8 @@ export default function MyApp(props) {
           content='A starter to create engaging and performant websites'
         />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
-        <meta name='author' content='Jeremy Tenjo' />{' '}
+        <meta name='author' content='Jeremy Tenjo' />
+        <meta name='robots' content='index, follow' />
       </Head>
 
       <Theme>

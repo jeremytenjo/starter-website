@@ -20,6 +20,7 @@ export default function Link(props: Props) {
   )
 }
 
+// https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-functional-component
 const LinkContent = React.forwardRef(({ onClick, href, content, sx }: any, ref) => {
   return (
     <Box component='a' href={href} onClick={onClick} ref={ref} sx={sx}>

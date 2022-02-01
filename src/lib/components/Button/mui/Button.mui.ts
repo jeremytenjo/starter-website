@@ -1,4 +1,4 @@
-// https://mui.com/customization/theme-components/#adding-new-component-variants
+// https://mui.com/customization/theme-components/#global-style-overrides
 // import in src/theme/mui/MuiProvider.jsx
 export default {
   MuiButton: {

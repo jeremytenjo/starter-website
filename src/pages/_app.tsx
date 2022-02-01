@@ -22,6 +22,7 @@ export default function MyApp(props) {
         />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
         <meta name='author' content='Jeremy Tenjo' />
+        {/* vercel staging sites will always have no index */}
         <meta name='robots' content='index, follow' />
       </Head>
 

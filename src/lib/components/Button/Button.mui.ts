@@ -1,4 +1,5 @@
 // https://mui.com/customization/theme-components/#adding-new-component-variants
+// import in src/theme/mui/MuiProvider.jsx
 export default {
   MuiButton: {
     styleOverrides: {

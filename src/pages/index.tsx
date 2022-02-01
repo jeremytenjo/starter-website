@@ -1,11 +1,12 @@
-import * as React from 'react'
+import React from 'react'
 
+import SEO from '../lib/components/SEO/SEO'
 import HomePageContent from '../content/HomePage/HomePage'
 
 export default function HomePage() {
   return (
     <>
-      {/* Add Head data here */}
+      <SEO title='Website starter' />
       <HomePageContent />
     </>
   )

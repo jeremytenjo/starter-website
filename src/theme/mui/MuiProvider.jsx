@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 
 import colors from '../tokens/colors'
 import { variants as typography } from '../tokens/typography/typography'
-import Button from '../../lib/components/Button/Button.mui'
+import Button from '../../lib/components/Button/mui/Button.mui'
 
 import CssBaselineOverrides from './CssBaseline/CssBaseline'
 

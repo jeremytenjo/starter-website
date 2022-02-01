@@ -2,9 +2,13 @@ import React from 'react'
 import NextLink, { type LinkProps } from 'next/link'
 import Box from '@mui/material/Box'
 
-type Props = LinkProps & {
+type LinkPropsEdited = Omit<LinkProps, 'href'>
+
+type Props = LinkPropsEdited & {
+  href: any
   sx?: any
   children: any
+  onClick?: any
 }
 
 /**
@@ -14,8 +18,8 @@ type Props = LinkProps & {
  */
 export default function Link(props: Props) {
   return (
-    <NextLink {...props}>
-      <LinkContent content={props.children} sx={props.sx} />
+    <NextLink {...props} passHref>
+      <LinkContent content={props.children} sx={props.sx} {...props} />
     </NextLink>
   )
 }

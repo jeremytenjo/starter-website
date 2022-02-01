@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 export default function SEO({ title }) {
   return (
-    <Head key={title}>
+    <Head>
       <title>{title}</title>
     </Head>
   )

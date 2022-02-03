@@ -15,9 +15,7 @@ export default {
           }
 
           html {
-            width: 100%;
             overflow-x: hidden;
-            overscroll-behavior-y: contain;
             scroll-behavior: smooth;
           }
 

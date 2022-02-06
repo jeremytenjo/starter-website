@@ -36,7 +36,20 @@ const LinkContent = React.forwardRef(
       : {}
 
     return (
-      <Box component='a' href={href} onClick={onClick} ref={ref} sx={sx} {...newTabProps}>
+      <Box
+        component='a'
+        href={href}
+        onClick={onClick}
+        ref={ref}
+        sx={{
+          textDecoration: 'none',
+          '&:active': {
+            color: 'currentColor',
+          },
+          ...sx,
+        }}
+        {...newTabProps}
+      >
         {content}
       </Box>
     )

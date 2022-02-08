@@ -11,11 +11,13 @@ type CaptureScreenshotsProps = {
     path: string
     sizes: CaptureScreenshotProps['sizes']
   }[]
+  pathPrefix?: CaptureScreenshotProps['pathPrefix']
 }
 
 export default async function captureScreenshots({
   urlPrefix,
   list,
+  pathPrefix,
 }: CaptureScreenshotsProps) {
   const { spinner } = log('Capturing screenshots', { loading: true })
 
@@ -25,6 +27,7 @@ export default async function captureScreenshots({
         const { spinner: itemSpinner } = log(`Capturing ${item.path}`, { loading: true })
 
         await captureScreenshot({
+          pathPrefix,
           url: `${urlPrefix}/${item.url}`,
           path: item.path,
           sizes: item.sizes,
@@ -35,7 +38,8 @@ export default async function captureScreenshots({
     )
 
     spinner.succeed('Screenshots captured')
+    process.exit(0)
   } catch (error: any) {
-    spinner.fail(error.toString())
+    log(error, { error: true })
   }
 }

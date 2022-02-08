@@ -12,5 +12,6 @@ export default async function captureScreenshot({
   path,
   sizes,
 }: CaptureScreenshotProps) {
+  console.log({ url, path, sizes })
   return 'hell'
 }

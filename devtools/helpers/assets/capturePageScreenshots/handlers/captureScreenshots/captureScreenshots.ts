@@ -19,16 +19,23 @@ export default async function captureScreenshots({
 }: CaptureScreenshotsProps) {
   const { spinner } = log('Capturing screenshots', { loading: true })
 
-  await Promise.all(
-    list.map(
-      async (item) =>
+  try {
+    await Promise.all(
+      list.map(async (item) => {
+        const { spinner: itemSpinner } = log(`Capturing ${item.path}`, { loading: true })
+
         await captureScreenshot({
           url: `${urlPrefix}/${item.url}`,
           path: item.path,
           sizes: item.sizes,
-        }),
-    ),
-  )
+        })
 
-  spinner.succeed('Screenshots captured successfully')
+        return itemSpinner.succeed(`Captured ${item.path}`)
+      }),
+    )
+
+    spinner.succeed('Screenshots captured')
+  } catch (error: any) {
+    spinner.fail(error.toString())
+  }
 }

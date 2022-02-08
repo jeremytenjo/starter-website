@@ -1,4 +1,4 @@
-import captureScreenshots from './handlers/captureScreenshots/captureScreenshots.js'
+import captureScreenshots from '../../../devtools/helpers/assets/captureScreenshots/captureScreenshots.js'
 
 export default function capturePageScreenshots() {
   const mobileSize = {

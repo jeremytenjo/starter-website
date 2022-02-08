@@ -1,4 +1,4 @@
-import log from '../../../../../utils/node/log.js'
+import log from '../../../utils/node/log.js'
 
 import captureScreenshot, {
   type CaptureScreenshotProps,

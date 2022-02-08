@@ -2,10 +2,10 @@ import emoji from 'node-emoji'
 // https://github.com/chalk/chalk
 import chalk from 'chalk'
 // https://github.com/sindresorhus/ora
-import ora from 'ora'
+import ora, { type Ora as OraInterface } from 'ora'
 
 type Return = {
-  spinner: any
+  spinner: OraInterface
   chalk: any
 }
 
@@ -46,7 +46,7 @@ export default function log(
     console.log()
     console.log(chalk.keyword('orange')(rawMessage))
     console.log()
-    return { spinner: null, chalk }
+    return { spinner: {} as any, chalk }
   } else if (loading) {
     console.log()
     const spinner = ora(rawMessage).start()
@@ -65,7 +65,7 @@ export default function log(
   else console.log(`${chalk.cyan(`${step ? `[${step}]` : ''}`)} ${message}`)
   if (space) console.log()
 
-  return { spinner: null, chalk }
+  return { spinner: {} as any, chalk }
 }
 
 export { chalk }

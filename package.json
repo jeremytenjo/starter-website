@@ -2,7 +2,7 @@
   "name": "website-starter",
   "version": "1.0.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
     "build": "next build",
@@ -12,6 +12,7 @@
     "prettify": "node --loader  ts-node/esm ./devtools/prettier/scripts/runPrettier/runPrettier.ts",
     "helpers:generate-logo-assets": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
     "helpers:create-icon": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",
+    "helpers:capture-page-screenshots": "npm run temp:setTypeToModule && node --loader  ts-node/esm ./devtools/helpers/assets/capturePageScreenshots/run.ts",
     "prepare": "npx @arkweid/lefthook install",
     "temp:setTypeToModule": "node ./devtools/utils/pkgJson/setTypeToModule.cjs"
   },

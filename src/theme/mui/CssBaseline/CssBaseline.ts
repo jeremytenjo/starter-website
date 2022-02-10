@@ -56,6 +56,16 @@ export default {
            --use-pull-to-refresh-spinner-color: ${colors.primary.main};
           }
 
+          .visually-hidden {
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+          }
+
         `,
   },
 }

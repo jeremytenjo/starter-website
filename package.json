@@ -14,7 +14,8 @@
     "helpers:create-icon": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",
     "helpers:capture-page-screenshots": "npm run temp:setTypeToModule && node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
     "prepare": "npx @arkweid/lefthook install",
-    "temp:setTypeToModule": "node ./devtools/utils/pkgJson/setTypeToModule.cjs"
+    "temp:setTypeToModule": "node ./devtools/utils/pkgJson/setTypeToModule.cjs",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
@@ -28,6 +29,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "next-sitemap": "^1.9.9",
     "@svgr/core": "^6.2.1",
     "edit-json-file": "^1.7.0",
     "@types/node": "^17.0.12",

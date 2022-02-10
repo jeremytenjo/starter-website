@@ -5,6 +5,17 @@
 - Nextjs
 - MUI
 
-# TODO
+## Productivity boosters 🚀
 
-https://github.com/vercel/next.js/pull/33637 needs to be merged before `npm run dev` will work
+### Generate logo assets
+
+1. Update `image/logo/logo.svg`
+2. run `npm run helpers:generate-logo-assets`
+
+### Create Icons
+
+Quickly create [MUI svg icons](https://mui.com/components/icons/#createsvgicon)
+
+1. run `npm run helpers:create-icon`
+
+TODO add GIF sample

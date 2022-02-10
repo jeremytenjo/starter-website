@@ -37,6 +37,10 @@ export default {
             margin: 0;
           }
 
+          a {
+            text-decoration: none;
+          }
+
           ul {
             margin: 0;
             padding: 0;

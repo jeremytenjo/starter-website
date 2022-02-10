@@ -1,8 +1,9 @@
-import * as React from 'react'
+import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 import tokens from '../theme/tokens/tokens'
 import setMuiDocumentData from '../theme/mui/setMuiDocumentData'
+// import GoogleAnalytics from '../lib/components/analytics/GoogleAnalytics/GoogleAnalytics'
 
 type DocumentProps = {
   emotionStyleTags: any
@@ -13,6 +14,10 @@ export default class MyDocument extends Document<DocumentProps> {
     return (
       <Html lang='en'>
         <Head>
+        {/* <GoogleAnalytics
+            measurementId=''
+          /> */}
+
           {/* PWA primary color */}
           <meta name='theme-color' content={tokens.colors.themeColor} />
           <link rel='icon' type='image/svg+xml' href='/images/logo/logo.svg' />

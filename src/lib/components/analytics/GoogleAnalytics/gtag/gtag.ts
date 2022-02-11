@@ -8,7 +8,6 @@ declare global {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url) => {
-  console.log(window.gtag)
   window.gtag('config', googleAnalyticsConfig.measurementId, {
     page_path: url,
   })

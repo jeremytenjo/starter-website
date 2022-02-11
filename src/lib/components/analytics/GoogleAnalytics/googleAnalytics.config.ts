@@ -1,8 +1,8 @@
-type googleAnalyticsConfigSchema = {
+type GoogleAnalyticsConfigSchema = {
   measurementId?: string
 }
 
-const googleAnalyticsConfig: googleAnalyticsConfigSchema = {
+const googleAnalyticsConfig: GoogleAnalyticsConfigSchema = {
   measurementId: undefined,
 }
 

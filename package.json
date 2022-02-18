@@ -2,7 +2,7 @@
   "name": "website-starter",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
     "build": "next build",

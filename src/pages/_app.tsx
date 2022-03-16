@@ -5,7 +5,7 @@ import { CacheProvider } from '@emotion/react'
 
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/mui/utils/createEmotionCache'
-import RootLayout from '../content/Root/Root.layout'
+import RootLayout from '../content/_Root/Root.layout'
 import GoogleAnalytics from '../lib/components/analytics/GoogleAnalytics/GoogleAnalytics'
 
 // Client-side cache, shared for the whole session of the user in the browser.

@@ -1,25 +1,24 @@
 const files = [
   {
-    path: ({ name }) => `${name}.tsx`,
-    template: ({ name }) => `import React from 'react' 
-    export default function ${name}Page() {
-      return <>containers</>
-    }`,
-  },
-  {
-    path: () => 'routes.tsx',
-    template: ({ name }) => `import React, { lazy } from 'react'
-    import { Routes, Route } from 'react-router-dom'
-    
-    const ${name} = lazy(() => import('./'))
+    path: () => `index.tsx`,
+    template: ({ name, helpers }) => {
+      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
 
-    export default function ${name}Routes() {
-      return (
-        <Routes>
-          <Route path='/' element={<${name} />} />
-        </Routes>
-      )
-    }`,
+      return `import React from 'react' 
+import Head from 'next/head'
+
+import ${upperName}Content from '../../content/${upperName}/${upperName}'
+
+    export default function ${upperName}Page() {
+      return <>
+       <Head>
+         <title>Hayle Tenjo Recipes</title>
+       </Head>
+      
+       <${upperName}Content />
+      </>
+    }`
+    },
   },
 ]
 

@@ -1,5 +1,5 @@
 # Pages
 
-## File Structure
+## File Structure Planner
 
 - home

@@ -12,7 +12,7 @@ import ${upperName}Content from '../../content/${upperName}/${upperName}'
     export default function ${upperName}Page() {
       return <>
        <Head>
-         <title>Hayle Tenjo Recipes</title>
+         <title>${upperName}</title>
        </Head>
       
        <${upperName}Content />

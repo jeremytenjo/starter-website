@@ -6,7 +6,7 @@ import { CacheProvider } from '@emotion/react'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/mui/utils/createEmotionCache'
 import RootLayout from '../content/_Root/Root.layout'
-import GoogleAnalyticsScripts from '../services/googleAnalytics/utils/GoogleAnalyticsScripts/GoogleAnalyticsScripts'
+import GoogleAnalytics from '../services/googleAnalytics/GoogleAnalytics'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -16,7 +16,7 @@ export default function MyApp(props) {
 
   return (
     <CacheProvider value={emotionCache}>
-      <GoogleAnalyticsScripts />
+      <GoogleAnalytics />
 
       <Head>
         <meta

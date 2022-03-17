@@ -2,14 +2,13 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 
-import googleAnalyticsConfig from '../../googleAnalytics.config'
 import * as gtag from '../gtag/gtag'
 
-function useGoogleAnalyticsPageView() {
+function useGoogleAnalyticsPageView({ measurementId }) {
   const router = useRouter()
 
   useEffect(() => {
-    if (googleAnalyticsConfig.measurementId) {
+    if (measurementId) {
       const handleRouteChange = (url) => {
         gtag.gTagPageview({ url })
       }
@@ -22,15 +21,15 @@ function useGoogleAnalyticsPageView() {
   }, [router.events])
 }
 
-export default function GoogleAnalyticsScripts() {
-  useGoogleAnalyticsPageView()
+export default function GoogleAnalyticsScripts({ measurementId }) {
+  useGoogleAnalyticsPageView({ measurementId })
 
-  return googleAnalyticsConfig.measurementId ? (
+  return measurementId ? (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
         strategy='afterInteractive'
-        src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsConfig.measurementId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
       />
 
       <Script
@@ -41,7 +40,7 @@ export default function GoogleAnalyticsScripts() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${googleAnalyticsConfig.measurementId}', {
+            gtag('config', '${measurementId}', {
               page_path: window.location.pathname,
             });
           `,

@@ -9,13 +9,13 @@ import Head from 'next/head'
 
 import ${upperName}Content from '../../content/${upperName}/${upperName}'
 
-    export default function ${upperName}Page() {
+    export default function ${upperName}Page(props) {
       return <>
        <Head>
          <title>${upperName}</title>
        </Head>
       
-       <${upperName}Content />
+       <${upperName}Content {...props} />
       </>
     }`
     },

@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Website starter</title>
+        <title>Website Starter</title>
       </Head>
 
       <HomePageContent />

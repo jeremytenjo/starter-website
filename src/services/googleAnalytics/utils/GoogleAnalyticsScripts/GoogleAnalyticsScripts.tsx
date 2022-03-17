@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 
-import googleAnalyticsConfig from './googleAnalytics.config'
-import * as gtag from './gtag/gtag'
+import googleAnalyticsConfig from '../../googleAnalytics.config'
+import * as gtag from '../gtag/gtag'
 
 function useGoogleAnalyticsPageView() {
   const router = useRouter()
@@ -11,7 +11,7 @@ function useGoogleAnalyticsPageView() {
   useEffect(() => {
     if (googleAnalyticsConfig.measurementId) {
       const handleRouteChange = (url) => {
-        gtag.pageview(url)
+        gtag.gTagPageview({ url })
       }
 
       router.events.on('routeChangeComplete', handleRouteChange)
@@ -22,7 +22,7 @@ function useGoogleAnalyticsPageView() {
   }, [router.events])
 }
 
-export default function GoogleAnalytics() {
+export default function GoogleAnalyticsScripts() {
   useGoogleAnalyticsPageView()
 
   return googleAnalyticsConfig.measurementId ? (
@@ -32,6 +32,7 @@ export default function GoogleAnalytics() {
         strategy='afterInteractive'
         src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsConfig.measurementId}`}
       />
+
       <Script
         id='gtag-init'
         strategy='afterInteractive'

@@ -1,0 +1,22 @@
+{
+  "short_name": "Starter Website",
+  "name": "Starter Website",
+  "description": "Starter Website",
+  "start_url": "/",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#FFF5F5",
+  "background_color": "#FFF5F5",
+  "icons": [
+    {
+      "src": "/images/logo/assets/sizes/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/logo/assets/sizes/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

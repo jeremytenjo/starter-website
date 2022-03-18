@@ -14,9 +14,11 @@ export default class MyDocument extends Document<DocumentProps> {
     return (
       <Html lang='en'>
         <Head>
-        {/* <GoogleAnalytics
+          {/* <GoogleAnalytics
             measurementId=''
           /> */}
+
+          <link rel='manifest' href='/manifest.json' />
 
           {/* PWA primary color */}
           <meta name='theme-color' content={tokens.colors.themeColor} />

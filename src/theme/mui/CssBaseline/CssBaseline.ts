@@ -73,6 +73,14 @@ export default {
             width: 1px;
           }
 
+          input {
+            border: none;
+          }
+        
+          textarea:focus, input:focus{
+            outline: none;
+          }
+
         `,
   },
 }

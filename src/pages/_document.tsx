@@ -3,7 +3,6 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 import tokens from '../theme/tokens/tokens'
 import setMuiDocumentData from '../theme/mui/setMuiDocumentData'
-// import GoogleAnalytics from '../lib/components/analytics/GoogleAnalytics/GoogleAnalytics'
 
 type DocumentProps = {
   emotionStyleTags: any
@@ -14,10 +13,6 @@ export default class MyDocument extends Document<DocumentProps> {
     return (
       <Html lang='en'>
         <Head>
-          {/* <GoogleAnalytics
-            measurementId=''
-          /> */}
-
           <link rel='manifest' href='/manifest.json' />
 
           {/* PWA primary color */}

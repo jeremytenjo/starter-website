@@ -5,6 +5,7 @@ const files = [
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
 
       return `
+      // TODO add ${upperName} schema
       type ${upperName}Schema = {
         id: string
       }
@@ -22,7 +23,9 @@ const files = [
       return `
       import type ${upperName}Schema from './${name}.schema'
 
-      const ${upperName}Stubs: ${upperName}Schema[] = []
+      const ${upperName}Stubs: ${upperName}Schema[] = [
+        // TODO add ${upperName} stubs
+      ]
       
       export default ${upperName}Stubs
 
@@ -40,12 +43,14 @@ const files = [
       return `
       import ${name}Stubs from '../${name}.stubs'
       import type ${upperName}Schema from '../${name}.schema'
+
+      import getData from '@/lib/utils/data/getData/getData'
       
       export default async function get${upperName}() {
-        const isDev = process.env.NODE_ENV === 'development'
-        const ${name}: ${upperName}Schema[] = isDev
-          ? ${name}Stubs
-          : await get${upperName}FromApi()
+        const ${name}: ${upperName}Schema[] = await getData({
+          stubs: ${name}Stubs,
+          getFn: get${upperName}FromApi,
+        })
       
         return ${name}
       }

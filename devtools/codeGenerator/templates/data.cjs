@@ -55,7 +55,7 @@ const files = [
         return ${name}
       }
       
-      const get${upperName}FromApi = () => {
+      const get${upperName}FromApi = async () => {
         const ${name}: ${upperName}Schema[] = []
         // TODO get ${name} from api
       

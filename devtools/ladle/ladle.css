@@ -1,0 +1,30 @@
+.ladle-wrapper {
+  flex-direction: row-reverse;
+}
+
+.ladle-main {
+  padding: 0;
+}
+
+.ladle-aside {
+  padding: 20px;
+  font-family: var(--font-main);
+}
+
+.ladle-aside div:first-child {
+  user-select: none;
+}
+
+.ladle-aside a {
+  width: 100%;
+  transition: 0.3s;
+}
+
+.ladle-addons {
+  opacity: 0.3;
+  transition: 0.3s;
+}
+
+.ladle-addons:hover {
+  opacity: 1;
+}

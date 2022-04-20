@@ -3,6 +3,10 @@ import colors from '../../tokens/colors'
 export default {
   MuiCssBaseline: {
     styleOverrides: `
+          :root {
+            --font-main: PoppinsRegular;
+          }
+
           @font-face {
             font-family: 'PoppinsRegular';
             font-style: normal;
@@ -23,6 +27,7 @@ export default {
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
             box-sizing: border-box;
             margin: 0;
+            background-color: ${colors.backgroundColor};
           }
 
           p,
@@ -57,10 +62,6 @@ export default {
 
           .firebase-emulator-warning {
             display: none;
-          }
-
-         :root {
-           --use-pull-to-refresh-spinner-color: ${colors.primary.main};
           }
 
           .visually-hidden {

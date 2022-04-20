@@ -4,7 +4,11 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "dev": "npm run temp:setTypeToModule && node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
+    "dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
+    "dev:dataSource-prod": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod",
+    "dev:for-testing": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod --onlyApp",
+    "ladle:dev": "ladle serve --config ./devtools/ladle --open none",
+    "ladle:build": "ladle build --config ./devtools/ladle",
     "build": "next build",
     "serve": "next start",
     "test:eslint": "eslint ./ --fix",

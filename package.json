@@ -2,7 +2,7 @@
   "name": "website-starter",
   "version": "1.0.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
     "dev:dataSource-prod": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod",

@@ -2,7 +2,7 @@ const generateUseVariable = require('../utils/generateUseVariable.cjs')
 
 const files = [
   {
-    path: () => 'index.ts',
+    path: ({ name }) => `${name}.ts`,
     template: ({ name }) => `import create from 'zustand'
 
     const ${name}Store = create((set) => ({

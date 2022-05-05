@@ -1,3 +1,4 @@
+// https://github.com/open-cli-tools/concurrently
 import concurrently from 'concurrently'
 
 type Props = string | string[]
@@ -18,4 +19,5 @@ export default async function shell(commands: Props) {
   })
 
   await result
+  return result
 }

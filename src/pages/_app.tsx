@@ -2,6 +2,8 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { CacheProvider } from '@emotion/react'
+// build failing until this is fixed https://github.com/ericclemmons/click-to-component/issues/40
+// import { ClickToComponent } from 'click-to-react-component'
 
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/mui/utils/createEmotionCache'
@@ -15,26 +17,30 @@ export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
 
   return (
-    <CacheProvider value={emotionCache}>
-      <GoogleAnalytics />
+    <>
+      {/* <ClickToComponent /> */}
 
-      <Head>
-        <meta
-          name='description'
-          content='A starter to create engaging and performant websites'
-        />
-        <meta name='viewport' content='initial-scale=1, width=device-width' />
-        <meta name='author' content='Jeremy Tenjo' />
-        {/* vercel staging sites will always have no index */}
-        <meta name='robots' content='index, follow' />
-      </Head>
+      <CacheProvider value={emotionCache}>
+        <GoogleAnalytics />
 
-      <Theme>
-        <RootLayout>
-          <Component {...pageProps} />
-        </RootLayout>
-      </Theme>
-    </CacheProvider>
+        <Head>
+          <meta
+            name='description'
+            content='A starter to create engaging and performant websites'
+          />
+          <meta name='viewport' content='initial-scale=1, width=device-width' />
+          <meta name='author' content='Jeremy Tenjo' />
+          {/* vercel staging sites will always have no index */}
+          <meta name='robots' content='index, follow' />
+        </Head>
+
+        <Theme>
+          <RootLayout>
+            <Component {...pageProps} />
+          </RootLayout>
+        </Theme>
+      </CacheProvider>
+    </>
   )
 }
 

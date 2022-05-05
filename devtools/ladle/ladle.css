@@ -1,7 +1,3 @@
-.ladle-wrapper {
-  flex-direction: row-reverse;
-}
-
 .ladle-main {
   padding: 0;
 }
@@ -9,6 +5,17 @@
 .ladle-aside {
   padding: 20px;
   font-family: var(--font-main);
+}
+
+.ladle-aside input {
+  font-family: var(--font-main);
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding-left: 10px;
+  color: black;
+}
+.ladle-aside input:focus {
+  color: black;
 }
 
 .ladle-aside div:first-child {
@@ -20,11 +27,22 @@
   transition: 0.3s;
 }
 
-.ladle-addons {
-  opacity: 0.3;
-  transition: 0.3s;
+html[data-theme='dark'] .ladle-aside input {
+  background-color: #2d2d2d;
+  color: white;
 }
 
-.ladle-addons:hover {
-  opacity: 1;
+@media (min-width: 768px) {
+  .ladle-wrapper {
+    flex-direction: row-reverse;
+  }
+
+  .ladle-addons {
+    opacity: 0.3;
+    transition: 0.3s;
+  }
+
+  .ladle-addons:hover {
+    opacity: 1;
+  }
 }

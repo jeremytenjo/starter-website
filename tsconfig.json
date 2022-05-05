@@ -19,7 +19,8 @@
     "baseUrl": "./",
     "types": ["node"],
     "paths": {
-      "*": ["devtools/ts/declaredModules/*"]
+      "*": ["devtools/ts/declaredModules/*"],
+      "@/lib/*": ["src/lib/*"]
     },
     "incremental": true
   },

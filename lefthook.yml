@@ -3,5 +3,11 @@
 pre-commit:
   commands:
     test:
-    # uncomment when https://github.com/vercel/next.js/pull/33637 is merged and released
-      # run: npm run prettify && npm run test:eslint && npm run test:ts-types
+      run: npm run tests:eslint && npm run tests:ts-types
+
+pre-push: 
+  commands: 
+    unit: 
+      run: npm run tests:unit:ci 
+#   e2e: 
+#     run: npm run tests:e2e:run:all 

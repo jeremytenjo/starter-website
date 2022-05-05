@@ -38,11 +38,14 @@ export default function GoogleAnalyticsScripts({ measurementId }) {
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
+
+            const isHayleTenjoCom = window.location.href.includes('https://hayletenjo.com/')
+            const disableGtag = !isHayleTenjoCom
+            window['ga-disable-${measurementId}'] = disableGtag;
+
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${measurementId}', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', '${measurementId}');
           `,
         }}
       />

@@ -27,11 +27,12 @@
     "postbuild": "next-sitemap --config next-sitemap.cjs"
   },
   "dependencies": {
+    "@check-light-or-dark/color": "^1.0.3",
     "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
-    "@ladle/react": "^0.12.1",
+    "@ladle/react": "^0.15.0",
     "@mui/material": "^5.3.1",
     "@playwright/test": "^1.21.1",
     "@useweb/click-to-component": "^1.0.5",

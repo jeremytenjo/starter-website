@@ -34,7 +34,7 @@
     "@ladle/react": "^0.12.1",
     "@mui/material": "^5.3.1",
     "@playwright/test": "^1.21.1",
-    "click-to-react-component": "^1.0.8",
+    "@useweb/click-to-component": "^1.0.5",
     "emotion-theming": "^11.0.0",
     "next": "^12.1.6",
     "react": "^18.1.0",

@@ -2,9 +2,8 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { CacheProvider } from '@emotion/react'
-// build failing until this is fixed https://github.com/ericclemmons/click-to-component/issues/40
-// import { ClickToComponent } from 'click-to-react-component'
 
+// import ClickToComponent from '../lib/components/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/mui/utils/createEmotionCache'
 import RootLayout from '../content/_Root/Root.layout'

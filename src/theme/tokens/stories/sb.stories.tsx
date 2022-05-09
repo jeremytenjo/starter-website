@@ -5,4 +5,6 @@ export default {
   title: 'Theme/Tokens',
 }
 
-export { Colors, Typography }
+export const colors = Colors
+
+export const typography = Typography

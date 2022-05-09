@@ -7,20 +7,19 @@ import Text from './Text'
 
 export default {
   title: 'Lib/Components/Text',
-  argTypes: {
-    variant: {
-      control: {
-        type: 'select',
-        options: variantNames,
-      },
+}
+
+export const Default = (args) => <Text {...args} />
+
+export const typography = Typography
+
+Default.args = { text: 'hello', variant: 'h1' }
+
+Default.argTypes = {
+  variant: {
+    control: {
+      type: 'select',
+      options: variantNames,
     },
   },
-  args: { text: 'hello', variant: 'h1' },
 }
-
-const Template = (args) => {
-  return <Text {...args} />
-}
-export const Default = Template.bind({})
-
-export { Typography }

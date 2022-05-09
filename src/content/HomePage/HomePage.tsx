@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default function HomePageIndex() {
-  return <>Home Page</>
+  return <div>Home Page</div>
 }

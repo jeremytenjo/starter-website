@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { CacheProvider } from '@emotion/react'
 
-// import ClickToComponent from '../lib/components/ClickToComponent/ClickToComponent'
+import ClickToComponent from '../lib/components/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/mui/utils/createEmotionCache'
 import RootLayout from '../content/_Root/Root.layout'
@@ -17,7 +17,7 @@ export default function MyApp(props) {
 
   return (
     <>
-      {/* <ClickToComponent /> */}
+      <ClickToComponent />
 
       <CacheProvider value={emotionCache}>
         <GoogleAnalytics />

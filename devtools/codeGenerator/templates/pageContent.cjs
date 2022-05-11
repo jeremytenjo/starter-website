@@ -3,18 +3,38 @@ const files = [
     path: ({ name }) => {
       return `${name}.tsx`
     },
+    template: ({ name }) => {
+      return `
+      import React from 'react'
+
+export default function ${name}Index() {
+  return (
+    <div>
+    ${name}
+    </div>
+  )
+}
+`
+    },
+  },
+  {
+    path: ({ name }) => {
+      const filesName = `use${name}Props`
+      return `${filesName}/${filesName}.tsx`
+    },
     template: ({ name, helpers }) => {
-      const removeUse = name.replace('use', '')
+      const propsName = `${name}Props`
+      const removeUse = propsName.replace('use', '')
       const upperName = helpers.changeCase.capitalCase(removeUse).split(' ').join('')
-      const propsName = `${upperName}Types`
+      const typesName = `${upperName}Types`
 
       return `import React, { createContext, useContext } from 'react'
 
-      type ${propsName} = {
+      export type ${typesName} = {
         title: string
       }
       
-      export const ${upperName}Context = createContext<${propsName}>(null as any)
+      export const ${upperName}Context = createContext<${typesName}>(null as any)
       
       export const ${upperName}Provider = ({ children, pageProps }) => {
         return (
@@ -28,9 +48,9 @@ const files = [
         )
       }
       
-      const ${name} = () => useContext(${upperName}Context)
+      const use${removeUse} = () => useContext(${upperName}Context)
       
-      export default ${name}
+      export default use${removeUse}
       
       `
     },
@@ -38,7 +58,7 @@ const files = [
 ]
 
 const template = {
-  type: 'Page Props Context',
+  type: 'Page Content',
   files,
 }
 

@@ -3,14 +3,15 @@ import Head from 'next/head'
 
 import appconfig from '../../app.config.cjs'
 import HomePageContent from '../content/HomePage/HomePage'
+import { HomePagePropsProvider } from '../content/HomePage/useHomePageProps/useHomePageProps'
 
-export default function HomePage() {
+export default function HomePage(props) {
   return (
     <>
       <Head>
         <title>{appconfig.siteInfo.title}</title>
         <meta property='og:url' content={appconfig.siteInfo.domain} />
-        <meta property='og:type' content='websitesss' />
+        <meta property='og:type' content='website' />
         <meta property='og:title' content={appconfig.siteInfo.title} />
         <meta property='og:description' content={appconfig.siteInfo.description} />
         <meta
@@ -20,7 +21,9 @@ export default function HomePage() {
         <meta property='og:image:alt' content={`${appconfig.siteInfo.name} logo`} />
       </Head>
 
-      <HomePageContent />
+      <HomePagePropsProvider pageProps={props}>
+        <HomePageContent />
+      </HomePagePropsProvider>
     </>
   )
 }

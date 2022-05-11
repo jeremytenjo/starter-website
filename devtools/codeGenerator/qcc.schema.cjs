@@ -7,6 +7,7 @@ const componentWithStory = require('./templates/componentWithStory.cjs')
 const functions = require('./templates/function.cjs')
 const container = require('./templates/container.cjs')
 const page = require('./templates/page.cjs')
+const pageContent = require('./templates/pageContent.cjs')
 const globalState = require('./templates/globalState.cjs')
 const asyncHook = require('./templates/asyncHook.cjs')
 const cloudFunction = require('./templates/cloudFunction.cjs')
@@ -14,7 +15,6 @@ const muiOverride = require('./templates/muiOverride.cjs')
 const playwrightTest = require('./templates/playwrightTest.cjs')
 const data = require('./templates/data.cjs')
 const reactContext = require('./templates/ReactContext.cjs')
-const pagePropsContext = require('./templates/pagePropsContext.cjs')
 const vitestTest = require('./templates/vitestTest.cjs')
 
 module.exports = [
@@ -27,7 +27,7 @@ module.exports = [
   playwrightTest.template,
   muiOverride.template,
   page.template,
-  pagePropsContext.template,
+  pageContent.template,
   globalState.template,
   reactContext.template,
   asyncHook.template,

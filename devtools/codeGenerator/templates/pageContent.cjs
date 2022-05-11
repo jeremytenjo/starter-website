@@ -7,7 +7,7 @@ const files = [
       return `
       import React from 'react'
 
-export default function ${name}Index() {
+export default function ${name}Content() {
   return (
     <div>
     ${name}

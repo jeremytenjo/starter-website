@@ -13,7 +13,7 @@ import ${upperName}Content from '../../content/${upperName}/${upperName}'
 import { ${propsProviderName} } from '../content/${upperName}/use${upperName}Props/use${upperName}Props'
 
 export type ${propsName} = {
-  recipe: RecipeSchema
+  data: any[]
 }
 
     export default function ${upperName}Page(props: ${propsName}) {

@@ -13,7 +13,7 @@ const files = [
     }
     
     export default function ${name}() {
-      const title = 'prop'  
+      const title = '${name}'  
 
       return <${name}Ui title={title} />
     }`

@@ -6,7 +6,7 @@ import { render, Text, Box, useInput } from 'ink'
 import qrcode from 'qrcode-terminal'
 import { killPortProcess } from 'kill-port-process'
 
-import getIpAdress from '../node/getIpAdress.js'
+import getIpAddress from '../node/getIpAddress.js'
 
 import onPortsRunning from './onPortsRunning.js'
 
@@ -75,7 +75,7 @@ export default async function shellDashboard({ commands, onCommandsRunning }: Pr
       const [error, setError] = React.useState<string>('')
       const [qrcodeString, setQrcodeString] = React.useState('')
       const restardInput = (index + 1).toString()
-      const networkUrl = `http://${getIpAdress()}:${port}`
+      const networkUrl = `http://${getIpAddress()}:${port}`
       const outputRef = React.useRef('')
 
       useInput((input) => {

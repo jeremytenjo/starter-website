@@ -1,6 +1,6 @@
 import { internalIpV4Sync } from 'internal-ip'
 
-export default function getIpAdress() {
+export default function getIpAddress() {
   const ipAdress = internalIpV4Sync()
   return ipAdress
 }

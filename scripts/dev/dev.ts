@@ -1,12 +1,12 @@
 import chalk from 'chalk'
 
-import getIpAdress from '../../devtools/utils/node/getIpAdress.js'
+import getIpAddress from '../../devtools/utils/node/getIpAddress.js'
 import shell from '../../devtools/utils/node/shell.js'
 import getCommandLineArgs from '../../devtools/utils/node/getCommandLineArgs.js'
 
 export default function dev() {
   console.clear()
-  const ipAdress = getIpAdress()
+  const ipAdress = getIpAddress()
   console.log(`${chalk.green('network')} - http://${ipAdress}:3000`)
 
   // args

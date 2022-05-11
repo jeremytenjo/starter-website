@@ -1,7 +1,5 @@
 # Website starter
 
-Starter built on top Next.js with MUI integration and helpers to develop faster.
-
 ## Tech
 
 - Nextjs

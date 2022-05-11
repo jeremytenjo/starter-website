@@ -47,9 +47,11 @@ const files = [
       import getData from '@/lib/utils/data/getData/getData'
       
       export default async function get${upperName}() {
+        const getFn = () => get${upperName}FromApi()
+
         const ${name}: ${upperName}Schema[] = await getData({
           stubs: ${name}Stubs,
-          getFn: get${upperName}FromApi,
+          getFn,
         })
       
         return ${name}

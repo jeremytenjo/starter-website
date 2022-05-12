@@ -1,5 +1,3 @@
-// Storybook story
-
 const files = [
   {
     path: ({ name }) => `stories/${name}.docs.mdx`,

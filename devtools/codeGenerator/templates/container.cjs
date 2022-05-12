@@ -30,7 +30,6 @@ const files = [
       return `import React from 'react'
     import Box from '@mui/material/Box'
 
-    import Text from '@/lib/components/Text/Text'
 
     export type ${propsName} = {
       title: string
@@ -39,7 +38,7 @@ const files = [
     export default function ${name}Ui({ title }: ${propsName}) {        
       return (
         <Wrapper>
-          <Text text={title} />
+         {title}
         </Wrapper>
       )
     }

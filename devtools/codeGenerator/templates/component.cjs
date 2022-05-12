@@ -7,14 +7,12 @@ const files = [
       return `import React from 'react'       
     import Box from '@mui/material/Box'
 
-    import Text from '@/lib/components/Text/Text'
-  
     export type ${propsName} = { name: string }
   
     export default function ${namePascalCase}({ name = 'Hello' }: ${propsName}) {
       return (
         <Wrapper>
-          <Text text={name} />
+        {name}
         </Wrapper>
       );
     }

@@ -22,7 +22,7 @@ export default function dev() {
   const commands = [`DATA_SOURCE=${dataSource} node_modules/.bin/next dev`]
 
   if (!scriptArgs.onlyApp) {
-    commands.push('npm run ladle:dev')
+    commands.push('npm run storybook:dev')
   }
 
   shell(commands)

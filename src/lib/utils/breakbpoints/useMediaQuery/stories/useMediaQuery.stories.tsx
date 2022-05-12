@@ -1,6 +1,4 @@
-// https://www.ladle.dev/docs/stories
 import React, { useState } from 'react'
-import type { Story } from '@ladle/react'
 import useEventListener from '@useweb/use-event-listener'
 
 import useMediaQuery, { type UseMediaQueryProps } from '../useMediaQuery'
@@ -9,7 +7,7 @@ export default {
   title: 'Lib/components/useMediaQuery',
 }
 
-const Template: Story<UseMediaQueryProps> = (args) => {
+const Template = (args) => {
   const [width, setWidth] = useState(window.innerWidth)
 
   const xs = useMediaQuery({ type: args.type, size: 'xs' })
@@ -60,7 +58,7 @@ const Template: Story<UseMediaQueryProps> = (args) => {
   )
 }
 
-export const Default = Template.bind({})
+export const Default = Template.bind({}) as any
 
 const defaultArgs: UseMediaQueryProps = {
   type: 'up',
@@ -69,7 +67,7 @@ const defaultArgs: UseMediaQueryProps = {
 
 Default.args = defaultArgs
 
-// export const Variant = Template.bind({})
+// export const Variant = Template.bind({}) as any
 
 // const VariantArgs: useMediaQueryProps = {
 //  ...defaultArgs,

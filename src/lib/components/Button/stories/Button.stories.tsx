@@ -1,13 +1,11 @@
-// https://www.ladle.dev/docs/stories
 import React from 'react'
-import type { Story } from '@ladle/react'
 import Button, { type ButtonProps } from '@mui/material/Button'
 
 export default {
   title: 'Lib/components/Button',
 }
 
-const Template: Story<ButtonProps> = (args) => {
+const Template = (args) => {
   return (
     <>
       <Button {...args}>Button</Button>
@@ -15,7 +13,7 @@ const Template: Story<ButtonProps> = (args) => {
   )
 }
 
-export const Default = Template.bind({})
+export const Default = Template.bind({}) as any
 
 const defaultArgs: ButtonProps = {
   variant: 'outlined',
@@ -23,7 +21,7 @@ const defaultArgs: ButtonProps = {
 
 Default.args = defaultArgs
 
-// export const Variant = Template.bind({})
+// export const Variant = Template.bind({}) as any
 
 // const VariantArgs: ButtonProps = {
 //  ...defaultArgs,

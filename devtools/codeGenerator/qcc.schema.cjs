@@ -12,6 +12,7 @@ const globalState = require('./templates/globalState.cjs')
 const asyncHook = require('./templates/asyncHook.cjs')
 const cloudFunction = require('./templates/cloudFunction.cjs')
 const muiOverride = require('./templates/muiOverride.cjs')
+const muiOverrideWithStory = require('./templates/muiOverrideWithStory.cjs')
 const playwrightTest = require('./templates/playwrightTest.cjs')
 const data = require('./templates/data.cjs')
 const reactContext = require('./templates/ReactContext.cjs')
@@ -26,6 +27,7 @@ module.exports = [
   data.template,
   playwrightTest.template,
   muiOverride.template,
+  muiOverrideWithStory.template,
   page.template,
   pageContent.template,
   globalState.template,

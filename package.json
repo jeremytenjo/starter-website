@@ -7,7 +7,7 @@
     "dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
     "dev:dataSource-prod": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod",
     "dev:for-testing": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod --onlyApp",
-    "storybook:dev": "start-storybook -p 6006 -c ./devtools/storybook",
+    "storybook:dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/storybook/startStorybook/run.ts",
     "build": "next build",
     "serve": "next start",
     "build-and-serve": "npm run build && npm run serve",

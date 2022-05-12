@@ -23,6 +23,11 @@
     },
     "incremental": true
   },
-  "include": ["./src", "./devtools", "devtools/ts/declaredModules/*"],
+  "include": [
+    "./src",
+    "./devtools",
+    "devtools/ts/declaredModules/*",
+    "scripts/storybook/startStorybook"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import prettier from 'prettier'
 
-import prettierConfig from '../../prettier/prettier.config.json'
+import prettierConfig from '../../prettier/prettier.config.json' assert { type: 'json' }
 
 type Props = {
   filePath: string

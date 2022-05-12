@@ -3,11 +3,11 @@ import qrCode from 'qrcode-terminal'
 
 import shell from '../../../utils/node/shell.js'
 import getIpAddress from '../../../utils/node/getIpAddress.js'
+import ladleConfig from '../../config.mjs'
 
 export default function startLadle() {
-  const port = 61000
   const ipAddress = getIpAddress()
-  const networkUrl = `http://${ipAddress}:${port}`
+  const networkUrl = `http://${ipAddress}:${ladleConfig.serve.port}`
 
   console.log()
   console.log(`${chalk.green('network')} - ${networkUrl}`)
@@ -16,5 +16,5 @@ export default function startLadle() {
     small: true,
   })
 
-  shell(`ladle serve --config ./devtools/ladle --open none --port ${port}`)
+  shell(`ladle serve --config ./devtools/ladle`)
 }

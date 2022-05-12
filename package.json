@@ -8,6 +8,7 @@
     "dev:dataSource-prod": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod",
     "dev:for-testing": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod --onlyApp",
     "ladle:dev": "node --experimental-json-modules --loader ts-node/esm ./devtools/ladle/scripts/startLadle/run.ts",
+    "ladle:dev:debug": "node --experimental-json-modules --loader ts-node/esm ./devtools/ladle/scripts/debugLadle/run.ts",
     "ladle:build": "node --experimental-json-modules --loader ts-node/esm ./devtools/ladle/scripts/buildLadle/run.ts",
     "build": "next build",
     "serve": "next start",

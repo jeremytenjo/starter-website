@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import colors from '../tokens/colors'
 import { variants as typography } from '../tokens/typography/typography'
 import Button from '../../lib/components/Button/mui/Button.mui'
+import Dialog from '../../lib/components/Dialog/mui/Dialog.mui'
 
 import CssBaselineOverrides from './CssBaseline/CssBaseline'
 
@@ -16,6 +17,7 @@ export const muiTheme = createTheme({
   components: {
     ...CssBaselineOverrides,
     ...Button,
+    ...Dialog,
   },
 })
 

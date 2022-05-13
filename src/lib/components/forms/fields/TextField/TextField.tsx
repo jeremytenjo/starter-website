@@ -41,6 +41,8 @@ export default function TextField({
         transition: '0.2s',
         border: '2px solid white',
         gridAutoFlow: 'column',
+        justifyContent: 'space-between',
+        gridTemplateColumns: '1fr fit-content(100%)',
         gap: 1,
         '&:focus': {
           borderColor: 'primary.main',

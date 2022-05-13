@@ -17,7 +17,7 @@ export default function NextjsApiTester({ name, payload }: Props) {
         Execute
       </Button>
 
-      {func.fetching && <LinearProgress sx={{ width: '100%' }} />}
+      {func.fetching && <LinearProgress sx={{ width: '100%', mb: 2 }} />}
 
       {func.error && <p>{func.error.toString()}</p>}
 

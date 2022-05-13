@@ -8,7 +8,7 @@ import IconxSmall from '../../../icons/IconxSmall'
 type Props = {
   name: string
   placeholder?: string
-  wrapperSx?: BoxProps
+  wrapperSx?: BoxProps['sx']
   id?: string
   inputProps?: object
 }
@@ -21,8 +21,9 @@ export default function TextField({
   id,
 }: Props) {
   const inputRef = useRef<any>(null)
-  const { register, setValue } = useFormContext()
+  const { register, watch, setValue } = useFormContext()
   const { ref, ...restRegister } = register(name)
+  const value = watch(name)
 
   const clearInput = () => {
     setValue(name, '', { shouldValidate: true })
@@ -65,7 +66,14 @@ export default function TextField({
         }}
         {...inputProps}
       />
-      <IconButton aria-label='reset' onClick={clearInput}>
+
+      <IconButton
+        aria-label='reset'
+        onClick={clearInput}
+        sx={{
+          visibility: value !== '' ? 'visible' : 'hidden',
+        }}
+      >
         <IconxSmall sx={{ width: '18px', height: '18px' }} />
       </IconButton>
     </Box>

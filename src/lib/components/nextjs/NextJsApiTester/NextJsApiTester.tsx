@@ -2,11 +2,11 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import LinearProgress from '@mui/material/LinearProgress'
-import useFetch from '@useweb/use-fetch'
+import useFetch, { type RequestProps } from '@useweb/use-fetch'
 
 import ReactJson from '../../ReactJson/ReactJson'
 
-type Props = { name: string; payload?: any }
+type Props = { name: string; payload?: RequestProps }
 
 export default function NextjsApiTester({ name, payload }: Props) {
   const func = useFetch({ url: `http://localhost:3000/api/${name}` })

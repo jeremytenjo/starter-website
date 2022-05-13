@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import Box from '@mui/material/Box'
+import Box, { type BoxProps } from '@mui/material/Box'
 import { IconButton } from '@mui/material'
 import { useFormContext } from 'react-hook-form'
 
@@ -8,7 +8,7 @@ import IconxSmall from '../../../icons/IconxSmall'
 type Props = {
   name: string
   placeholder?: string
-  wrapperSx?: object
+  wrapperSx?: BoxProps
   id?: string
   inputProps?: object
 }

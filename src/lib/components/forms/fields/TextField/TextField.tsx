@@ -45,6 +45,7 @@ export default function TextField({
     <Box
       sx={{
         display: 'grid',
+        width: 'fit-content',
         ...wrapperSx,
       }}
     >
@@ -54,7 +55,6 @@ export default function TextField({
           display: 'grid',
           backgroundColor: 'white.main',
           padding: '4px',
-          width: 'fit-content',
           borderRadius: '9px',
           transition: '0.2s',
           border: '2px solid white',

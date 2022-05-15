@@ -1,6 +1,6 @@
 import React from 'react'
 import NextLink, { type LinkProps } from 'next/link'
-import Box from '@mui/material/Box'
+import Box, { type BoxProps } from '@mui/material/Box'
 
 type LinkPropsEdited = Omit<LinkProps, 'href'>
 
@@ -8,7 +8,7 @@ type Props = LinkPropsEdited & {
   href: any
   children: any
   newTab?: boolean
-  sx?: any
+  sx?: BoxProps['sx']
   onClick?: any
 }
 

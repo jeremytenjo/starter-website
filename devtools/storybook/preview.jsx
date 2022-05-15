@@ -2,6 +2,7 @@ import React from 'react'
 import { create } from '@storybook/theming'
 
 import ClickToComponent from '../../src/lib/components/ClickToComponent/ClickToComponent'
+import { SnackbarProvider } from '../../src/lib/components/Snackbar/Snackbar'
 
 import StorybookTheme from './theme/storybookTheme'
 
@@ -15,9 +16,11 @@ export const decorators = [
     return (
       <>
         <ClickToComponent />
-        <StorybookTheme>
-          <Story />
-        </StorybookTheme>
+        <SnackbarProvider>
+          <StorybookTheme>
+            <Story />
+          </StorybookTheme>
+        </SnackbarProvider>
       </>
     )
   },

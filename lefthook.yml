@@ -1,13 +1,6 @@
 # https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
 
-pre-commit:
+pre-push:
   commands:
     test:
-      run: npm run tests:eslint && npm run tests:ts-types
-
-pre-push: 
-  commands: 
-    unit: 
-      run: npm run tests:unit:ci 
-#   e2e: 
-#     run: npm run tests:e2e:run:all 
+      run: npm run tests:eslint && npm run tests:ts-types && npm run tests:unit:ci

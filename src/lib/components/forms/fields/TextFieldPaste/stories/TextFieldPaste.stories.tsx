@@ -29,7 +29,7 @@ export const Default = Template.bind({}) as any
 
 const defaultArgs: TextFieldPasteProps = {
   onPaste: ({ clipboardData }) => console.log(clipboardData),
-  name: 'tiktokLink',
+  name: 'tikTokLink',
   required: 'TikTok link is required',
   placeholder: 'Paster TikTok link here',
 }

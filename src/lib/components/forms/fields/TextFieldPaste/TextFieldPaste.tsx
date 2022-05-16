@@ -9,6 +9,10 @@ export type TextFieldPasteProps = {
   name: string
   placeholder: string
   required?: string
+  onChange?: (newValue: any) => any
+  onInputClear?: () => any
+  LeftIcon?: any
+  inputProps?: any
 }
 
 export default function TextFieldPaste({
@@ -16,10 +20,15 @@ export default function TextFieldPaste({
   required,
   name,
   placeholder,
+  onChange,
+  onInputClear,
+  LeftIcon,
+  inputProps = {},
 }: TextFieldPasteProps) {
-  const getLinkFromClipboard = ({ clipboardData }) => {
+  const getLinkFromClipboard = ({ clipboardData, updateTextFieldValue }) => {
     try {
       onPaste({ clipboardData })
+      updateTextFieldValue(clipboardData)
     } catch (error) {
       console.log(error)
     }
@@ -39,16 +48,27 @@ export default function TextFieldPaste({
         name={name}
         placeholder={placeholder}
         required={required}
+        onChange={onChange}
+        onInputClear={onInputClear}
+        LeftIcon={LeftIcon}
         wrapperSx={{
           width: '100%',
           mb: 2,
         }}
         inputProps={{
           autoComplete: 'off',
+          ...inputProps,
+        }}
+        Sibling={({ updateTextFieldValue }) => {
+          return (
+            <PasteButton
+              onPaste={({ clipboardData }) =>
+                getLinkFromClipboard({ clipboardData, updateTextFieldValue })
+              }
+            />
+          )
         }}
       />
-
-      <PasteButton onPaste={getLinkFromClipboard} />
     </Box>
   )
 }

@@ -1,12 +1,7 @@
-import React, { forwardRef, useEffect } from 'react'
+import React, { forwardRef } from 'react'
 import Box from '@mui/material/Box'
 // http://localhost:6006/?path=/story/api-tiktok-watermark-remover--test
-import {
-  FormProvider,
-  useForm,
-  useFormContext,
-  type UseFormReturn,
-} from 'react-hook-form'
+import { FormProvider, useForm, useFormContext } from 'react-hook-form'
 
 type FormProps = {
   children: any
@@ -14,26 +9,14 @@ type FormProps = {
   defaultValues?: object
   sx?: object
   resetOnSubmission?: boolean
-  getUseFormData?: (d: UseFormReturn) => any
 }
 
 const Form = forwardRef(
   (
-    {
-      children,
-      onSubmit,
-      defaultValues = {},
-      sx = {},
-      resetOnSubmission,
-      getUseFormData,
-    }: FormProps,
+    { children, onSubmit, defaultValues = {}, sx = {}, resetOnSubmission }: FormProps,
     ref,
   ) => {
     const methods = useForm({ defaultValues })
-
-    useEffect(() => {
-      getUseFormData && getUseFormData(methods)
-    }, [])
 
     return (
       <FormProvider {...methods}>

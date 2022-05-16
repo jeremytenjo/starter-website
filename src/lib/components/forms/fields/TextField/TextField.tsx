@@ -13,6 +13,10 @@ type Props = {
   id?: string
   inputProps?: object
   required?: string
+  Sibling?: any
+  onChange?: (newValue: any) => any
+  onInputClear?: () => any
+  LeftIcon?: any
 }
 
 export default function TextField({
@@ -22,6 +26,10 @@ export default function TextField({
   placeholder = '',
   id,
   required,
+  Sibling,
+  onChange = () => null,
+  onInputClear = () => null,
+  LeftIcon,
 }: Props) {
   const inputRef = useRef<any>(null)
   const {
@@ -29,9 +37,11 @@ export default function TextField({
     watch,
     setValue,
     formState: { errors = {} },
+    getValues,
   } = useFormContext()
   const { ref, ...restRegister } = register(name, {
     required,
+    onChange: () => onChange(getValues(name)),
   })
   const value = watch(name)
   const error = errors[name]
@@ -39,70 +49,103 @@ export default function TextField({
   const clearInput = () => {
     setValue(name, '', { shouldValidate: true })
     inputRef.current && inputRef.current.focus()
+    onInputClear()
   }
 
   return (
-    <Box
-      sx={{
-        display: 'grid',
-        width: 'fit-content',
-        ...wrapperSx,
-      }}
-    >
+    <>
       <Box
-        id={id}
         sx={{
           display: 'grid',
-          backgroundColor: 'white.main',
-          padding: '4px',
-          borderRadius: '9px',
-          transition: '0.2s',
-          border: '2px solid white',
-          gridAutoFlow: 'column',
-          justifyContent: 'space-between',
-          gridTemplateColumns: '1fr fit-content(100%)',
-          gap: 1,
-          '&:focus': {
-            borderColor: 'primary.main',
-          },
+          width: 'fit-content',
+          ...wrapperSx,
         }}
       >
         <Box
-          component='input'
-          placeholder={placeholder}
-          {...restRegister}
-          ref={(e) => {
-            ref(e)
-            inputRef.current = e
-          }}
+          id={id}
           sx={{
-            outline: 'none',
-            border: 'none',
-            fontSize: '16px',
-          }}
-          {...inputProps}
-        />
-
-        <IconButton
-          aria-label='reset'
-          onClick={clearInput}
-          sx={{
-            visibility: value !== '' ? 'visible' : 'hidden',
+            display: 'grid',
+            backgroundColor: 'white.main',
+            padding: '4px',
+            borderRadius: '9px',
+            transition: '0.2s',
+            py: 1,
+            border: '2px solid white',
+            gridAutoFlow: 'column',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gridTemplateColumns: LeftIcon
+              ? 'fit-content(100%) 1fr fit-content(100%)'
+              : '1fr fit-content(100%)',
+            gap: 1,
+            '&:focus': {
+              borderColor: 'primary.main',
+            },
           }}
         >
-          <IconxSmall sx={{ width: '18px', height: '18px' }} />
-        </IconButton>
-      </Box>
+          {LeftIcon && (
+            <Box
+              sx={{
+                pl: '9px',
+                display: 'grid',
+                alignItems: 'center',
+                '& svg': {
+                  width: '20px',
+                  height: '20px',
+                },
+              }}
+            >
+              {LeftIcon}
+            </Box>
+          )}
 
-      {error && error.type === 'required' && value === '' && (
-        <Text
-          text={error.message}
-          sx={{
-            color: 'error.main',
-            mt: 2,
-          }}
-        />
+          <Box
+            component='input'
+            placeholder={placeholder}
+            {...restRegister}
+            ref={(e) => {
+              ref(e)
+              inputRef.current = e
+            }}
+            sx={{
+              outline: 'none',
+              border: 'none',
+              fontSize: '16px',
+              minWidth: 'fill-available',
+            }}
+            {...inputProps}
+          />
+
+          <IconButton
+            aria-label='reset'
+            onClick={clearInput}
+            sx={{
+              visibility: value !== '' ? 'visible' : 'hidden',
+              width: '24px',
+              height: '24px',
+              border: 'none',
+              display: 'grid',
+              alignItems: 'center',
+              p: '0px',
+            }}
+          >
+            <IconxSmall sx={{ width: '18px', height: '18px' }} />
+          </IconButton>
+        </Box>
+
+        {error && error.type === 'required' && value === '' && (
+          <Text
+            text={error.message}
+            sx={{
+              color: 'error.main',
+              mt: 2,
+            }}
+          />
+        )}
+      </Box>
+      {Sibling && (
+        <Sibling updateTextFieldValue={(newValue) => setValue(name, newValue)} />
       )}
-    </Box>
+    </>
   )
 }

@@ -23,7 +23,7 @@ const Template = () => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Textfield name='test-textfield' placeholder='Input text' />
+      <Textfield name='test-textfield' />
       <Select label='Season' name='selected_season' options={options} />
     </Form>
   )

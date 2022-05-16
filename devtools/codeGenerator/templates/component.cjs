@@ -12,7 +12,7 @@ const files = [
     export default function ${namePascalCase}({ name = 'Hello' }: ${propsName}) {
       return (
         <Wrapper>
-        {name}
+          {name}
         </Wrapper>
       );
     }

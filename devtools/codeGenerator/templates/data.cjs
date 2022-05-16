@@ -44,7 +44,7 @@ const files = [
       import ${name}Stubs from '../${name}.stubs'
       import type ${upperName}Schema from '../${name}.schema'
 
-      import getData from '..getData'
+      import getData from '@/lib/utils/data/getData/getData'
       
       export default async function get${upperName}() {
         const getFn = () => get${upperName}FromApi()

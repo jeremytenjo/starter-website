@@ -3,6 +3,7 @@ import { create } from '@storybook/theming'
 
 import ClickToComponent from '../../src/lib/components/ClickToComponent/ClickToComponent'
 import { SnackbarProvider } from '../../src/lib/components/Snackbar/Snackbar'
+import Prismic from '../../src/services/prismic/Prismic'
 
 import StorybookTheme from './theme/storybookTheme'
 
@@ -16,11 +17,14 @@ export const decorators = [
     return (
       <>
         <ClickToComponent />
-        <SnackbarProvider>
-          <StorybookTheme>
-            <Story />
-          </StorybookTheme>
-        </SnackbarProvider>
+
+        <Prismic>
+          <SnackbarProvider>
+            <StorybookTheme>
+              <Story />
+            </StorybookTheme>
+          </SnackbarProvider>
+        </Prismic>
       </>
     )
   },

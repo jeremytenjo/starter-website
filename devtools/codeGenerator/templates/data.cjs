@@ -44,7 +44,7 @@ const files = [
       import ${name}Stubs from '../${name}.stubs'
       import type ${upperName}Schema from '../${name}.schema'
 
-      import getData from '@/lib/utils/data/getData/getData'
+      import getData from '../../utils/data/getData/getData'
       
       export default async function get${upperName}() {
         const getFn = () => get${upperName}FromApi()
@@ -65,6 +65,42 @@ const files = [
       }
       
 
+      `
+    },
+  },
+  {
+    path: ({ name }) => `${name}.stories.tsx`,
+    template: ({ name, helpers }) => {
+      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+
+      return `// https://storybook.js.org/docs/react/api/argtypes
+      import React from 'react'
+      
+      import AsyncTester, {
+        type AsyncTesterProps,
+      } from '../../../lib/components/data/AsyncTester/AsyncTester'
+      
+      import get${upperName} from './get${upperName}.prismic'
+      
+      export default {
+        title: 'api/${name}/prismic',
+        args: {
+          autoExec: true,
+        },
+      }
+      
+      const Template = (args) => {
+        return <AsyncTester {...args} />
+      }
+
+      // ${upperName}
+      export const ${upperName} = Template.bind({}) as any
+
+      const ${upperName}Args: AsyncTesterProps = {
+        fn: get${upperName},
+      }
+
+      ${upperName}.args = ${upperName}Args
       `
     },
   },

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Script from 'next/script'
 
 import * as gtag from '../gtag/gtag'
+import appConfig from '../../../../../app.config.cjs'
 
 function useGoogleAnalyticsPageView({ measurementId }) {
   const router = useRouter()
@@ -39,8 +40,8 @@ export default function GoogleAnalyticsScripts({ measurementId }) {
           __html: `
             window.dataLayer = window.dataLayer || [];
 
-            const isHayleTenjoCom = window.location.href.includes('https://hayletenjo.com/')
-            const disableGtag = !isHayleTenjoCom
+            const isProductionWebsite = window.location.href.includes('${appConfig.siteInfo.domain}')
+            const disableGtag = !isProductionWebsite
             window['ga-disable-${measurementId}'] = disableGtag;
 
             function gtag(){dataLayer.push(arguments);}

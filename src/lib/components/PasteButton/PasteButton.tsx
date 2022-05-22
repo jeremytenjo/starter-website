@@ -1,12 +1,19 @@
 import React from 'react'
-import Button from '@mui/material/Button'
+import Button, { type ButtonProps } from '@mui/material/Button'
 
 export type PasteButtonProps = {
+  text?: string
   onPaste: (clipboardData: { clipboardData: any }) => any
   onError?: (error: any) => any
+  sx?: ButtonProps['sx']
 }
 
-export default function PasteButton({ onPaste, onError }: PasteButtonProps) {
+export default function PasteButton({
+  onPaste,
+  onError,
+  text = 'Paste',
+  sx = {},
+}: PasteButtonProps) {
   const getLinkFromClipboard = async () => {
     try {
       const clipboardData = await navigator.clipboard.readText()
@@ -27,9 +34,10 @@ export default function PasteButton({ onPaste, onError }: PasteButtonProps) {
         mb: 2,
         justifySelf: 'center',
         width: '100%',
+        ...sx,
       }}
     >
-      Paste
+      {text}
     </Button>
   )
 }

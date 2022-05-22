@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { type ReactNode } from 'react'
 import Typography, { type TypographyProps } from '@mui/material/Typography'
 
 export type TextProps = {
-  text: string
+  text: string | ReactNode
   tag?: any
 } & TypographyProps
 
@@ -17,7 +17,7 @@ export default function Text({
 }: TextProps) {
   return (
     <Typography component={tag} variant={variant} {...props}>
-      {text}
+      {text as any}
     </Typography>
   )
 }

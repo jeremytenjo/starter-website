@@ -8,6 +8,12 @@ export default {
         fontWeight: 'bold',
         width: '100%',
         textTransform: 'none' as const,
+        fontFamily: 'PoppinsRegular',
+        color: 'black.main',
+        backgroundColor: 'white',
+        '&:hover': {
+          backgroundColor: 'white',
+        },
       },
     },
   },

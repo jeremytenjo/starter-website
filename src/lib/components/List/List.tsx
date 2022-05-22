@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Box, { type BoxProps } from '@mui/material/Box'
 
-import AdUnit from '../googleAnalytics/AdUnit/AdUnit'
+// import AdUnit from '../googleAnalytics/AdUnit/AdUnit'
 
 export type ListProps = {
   data: any[]
@@ -42,30 +42,32 @@ const Wrapper = ({ children, sx = {} }) => {
 }
 
 const Items = ({ data, ListItemComponent, enableAds, onItemClick }) => {
-  return data.map((item, index) => (
-    <Fragment key={item.id + Math.random() + index}>
-      <Box
-        component='li'
-        sx={{
-          listStyle: 'none',
-        }}
-        onClick={() => onItemClick({ data: item })}
-      >
-        <ListItemComponent index={index} {...item} />
-      </Box>
-
-      {enableAds && index === 7 && (
+  return data.map((item, index) => {
+    return (
+      <Fragment key={item.id + Math.random() + index}>
         <Box
           component='li'
           sx={{
-            // TODO set grid column based on amount of items, eg 3 break
-            gridColumn: '1/5',
-            height: '345px',
+            listStyle: 'none',
           }}
+          onClick={() => onItemClick({ data: item })}
         >
-          <AdUnit />
+          <ListItemComponent index={index} {...item} />
         </Box>
-      )}
-    </Fragment>
-  ))
+
+        {enableAds && index === 7 && (
+          <Box
+            component='li'
+            sx={{
+              // TODO set grid column based on amount of items, eg 3 break
+              gridColumn: '1/5',
+              height: '345px',
+            }}
+          >
+            {/* <AdUnit /> */}
+          </Box>
+        )}
+      </Fragment>
+    )
+  })
 }

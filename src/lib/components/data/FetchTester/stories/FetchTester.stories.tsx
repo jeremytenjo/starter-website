@@ -27,7 +27,12 @@ const Template = (args) => {
 export const Default = Template.bind({}) as any
 
 const defaultArgs: FetchTesterProps = {
-  url: 'http://localhost:3000/api/example',
+  url: 'http://localhost:3000/api/tiktok-watermark-remover',
+  payload: {
+    body: {
+      tikTokLink: 'https://www.tiktok.com/@1dayspencer/video/7084311189756366086',
+    },
+  },
 }
 
 Default.args = defaultArgs

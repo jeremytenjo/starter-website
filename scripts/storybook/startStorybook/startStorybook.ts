@@ -13,5 +13,5 @@ export default function startStorybook() {
     small: true,
   })
 
-  shell(`start-storybook -p ${port} -c ./devtools/storybook`)
+  shell(`start-storybook -p ${port} -c ./devtools/storybook --no-open`)
 }

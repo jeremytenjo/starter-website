@@ -1,12 +1,12 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 
-import Text, { type TextProps } from '../Text'
+import PasteToSearch, { type PasteToSearchProps } from '../PasteToSearch'
 
-import Docs from './Text.docs.mdx'
+import Docs from './PasteToSearch.docs.mdx'
 
 export default {
-  title: 'lib/components/Text',
+  title: 'lib/components/PasteToSearch',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {
@@ -19,23 +19,22 @@ export default {
 const Template = (args) => {
   return (
     <>
-      <Text {...args} />
+      <PasteToSearch {...args} />
     </>
   )
 }
 
 export const Default = Template.bind({}) as any
 
-const defaultArgs: TextProps = {
-  text: 'Hello text component',
-  variant: 'h1',
+const defaultArgs: PasteToSearchProps = {
+  data: [],
 }
 
 Default.args = defaultArgs
 
-// export const Variant = Template.bind({})
+// export const Variant = Template.bind({}) as any
 
-// const VariantArgs: TextProps = {
+// const VariantArgs: PasteToSearchProps = {
 //  ...defaultArgs,
 //  name: 'World',
 // }

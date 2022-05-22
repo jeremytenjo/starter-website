@@ -25,3 +25,11 @@ export function gtagEvent({ action, category, ...rest }) {
     ...rest,
   })
 }
+
+export function clickedBuyButton({ storeLink }) {
+  window.gtag('event', 'clicked buy button', {
+    event_category: 'Buy',
+    action: 'Clicked buy button',
+    storeLink,
+  })
+}

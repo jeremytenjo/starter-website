@@ -10,8 +10,8 @@ export default {
           color: 'white',
         },
         '& .MuiDialog-scrollPaper': {
-          background: 'rgba(12, 16, 20, 0.33)',
-          backdropFilter: 'blur(30px)',
+          background: 'rgb(255 255 255 / 33%)',
+          backdropFilter: 'blur(7px) saturate(150%)',
         },
       },
     },

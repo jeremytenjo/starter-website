@@ -25,7 +25,7 @@ export default function MyModal({ open, onClose, children, sx = {} }: ModalProp)
           timeout: 500,
           sx: {
             backdropFilter: 'blur(12.7465px)',
-            background: 'linear-gradient(180deg,#FFF5F5 0%, rgba(255, 245, 245, 0) 100%)',
+            background: 'linear-gradient(180deg,#dfdfdf 0%, rgba(255, 245, 245, 0) 100%)',
           },
         }}
         sx={{

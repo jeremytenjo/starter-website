@@ -1,0 +1,186 @@
+import React from 'react'
+import Box from '@mui/material/Box'
+
+import Text from '../../lib/components/Text/Text'
+import ProductsList from '../../lib/components/ProductsList/ProductsList'
+import extractEmbedId from '../../lib/utils/tiktok/extractEmbedId/extractEmbedId'
+import Image from '../../lib/components/Image/Image'
+import type ProductSchema from '../../data/products/product.schema'
+import BuyButton from '../../lib/components/BuyButton/BuyButton'
+
+import useProductIdPageProps from './ProductIdPageProps/useProductIdPageProps'
+
+export default function ProductIdPageContent() {
+  const pageProps = useProductIdPageProps()
+
+  return (
+    <Wrapper>
+      <ProductName name={pageProps.product.data.name} />
+      <ProductInfo product={pageProps.product} />
+      <SimilarProducts similarProducts={pageProps.similarProducts} />
+    </Wrapper>
+  )
+}
+
+const Wrapper = ({ children }) => {
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        display: 'block',
+        margin: '0 auto',
+        maxWidth: '769px',
+        mt: {
+          xs: '20px',
+          lg: '50px',
+        },
+      }}
+    >
+      {children}
+    </Box>
+  )
+}
+
+const ProductName = ({ name }) => {
+  return (
+    <Box
+      sx={{
+        m: '0 auto',
+        mb: {
+          xs: '40px',
+          lg: '50px',
+        },
+      }}
+    >
+      <Text
+        text={name}
+        sx={{
+          fontFamily: 'HelveticaNeueMedium',
+          fontSize: {
+            xs: '20px',
+            lg: '26px',
+          },
+          textAlign: 'center',
+        }}
+      />
+    </Box>
+  )
+}
+
+const ProductInfo = ({ product }: { product: ProductSchema }) => {
+  const tiktokUrl = extractEmbedId({
+    tiktokEmbedCode: product.data.TikTokEmbedLink,
+  })
+
+  return (
+    <Box
+      sx={{
+        display: 'grid',
+        gridAutoFlow: {
+          lg: 'column',
+        },
+        gridTemplateColumns: {
+          lg: '1fr 420px',
+        },
+        justifyItems: 'center',
+        gap: '24px',
+      }}
+    >
+      <TikTokVideo
+        tiktokUrl={tiktokUrl}
+        image={product.data.image.url}
+        name={product.data.name}
+      />
+
+      <Box>
+        <Text
+          text={product.data.Description}
+          sx={{
+            color: 'grey.two',
+          }}
+        />
+        <BuyButton
+          storeLink={product.data.affiliateLinkUS}
+          sx={{
+            display: {
+              xs: 'none',
+              lg: 'block',
+            },
+            mx: '0',
+            mt: '20px',
+            width: 'fit-content',
+            '& button': {
+              fontSize: '16px',
+              maxWidth: 'none',
+            },
+          }}
+        />
+
+        <Box
+          sx={{
+            backgroundColor: 'primary.main',
+            position: 'fixed',
+            bottom: '0',
+            left: '0',
+            right: '0',
+            height: '50px',
+            zIndex: '3',
+            display: {
+              lg: 'none',
+            },
+          }}
+        >
+          <BuyButton
+            storeLink={product.data.affiliateLinkUS}
+            sx={{
+              m: '0',
+              '& button': {
+                fontSize: '18.6px',
+                maxWidth: 'none',
+                height: '100%',
+              },
+            }}
+          />
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
+const TikTokVideo = ({ tiktokUrl, image, name }) => {
+  return (
+    <Box
+      sx={{
+        position: 'relative',
+      }}
+    >
+      <Box
+        sx={{
+          borderRadius: '4px',
+          mb: '40px',
+          '& img': {
+            borderRadius: '4px',
+            objectFit: 'contain',
+          },
+        }}
+      >
+        <Image src={image} alt={`${name} product image`} width={500} height={700} />
+      </Box>
+    </Box>
+  )
+}
+
+const SimilarProducts = ({ similarProducts }) => {
+  return similarProducts.length ? (
+    <Box
+      sx={{
+        mt: {
+          xs: '50px',
+          lg: '190px',
+        },
+      }}
+    >
+      <ProductsList title='Similar Products' products={similarProducts} />
+    </Box>
+  ) : null
+}

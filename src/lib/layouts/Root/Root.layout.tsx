@@ -1,7 +1,6 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 
-import appConfig from '../../../../app.config.cjs'
 import Header, { type HeaderProps } from '../../components/Header/Header'
 import Text from '../../components/Text/Text'
 
@@ -48,7 +47,7 @@ const Footer = ({}) => {
       }}
     >
       <Text
-        text={`${appConfig.siteInfo.domain} is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to (“${appConfig.siteInfo.domain}” (amazon.com, or endless.com, MYHABIT.com, SmallParts.com, or AmazonWireless.com).`}
+        text={`Created by Jeremy Tenjo. All Rights Reserved.`}
         sx={{ color: 'grey.two', textAlign: 'center', fontSize: '14px' }}
       />
     </Box>

@@ -42,7 +42,10 @@ export default function GoogleAnalyticsScripts({ measurementId }) {
 
             const isProductionWebsite = window.location.href.includes('${appConfig.siteInfo.domain}')
             const disableGtag = !isProductionWebsite
-            window['ga-disable-${measurementId}'] = disableGtag;
+
+            if (disableGtag) {
+              window['ga-disable-${measurementId}'] = true;
+            }
 
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());

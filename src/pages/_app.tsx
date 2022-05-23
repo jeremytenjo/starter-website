@@ -22,6 +22,7 @@ export default function MyApp(props) {
     <>
       <Head>
         <title>{appconfig.siteInfo.title}</title>
+        <meta name='description' content={appconfig.siteInfo.description} />
         <meta property='og:url' content={appconfig.siteInfo.domain} />
         <meta property='og:type' content='website' />
         <meta property='og:title' content={appconfig.siteInfo.title} />

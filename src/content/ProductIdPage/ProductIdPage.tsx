@@ -3,7 +3,6 @@ import Box from '@mui/material/Box'
 
 import Text from '../../lib/components/Text/Text'
 import ProductsList from '../../lib/components/ProductsList/ProductsList'
-import Image from '../../lib/components/Image/Image'
 import type ProductSchema from '../../data/products/product.schema'
 import BuyButton from '../../lib/components/BuyButton/BuyButton'
 
@@ -131,29 +130,6 @@ const ProductInfo = ({ product }: { product: ProductSchema }) => {
             }}
           />
         </Box>
-      </Box>
-    </Box>
-  )
-}
-
-const TikTokVideo = ({ image, name }) => {
-  return (
-    <Box
-      sx={{
-        position: 'relative',
-      }}
-    >
-      <Box
-        sx={{
-          borderRadius: '4px',
-          mb: '40px',
-          '& img': {
-            borderRadius: '4px',
-            objectFit: 'contain',
-          },
-        }}
-      >
-        <Image src={image} alt={`${name} product image`} width={500} height={700} />
       </Box>
     </Box>
   )

@@ -8,7 +8,7 @@ import getProducts from '../../data/products/products.api/getProducts'
 import ProductIdPageContent from '../../content/ProductIdPage/ProductIdPage'
 import getProductUrlId from '../../data/products/utils/getProductUrlId/getProductUrlId'
 import { ProductIdPagePropsProvider } from '../../content/ProductIdPage/ProductIdPageProps/useProductIdPageProps'
-import getrootLayoutData from '../../data/getrootLayoutData/getrootLayoutData'
+import getrootLayoutData from '../../data/getRootLayoutData/getRootLayoutData'
 
 export type ProductIdPageProps = {
   product: ProductSchema

@@ -5,12 +5,15 @@ import appConfig from '../../../../app.config.cjs'
 import Header, { type HeaderProps } from '../../components/Header/Header'
 import Text from '../../components/Text/Text'
 
-export type MainLayoutProps = { children: any; headerProps: HeaderProps }
+export type RootLayoutProps = {
+  children: any
+  rootLayoutData: { headerProps: HeaderProps }
+}
 
-export default function MainLayout({ children, headerProps }: MainLayoutProps) {
+export default function RootLayout({ children, rootLayoutData }: RootLayoutProps) {
   return (
     <Wrapper>
-      <Header {...headerProps} />
+      <Header {...rootLayoutData.headerProps} />
       {children}
       <Footer />
     </Wrapper>
@@ -20,7 +23,7 @@ export default function MainLayout({ children, headerProps }: MainLayoutProps) {
 const Wrapper = ({ children }) => {
   return (
     <Box
-      data-id='MainLayout'
+      data-id='RootLayout'
       sx={{
         p: '20px',
       }}

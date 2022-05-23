@@ -37,7 +37,7 @@ export default function CategoryButton(category: CategoryButtonProps) {
               xs: '18.69px',
               lg: '20.87px',
             },
-            fontFamily: 'HelveticaNeueMedium',
+            fontFamily: 'PoppinsRegular',
             color: 'white.main',
             pointerEvents: 'none',
           }}

@@ -54,7 +54,7 @@ const ProductName = ({ name }) => {
       <Text
         text={name}
         sx={{
-          fontFamily: 'HelveticaNeueMedium',
+          fontFamily: 'PoppinsRegular',
           fontSize: {
             xs: '20px',
             lg: '26px',

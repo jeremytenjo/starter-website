@@ -15,7 +15,7 @@ export default function ProductsList({ title, products = [] }: ProductsListProps
         <Text
           text={title}
           sx={{
-            fontFamily: 'HelveticaNeueMedium',
+            fontFamily: 'PoppinsRegular',
             fontSize: '16px',
             mt: '53px',
             mb: '15px',

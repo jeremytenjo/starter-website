@@ -60,7 +60,7 @@ const NavLink = ({ links }) => {
           text={link.label}
           sx={{
             fontSize: '16px',
-            fontFamily: 'HelveticaNeueMedium',
+            fontFamily: 'PoppinsRegular',
             transition: '0.2s',
             '&:hover': {
               color: 'grey.two',
@@ -156,7 +156,7 @@ const ActionButtons = ({ onShowSearchBarClick }) => {
           text='Search'
           sx={{
             fontSize: '16px',
-            fontFamily: 'HelveticaNeueMedium',
+            fontFamily: 'PoppinsRegular',
           }}
         />
       </Box>

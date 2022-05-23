@@ -7,7 +7,7 @@ import appconfig from '../../app.config.cjs'
 import ClickToComponent from '../lib/components/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/mui/utils/createEmotionCache'
-import RootLayout from '../content/_Root/Root.layout'
+import RootLayout from '../lib/layouts/Root/Root.layout'
 import GoogleAnalytics from '../lib/components/googleAnalytics/GoogleAnalytics'
 import { SnackbarProvider } from '../lib/components/Snackbar/Snackbar'
 import Prismic from '../lib/components/Prismic/Prismic'
@@ -37,6 +37,7 @@ export default function MyApp(props) {
 
       <CacheProvider value={emotionCache}>
         <GoogleAnalytics />
+
         <Head>
           <meta name='viewport' content='initial-scale=1, width=device-width' />
           <meta name='author' content='Jeremy Tenjo' />
@@ -47,7 +48,7 @@ export default function MyApp(props) {
         <Theme>
           <Prismic>
             <SnackbarProvider>
-              <RootLayout>
+              <RootLayout {...pageProps}>
                 <Component {...pageProps} />
               </RootLayout>
             </SnackbarProvider>

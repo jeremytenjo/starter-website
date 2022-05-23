@@ -8,14 +8,13 @@ import CategoryIdContent from '../../content/CategoryId/CategoryId'
 import { CategoryIdPropsProvider } from '../../content/CategoryId/useCategoryIdProps/useCategoryIdProps'
 import getProductCategoriesUrlId from '../../data/products/productCategory/getProductCategoryUrlId/getProductCategoryUrlId'
 import getProductCategories from '../../data/products/productCategory/productCategories.api/getProductCategories'
-import getMainLayoutData from '../../data/getMainLayoutData/getMainLayoutData'
-import MainLayout from '../../lib/layouts/MainLayout/MainLayout'
+import getrootLayoutData from '../../data/getrootLayoutData/getrootLayoutData'
 import getProducts from '../../data/products/products.api/getProducts'
 
 export type CategoryIdProps = {
   productCategory: ProductCategoriesSchema
   productCategories: ProductCategoriesSchema[]
-  mainLayoutData: any
+  rootLayoutData: any
 }
 
 export default function CategoryIdPage(props: CategoryIdProps) {
@@ -44,17 +43,15 @@ export default function CategoryIdPage(props: CategoryIdProps) {
         />
       </Head>
 
-      <MainLayout {...props.mainLayoutData}>
-        <CategoryIdPropsProvider pageProps={props}>
-          <CategoryIdContent />
-        </CategoryIdPropsProvider>
-      </MainLayout>
+      <CategoryIdPropsProvider pageProps={props}>
+        <CategoryIdContent />
+      </CategoryIdPropsProvider>
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, previewData }) => {
-  const mainLayoutData = await getMainLayoutData({ previewData })
+  const rootLayoutData = await getrootLayoutData({ previewData })
   const products = await getProducts({ previewData })
   const categories = await getProductCategories({ previewData })
   const productCategory = categories.find(
@@ -66,7 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params, previewData }) =>
 
   return {
     props: {
-      mainLayoutData,
+      rootLayoutData,
       productCategory,
       categoryProducts,
     },

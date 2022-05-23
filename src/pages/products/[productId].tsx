@@ -8,13 +8,12 @@ import getProducts from '../../data/products/products.api/getProducts'
 import ProductIdPageContent from '../../content/ProductIdPage/ProductIdPage'
 import getProductUrlId from '../../data/products/utils/getProductUrlId/getProductUrlId'
 import { ProductIdPagePropsProvider } from '../../content/ProductIdPage/ProductIdPageProps/useProductIdPageProps'
-import getMainLayoutData from '../../data/getMainLayoutData/getMainLayoutData'
-import MainLayout from '../../lib/layouts/MainLayout/MainLayout'
+import getrootLayoutData from '../../data/getrootLayoutData/getrootLayoutData'
 
 export type ProductIdPageProps = {
   product: ProductSchema
   products: ProductSchema[]
-  mainLayoutData: any
+  rootLayoutData: any
 }
 
 export default function ProductIdPage(props: ProductIdPageProps) {
@@ -37,17 +36,15 @@ export default function ProductIdPage(props: ProductIdPageProps) {
         />
       </Head>
 
-      <MainLayout {...props.mainLayoutData}>
-        <ProductIdPagePropsProvider pageProps={props}>
-          <ProductIdPageContent />
-        </ProductIdPagePropsProvider>
-      </MainLayout>
+      <ProductIdPagePropsProvider pageProps={props}>
+        <ProductIdPageContent />
+      </ProductIdPagePropsProvider>
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, previewData }) => {
-  const mainLayoutData = await getMainLayoutData({ previewData })
+  const rootLayoutData = await getrootLayoutData({ previewData })
   const products = await getProducts({ previewData })
   const product = products.find(
     (product) => getProductUrlId({ product }) === params?.productId,
@@ -61,7 +58,7 @@ export const getStaticProps: GetStaticProps = async ({ params, previewData }) =>
       product,
       products,
       similarProducts,
-      mainLayoutData,
+      rootLayoutData,
     },
   }
 }

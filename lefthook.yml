@@ -3,4 +3,4 @@
 pre-push:
   commands:
     test:
-      run: npm run tests:eslint && npm run tests:ts-types && npm run tests:unit:ci
+      run: npm run tests:all

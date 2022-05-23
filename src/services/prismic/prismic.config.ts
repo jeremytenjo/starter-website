@@ -2,10 +2,11 @@ import * as prismic from '@prismicio/client'
 
 // TODO add prismicProjectName
 const prismicProjectName = undefined
-const apiEndpoint = `https://${prismicProjectName}.prismic.io/api/v2`
-const repositoryName = prismic.getRepositoryName(apiEndpoint)
 // TODO add accessToken
 const accessToken = undefined
+const apiEndpoint = `https://${prismicProjectName}.prismic.io/api/v2`
+const repositoryName = prismic.getRepositoryName(apiEndpoint)
+
 const prismicConfig = {
   repositoryName,
   apiEndpoint,

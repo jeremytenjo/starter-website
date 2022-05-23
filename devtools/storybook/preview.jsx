@@ -3,7 +3,7 @@ import { create } from '@storybook/theming'
 
 import ClickToComponent from '../../src/lib/components/ClickToComponent/ClickToComponent'
 import { SnackbarProvider } from '../../src/lib/components/Snackbar/Snackbar'
-import Prismic from '../../src/services/prismic/Prismic'
+import Prismic from '../../src/lib/components/Prismic/Prismic'
 
 import StorybookTheme from './theme/storybookTheme'
 

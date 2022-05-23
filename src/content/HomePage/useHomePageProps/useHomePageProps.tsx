@@ -1,7 +1,11 @@
 import React, { createContext, useContext } from 'react'
 
+import type ProductCategoriesSchema from '../../../data/products/productCategory/productCategory.schema'
+import type ProductSchema from '../../../data/products/product.schema'
+
 export type HomePagePropsTypes = {
-  title: string
+  productCategories: ProductCategoriesSchema[]
+  popularProducts: ProductSchema[]
 }
 
 export const HomePagePropsContext = createContext<HomePagePropsTypes>(null as any)

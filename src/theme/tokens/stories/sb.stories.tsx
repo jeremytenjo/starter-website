@@ -1,3 +1,4 @@
+/* eslint-disable storybook/prefer-pascal-case */
 import Colors from './theme.colors'
 import Typography from './theme.typography'
 

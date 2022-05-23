@@ -8,7 +8,7 @@ export type AdUnitUiProps = {
   sx?: BoxProps['sx']
 }
 
-export default function AdUnitUi({ enalbed, sx = {} }: AdUnitUiProps) {
+export default function AdUnitUi({ sx = {} }: AdUnitUiProps) {
   return (
     <Wrapper sx={sx}>
       <Text text='AdUnit' />

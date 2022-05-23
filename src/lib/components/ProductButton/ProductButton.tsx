@@ -29,7 +29,7 @@ const Wrapper = ({ children }) => {
       sx={{
         borderRadius: '8px',
         border: 'red solid 3px',
-        borderColor: 'grey.one',
+        borderColor: 'grey.main',
         maxWidth: '350px',
         display: 'grid',
         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.05)',

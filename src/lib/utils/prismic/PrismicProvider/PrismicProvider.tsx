@@ -5,7 +5,8 @@ import { PrismicProvider as PrismicProviderLib } from '@prismicio/react'
 
 import linkResolver from '../linkResolver/linkResolver'
 
-export default function PrismicProvider({ children, repositoryName }) {
+// export default function PrismicProvider({ children, repositoryName }) {
+export default function PrismicProvider({ children }) {
   return (
     <PrismicProviderLib
       linkResolver={linkResolver}

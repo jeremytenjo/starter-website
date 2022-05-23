@@ -1,3 +1,4 @@
+/* eslint-disable storybook/prefer-pascal-case */
 import React from 'react'
 
 import Typography from '../../../theme/tokens/stories/theme.typography'

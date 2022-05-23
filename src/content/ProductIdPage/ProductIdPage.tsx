@@ -3,7 +3,6 @@ import Box from '@mui/material/Box'
 
 import Text from '../../lib/components/Text/Text'
 import ProductsList from '../../lib/components/ProductsList/ProductsList'
-import extractEmbedId from '../../lib/utils/tiktok/extractEmbedId/extractEmbedId'
 import Image from '../../lib/components/Image/Image'
 import type ProductSchema from '../../data/products/product.schema'
 import BuyButton from '../../lib/components/BuyButton/BuyButton'
@@ -68,10 +67,6 @@ const ProductName = ({ name }) => {
 }
 
 const ProductInfo = ({ product }: { product: ProductSchema }) => {
-  const tiktokUrl = extractEmbedId({
-    tiktokEmbedCode: product.data.TikTokEmbedLink,
-  })
-
   return (
     <Box
       sx={{
@@ -86,12 +81,6 @@ const ProductInfo = ({ product }: { product: ProductSchema }) => {
         gap: '24px',
       }}
     >
-      <TikTokVideo
-        tiktokUrl={tiktokUrl}
-        image={product.data.image.url}
-        name={product.data.name}
-      />
-
       <Box>
         <Text
           text={product.data.Description}
@@ -147,7 +136,7 @@ const ProductInfo = ({ product }: { product: ProductSchema }) => {
   )
 }
 
-const TikTokVideo = ({ tiktokUrl, image, name }) => {
+const TikTokVideo = ({ image, name }) => {
   return (
     <Box
       sx={{

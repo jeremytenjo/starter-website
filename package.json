@@ -23,7 +23,7 @@
     "helpers:generate-logo-assets": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
     "helpers:create-icon": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
-    "helpers:update-useweb-deps": "npm-check-updates -f /@useweb/*/ -u && npm i",
+    "helpers:update-useweb-deps": "npx npm-check-updates -f /@useweb/*/ -u && npm i",
     "prepare": "npx @arkweid/lefthook install",
     "postbuild": "next-sitemap --config next-sitemap.cjs",
     "slicemachine": "start-slicemachine"
@@ -44,7 +44,7 @@
     "@useweb/click-to-component": "^2.0.0",
     "@useweb/use-async": "^3.1.0",
     "@useweb/use-event-listener": "^0.2.0",
-    "@useweb/use-fetch": "^1.1.0",
+    "@useweb/use-fetch": "^1.2.1",
     "emotion-theming": "^11.0.0",
     "next": "12.1.5",
     "plaiceholder": "^2.3.0",

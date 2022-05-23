@@ -4,7 +4,7 @@ import getrootLayoutData from '../data/getRootLayoutData/getRootLayoutData'
 import HomePageContent from '../content/HomePage/HomePage'
 import { HomePagePropsProvider } from '../content/HomePage/useHomePageProps/useHomePageProps'
 import getProductCategories from '../data/products/productCategory/productCategories.api/getProductCategories'
-import getPopularProducts from '../data/products/getPopularProducts/getPopularProducts'
+import getPopularProducts from '../data/products/popularProducts/getPopularProducts/getPopularProducts'
 
 export default function HomePage(props) {
   return (

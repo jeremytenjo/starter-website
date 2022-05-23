@@ -1,8 +1,8 @@
-import ProductsStubs from '../products.stubs'
-import type ProductSchema from '../product.schema'
-import getImagePlaceholder from '../../../lib/utils/images/getImagePlaceholder/getImagePlaceholder'
-import getProductsFromPrismic from '../products.prismic/getProducts.prismic'
-import getData from '../../../lib/utils/data/getData/getData'
+import ProductsStubs from '../../products.stubs'
+import type ProductSchema from '../../product.schema'
+import getImagePlaceholder from '../../../../lib/utils/images/getImagePlaceholder/getImagePlaceholder'
+import getProductsFromPrismic from '../../products.prismic/getProducts.prismic'
+import getData from '../../../../lib/utils/data/getData/getData'
 
 export default async function getPopularProducts({ previewData }) {
   const getFn = () => getProductsCategoryFromApi({ previewData })

@@ -1,7 +1,7 @@
-const siteUrl = 'https://starter-website.vercel.app/'
+const appConfig = require('./app.config.cjs')
 
 module.exports = {
-  siteUrl,
+  siteUrl: appConfig.siteInfo.domain,
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],

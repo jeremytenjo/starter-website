@@ -8,6 +8,7 @@
     "dev:dataSource-prod": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod",
     "dev:for-testing": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod --onlyApp",
     "storybook:dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/storybook/startStorybook/run.ts",
+    "cms:slicemachine": "start-slicemachine",
     "build": "next build",
     "serve": "next start",
     "build-and-serve": "npm run build && npm run serve",
@@ -24,7 +25,8 @@
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
     "helpers:update-useweb-deps": "npm-check-updates -f /@useweb/*/ -u && npm i",
     "prepare": "npx @arkweid/lefthook install",
-    "postbuild": "next-sitemap --config next-sitemap.cjs"
+    "postbuild": "next-sitemap --config next-sitemap.cjs",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
     "@check-light-or-dark/color": "^1.0.3",
@@ -35,8 +37,10 @@
     "@mui/material": "^5.3.1",
     "@playwright/test": "^1.21.1",
     "@prismicio/client": "^6.4.3",
+    "@prismicio/helpers": "^2.3.0",
     "@prismicio/next": "^0.1.2",
     "@prismicio/react": "^2.3.0",
+    "@prismicio/slice-simulator-react": "^0.2.2",
     "@useweb/click-to-component": "^2.0.0",
     "@useweb/use-async": "^3.1.0",
     "@useweb/use-event-listener": "^0.2.0",
@@ -52,7 +56,6 @@
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@storybook/addon-actions": "^6.4.22",
-    "svgo": "^2.8.0",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
@@ -87,6 +90,8 @@
     "prettier": "^2.5.1",
     "qrcode-terminal": "^0.12.0",
     "sharp": "^0.29.3",
+    "slice-machine-ui": "^0.3.7",
+    "svgo": "^2.8.0",
     "tcp-port-used": "^1.0.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5",

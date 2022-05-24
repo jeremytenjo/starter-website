@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
+    "dev:app": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --onlyApp",
     "dev:dataSource-prod": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod",
     "dev:for-testing": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod --onlyApp",
     "storybook:dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/storybook/startStorybook/run.ts",

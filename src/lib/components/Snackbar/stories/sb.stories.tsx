@@ -1,5 +1,7 @@
 import React from 'react'
+
 import useSnackbar, { SnackbarProvider } from '../Snackbar'
+
 export default {
   title: 'lib/components/Snackbar',
   args: {},

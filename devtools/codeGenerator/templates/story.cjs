@@ -5,16 +5,22 @@ const files = [
   },
   {
     path: ({ name }) => `stories/${name}.stories.tsx`,
-    template: ({ name }) => `//https://storybook.js.org/docs/react/writing-docs/docs-page
+    template: ({ name }) => {
+      const propsName = `${name}Props`
+      return `//https://storybook.js.org/docs/react/writing-docs/docs-page
     import React from 'react'
 
-    import ${name}, { type ${name}Props } from '../${name}'
+    import ${name}, { type ${propsName} } from '../${name}'
 
     import Docs from './${name}.docs.mdx'
 
+    const defaultArgs: ${propsName} = {
+      name: '${name}',
+    }
+
     export default {
       title: 'lib/components/${name}',
-      args: {},
+      args: defaultArgs,
       // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
       parameters: {
         docs: {
@@ -23,31 +29,26 @@ const files = [
       },
     }
 
-    const Template = (args) => {
-      return (
-        <>
-          <${name} {...args} />
-        </>
-      )
-    };
-
-    export const Default = Template.bind({}) as any
-
-    const defaultArgs: ${name}Props = {
-      name: '${name}',
+    export const Default = {
+      render: (args) => {
+        return (
+          <>
+            <${name} {...args} />
+          </>
+        )
+      },
     }
-    
-    Default.args = defaultArgs
-    
-    // export const Variant = Template.bind({}) as any
 
-    // const VariantArgs: ${name}Props = {
-    //  ...defaultArgs,
+    // const variantArgs: ${propsName} = {
     //  name: 'World',
     // }
     
-    // Variant.args = VariantArgs
-`,
+    // export const Variant = {
+    //  ...Default,
+    //  args: variantArgs
+    // }
+`
+    },
   },
 ]
 

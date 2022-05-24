@@ -5,22 +5,21 @@ import Typography from '../../../theme/tokens/stories/theme.typography'
 
 import Text, { type TextProps } from './Text'
 
-export default {
-  title: 'Lib/Components/Text',
-}
-
-const Template = (args) => {
-  return (
-    <>
-      <Text {...args} />
-    </>
-  )
-}
-
-export const Default = Template.bind({}) as any
-
 const defaultArgs: TextProps = { text: 'hello', variant: 'h1' }
 
-Default.args = defaultArgs
+export default {
+  title: 'Lib/Components/Text',
+  args: defaultArgs,
+}
+
+export const Default = {
+  render: (args) => {
+    return (
+      <>
+        <Text {...args} />
+      </>
+    )
+  },
+}
 
 export const typography = Typography

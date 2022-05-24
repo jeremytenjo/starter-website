@@ -1,10 +1,7 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-
 import CategoryButton from '../CategoryButton'
-
 import Docs from './CategoryButton.docs.mdx'
-
 export default {
   title: 'lib/components/CategoryButton',
   args: {},
@@ -25,7 +22,6 @@ const Template = (args) => {
 }
 
 export const Default = Template.bind({}) as any
-
 const defaultArgs = {
   id: '1',
   data: {
@@ -42,14 +38,9 @@ const defaultArgs = {
     order: 1,
   },
 }
-
-Default.args = defaultArgs
-
-// export const Variant = Template.bind({}) as any
-
+Default.args = defaultArgs // export const Variant = Template.bind({}) as any
 // const VariantArgs: CategoryButtonProps = {
 //  ...defaultArgs,
 //  name: 'World',
 // }
-
 // Variant.args = VariantArgs

@@ -1,7 +1,5 @@
 import React from 'react'
-
 import useSnackbar, { SnackbarProvider } from '../Snackbar'
-
 export default {
   title: 'lib/components/Snackbar',
   args: {},
@@ -27,13 +25,12 @@ const Child = () => {
   )
 }
 
-const Template = () => {
-  return (
-    <Provider>
-      <Child />
-    </Provider>
-  )
+export const Example = {
+  render: () => {
+    return (
+      <Provider>
+        <Child />
+      </Provider>
+    )
+  },
 }
-
-export const Example = Template.bind({})
-// Example.args = {}

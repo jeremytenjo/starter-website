@@ -109,33 +109,6 @@ const productCategoriesListStubs: ProductCategoriesListSchema[] = [
       order: null,
     },
   },
-  {
-    id: 'YnsKTRMAACQArvYW',
-    uid: null,
-    url: null,
-    type: 'product-category',
-    href: 'https://amazonsuperaffiliate.cdn.prismic.io/api/v2/documents/search?ref=YoFHuxMAACIAyrmy&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YnsKTRMAACQArvYW%22%29+%5D%5D',
-    tags: [],
-    first_publication_date: '2022-05-11T01:01:09+0000',
-    last_publication_date: '2022-05-11T01:01:09+0000',
-    slugs: ['electronics'],
-    linked_documents: [],
-    lang: 'en-ca',
-    alternate_languages: [],
-    data: {
-      name: 'Electronics',
-      backgroundImage: {
-        dimensions: {
-          width: 1770,
-          height: 1180,
-        },
-        alt: null,
-        copyright: null,
-        url: 'https://images.prismic.io/amazonsuperaffiliate/d86c1b47-671b-41a6-9ba7-f90f155d55d8_electronics.avif?auto=compress,format',
-      },
-      order: null,
-    },
-  },
 ]
 
 export default productCategoriesListStubs

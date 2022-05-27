@@ -26,8 +26,7 @@
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
     "helpers:update-useweb-deps": "npx npm-check-updates -f /@useweb/*/ -u && npm i",
     "prepare": "npx @arkweid/lefthook install",
-    "postbuild": "next-sitemap --config next-sitemap.cjs",
-    "slicemachine": "start-slicemachine"
+    "postbuild": "next-sitemap --config next-sitemap.cjs"
   },
   "dependencies": {
     "@check-light-or-dark/color": "^1.0.3",

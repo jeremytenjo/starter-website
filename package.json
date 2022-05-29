@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
     "dev:app": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --onlyApp",

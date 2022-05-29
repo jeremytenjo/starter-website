@@ -7,5 +7,7 @@
   },
   "prettier.configPath": "./devtools/prettier/prettier.config.json",
   "quickComponentCreator.prettierConfigFilePath": "devtools/prettier/prettier.config.json",
-  "quickComponentCreator.schemaFilePath": "devtools/codeGenerator/qcc.schema.cjs"
+  "quickComponentCreator.schemaFilePath": "devtools/codeGenerator/qcc.schema.cjs",
+  "thunder-client.saveToWorkspace": true,
+  "thunder-client.workspaceRelativePath": "src/tests/http.tests"
 }

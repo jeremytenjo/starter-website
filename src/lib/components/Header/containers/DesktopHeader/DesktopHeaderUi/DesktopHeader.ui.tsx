@@ -100,14 +100,6 @@ const Logo = () => {
           alt='OnlyFindz beautiful logo'
         />
       </Link>
-      <Text
-        text='We find the best products for you'
-        sx={{ mt: '24px', fontSize: '16px' }}
-      />
-      <Text
-        text='We aim to help you make the best shopping decisions'
-        sx={{ fontSize: '16px' }}
-      />
 
       <Box
         sx={{

@@ -1,9 +1,9 @@
-const lodashMerge = require('lodash/merge')
+import lodashMerge from 'lodash/merge'
 
 /**
  * @example
  * deepMerge(defaultConfigOptions, config)
  */
-module.exports = function deepMerge(defaultValues, newValues) {
+export default function deepMerge(defaultValues, newValues) {
   return lodashMerge(defaultValues, newValues)
 }

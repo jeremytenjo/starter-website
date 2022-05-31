@@ -10,7 +10,7 @@ import { devices } from '@playwright/test'
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: '../../../../src',
+  testDir: process.cwd(),
   testMatch: /.*\.e2e\.ts/,
   fullyParallel: true,
   /* Maximum time one test can run for. */
@@ -39,6 +39,13 @@ const config: PlaywrightTestConfig = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     video: 'retain-on-failure',
+  },
+  webServer: {
+    command: 'npm run dev:for-testing',
+    port: 3000,
+    timeout: 120 * 1000,
+    reuseExistingServer: !process.env.CI,
+    cwd: process.cwd(),
   },
 
   /* Configure projects for major browsers */
@@ -78,12 +85,6 @@ const config: PlaywrightTestConfig = {
     //   },
     // },
   ],
-  webServer: {
-    command: 'npm run dev:for-testing',
-    port: 3000,
-    timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
-  },
 }
 
 export default config

@@ -19,7 +19,7 @@ type Props = LinkPropsEdited & {
  */
 export default function Link(props: Props) {
   return (
-    <NextLink {...props} passHref>
+    <NextLink {...props} passHref onClick={undefined}>
       <LinkContent content={props.children} sx={props.sx} {...props} />
     </NextLink>
   )

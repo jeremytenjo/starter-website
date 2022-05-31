@@ -2,7 +2,6 @@ import path from 'path'
 
 import watchFolder from '../../../../utils/node/watchFolder.js'
 import shell from '../../../../utils/node/shell.js'
-import buildPlayWright from '../buildPlayWright/buildPlayWright.js'
 import getCommandLineArgs from '../../../../utils/node/getCommandLineArgs.js'
 
 export default async function runPlayWright() {
@@ -28,11 +27,9 @@ export default async function runPlayWright() {
 }
 
 const runPlaywrightTests = async ({ headed }: { headed: boolean }) => {
-  await buildPlayWright()
-
   const options = `${headed ? '--headed' : ''}`
 
   shell(
-    `npx playwright test ${options} --config=devtools/testing/playwright/build/playwright.config.js`,
+    `npx playwright test ${options} --config=devtools/testing/playwright/playwright.config.ts`,
   )
 }

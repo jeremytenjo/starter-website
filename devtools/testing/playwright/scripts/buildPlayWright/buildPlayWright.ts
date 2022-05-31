@@ -2,7 +2,7 @@ import path from 'path'
 
 import esbuild from 'esbuild'
 
-import removeFolder from '../../../../utils/node/removeFolder.cjs'
+import removeFolder from '../../../../utils/node/removeFolder.js'
 import createFile from '../../../../utils/node/createFile.js'
 
 import getEntryPoints from './handlers/getEntryPoints.js'
@@ -23,7 +23,7 @@ export default async function buildPlayWright() {
     platform: 'node',
     bundle: true,
     minify: true,
-    format: 'cjs',
+    format: 'esm',
     target: ['es2017'],
     watch: false,
     external: ['esbuild', '@playwright/test'],
@@ -31,7 +31,7 @@ export default async function buildPlayWright() {
 
   createFile({
     filePath: path.join(outdir, 'package.json'),
-    fileContent: '{"type": "commonjs"}',
+    fileContent: '{"type": "module"}',
     nojs: true,
   })
 }

@@ -1,3 +1,5 @@
+import path from 'path'
+
 import type { PlaywrightTestConfig } from '@playwright/test'
 import { devices } from '@playwright/test'
 
@@ -10,7 +12,7 @@ import { devices } from '@playwright/test'
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: process.cwd(),
+  testDir: path.join(process.cwd(), 'src'),
   testMatch: /.*\.e2e\.ts/,
   fullyParallel: true,
   /* Maximum time one test can run for. */

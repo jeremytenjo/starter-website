@@ -71,6 +71,7 @@ export default function TextField({
             transition: '0.2s',
             py: 1,
             border: '2px solid white',
+            borderColor: 'grey.light',
             gridAutoFlow: 'column',
             justifyContent: 'space-between',
             alignItems: 'center',

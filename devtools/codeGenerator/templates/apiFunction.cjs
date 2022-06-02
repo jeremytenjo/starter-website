@@ -6,6 +6,8 @@ const files = [
       return `import type { NextApiRequest, NextApiResponse } from 'next'
 
       export default function handler(req: NextApiRequest, res: NextApiResponse) {
+        console.log(req.body)
+
         try {
           res.status(200).json({ sucess: 'hello from the example api :)' })
         } catch (error: any) {

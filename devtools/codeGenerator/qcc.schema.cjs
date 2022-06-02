@@ -18,6 +18,7 @@ const data = require('./templates/data.cjs')
 const reactContext = require('./templates/ReactContext.cjs')
 const vitestTest = require('./templates/vitestTest.cjs')
 const script = require('./templates/script.cjs')
+const apiFunction = require('./templates/apiFunction.cjs')
 
 module.exports = [
   container.template,
@@ -37,4 +38,5 @@ module.exports = [
   cloudFunction.template,
   vitestTest.template,
   script.template,
+  apiFunction.template,
 ]

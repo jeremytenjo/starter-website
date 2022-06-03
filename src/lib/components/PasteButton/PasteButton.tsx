@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button, { type ButtonProps } from '@mui/material/Button'
 
 export type PasteButtonProps = {
@@ -14,6 +14,14 @@ export default function PasteButton({
   text = 'Paste',
   sx = {},
 }: PasteButtonProps) {
+  const isClipboardAPIAvailable = isClipboardApiAvailableInThisDevice()
+
+  useEffect(() => {
+    if (!isClipboardAPIAvailable) {
+      console.warn('clipboard API is not available in this device')
+    }
+  }, [])
+
   const getLinkFromClipboard = async () => {
     try {
       const clipboardData = await navigator.clipboard.readText()
@@ -24,7 +32,7 @@ export default function PasteButton({
     }
   }
 
-  return (
+  return isClipboardAPIAvailable ? (
     <Button
       onClick={getLinkFromClipboard}
       variant='contained'
@@ -39,5 +47,15 @@ export default function PasteButton({
     >
       {text}
     </Button>
-  )
+  ) : null
+}
+
+export function isClipboardApiAvailableInThisDevice() {
+  let isAvailable = false
+
+  if (typeof navigator !== 'undefined') {
+    isAvailable = !!navigator.clipboard
+  }
+
+  return isAvailable
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button, { type ButtonProps } from '@mui/material/Button'
 
 export type PasteButtonProps = {
@@ -14,10 +14,13 @@ export default function PasteButton({
   text = 'Paste',
   sx = {},
 }: PasteButtonProps) {
-  const isClipboardAPIAvailable = isClipboardApiAvailableInThisDevice()
+  const [isClipboardAPIAvailable, setIsClipboardAPIAvailable] = useState(false)
 
   useEffect(() => {
-    if (!isClipboardAPIAvailable) {
+    if (isClipboardApiAvailableInThisDevice()) {
+      setIsClipboardAPIAvailable(true)
+    } else {
+      setIsClipboardAPIAvailable(false)
       console.warn('clipboard API is not available in this device')
     }
   }, [])

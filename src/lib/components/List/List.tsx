@@ -6,6 +6,7 @@ import Box, { type BoxProps } from '@mui/material/Box'
 export type ListProps = {
   data: any[]
   ListItemComponent: any
+  listItemProps?: any
   enableAds?: boolean
   sx?: BoxProps['sx']
   onItemClick?: (data: { data: any }) => any
@@ -14,6 +15,7 @@ export type ListProps = {
 export default function List({
   data = [],
   ListItemComponent,
+  listItemProps = {},
   enableAds = false,
   sx = {},
   onItemClick = () => null,
@@ -23,6 +25,7 @@ export default function List({
       <Items
         data={data}
         ListItemComponent={ListItemComponent}
+        listItemProps={listItemProps}
         enableAds={enableAds}
         onItemClick={onItemClick}
       />
@@ -41,7 +44,13 @@ const Wrapper = ({ children, sx = {} }) => {
   )
 }
 
-const Items = ({ data, ListItemComponent, enableAds, onItemClick }) => {
+const Items = ({
+  data,
+  ListItemComponent,
+  listItemProps = {},
+  enableAds,
+  onItemClick,
+}) => {
   return data.map((item, index) => {
     return (
       <Fragment key={item.id + Math.random() + index}>
@@ -52,7 +61,7 @@ const Items = ({ data, ListItemComponent, enableAds, onItemClick }) => {
           }}
           onClick={() => onItemClick({ data: item })}
         >
-          <ListItemComponent index={index} {...item} />
+          <ListItemComponent index={index} {...item} {...listItemProps} />
         </Box>
 
         {enableAds && index === 7 && (

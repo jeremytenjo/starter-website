@@ -5,4 +5,9 @@ module.exports = {
     description: 'Website_StarterDesc',
     title: 'Website_Starter',
   },
+  devtools: {
+    storybook: {
+      port: 6006,
+    },
+  },
 }

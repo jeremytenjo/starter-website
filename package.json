@@ -29,7 +29,7 @@
     "helpers:create-icon": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
     "helpers:update-useweb-deps": "npx npm-check-updates -f /@useweb/*/ -u && npm i",
-    "prepare": "npx @arkweid/lefthook install",
+    "prepare": "husky install",
     "postbuild": "next-sitemap --config next-sitemap.cjs"
   },
   "dependencies": {
@@ -83,6 +83,7 @@
     "eslint-config-next": "^12.0.9",
     "eslint-plugin-storybook": "^0.5.12",
     "fs-extra": "^10.0.0",
+    "husky": "^8.0.1",
     "ink": "^3.2.0",
     "internal-ip": "^7.0.0",
     "jsdom": "^19.0.0",

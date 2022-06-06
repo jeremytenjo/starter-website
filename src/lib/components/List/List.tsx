@@ -59,7 +59,7 @@ const Items = ({
           sx={{
             listStyle: 'none',
           }}
-          onClick={() => onItemClick({ data: item })}
+          onClick={(e) => onItemClick({ e, data: item })}
         >
           <ListItemComponent index={index} {...item} {...listItemProps} />
         </Box>

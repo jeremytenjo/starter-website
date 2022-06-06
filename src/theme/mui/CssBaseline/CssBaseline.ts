@@ -20,7 +20,7 @@ export default {
 
           html {
             overflow-x: hidden;
-            scroll-behavior: auto !important;
+            scroll-behavior: smooth;
           }
 
           body {

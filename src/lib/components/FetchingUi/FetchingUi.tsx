@@ -27,7 +27,12 @@ export default function FetchingUi({ onClick, loading, error, result }: Fetching
 
       {error && <p>{error.toString()}</p>}
 
-      {result && <ReactJson json={result} />}
+      {result && (
+        <>
+          <p>Result:</p>
+          {typeof result === 'object' ? <ReactJson json={result} /> : result}
+        </>
+      )}
     </Box>
   )
 }

@@ -35,18 +35,18 @@ module.exports = [
   apiFunction.template,
 
   data.template,
+  globalState.template,
+  reactContext.template,
 
   playwrightTest.template,
   vitestTest.template,
 
-  muiOverride.template,
-  muiOverrideWithStory.template,
-
   page.template,
   pageContent.template,
 
-  globalState.template,
-  reactContext.template,
+  muiOverride.template,
+  muiOverrideWithStory.template,
+
   asyncHook.template,
   script.template,
 ]

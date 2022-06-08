@@ -51,7 +51,7 @@ const files = [
 ]
 
 const template = {
-  type: 'Component - Container',
+  type: 'Container',
   files,
 }
 

@@ -26,7 +26,7 @@ const files = [
 ]
 
 const template = {
-  type: 'Component - Simple',
+  type: 'Component',
   files,
 }
 

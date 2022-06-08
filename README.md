@@ -1,9 +1,16 @@
 # Website starter
 
+A modern, highly scalable website with the best developer experience.
+
 ## Tech
 
 - Nextjs
 - MUI
+- Storybook
+- Vitest
+- Playwright
+- Prettier
+- ESlint
 
 ## Productivity boosters 🚀
 

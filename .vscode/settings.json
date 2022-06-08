@@ -6,8 +6,8 @@
     "titleBar.inactiveBackground": "#000e14"
   },
   "prettier.configPath": "./devtools/prettier/prettier.config.json",
-  "quickComponentCreator.prettierConfigFilePath": "devtools/prettier/prettier.config.json",
-  "quickComponentCreator.schemaFilePath": "devtools/codeGenerator/qcc.schema.cjs",
+  "superCodeGenerator.prettierConfigFilePath": "devtools/prettier/prettier.config.json",
+  "superCodeGenerator.schemaFilePath": "devtools/codeGenerator/qcc.schema.cjs",
   "thunder-client.saveToWorkspace": true,
   "thunder-client.workspaceRelativePath": "src/tests/http.tests"
 }

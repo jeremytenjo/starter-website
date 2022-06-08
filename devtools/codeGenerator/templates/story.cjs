@@ -5,9 +5,10 @@ const docsTemplate = () => {
   }
 }
 
-const getStoryTemplate = ({ name, type = 'component' }) => {
+const getStoryTemplate = ({ name, type = 'component', helpers }) => {
   const isFunction = type === 'function'
-  const propsName = `${name}Props`
+  const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
+
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 
@@ -65,7 +66,7 @@ export const Default = {
 const componentStory = ({ type }) => {
   return {
     path: ({ name }) => `stories/${name}.stories.tsx`,
-    template: ({ name }) => getStoryTemplate({ name, type }),
+    template: ({ name, helpers }) => getStoryTemplate({ name, type, helpers }),
   }
 }
 

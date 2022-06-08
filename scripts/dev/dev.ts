@@ -7,6 +7,11 @@ import getCommandLineArgs from '../../devtools/utils/node/getCommandLineArgs.js'
 export default function dev() {
   console.clear()
   const ipAddress = getIpAddress()
+
+  console.log('')
+  console.log(chalk.cyan('Nextjs'))
+  console.log('')
+
   console.log(`${chalk.green('network')} - http://${ipAddress}:3000`)
 
   // args

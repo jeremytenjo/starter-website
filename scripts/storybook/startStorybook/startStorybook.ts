@@ -1,4 +1,5 @@
 import qrCode from 'qrcode-terminal'
+import chalk from 'chalk'
 
 import getIpAddress from '../../../devtools/utils/node/getIpAddress.js'
 import shell from '../../../devtools/utils/node/shell.js'
@@ -9,6 +10,10 @@ export default function startStorybook() {
   const port = appConfig.devtools.storybook.port
   const ipAddress = getIpAddress()
   const networkUrl = `http://${ipAddress}:${port}`
+
+  console.log('')
+  console.log(chalk.cyan('Storybook'))
+  console.log('')
 
   qrCode.generate(networkUrl, {
     small: true,

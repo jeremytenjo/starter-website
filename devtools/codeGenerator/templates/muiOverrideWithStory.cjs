@@ -3,7 +3,7 @@ const story = require('./story.cjs')
 
 const template = {
   type: 'Mui Override with story',
-  files: [...muiOverride.files, ...story.files],
+  files: [...muiOverride.files, ...story.componentStoryFiles],
 }
 
 module.exports = {

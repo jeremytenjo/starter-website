@@ -2,9 +2,11 @@
 // https://marketplace.visualstudio.com/items?itemName=tenjojeremy.quick-component-creator
 
 const component = require('./templates/component.cjs')
-const story = require('./templates/story.cjs')
+const componentStory = require('./templates/componentStory.cjs')
 const componentWithStory = require('./templates/componentWithStory.cjs')
 const functions = require('./templates/function.cjs')
+const functionStory = require('./templates/functionStory.cjs')
+const functionWithStory = require('./templates/functionWithStory.cjs')
 const container = require('./templates/container.cjs')
 const page = require('./templates/page.cjs')
 const pageContent = require('./templates/pageContent.cjs')
@@ -23,15 +25,16 @@ module.exports = [
   container.template,
 
   component.template,
+  componentStory.template,
   componentWithStory.template,
 
-  story.template,
-
   functions.template,
+  functionStory.template,
+  functionWithStory.template,
+
   apiFunction.template,
 
   data.template,
-  globalState.template,
 
   playwrightTest.template,
   vitestTest.template,
@@ -42,6 +45,7 @@ module.exports = [
   page.template,
   pageContent.template,
 
+  globalState.template,
   reactContext.template,
   asyncHook.template,
   script.template,

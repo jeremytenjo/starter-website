@@ -5,7 +5,7 @@ const files = [
     template: ({ name, helpers }) => {
       const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
 
-      return `type ${propsName} = {name: string}
+      return `export type ${propsName} = {name: string}
     
     export default function ${name}({name}: ${propsName}) {
       const data = 'hi'

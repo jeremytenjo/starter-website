@@ -28,7 +28,7 @@
     "helpers:generate-logo-assets": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
     "helpers:create-icon": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
-    "helpers:update-useweb-deps": "npx npm-check-updates -f /@useweb/*/ -u && npm i",
+    "helpers:update-useweb-deps": "npx npm-check-updates -f /@useweb/*/ -u && npm i && npm run tests:check-types",
     "prepare": "husky install",
     "postbuild": "next-sitemap --config next-sitemap.cjs"
   },

@@ -1,5 +1,5 @@
-// templates for the `Quick Component Creator` vscode plugin
-// https://marketplace.visualstudio.com/items?itemName=tenjojeremy.quick-component-creator
+// templates for the `Super Code Generator` vscode plugin
+// https://marketplace.visualstudio.com/items?itemName=tenjojeremy.super-code-generator
 
 const component = require('./templates/component.cjs')
 const componentStory = require('./templates/componentStory.cjs')

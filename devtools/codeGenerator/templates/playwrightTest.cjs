@@ -1,12 +1,9 @@
-// https://github.com/jeremytenjo/quick-component-creator/tree/master#component-type-properties
+// https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   {
     path: ({ name }) => `${name}.test.ts`,
     template: ({ name, helpers }) => {
-      const propsName = `${helpers.changeCase
-        .capitalCase(name)
-        .split(" ")
-        .join("")}Props`;
+      const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
 
       return `// https://playwright.dev/docs/selectors
 import { expect, type Page } from '@playwright/test'
@@ -23,7 +20,7 @@ export default async function ${name}({ page }: ${propsName}) {
 }
 
       
-      `;
+      `
     },
   },
   {
@@ -37,17 +34,17 @@ export default async function ${name}({ page }: ${propsName}) {
         await ${name}({ page })
       })
       
-      `;
+      `
     },
   },
-];
+]
 
 const template = {
-  type: "Playwright test",
+  type: 'Playwright test',
   files,
-};
+}
 
 module.exports = {
   files,
   template,
-};
+}

@@ -3,9 +3,6 @@ module.exports = {
   staticDirs: ['../../public'],
   features: { emotionAlias: false, storyStoreV7: true },
   framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-vite',
-  },
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

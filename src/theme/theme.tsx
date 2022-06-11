@@ -1,7 +1,7 @@
 import React from 'react'
 
-import MuiProvider from './mui/MuiProvider'
+import UsewebTheme from './usewebTheme/UsewebTheme'
 
 export default function Theme({ children }) {
-  return <MuiProvider>{children}</MuiProvider>
+  return <UsewebTheme>{children}</UsewebTheme>
 }

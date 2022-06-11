@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import type { ButtonProps } from '@mui/material/Button'
+import Button, { type ButtonProps } from '@useweb/button'
 
 import IconChevron from '../../../icons/IconChevron'
 import colors from '../../../../../theme/tokens/colors'

@@ -1,5 +1,5 @@
 import React from 'react'
-import Button, { type ButtonProps } from '@mui/material/Button'
+import Button, { type ButtonProps } from '@useweb/button'
 
 export default {
   title: 'Lib/components/Button',

@@ -1,25 +1,26 @@
 const files = [
   {
-    path: ({ name }) => `mui/${name}.mui.ts`,
-    template: ({ name }) => {
+    path: ({ name }) => `${name}.defaults.ts`,
+    template: () => {
       return `// https://mui.com/customization/theme-components/#global-style-overrides
-      // import in src/theme/mui/MuiProvider.jsx
+      // import in src/theme/useweb/UsewebThemeProvider.jsx
+      import { type ComponentDefaultsProps } from '@useweb/theme'
 
-      export default {
-        Mui${name}: {
-          styleOverrides: {
-            root: {
-              backgroundColor: 'red',
-            },
+      const defaults: ComponentDefaultsProps = {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'red',
           },
         },
-      }`
+      }
+      
+      export default defaults`
     },
   },
 ]
 
 const template = {
-  type: 'MUI Override',
+  type: 'Component Defaults',
   files,
 }
 

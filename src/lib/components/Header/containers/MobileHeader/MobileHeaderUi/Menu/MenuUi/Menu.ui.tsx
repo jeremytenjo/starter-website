@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
-import Button from '@mui/material/Button'
+import Button from '@useweb/button'
+import Dialog from '@useweb/dialog'
 
 import IconHamburger from '../../../../../../icons/IconHamburger'
-import Dialog from '../../../../../../Dialog/Dialog'
 import Image from '../../../../../../Image/Image'
 import Link from '../../../../../../Link/Link'
 import Text from '../../../../../../Text/Text'

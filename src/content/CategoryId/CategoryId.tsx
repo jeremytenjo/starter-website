@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 
 import Text from '../../lib/components/Text/Text'
 import ProductsList from '../../lib/components/ProductsList/ProductsList'

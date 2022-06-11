@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 
 import Categories from './containers/Categories/Categories'
 import PopularProducts from './containers/PopularProducts/PopularProducts'

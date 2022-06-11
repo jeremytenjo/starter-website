@@ -5,7 +5,7 @@ const files = [
       const namePascalCase = helpers.changeCase.pascalCase(name)
       const propsName = `${namePascalCase}Props`
       return `import React from 'react'       
-    import Box from '@mui/material/Box'
+    import Box from '@useweb/box'
 
     export type ${propsName} = { name: string }
   

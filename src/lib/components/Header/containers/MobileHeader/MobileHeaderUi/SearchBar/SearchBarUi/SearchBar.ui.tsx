@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 import IconButton from '@mui/material/IconButton'
 
 import IconSearch from '../../../../../../icons/IconSearch'

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 import Button from '@useweb/button'
 import Snackbar from '@mui/material/Snackbar'
 import Alert from '@mui/material/Alert'

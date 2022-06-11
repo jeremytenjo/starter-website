@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 
 import Header, { type HeaderProps } from '../../components/Header/Header'
 import Text from '../../components/Text/Text'

@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 
 import List from '../../../../../lib/components/List/List'
 import type ProductCategoriesSchema from '../../../../../data/products/productCategory/productCategory.schema'

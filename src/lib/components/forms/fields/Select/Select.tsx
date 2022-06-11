@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 import Button, { type ButtonProps } from '@useweb/button'
 
 import IconChevron from '../../../icons/IconChevron'

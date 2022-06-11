@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 import IconButton from '@mui/material/IconButton'
 import Button from '@useweb/button'
 import Dialog from '@useweb/dialog'

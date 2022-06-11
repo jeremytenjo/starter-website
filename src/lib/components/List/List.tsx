@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Box, { type BoxProps } from '@mui/material/Box'
+import Box, { type BoxProps } from '@useweb/box'
 
 // import AdUnit from '../googleAnalytics/AdUnit/AdUnit'
 

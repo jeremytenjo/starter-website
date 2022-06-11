@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import Box, { type BoxProps } from '@mui/material/Box'
+import Box, { type BoxProps } from '@useweb/box'
 
 import List from '../List/List'
 import Form from '../forms/Form/Form'

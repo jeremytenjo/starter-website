@@ -1,6 +1,6 @@
 import React from 'react'
 import NextLink, { type LinkProps } from 'next/link'
-import Box, { type BoxProps } from '@mui/material/Box'
+import Box, { type BoxProps } from '@useweb/box'
 
 type LinkPropsEdited = Omit<LinkProps, 'href'>
 

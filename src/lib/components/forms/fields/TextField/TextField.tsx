@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import Box, { type BoxProps } from '@mui/material/Box'
+import Box, { type BoxProps } from '@useweb/box'
 import { IconButton } from '@mui/material'
 import { useFormContext } from 'react-hook-form'
 

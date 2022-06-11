@@ -28,7 +28,7 @@ const files = [
         .join('')}UiProps`
 
       return `import React from 'react'
-    import Box from '@mui/material/Box'
+    import Box from '@useweb/box'
 
     export type ${propsName} = {
       title: string

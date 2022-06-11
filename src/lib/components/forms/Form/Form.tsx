@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import Box from '@mui/material/Box'
+import Box from '@useweb/box'
 // http://localhost:6006/?path=/story/api-tiktok-watermark-remover--test
 import { FormProvider, useForm, useFormContext } from 'react-hook-form'
 

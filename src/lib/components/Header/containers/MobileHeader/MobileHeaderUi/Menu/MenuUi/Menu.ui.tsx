@@ -160,6 +160,7 @@ const Socials = ({}) => {
 const CloseButton = ({ closeDialog }) => {
   return (
     <Button
+      name='Close Button'
       onClick={closeDialog}
       variant='contained'
       sx={{

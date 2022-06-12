@@ -5,7 +5,7 @@ const colors: any = {
   gradient: {
     primary: 'linear-gradient(83.6deg, #5D59FF 8.71%, #9076FF 98.37%)',
   },
-  grey: { main: '#8c8c8c', light: '#e7e7e7' },
+  grey: { main: '#454545', light: '#e7e7e7' },
   black: {
     main: '#1C1929',
   },

@@ -2,6 +2,7 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { CacheProvider } from '@emotion/react'
+import { SnackbarProvider } from '@useweb/snackbar'
 
 import appconfig from '../../app.config.cjs'
 import ClickToComponent from '../lib/components/ClickToComponent/ClickToComponent'
@@ -9,7 +10,6 @@ import Theme from '../theme/theme'
 import createEmotionCache from '../theme/usewebTheme/utils/createEmotionCache'
 import RootLayout from '../lib/layouts/Root/Root.layout'
 import GoogleAnalytics from '../lib/components/googleAnalytics/GoogleAnalytics'
-import { SnackbarProvider } from '../lib/components/Snackbar/Snackbar'
 import Prismic from '../lib/components/Prismic/Prismic'
 
 // Client-side cache, shared for the whole session of the user in the browser.

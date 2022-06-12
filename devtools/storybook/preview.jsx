@@ -1,8 +1,8 @@
 import React from 'react'
 import { create } from '@storybook/theming'
+import { SnackbarProvider } from '@useweb/snackbar'
 
 import ClickToComponent from '../../src/lib/components/ClickToComponent/ClickToComponent'
-import { SnackbarProvider } from '../../src/lib/components/Snackbar/Snackbar'
 import Prismic from '../../src/lib/components/Prismic/Prismic'
 
 import StorybookTheme from './theme/storybookTheme'

@@ -25,6 +25,7 @@ export default function BuyButton({ storeLink = '/', sx = {} }: BuyButtonProps) 
       }}
     >
       <Button
+        name='Buy Button'
         sx={{
           color: 'white.main',
           backgroundColor: 'primary.main',

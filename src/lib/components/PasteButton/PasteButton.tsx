@@ -37,6 +37,7 @@ export default function PasteButton({
 
   return isClipboardAPIAvailable ? (
     <Button
+      name='Paste Button'
       onClick={getLinkFromClipboard}
       variant='contained'
       sx={{

@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import useEventListener from '@useweb/use-event-listener'
-
-import useMediaQuery, { type UseMediaQueryProps } from '../useMediaQuery'
+import useMediaQuery, { type UseMediaQueryProps } from '@useweb/use-media-query'
 
 export default {
-  title: 'Lib/components/useMediaQuery',
+  title: 'Lib/hooks/useMediaQuery',
 }
 
 const Template = (args) => {

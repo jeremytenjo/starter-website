@@ -3,10 +3,10 @@ import { ThemeProvider, createTheme, type CreateThemeProps } from '@useweb/theme
 
 import colors from '../tokens/colors'
 import { variants as typography } from '../tokens/typography/typography'
-import Button from '../../lib/components/Button/Button.defaults'
-import IconButton from '../../lib/components/IconButton/IconButton.defaults'
-import Dialog from '../../lib/components/Dialog/Dialog.defaults'
-import Alert from '../../lib/components/Alert/Alert.defaults'
+import Button from '../../lib/components/useweb/Button/Button.defaults'
+import IconButton from '../../lib/components/useweb/IconButton/IconButton.defaults'
+import Dialog from '../../lib/components/useweb/Dialog/Dialog.defaults'
+import Alert from '../../lib/components/useweb/Alert/Alert.defaults'
 
 import CssBaseline from './CssBaseline/CssBaseline.defaults'
 

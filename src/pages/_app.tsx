@@ -5,7 +5,7 @@ import { CacheProvider } from '@emotion/react'
 import { SnackbarProvider } from '@useweb/snackbar'
 
 import appconfig from '../../app.config.cjs'
-import ClickToComponent from '../lib/components/ClickToComponent/ClickToComponent'
+import ClickToComponent from '../lib/components/useweb/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/usewebTheme/utils/createEmotionCache'
 import RootLayout from '../lib/layouts/Root/Root.layout'

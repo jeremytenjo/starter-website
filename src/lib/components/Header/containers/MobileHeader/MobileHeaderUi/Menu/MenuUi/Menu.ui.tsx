@@ -55,7 +55,7 @@ const Wrapper = ({ children }) => {
 
 const Trigger = ({ onClick }) => {
   return (
-    <IconButton onClick={onClick} name='Hamburger Icon'>
+    <IconButton onClick={onClick} aria-label='Hamburger Icon'>
       <IconHamburger />
     </IconButton>
   )

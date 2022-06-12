@@ -10,6 +10,9 @@ export type LogoUiProps = {
 export default function LogoUi() {
   return (
     <Wrapper>
+      <span style={{ opacity: '0', position: 'absolute', pointerEvents: 'none' }}>
+        Go home
+      </span>
       <IconLogo
         sx={{
           width: '77px',

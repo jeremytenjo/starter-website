@@ -1,7 +1,7 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
+import Form from '@useweb/form'
 
-import Form from '../../../Form/Form'
 import TextFieldPaste, { type TextFieldPasteProps } from '../TextFieldPaste'
 
 import Docs from './TextFieldPaste.docs.mdx'

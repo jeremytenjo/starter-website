@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@useweb/box'
 
 import TextField from '../TextField/TextField'
-import PasteButton from '../../../PasteButton/PasteButton'
+import PasteButton from '../../../../PasteButton/PasteButton'
 
 export type TextFieldPasteProps = {
   onPaste: (clipboardData: { clipboardData: any }) => any

@@ -1,6 +1,6 @@
 import React from 'react'
+import Form from '@useweb/form'
 
-import Form from '../../../Form/Form'
 import TextField from '../TextField'
 export default {
   title: 'lib/components/Forms/TextField',

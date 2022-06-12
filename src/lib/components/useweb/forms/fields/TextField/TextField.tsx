@@ -4,7 +4,7 @@ import IconButton from '@useweb/icon-button'
 import Text from '@useweb/text'
 import { useFormContext } from 'react-hook-form'
 
-import IconxSmall from '../../../icons/IconxSmall'
+import IconxSmall from '../../../../icons/IconxSmall'
 
 type Props = {
   name: string

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Box from '@useweb/box'
 import Button, { type ButtonProps } from '@useweb/button'
 
-import IconChevron from '../../../icons/IconChevron'
-import colors from '../../../../../theme/tokens/colors'
+import IconChevron from '../../../../icons/IconChevron'
+import colors from '../../../../../../theme/tokens/colors'
 
 type Props = {
   name: string

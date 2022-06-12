@@ -52,6 +52,7 @@
     "@useweb/button": "^2.1.0",
     "@useweb/click-to-component": "^2.0.0",
     "@useweb/dialog": "^1.0.0",
+    "@useweb/form": "^1.0.0",
     "@useweb/icon-button": "^1.0.0",
     "@useweb/linear-progress": "^1.0.0",
     "@useweb/list": "^2.0.0",

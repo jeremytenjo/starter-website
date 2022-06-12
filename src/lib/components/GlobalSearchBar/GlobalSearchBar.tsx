@@ -1,5 +1,5 @@
 import React from 'react'
-import Dialog from '@mui/material/Dialog'
+import Dialog from '@useweb/dialog'
 
 import Autocomplete from '../Autocomplete/Autocomplete'
 import ProductSearchResult from '../ProductSearchResult/ProductSearchResult'

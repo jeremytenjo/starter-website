@@ -2,7 +2,7 @@ import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 import tokens from '../theme/tokens/tokens'
-import setMuiDocumentData from '../theme/usewebTheme/setMuiDocumentData'
+import setMuiDocumentData from '../theme/usewebTheme/utils/setMuiDocumentData'
 
 type DocumentProps = {
   emotionStyleTags: any

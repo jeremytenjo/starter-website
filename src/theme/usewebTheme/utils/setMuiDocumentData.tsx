@@ -1,7 +1,7 @@
 import React from 'react'
 import createEmotionServer from '@emotion/server/create-instance'
 
-import createEmotionCache from './utils/createEmotionCache'
+import createEmotionCache from './createEmotionCache'
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).

@@ -4,7 +4,7 @@ const files = [
   {
     path: () => 'index.ts',
     template: ({ name }) => `import useAsync from '@useweb/use-async'
-    import useSnackbar from '../../../../../lib/components/Snackbar/useSnackbar'
+    import useSnackbar from '@useweb/snackbar'
     import useShowError from '../../../../../lib/components/feedback/useShowError'
     
     export default function ${name}() {

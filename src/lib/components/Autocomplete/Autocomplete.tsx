@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react'
 import Box, { type BoxProps } from '@useweb/box'
+import Text from '@useweb/text'
 
 import List from '../List/List'
 import Form from '../forms/Form/Form'
 import TextFieldPaste from '../forms/fields/TextFieldPaste/TextFieldPaste'
-import Text from '../Text/Text'
 import IconSearch from '../icons/IconSearch'
 
 export type AutocompleteProps = {

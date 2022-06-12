@@ -1,8 +1,8 @@
 import React from 'react'
 import Box from '@useweb/box'
+import Text from '@useweb/text'
 
 import Image from '../Image/Image'
-import Text from '../Text/Text'
 import type ProductSchema from '../../../data/products/product.schema'
 import Link from '../Link/Link'
 import getProductUrlId from '../../../data/products/utils/getProductUrlId/getProductUrlId'

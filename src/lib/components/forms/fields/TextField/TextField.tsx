@@ -2,8 +2,8 @@ import React, { useRef } from 'react'
 import Box, { type BoxProps } from '@useweb/box'
 import { IconButton } from '@mui/material'
 import { useFormContext } from 'react-hook-form'
+import Text from '@useweb/text'
 
-import Text from '../../../Text/Text'
 import IconxSmall from '../../../icons/IconxSmall'
 
 type Props = {

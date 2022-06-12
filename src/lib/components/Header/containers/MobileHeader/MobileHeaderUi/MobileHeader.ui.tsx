@@ -1,7 +1,6 @@
 import React from 'react'
 import Box from '@useweb/box'
-
-import Text from '../../../../Text/Text'
+import Text from '@useweb/text'
 
 import Menu from './Menu/Menu'
 import Logo from './Logo/Logo'

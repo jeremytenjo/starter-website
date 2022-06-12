@@ -1,10 +1,10 @@
 import React from 'react'
 import Box from '@useweb/box'
 import IconButton from '@useweb/icon-button'
+import Text from '@useweb/text'
 
 import List from '../../../../List/List'
 import Image from '../../../../Image/Image'
-import Text from '../../../../Text/Text'
 import Link from '../../../../Link/Link'
 import SocialContacts from '../../../../SocialContacts/SocialContacts'
 import IconSearch from '../../../../icons/IconSearch'

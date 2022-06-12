@@ -1,7 +1,6 @@
 import React from 'react'
 import Box, { type BoxProps } from '@useweb/box'
-
-import Text from '../../../Text/Text'
+import Text from '@useweb/text'
 
 export type AdUnitUiProps = {
   enalbed: boolean

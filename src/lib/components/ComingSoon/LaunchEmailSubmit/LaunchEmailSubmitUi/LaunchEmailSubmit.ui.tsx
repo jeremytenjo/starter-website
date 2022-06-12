@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import Box from '@useweb/box'
 import Button from '@useweb/button'
+import Alert from '@useweb/alert'
 import Snackbar from '@mui/material/Snackbar'
-import Alert from '@mui/material/Alert'
 
 type LaunchEmailSubmitUiProps = {
   onSubmit: any

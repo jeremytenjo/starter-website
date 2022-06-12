@@ -3,11 +3,11 @@ import Box from '@useweb/box'
 import IconButton from '@useweb/icon-button'
 import Button from '@useweb/button'
 import Dialog from '@useweb/dialog'
+import Text from '@useweb/text'
 
 import IconHamburger from '../../../../../../icons/IconHamburger'
 import Image from '../../../../../../Image/Image'
 import Link from '../../../../../../Link/Link'
-import Text from '../../../../../../Text/Text'
 import SocialContacts from '../../../../../../SocialContacts/SocialContacts'
 
 export type MenuUiProps = {

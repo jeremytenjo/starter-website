@@ -1,8 +1,8 @@
 import React from 'react'
 import Box from '@useweb/box'
+import Text from '@useweb/text'
 
 import Header, { type HeaderProps } from '../../components/Header/Header'
-import Text from '../../components/Text/Text'
 
 export type RootLayoutProps = {
   children: any

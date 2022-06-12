@@ -1,6 +1,6 @@
 import React, { useState, createContext, useContext } from 'react'
 import Snackbar, { type SnackbarOrigin } from '@mui/material/Snackbar'
-import Alert, { type AlertColor } from '@mui/material/Alert'
+import Alert, { type AlertColor } from '@useweb/alert'
 import Slide from '@mui/material/Slide'
 
 type Return = {

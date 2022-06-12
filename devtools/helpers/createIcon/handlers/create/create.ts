@@ -7,6 +7,7 @@ type Props = {
   outputPath: string
 }
 
+// keep import { createSvgIcon } from '@mui/material' to avoid big build
 export default async function create({ name, svgString, outputPath }: Props) {
   const svgStringWithoutWidthHeight = await convertSVGToReactSVG({
     svgString,

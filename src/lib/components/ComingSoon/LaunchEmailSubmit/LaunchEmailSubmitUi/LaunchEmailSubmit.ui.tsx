@@ -73,6 +73,7 @@ export default function LaunchEmailSubmitUi({
         />
 
         <Button
+          name='Launch email submit button'
           type='submit'
           sx={{
             backgroundColor: 'black.main',

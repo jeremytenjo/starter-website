@@ -16,6 +16,7 @@ export default function FetchingUi({ onClick, loading, error, result }: Fetching
   return (
     <Box sx={{ p: 2 }}>
       <Button
+        name='Execute Button'
         onClick={onClick}
         sx={{ mb: 2, color: 'black.main', backgroundColor: 'white.main' }}
         variant='contained'

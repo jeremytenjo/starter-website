@@ -30,7 +30,7 @@ export default function Select({
   sx = {},
   color = colors.grey.light,
   onChange,
-  buttonProps = {},
+  buttonProps = { name: 'Select button' },
   value: parentValue,
 }: Props) {
   const [value, setValue] = useState(parentValue || defaultValue)

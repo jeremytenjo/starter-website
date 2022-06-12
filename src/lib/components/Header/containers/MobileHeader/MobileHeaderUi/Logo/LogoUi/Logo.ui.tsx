@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Link from '../../../../../../Link/Link'
-import Image from '../../../../../../Image/Image'
+import IconLogo from '../../../../../../icons/IconLogo'
 
 export type LogoUiProps = {
   title: string
@@ -10,11 +10,11 @@ export type LogoUiProps = {
 export default function LogoUi() {
   return (
     <Wrapper>
-      <Image
-        src='/images/logo/logo.svg'
-        width={77}
-        height={49}
-        alt='OnlyFindz beautiful logo'
+      <IconLogo
+        sx={{
+          width: '77px',
+          height: '49px',
+        }}
       />
     </Wrapper>
   )

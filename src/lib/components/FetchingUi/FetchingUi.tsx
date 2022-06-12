@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from '@useweb/box'
 import Button from '@useweb/button'
-import LinearProgress from '@mui/material/LinearProgress'
+import LinearProgress from '@useweb/linear-progress'
 
 import ReactJson from '../ReactJson/ReactJson'
 

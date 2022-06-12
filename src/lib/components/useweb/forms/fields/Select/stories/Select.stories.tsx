@@ -1,6 +1,7 @@
 import React from 'react'
 import Form from '@useweb/form'
 import Select from '@useweb/select'
+import Button from '@useweb/button'
 
 export default {
   title: 'lib/components/Forms/Select',
@@ -22,6 +23,9 @@ const Template = (args) => {
   return (
     <Form onSubmit={onSubmit}>
       <Select {...args} />
+      <Button type='submit' sx={{ mt: 3 }} name='submit'>
+        Submit
+      </Button>
     </Form>
   )
 }

@@ -4,7 +4,7 @@ import Text from '@useweb/text'
 import List from '@useweb/list'
 import Form from '@useweb/form'
 
-import TextFieldPaste from '../useweb/forms/fields/TextFieldPaste/TextFieldPaste'
+import TextFieldPaste from '../TextFieldPaste/TextFieldPaste'
 import IconSearch from '../icons/IconSearch'
 
 export type AutocompleteProps = {

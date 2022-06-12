@@ -58,6 +58,7 @@
     "@useweb/list": "^2.0.0",
     "@useweb/snackbar": "^1.0.0",
     "@useweb/text": "^2.0.0",
+    "@useweb/textfield": "^1.1.0",
     "@useweb/theme": "^2.7.2",
     "@useweb/use-async": "^3.2.0",
     "@useweb/use-event-listener": "^1.0.0",

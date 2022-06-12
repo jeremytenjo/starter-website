@@ -1,8 +1,8 @@
 import React from 'react'
 import Form from '@useweb/form'
+import Textfield from '@useweb/textfield'
+// import Select from '@useweb/select'
 
-import Textfield from '../../fields/TextField/TextField'
-import Select from '../../fields/Select/Select'
 export default {
   title: 'lib/components/Forms/Form',
   args: {},
@@ -22,7 +22,7 @@ export const Example = {
     return (
       <Form onSubmit={onSubmit}>
         <Textfield name='test-textfield' />
-        <Select label='Season' name='selected_season' options={options} />
+        {/* <Select label='Season' name='selected_season' options={options} /> */}
       </Form>
     )
   },

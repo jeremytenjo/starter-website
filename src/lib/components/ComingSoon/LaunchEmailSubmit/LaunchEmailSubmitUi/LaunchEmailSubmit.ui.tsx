@@ -1,8 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Box from '@useweb/box'
 import Button from '@useweb/button'
-import Alert from '@useweb/alert'
-import Snackbar from '@mui/material/Snackbar'
+import useSnackbar from '@useweb/snackbar'
 
 type LaunchEmailSubmitUiProps = {
   onSubmit: any
@@ -19,9 +18,18 @@ export default function LaunchEmailSubmitUi({
   successMessage,
   errorMessage,
   isSuccess,
-  onClose,
 }: LaunchEmailSubmitUiProps) {
   const emailRef = useRef(null)
+  const snackbar = useSnackbar()
+
+  useEffect(() => {
+    if (showSnackbar) {
+      snackbar.show({
+        message: isSuccess ? successMessage : errorMessage,
+        severity: isSuccess ? 'success' : 'error',
+      })
+    }
+  }, [showSnackbar])
 
   const onSubmittion = (e) => {
     e.preventDefault()
@@ -97,16 +105,6 @@ export default function LaunchEmailSubmitUi({
           Notify Me
         </Button>
       </Box>
-
-      <Snackbar open={showSnackbar} autoHideDuration={6000} onClose={onClose}>
-        <Alert
-          onClose={onClose}
-          severity={isSuccess ? 'success' : 'error'}
-          sx={{ width: '100%' }}
-        >
-          {isSuccess ? successMessage : errorMessage}
-        </Alert>
-      </Snackbar>
     </>
   )
 }

@@ -53,6 +53,7 @@
     "@useweb/click-to-component": "^2.0.0",
     "@useweb/dialog": "^1.0.0",
     "@useweb/icon-button": "^1.0.0",
+    "@useweb/snackbar": "^1.0.0",
     "@useweb/text": "^2.0.0",
     "@useweb/theme": "^2.5.0",
     "@useweb/use-async": "^3.2.0",

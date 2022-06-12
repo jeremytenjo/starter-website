@@ -51,6 +51,7 @@
     "@useweb/button": "^2.1.0",
     "@useweb/click-to-component": "^2.0.0",
     "@useweb/dialog": "^1.0.0",
+    "@useweb/icon-button": "^1.0.0",
     "@useweb/theme": "^2.5.0",
     "@useweb/use-async": "^3.1.0",
     "@useweb/use-event-listener": "^0.2.0",

@@ -1,5 +1,5 @@
 import React from 'react'
-import IconButton, { type IconButtonProps } from '@mui/material/IconButton'
+import IconButton, { type IconButtonProps } from '@useweb/icon-button'
 
 import IconHamburger from '../../icons/IconHamburger'
 

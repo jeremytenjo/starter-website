@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Box from '@useweb/box'
-import IconButton from '@mui/material/IconButton'
+import IconButton from '@useweb/icon-button'
 import Button from '@useweb/button'
 import Dialog from '@useweb/dialog'
 
@@ -55,7 +55,7 @@ const Wrapper = ({ children }) => {
 
 const Trigger = ({ onClick }) => {
   return (
-    <IconButton onClick={onClick} aria-label='Hamburger Icon'>
+    <IconButton onClick={onClick} name='Hamburger Icon'>
       <IconHamburger />
     </IconButton>
   )

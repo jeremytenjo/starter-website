@@ -1,6 +1,6 @@
 import React from 'react'
 import Box from '@useweb/box'
-import IconButton from '@mui/material/IconButton'
+import IconButton from '@useweb/icon-button'
 
 import IconSearch from '../../../../../../icons/IconSearch'
 
@@ -23,7 +23,7 @@ const Wrapper = ({ children }) => {
 const Trigger = ({ onClick }) => {
   return (
     <Box sx={{}}>
-      <IconButton aria-label='Trigger' onClick={onClick}>
+      <IconButton name='Trigger' onClick={onClick}>
         <IconSearch />
       </IconButton>
     </Box>

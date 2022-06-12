@@ -54,6 +54,7 @@
     "@useweb/dialog": "^1.0.0",
     "@useweb/icon-button": "^1.0.0",
     "@useweb/linear-progress": "^1.0.0",
+    "@useweb/list": "^2.0.0",
     "@useweb/snackbar": "^1.0.0",
     "@useweb/text": "^2.0.0",
     "@useweb/theme": "^2.7.2",

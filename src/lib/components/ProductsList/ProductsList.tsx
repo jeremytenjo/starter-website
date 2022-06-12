@@ -1,9 +1,9 @@
 import React from 'react'
 import Box from '@useweb/box'
 import Text from '@useweb/text'
+import List from '@useweb/list'
 
 import type ProductSchema from '../../../data/products/product.schema'
-import List from '../List/List'
 import ProductButton from '../ProductButton/ProductButton'
 
 export type ProductsListProps = { title?: string; products: ProductSchema[] }

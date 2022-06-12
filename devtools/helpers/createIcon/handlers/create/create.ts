@@ -12,7 +12,7 @@ export default async function create({ name, svgString, outputPath }: Props) {
     svgString,
   })
   const svg = `import React from 'react'
-import createSvgIcon from '@useweb/create-svg-icon'
+import { createSvgIcon } from '@mui/material'
 
 export default createSvgIcon(
   ${svgStringWithoutWidthHeight},

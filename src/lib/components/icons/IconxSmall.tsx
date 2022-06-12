@@ -1,5 +1,5 @@
 import React from 'react'
-import createSvgIcon from '@useweb/create-svg-icon'
+import { createSvgIcon } from '@mui/material'
 
 export default createSvgIcon(
   <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>

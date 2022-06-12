@@ -132,6 +132,7 @@ const ActionButtons = ({ onShowSearchBarClick }) => {
         }}
       >
         <IconButton
+          name='Search button'
           sx={{
             width: '32px',
             height: '32px',

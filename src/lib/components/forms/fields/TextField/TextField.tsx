@@ -118,6 +118,7 @@ export default function TextField({
           />
 
           <IconButton
+            name='Textfield button'
             aria-label='reset'
             onClick={clearInput}
             sx={{

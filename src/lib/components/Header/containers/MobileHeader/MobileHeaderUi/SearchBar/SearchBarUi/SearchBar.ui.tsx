@@ -23,7 +23,7 @@ const Wrapper = ({ children }) => {
 const Trigger = ({ onClick }) => {
   return (
     <Box sx={{}}>
-      <IconButton onClick={onClick}>
+      <IconButton name='Trigger' onClick={onClick}>
         <IconSearch />
       </IconButton>
     </Box>

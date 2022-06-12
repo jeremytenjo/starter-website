@@ -27,6 +27,7 @@ export default function SocialContactsUi({ accountLinks }: SocialContactsUiProps
         return (
           <Link key={accountLink.url} href={accountLink.url} newTab>
             <IconButton
+              name='social button'
               sx={{
                 width: '32px',
                 height: '32px',

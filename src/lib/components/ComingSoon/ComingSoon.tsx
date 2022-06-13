@@ -1,10 +1,10 @@
 import React from 'react'
 import Box from '@useweb/box'
 import Text from '@useweb/text'
+import Link from '@useweb/link-next'
 
 import Image from '../Image/Image'
 import IconTikTok from '../icons/IconTikTok'
-import Link from '../Link/Link'
 
 export default function ComingSoon() {
   return (

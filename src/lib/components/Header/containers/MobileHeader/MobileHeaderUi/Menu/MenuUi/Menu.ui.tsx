@@ -4,10 +4,10 @@ import IconButton from '@useweb/icon-button'
 import Button from '@useweb/button'
 import Dialog from '@useweb/dialog'
 import Text from '@useweb/text'
+import Link from '@useweb/link-next'
 
 import IconHamburger from '../../../../../../icons/IconHamburger'
 import Image from '../../../../../../Image/Image'
-import Link from '../../../../../../Link/Link'
 import SocialContacts from '../../../../../../SocialContacts/SocialContacts'
 
 export type MenuUiProps = {

@@ -1,6 +1,6 @@
 import React from 'react'
+import Link from '@useweb/link-next'
 
-import Link from '../../../../../../Link/Link'
 import IconLogo from '../../../../../../icons/IconLogo'
 
 export type LogoUiProps = {

@@ -9,6 +9,7 @@ import Dialog from '../../lib/components/useweb/Dialog/Dialog.defaults'
 import Alert from '../../lib/components/useweb/Alert/Alert.defaults'
 import Select from '../../lib/components/useweb/forms/fields/Select/Select.defaults'
 import Textfield from '../../lib/components/useweb/forms/fields/TextField/Textfield.defaults'
+import Link from '../../lib/components/useweb/Link/Link.defaults'
 
 import CssBaseline from './CssBaseline/CssBaseline.defaults'
 
@@ -24,6 +25,7 @@ const themeData: CreateThemeProps = {
     Alert,
     Select,
     Textfield,
+    Link,
   },
 }
 

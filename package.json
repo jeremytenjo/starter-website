@@ -52,6 +52,8 @@
     "@useweb/box": "^3.0.4",
     "@useweb/button": "^2.2.0",
     "@useweb/click-to-component": "^2.0.0",
+    "@useweb/design-system-palette": "^1.0.0",
+    "@useweb/design-system-typography": "^1.0.0",
     "@useweb/dialog": "^1.0.0",
     "@useweb/fetch-tester": "^1.0.0",
     "@useweb/form": "^1.0.0",

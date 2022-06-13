@@ -2,9 +2,9 @@ import React from 'react'
 import Box from '@useweb/box'
 import Text from '@useweb/text'
 import Link from '@useweb/link-next'
+import Image from '@useweb/image-next'
 
 import type ProductSchema from '../../../data/products/product.schema'
-import Image from '../Image/Image'
 import getProductUrlId from '../../../data/products/utils/getProductUrlId/getProductUrlId'
 import BuyButton from '../BuyButton/BuyButton'
 

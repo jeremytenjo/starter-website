@@ -5,9 +5,9 @@ import Button from '@useweb/button'
 import Dialog from '@useweb/dialog'
 import Text from '@useweb/text'
 import Link from '@useweb/link-next'
+import Image from '@useweb/image-next'
 
 import IconHamburger from '../../../../../../icons/IconHamburger'
-import Image from '../../../../../../Image/Image'
 import SocialContacts from '../../../../../../SocialContacts/SocialContacts'
 
 export type MenuUiProps = {

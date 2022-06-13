@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-
-import Image, { type ImageProps } from '../Image'
+import Image, { type ImageProps } from '@useweb/image-next'
 
 import Docs from './Image.docs.mdx'
 

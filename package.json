@@ -48,6 +48,7 @@
     "@prismicio/react": "^2.3.0",
     "@prismicio/slice-simulator-react": "^0.2.2",
     "@useweb/alert": "^1.1.0",
+    "@useweb/async-tester": "^2.0.0",
     "@useweb/box": "^3.0.4",
     "@useweb/button": "^2.2.0",
     "@useweb/click-to-component": "^2.0.0",
@@ -73,8 +74,7 @@
     "plaiceholder": "^2.3.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-hook-form": "^7.32.0",
-    "react-json-view": "^1.21.3"
+    "react-hook-form": "^7.32.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",

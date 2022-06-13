@@ -11,13 +11,9 @@ const getStoryTemplate = ({ name, type = 'component', helpers }) => {
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
+${isFunction ? `import AsyncTester from '@useweb/async-tester'` : ''}
 
 import ${name}, { type ${propsName} } from '../${name}'
-${
-  isFunction
-    ? `import AsyncTester from '../../lib/components/data/AsyncTester/AsyncTester'`
-    : ''
-}
 
 import Docs from './${name}.docs.mdx'
 

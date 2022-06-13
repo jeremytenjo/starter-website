@@ -75,10 +75,9 @@ const files = [
 
       return `// https://storybook.js.org/docs/react/api/argtypes
       import React from 'react'
-      
       import AsyncTester, {
         type AsyncTesterProps,
-      } from '../../../lib/components/data/AsyncTester/AsyncTester'
+      } from '@useweb/async-tester'
       
       import get${upperName} from './get${upperName}.prismic'
       

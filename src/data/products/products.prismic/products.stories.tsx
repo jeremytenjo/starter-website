@@ -1,9 +1,6 @@
 // https://storybook.js.org/docs/react/api/argtypes
 import React from 'react'
-
-import AsyncTester, {
-  type AsyncTesterProps,
-} from '../../../lib/components/data/AsyncTester/AsyncTester'
+import AsyncTester, { type AsyncTesterProps } from '@useweb/async-tester'
 
 import getProductCategories from './getProductCategories.prismic'
 import getProducts from './getProducts.prismic'

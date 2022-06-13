@@ -1,17 +1,34 @@
+//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 import Form from '@useweb/form'
-import Select from '@useweb/select'
-import Button from '@useweb/button'
+import Button from '@mui/material/Button'
+import Select, { type SelectProps } from '@useweb/select'
+
+import Docs from './Select.docs.mdx'
+
+const defaultArgs: SelectProps = {
+  name: 'season',
+  label: 'Season',
+  options: [
+    {
+      label: 'Season 1',
+      value: 1,
+    },
+    {
+      label: 'Season 2',
+      value: 2,
+    },
+  ],
+}
 
 export default {
-  title: 'lib/components/Forms/Select',
-  args: {
-    options: [
-      {
-        label: 'Season 1',
-        value: 1,
-      },
-    ],
+  title: 'Lib/components/forms/Select',
+  args: defaultArgs,
+  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
+  parameters: {
+    docs: {
+      page: Docs,
+    },
   },
 }
 
@@ -21,13 +38,26 @@ const Template = (args) => {
   }
 
   return (
-    <Form onSubmit={onSubmit}>
-      <Select {...args} />
-      <Button type='submit' sx={{ mt: 3 }} name='submit'>
-        Submit
-      </Button>
-    </Form>
+    <>
+      <Form onSubmit={onSubmit} sx={{ display: 'grid', gap: 2 }}>
+        <Select {...args} />
+        <Button type='submit'>Submit</Button>
+      </Form>
+    </>
   )
 }
 
-export const Example = Template.bind({}) as any
+export const Default = {
+  render: (args) => {
+    return <Template {...args} />
+  },
+}
+
+// const variantArgs: SelectProps = {
+//  name: 'World',
+// }
+
+// export const Variant = {
+//  ...Default,
+//  args: variantArgs
+// }

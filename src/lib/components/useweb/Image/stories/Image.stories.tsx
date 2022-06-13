@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-import Image, { type ImageProps } from '@useweb/image-next'
+import Image, { type ImageProps } from 'next/image'
 
 import Docs from './Image.docs.mdx'
 
@@ -27,7 +27,7 @@ const Template = (args) => {
 export const Default = Template.bind({}) as any
 
 const defaultArgs: ImageProps = {
-  src: '/images/test/product-image.webp',
+  src: '/images/logo/assets/logo.png',
   width: 100,
   height: 100,
   alt: 'hello',

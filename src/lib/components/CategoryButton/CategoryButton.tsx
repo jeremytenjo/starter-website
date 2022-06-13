@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@useweb/box'
 import Text from '@useweb/text'
 import Link from '@useweb/link-next'
-import Image from '@useweb/image-next'
+import Image from 'next/image'
 
 import type ProductCategoriesSchema from '../../../data/products/productCategory/productCategory.schema'
 import getProductCategoriesUrlId from '../../../data/products/productCategory/getProductCategoryUrlId/getProductCategoryUrlId'

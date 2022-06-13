@@ -5,7 +5,7 @@ import Button from '@useweb/button'
 import Dialog from '@useweb/dialog'
 import Text from '@useweb/text'
 import Link from '@useweb/link-next'
-import Image from '@useweb/image-next'
+import Image from 'next/image'
 
 import IconHamburger from '../../../../../../icons/IconHamburger'
 import SocialContacts from '../../../../../../SocialContacts/SocialContacts'

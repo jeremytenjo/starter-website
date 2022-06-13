@@ -4,7 +4,7 @@ import IconButton from '@useweb/icon-button'
 import Text from '@useweb/text'
 import List from '@useweb/list'
 import Link from '@useweb/link-next'
-import Image from '@useweb/image-next'
+import Image from 'next/image'
 
 import SocialContacts from '../../../../SocialContacts/SocialContacts'
 import IconSearch from '../../../../icons/IconSearch'

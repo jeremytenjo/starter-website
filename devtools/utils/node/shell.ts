@@ -14,7 +14,7 @@ type Props = string | string[]
 export default async function shell(commands: Props) {
   const _commands = typeof commands === 'string' ? [commands] : commands
 
-  const { result } = concurrently(_commands, {
+  const { result } = await concurrently(_commands, {
     prefix: 'none',
   })
 

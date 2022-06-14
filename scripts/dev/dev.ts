@@ -25,7 +25,7 @@ export default function dev() {
   const dataSource = scriptArgs.dataSource || 'dev'
 
   const commands = [
-    `DATA_SOURCE=${dataSource} node --loader ts-node/esm node_modules/.bin/next dev`,
+    `DATA_SOURCE=${dataSource} node --experimental-json-modules --loader ts-node/esm node_modules/.bin/next dev`,
   ]
 
   if (!scriptArgs.onlyApp) {

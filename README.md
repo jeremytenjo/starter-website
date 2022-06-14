@@ -2,6 +2,12 @@
 
 A modern, highly scalable website with the best developer experience.
 
+## Usage
+
+```sh
+npm run dev
+```
+
 ## Tech
 
 - Nextjs

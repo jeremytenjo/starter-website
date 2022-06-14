@@ -25,6 +25,8 @@ export default async () => {
   return nextConfig
 }
 
+// Needed in order to import ES Modules from node_modules.
+// Nextjs has an open RFC to support this feature https://github.com/vercel/next.js/discussions/27953
 const transpileESMNodeModules = ({ config }) => {
   const transpiledPackages = Object.keys(packageJSON.dependencies).filter((it) =>
     it.includes('@useweb/'),

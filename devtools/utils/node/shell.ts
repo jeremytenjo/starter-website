@@ -19,5 +19,6 @@ export default async function shell(commands: Props) {
   })
 
   await result
+
   return result
 }

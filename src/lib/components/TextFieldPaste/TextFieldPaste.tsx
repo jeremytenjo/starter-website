@@ -1,6 +1,6 @@
 import React from 'react'
-import Box from '@useweb/box'
-import TextField from '@useweb/textfield'
+import Box from '@useweb/ui/Box'
+import TextField from '@useweb/ui/Textfield'
 
 import PasteButton from '../PasteButton/PasteButton'
 

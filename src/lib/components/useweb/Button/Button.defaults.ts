@@ -1,6 +1,6 @@
 // https://mui.com/customization/theme-components/#global-style-overrides
 // import in src/theme/mui/MuiProvider.jsx
-import { type ComponentDefaultsProps } from '@useweb/theme'
+import { type ComponentDefaultsProps } from '@useweb/ui/Theme'
 
 const defaults: ComponentDefaultsProps = {
   styleOverrides: {
@@ -10,7 +10,6 @@ const defaults: ComponentDefaultsProps = {
       width: '100%',
       textTransform: 'none' as const,
       fontFamily: 'PoppinsRegular',
-      color: 'black.main',
       backgroundColor: 'white',
       '&:hover': {
         backgroundColor: 'white',

@@ -1,7 +1,7 @@
 import React from 'react'
-import Box from '@useweb/box'
-import IconButton from '@useweb/icon-button'
-import Link from '@useweb/link-next'
+import Box from '@useweb/ui/Box'
+import IconButton from '@useweb/ui/IconButton'
+import Link from '@useweb/ui/LinkNext'
 
 export type SocialContactsUiProps = {
   accountLinks: {

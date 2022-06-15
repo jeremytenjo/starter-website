@@ -1,6 +1,6 @@
 import React from 'react'
-import Box from '@useweb/box'
-import IconButton from '@useweb/icon-button'
+import Box from '@useweb/ui/Box'
+import IconButton from '@useweb/ui/IconButton'
 
 import IconSearch from '../../../../../../icons/IconSearch'
 

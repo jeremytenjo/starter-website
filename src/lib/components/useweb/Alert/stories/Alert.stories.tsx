@@ -1,5 +1,5 @@
 import React from 'react'
-import Alert, { type AlertProps } from '@useweb/alert'
+import Alert, { type AlertProps } from '@useweb/ui/Alert'
 
 export default {
   title: 'Lib/components/Alert',

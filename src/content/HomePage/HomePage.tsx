@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '@useweb/box'
+import Box from '@useweb/ui/Box'
 
 import Categories from './containers/Categories/Categories'
 import PopularProducts from './containers/PopularProducts/PopularProducts'

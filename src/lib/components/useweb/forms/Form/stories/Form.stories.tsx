@@ -1,7 +1,7 @@
 import React from 'react'
-import Form from '@useweb/form'
-import Textfield from '@useweb/textfield'
-import Select from '@useweb/select'
+import Form from '@useweb/ui/Form'
+import Textfield from '@useweb/ui/Textfield'
+import Select from '@useweb/ui/Select'
 
 export default {
   title: 'lib/components/Forms/Form',

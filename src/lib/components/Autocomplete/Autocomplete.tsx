@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react'
-import Box, { type BoxProps } from '@useweb/box'
-import Text from '@useweb/text'
-import List from '@useweb/list'
-import Form from '@useweb/form'
+import Box, { type BoxProps } from '@useweb/ui/Box'
+import Text from '@useweb/ui/Text'
+import List from '@useweb/ui/List'
+import Form from '@useweb/ui/Form'
 
 import TextFieldPaste from '../TextFieldPaste/TextFieldPaste'
 import IconSearch from '../icons/IconSearch'

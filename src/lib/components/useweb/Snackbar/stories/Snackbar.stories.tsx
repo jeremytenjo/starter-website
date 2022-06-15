@@ -1,5 +1,5 @@
 import React from 'react'
-import useSnackbar, { SnackbarProvider } from '@useweb/snackbar'
+import useSnackbar, { SnackbarProvider } from '@useweb/ui/Snackbar'
 
 export default {
   title: 'lib/components/Snackbar',

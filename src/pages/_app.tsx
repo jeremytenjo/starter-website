@@ -2,7 +2,7 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { CacheProvider } from '@emotion/react'
-import { SnackbarProvider } from '@useweb/snackbar'
+import { SnackbarProvider } from '@useweb/ui/Snackbar'
 
 import appconfig from '../../app.config.cjs'
 import ClickToComponent from '../lib/components/useweb/ClickToComponent/ClickToComponent'

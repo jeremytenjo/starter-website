@@ -1,7 +1,7 @@
 import React from 'react'
-import Box from '@useweb/box'
-import Text from '@useweb/text'
-import List from '@useweb/list'
+import Box from '@useweb/ui/Box'
+import Text from '@useweb/ui/Text'
+import List from '@useweb/ui/List'
 
 import type ProductSchema from '../../../data/products/product.schema'
 import ProductButton from '../ProductButton/ProductButton'

@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from '@useweb/design-system-typography'
+import Typography from '@useweb/ui/DesignSystemTypography'
 
 import { variantNames } from '../typography/typography'
 

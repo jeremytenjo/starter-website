@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Box from '@useweb/box'
+import Box from '@useweb/ui/Box'
 
 import GlobalSearchBar from '../GlobalSearchBar/GlobalSearchBar'
 import type ProductSchema from '../../../data/products/product.schema'

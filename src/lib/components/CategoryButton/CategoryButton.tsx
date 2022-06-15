@@ -1,7 +1,7 @@
 import React from 'react'
-import Box from '@useweb/box'
-import Text from '@useweb/text'
-import Link from '@useweb/link-next'
+import Box from '@useweb/ui/Box'
+import Text from '@useweb/ui/Text'
+import Link from '@useweb/ui/LinkNext'
 import Image from 'next/image'
 
 import type ProductCategoriesSchema from '../../../data/products/productCategory/productCategory.schema'

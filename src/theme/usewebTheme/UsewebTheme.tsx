@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider, createTheme, type CreateThemeProps } from '@useweb/theme'
+import { ThemeProvider, createTheme, type CreateThemeProps } from '@useweb/ui/Theme'
 
 import colors from '../tokens/colors'
 import { variants as typography } from '../tokens/typography/typography'

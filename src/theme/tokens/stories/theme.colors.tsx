@@ -1,5 +1,5 @@
 import React from 'react'
-import Palette from '@useweb/design-system-palette'
+import Palette from '@useweb/ui/DesignSystemPalette'
 
 import colors from '../colors'
 

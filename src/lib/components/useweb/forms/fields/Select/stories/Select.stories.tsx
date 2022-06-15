@@ -1,8 +1,8 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-import Form from '@useweb/form'
+import Form from '@useweb/ui/Form'
 import Button from '@mui/material/Button'
-import Select, { type SelectProps } from '@useweb/select'
+import Select, { type SelectProps } from '@useweb/ui/Select'
 
 import Docs from './Select.docs.mdx'
 

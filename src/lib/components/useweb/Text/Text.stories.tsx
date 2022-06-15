@@ -1,6 +1,6 @@
 /* eslint-disable storybook/prefer-pascal-case */
 import React from 'react'
-import Text, { type TextProps } from '@useweb/text'
+import Text, { type TextProps } from '@useweb/ui/Text'
 
 import Typography from '../../../../theme/tokens/stories/theme.typography'
 

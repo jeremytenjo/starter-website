@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Button, { type ButtonProps } from '@useweb/button'
+import Button, { type ButtonProps } from '@useweb/ui/Button'
 
 export type PasteButtonProps = {
   text?: string

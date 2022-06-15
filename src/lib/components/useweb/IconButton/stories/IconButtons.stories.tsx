@@ -1,5 +1,5 @@
 import React from 'react'
-import IconButton, { type IconButtonProps } from '@useweb/icon-button'
+import IconButton, { type IconButtonProps } from '@useweb/ui/IconButton'
 
 import IconHamburger from '../../../icons/IconHamburger'
 

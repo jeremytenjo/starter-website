@@ -1,4 +1,4 @@
-import { type ComponentDefaultsProps } from '@useweb/theme'
+import { type ComponentDefaultsProps } from '@useweb/ui/Theme'
 
 import colors from '../../tokens/colors'
 

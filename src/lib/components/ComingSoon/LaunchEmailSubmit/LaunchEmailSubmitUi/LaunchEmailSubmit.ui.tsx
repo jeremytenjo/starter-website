@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
-import Box from '@useweb/box'
-import Button from '@useweb/button'
-import useSnackbar from '@useweb/snackbar'
+import Box from '@useweb/ui/Box'
+import Button from '@useweb/ui/Button'
+import useSnackbar from '@useweb/ui/Snackbar'
 
 type LaunchEmailSubmitUiProps = {
   onSubmit: any

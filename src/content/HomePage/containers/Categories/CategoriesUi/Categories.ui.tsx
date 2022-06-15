@@ -1,6 +1,6 @@
 import React from 'react'
-import Box from '@useweb/box'
-import List from '@useweb/list'
+import Box from '@useweb/ui/Box'
+import List from '@useweb/ui/List'
 
 import type ProductCategoriesSchema from '../../../../../data/products/productCategory/productCategory.schema'
 import CategoryButton from '../../../../../lib/components/CategoryButton/CategoryButton'

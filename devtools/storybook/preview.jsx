@@ -1,6 +1,6 @@
 import React from 'react'
 import { create } from '@storybook/theming'
-import { SnackbarProvider } from '@useweb/snackbar'
+import { SnackbarProvider } from '@useweb/ui/Snackbar'
 import * as NextImage from 'next/image'
 
 import ClickToComponent from '../../src/lib/components/useweb/ClickToComponent/ClickToComponent'

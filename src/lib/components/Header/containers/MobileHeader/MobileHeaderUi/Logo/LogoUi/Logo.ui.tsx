@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from '@useweb/link-next'
+import Link from '@useweb/ui/LinkNext'
 
 import IconLogo from '../../../../../../icons/IconLogo'
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import Textfield from '@useweb/ui/Textfield'
 
 import getrootLayoutData from '../data/getRootLayoutData/getRootLayoutData'
 import HomePageContent from '../content/HomePage/HomePage'
@@ -8,7 +7,6 @@ import getProductCategories from '../data/products/productCategory/productCatego
 import getPopularProducts from '../data/products/popularProducts/getPopularProducts/getPopularProducts'
 
 export default function HomePage(props) {
-  console.log({ Textfield })
   return (
     <>
       <HomePagePropsProvider pageProps={props}>

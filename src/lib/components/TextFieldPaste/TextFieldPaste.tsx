@@ -1,6 +1,7 @@
 import React from 'react'
-import Box from '@useweb/ui/Box'
+import Box from '@mui/material/Box'
 import TextField from '@useweb/ui/Textfield'
+import { useFormContext } from 'react-hook-form'
 
 import PasteButton from '../PasteButton/PasteButton'
 
@@ -25,6 +26,8 @@ export default function TextFieldPaste({
   LeftIcon,
   inputProps = {},
 }: TextFieldPasteProps) {
+  const form = useFormContext()
+
   const getLinkFromClipboard = ({ clipboardData, updateTextFieldValue }) => {
     try {
       onPaste({ clipboardData })
@@ -33,15 +36,20 @@ export default function TextFieldPaste({
       console.log(error)
     }
   }
+  const updateTextFieldValue = (value) => {
+    form.setValue(name, value)
+  }
 
   return (
     <Box
+      data-id='TextFieldPaste'
       sx={{
         display: 'grid',
         gridAutoFlow: 'column',
         justifyContent: 'space-between',
         gridTemplateColumns: '1fr fit-content(100%)',
         gap: 1,
+        width: '100%',
       }}
     >
       <TextField
@@ -59,15 +67,12 @@ export default function TextFieldPaste({
           autoComplete: 'off',
           ...inputProps,
         }}
-        Sibling={({ updateTextFieldValue }) => {
-          return (
-            <PasteButton
-              onPaste={({ clipboardData }) =>
-                getLinkFromClipboard({ clipboardData, updateTextFieldValue })
-              }
-            />
-          )
-        }}
+      />
+
+      <PasteButton
+        onPaste={({ clipboardData }) =>
+          getLinkFromClipboard({ clipboardData, updateTextFieldValue })
+        }
       />
     </Box>
   )

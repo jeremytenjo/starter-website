@@ -24,7 +24,7 @@
     "tests:unit:ci": "vitest --config ./devtools/testing/vitest/vitest.config.ts --run --passWithNoTests",
     "tests:eslint": "eslint ./ --fix",
     "tests:ts-types": "tsc --noemit",
-    "tests:everything": "npm run tests:eslint && npm run tests:ts-types && npm run tests:unit:ci",
+    "tests:all": "npm run tests:eslint && npm run tests:ts-types && npm run tests:unit:ci",
     "prettify": "node --loader  ts-node/esm ./devtools/prettier/scripts/runPrettier/runPrettier.ts",
     "helpers:generate-logo-assets": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
     "helpers:create-icon": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",

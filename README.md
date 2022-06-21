@@ -1,6 +1,10 @@
-# Website starter
+<p align="center">
+  <a href="https://hayletenjo.com/" rel="noopener" target="_blank"><img width="100" src="https://github.com/jeremytenjo/starter-website/blob/main/public/images/logo/logo.svg" alt="Create Modern App Logo"></a></p>
+</p>
 
-A modern, highly scalable website with the best developer experience.
+<h1 align="center">Website Starter</h1>
+
+<p align="center">A modern, highly scalable website with the best developer experience.</p>
 
 ## Usage
 

@@ -59,7 +59,7 @@ export default function TextFieldPaste({
         onChange={onChange}
         onInputClear={onInputClear}
         LeftIcon={LeftIcon}
-        wrapperSx={{
+        sx={{
           width: '100%',
           mb: 2,
         }}

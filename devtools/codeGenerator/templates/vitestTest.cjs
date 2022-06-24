@@ -1,4 +1,5 @@
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
+// https://vitest.dev/api/
 const files = [
   {
     path: ({ name }) => `${name}.test.ts`,

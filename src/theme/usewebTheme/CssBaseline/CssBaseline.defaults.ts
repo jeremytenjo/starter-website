@@ -41,6 +41,7 @@ const defaults: ComponentDefaultsProps = {
 
   body::-webkit-scrollbar-thumb {
     background-color: #C1C1C1;
+    border-radius: 10px;
   }
 
   p,

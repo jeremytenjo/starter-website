@@ -31,6 +31,18 @@ const defaults: ComponentDefaultsProps = {
     background-color: ${colors.backgroundColor};
   }
 
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  body {
+    scrollbar-width: thin;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #C1C1C1;
+  }
+
   p,
   h1,
   h2,

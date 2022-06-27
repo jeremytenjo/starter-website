@@ -62,6 +62,9 @@ export default function TextFieldPaste({
         sx={{
           width: '100%',
           mb: 2,
+          '& > div': {
+            border: 'none',
+          },
         }}
         inputProps={{
           autoComplete: 'off',

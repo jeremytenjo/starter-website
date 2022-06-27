@@ -20,7 +20,15 @@ export default function MyApp(props) {
 
   return (
     <>
+      <ClickToComponent />
+      <GoogleAnalytics />
+
       <Head>
+        <meta property='og:image:alt' content={`${appconfig.siteInfo.name} logo`} />
+        <meta name='viewport' content='initial-scale=1, width=device-width' />
+        <meta name='author' content='Jeremy Tenjo' />
+        {/* vercel staging sites will always have no index */}
+        <meta name='robots' content='index, follow' />
         <title>{appconfig.siteInfo.title}</title>
         <meta name='description' content={appconfig.siteInfo.description} />
         <meta property='og:url' content={appconfig.siteInfo.domain} />
@@ -31,21 +39,9 @@ export default function MyApp(props) {
           property='og:image'
           content={`${appconfig.siteInfo.domain}/images/logo/logo.svg`}
         />
-        <meta property='og:image:alt' content={`${appconfig.siteInfo.name} logo`} />
       </Head>
 
-      <ClickToComponent />
-
       <CacheProvider value={emotionCache}>
-        <GoogleAnalytics />
-
-        <Head>
-          <meta name='viewport' content='initial-scale=1, width=device-width' />
-          <meta name='author' content='Jeremy Tenjo' />
-          {/* vercel staging sites will always have no index */}
-          <meta name='robots' content='index, follow' />
-        </Head>
-
         <Theme>
           <Prismic>
             <SnackbarProvider>

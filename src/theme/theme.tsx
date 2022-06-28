@@ -1,7 +1,7 @@
 import React from 'react'
 
-import UsewebTheme from './usewebTheme/UsewebTheme'
+import UiTheme from './UiTheme/UiTheme'
 
 export default function Theme({ children }) {
-  return <UsewebTheme>{children}</UsewebTheme>
+  return <UiTheme>{children}</UiTheme>
 }

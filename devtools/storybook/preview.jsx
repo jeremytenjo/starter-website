@@ -4,7 +4,7 @@ import { SnackbarProvider } from '@useweb/ui/Snackbar'
 import * as NextImage from 'next/image'
 
 import ClickToComponent from '../../src/lib/components/useweb/ClickToComponent/ClickToComponent'
-import Prismic from '../../src/lib/components/Prismic/Prismic'
+import Prismic from '../../src/lib/components/integrations/Prismic/Prismic'
 
 import StorybookTheme from './theme/storybookTheme'
 

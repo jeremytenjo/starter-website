@@ -56,7 +56,7 @@
     "@useweb/use-event-listener": "^1.2.0",
     "@useweb/use-fetch": "^1.4.0",
     "emotion-theming": "^11.0.0",
-    "next": "^12.1.7-canary.24",
+    "next": "^12.1.7-canary.51",
     "next-transpile-modules": "^9.0.0",
     "plaiceholder": "^2.3.0",
     "react": "^18.1.0",

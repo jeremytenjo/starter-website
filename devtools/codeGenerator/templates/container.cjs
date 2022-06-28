@@ -1,16 +1,10 @@
 const files = [
   {
     path: ({ name }) => `${name}.tsx`,
-    template: ({ name, helpers }) => {
-      const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
-
+    template: ({ name }) => {
       return `import React from 'react'
     
     import ${name}Ui from './${name}Ui/${name}.ui'
-
-    type ${propsName} = { 
-      title: string 
-    }
     
     export default function ${name}() {
       const title = '${name}'  

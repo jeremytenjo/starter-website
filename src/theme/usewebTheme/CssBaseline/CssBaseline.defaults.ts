@@ -1,6 +1,6 @@
-import { type ComponentDefaultsProps } from '@useweb/ui/Theme'
+import { type ComponentDefaultsProps } from "@useweb/ui-theme";
 
-import colors from '../../tokens/colors'
+import colors from "../../tokens/colors";
 
 const defaults: ComponentDefaultsProps = {
   styleOverrides: `
@@ -98,6 +98,6 @@ const defaults: ComponentDefaultsProps = {
   }
 
 `,
-}
+};
 
-export default defaults
+export default defaults;

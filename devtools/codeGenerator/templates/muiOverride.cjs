@@ -4,7 +4,7 @@ const files = [
     template: () => {
       return `// https://mui.com/customization/theme-components/#global-style-overrides
       // import in src/theme/useweb/UsewebThemeProvider.jsx
-      import { type ComponentDefaultsProps } from '@useweb/ui/Theme'
+      import { type ComponentDefaultsProps } from '@useweb/ui-theme'
 
       const defaults: ComponentDefaultsProps = {
         styleOverrides: {
@@ -14,17 +14,17 @@ const files = [
         },
       }
       
-      export default defaults`
+      export default defaults`;
     },
   },
-]
+];
 
 const template = {
-  type: 'Component Defaults',
+  type: "Component Defaults",
   files,
-}
+};
 
 module.exports = {
   files,
   template,
-}
+};

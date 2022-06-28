@@ -1,7 +1,8 @@
 import React from 'react'
 
-import GoogleAnalyticsScripts from '../../../../utils/googleAnalytics/GoogleAnalyticsScripts/GoogleAnalyticsScripts'
 import googleAnalyticsConfig from '../../../../../services/googleAnalytics/googleAnalytics.config'
+
+import GoogleAnalyticsScripts from './GoogleAnalyticsScripts/GoogleAnalyticsScripts'
 
 export default function GoogleAnalytics() {
   return (

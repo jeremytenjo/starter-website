@@ -5,7 +5,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  ignorePatterns: ['node_modules', 'build', '.env', 'ios', 'android', 'dist'],
+  ignorePatterns: ['node_modules', 'build', '.env', 'dist'],
   plugins: ['react', 'react-hooks', 'import'],
   extends: [
     'next/core-web-vitals',

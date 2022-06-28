@@ -43,7 +43,6 @@ const files = [
       return `
       import ${name}Stubs from '../${name}.stubs'
       import type ${upperName}Schema from '../${name}.schema'
-
       import getData from '../../utils/data/getData/getData'
       
       export default async function get${upperName}() {
@@ -79,7 +78,7 @@ const files = [
         type AsyncTesterProps,
       } from '@useweb/async-tester'
       
-      import get${upperName} from './get${upperName}.prismic'
+      import get${upperName} from './${name}.api/get${upperName}'
       
       export default {
         title: 'api/${name}/prismic',

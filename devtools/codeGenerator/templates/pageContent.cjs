@@ -31,7 +31,7 @@ export default function ${name}Content() {
       return `import React, { createContext, useContext } from 'react'
 
       export type ${typesName} = {
-        title: string
+        ${name}s: any[]
       }
       
       export const ${upperName}Context = createContext<${typesName}>(null as any)

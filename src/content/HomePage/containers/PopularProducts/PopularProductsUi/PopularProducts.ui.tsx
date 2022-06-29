@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@useweb/ui/Box'
 
 import type ProductSchema from '../../../../../data/products/product.schema'
-import ProductsList from '../../../../../lib/components/ProductsList/ProductsList'
+import ProductsList from '../../../../../lib/components/basic/ProductsList/ProductsList'
 
 export type PopularProductsUiProps = {
   popularProducts: ProductSchema[]

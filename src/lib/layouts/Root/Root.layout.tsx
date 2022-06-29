@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@useweb/ui/Box'
 import Text from '@useweb/ui/Text'
 
-import Header, { type HeaderProps } from '../../components/Header/Header'
+import Header, { type HeaderProps } from '../../components/basic/Header/Header'
 
 export type RootLayoutProps = {
   children: any

@@ -3,14 +3,15 @@ const files = [
     path: () => `index.tsx`,
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+      const contentPageName = `${upperName}Page`
+      const propsProviderName = `${contentPageName}PropsProvider`
       const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
-      const propsProviderName = `${upperName}PropsProvider`
 
       return `import React from 'react' 
 import Head from 'next/head'
 
-import ${upperName}Content from '../../content/${upperName}/${upperName}'
-import { ${propsProviderName} } from '../content/${upperName}/use${upperName}Props/use${upperName}Props'
+import ${contentPageName}Content from '../../content/${contentPageName}/${contentPageName}'
+import { ${propsProviderName} } from '../../content/${contentPageName}/use${contentPageName}Props/use${contentPageName}Props'
 
 export type ${propsName} = {
   data: any[]
@@ -23,7 +24,7 @@ export type ${propsName} = {
        </Head>
       
        <${propsProviderName} pageProps={props} >
-        <${upperName}Content />
+        <${contentPageName}Content />
        </${propsProviderName}>
       </>
     }`

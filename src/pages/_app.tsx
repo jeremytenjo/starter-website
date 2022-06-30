@@ -9,8 +9,9 @@ import ClickToComponent from '../lib/components/useweb/ClickToComponent/ClickToC
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/UiTheme/utils/createEmotionCache'
 import RootLayout from '../lib/layouts/Root/Root.layout'
-import GoogleAnalytics from '../lib/components/integrations/Google/GoogleAnalytics/GoogleAnalytics'
 import Prismic from '../lib/components/integrations/Prismic/Prismic'
+import GoogleAnalytics from '../lib/components/integrations/Google/GoogleAnalytics/GoogleAnalytics'
+import GoogleAds from '../lib/components/integrations/Google/GoogleAds/GoogleAds'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -22,6 +23,7 @@ export default function MyApp(props) {
     <>
       <ClickToComponent />
       <GoogleAnalytics />
+      <GoogleAds />
 
       <Head>
         <meta property='og:image:alt' content={`${appconfig.siteInfo.name} logo`} />

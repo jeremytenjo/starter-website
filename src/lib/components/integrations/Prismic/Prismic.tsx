@@ -1,7 +1,7 @@
 import React from 'react'
 
-import PrismicProvider from '../../../utils/prismic/PrismicProvider/PrismicProvider'
-import PrismicScript from '../../../utils/prismic/PrismicScript/PrismicScript'
+import PrismicProvider from '../../../utils/integrations/prismic/PrismicProvider/PrismicProvider'
+import PrismicScript from '../../../utils/integrations/prismic/PrismicScript/PrismicScript'
 import prismicConfig from '../../../../services/prismic/prismic.config'
 
 export default function Prismic({ children }) {

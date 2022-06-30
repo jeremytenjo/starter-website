@@ -1,4 +1,4 @@
-import { gtagEvent } from '../../../../../lib/utils/googleAnalytics/gtag/gtag'
+import { gtagEvent } from '../../../../../lib/utils/integrations/google/googleAnalytics/gtag/gtag'
 
 type GaOpenProjectProps = {
   type: 'App' | 'OSS' | 'Plugins'

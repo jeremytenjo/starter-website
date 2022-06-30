@@ -9,7 +9,7 @@ import ProductsStubs from '../../../../../data/products/products.stubs'
 import Docs from './ProductSearchResult.docs.mdx'
 
 export default {
-  title: 'lib/components/ProductSearchResult',
+  title: 'lib/components/basic/ProductSearchResult',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

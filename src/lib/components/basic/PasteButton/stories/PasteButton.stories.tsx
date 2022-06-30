@@ -6,7 +6,7 @@ import PasteButton, { type PasteButtonProps } from '../PasteButton'
 import Docs from './PasteButton.docs.mdx'
 
 export default {
-  title: 'lib/components/PasteButton',
+  title: 'lib/components/basic/PasteButton',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

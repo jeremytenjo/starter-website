@@ -7,7 +7,7 @@ import TextFieldPaste, { type TextFieldPasteProps } from '../TextFieldPaste'
 import Docs from './TextFieldPaste.docs.mdx'
 
 export default {
-  title: 'lib/components/Forms/TextFieldPaste',
+  title: 'lib/components/basic/Forms/TextFieldPaste',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

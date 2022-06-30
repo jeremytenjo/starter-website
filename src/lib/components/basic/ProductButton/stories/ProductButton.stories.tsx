@@ -7,7 +7,7 @@ import productStubs from '../../../../../data/products/products.stubs'
 import Docs from './ProductButton.docs.mdx'
 
 export default {
-  title: 'lib/components/ProductButton',
+  title: 'lib/components/basic/ProductButton',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

@@ -13,7 +13,7 @@ const defaultArgs: GoogleAdUnitProps = {
 }
 
 export default {
-  title: 'lib/components/ads/GoogleAdUnit',
+  title: 'lib/components/integrations/google/googleAds/GoogleAdUnit',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

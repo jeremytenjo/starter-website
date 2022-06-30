@@ -3,7 +3,7 @@ import Form from '@useweb/ui/Form'
 import TextField from '@useweb/ui/Textfield'
 
 export default {
-  title: 'lib/components/Forms/TextField',
+  title: 'lib/components/useweb/Forms/TextField',
   args: {},
 }
 

@@ -6,7 +6,7 @@ import Image, { type ImageProps } from 'next/image'
 import Docs from './Image.docs.mdx'
 
 export default {
-  title: 'lib/components/Image',
+  title: 'lib/components/basic/Image',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

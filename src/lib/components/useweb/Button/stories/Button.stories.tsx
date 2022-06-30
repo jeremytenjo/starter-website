@@ -2,7 +2,7 @@ import React from 'react'
 import Button, { type ButtonProps } from '@useweb/ui/Button'
 
 export default {
-  title: 'Lib/components/Button',
+  title: 'Lib/components/useweb/Button',
 }
 
 const Template = (args) => {

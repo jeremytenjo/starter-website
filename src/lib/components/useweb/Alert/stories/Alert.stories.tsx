@@ -2,7 +2,7 @@ import React from 'react'
 import Alert, { type AlertProps } from '@useweb/ui/Alert'
 
 export default {
-  title: 'Lib/components/Alert',
+  title: 'Lib/components/useweb/Alert',
 }
 
 const Template = (args) => {

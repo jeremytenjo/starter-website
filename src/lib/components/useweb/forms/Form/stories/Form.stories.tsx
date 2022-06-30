@@ -4,7 +4,7 @@ import Textfield from '@useweb/ui/Textfield'
 import Select from '@useweb/ui/Select'
 
 export default {
-  title: 'lib/components/Forms/Form',
+  title: 'lib/components/useweb/Forms/Form',
   args: {},
 }
 export const Example = {

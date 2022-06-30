@@ -2,7 +2,7 @@ import React from 'react'
 import useSnackbar, { SnackbarProvider } from '@useweb/ui/Snackbar'
 
 export default {
-  title: 'lib/components/Snackbar',
+  title: 'lib/components/useweb/Snackbar',
   args: {},
 }
 

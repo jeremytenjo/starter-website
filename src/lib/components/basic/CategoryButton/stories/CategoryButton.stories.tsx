@@ -5,7 +5,7 @@ import CategoryButton from '../CategoryButton'
 
 import Docs from './CategoryButton.docs.mdx'
 export default {
-  title: 'lib/components/CategoryButton',
+  title: 'lib/components/basic/CategoryButton',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

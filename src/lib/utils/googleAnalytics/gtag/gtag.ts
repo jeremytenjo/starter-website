@@ -1,4 +1,4 @@
-import googleAnalyticsConfig from '../../../../services/googleAnalytics/googleAnalytics.config'
+import googleAnalyticsConfig from '../../../../services/google/googleAnalytics/googleAnalytics.config'
 
 declare global {
   interface Window {

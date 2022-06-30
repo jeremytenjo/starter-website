@@ -5,9 +5,11 @@ const docsTemplate = () => {
   }
 }
 
-const getStoryTemplate = ({ name, type = 'component', helpers }) => {
+const getStoryTemplate = ({ name, type = 'component', helpers, folderPath }) => {
   const isFunction = type === 'function'
   const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
+  let storyPrefix = folderPath.split('src')
+  storyPrefix = storyPrefix.pop()
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
@@ -22,7 +24,7 @@ const defaultArgs: ${propsName} = {
 }
 
 export default {
-  title: 'lib/components/${name}',
+  title: '${storyPrefix}/${name}',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {
@@ -62,7 +64,8 @@ export const Default = {
 const componentStory = ({ type }) => {
   return {
     path: ({ name }) => `stories/${name}.stories.tsx`,
-    template: ({ name, helpers }) => getStoryTemplate({ name, type, helpers }),
+    template: ({ name, helpers, folderPath }) =>
+      getStoryTemplate({ name, type, helpers, folderPath }),
   }
 }
 

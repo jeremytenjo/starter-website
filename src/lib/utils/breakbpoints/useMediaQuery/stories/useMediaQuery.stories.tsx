@@ -3,7 +3,7 @@ import useEventListener from '@useweb/use-event-listener'
 import useMediaQuery, { type UseMediaQueryProps } from '@useweb/ui/useMediaQuery'
 
 export default {
-  title: 'Lib/hooks/useMediaQuery',
+  title: 'lib/hooks/useMediaQuery',
 }
 
 const Template = (args) => {

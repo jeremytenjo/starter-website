@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../../RootHeader'
 
 export default {
-  title: 'Lib/layouts/root/Header',
+  title: 'lib/layouts/root/Header',
 }
 
 const Template = (args) => {

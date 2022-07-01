@@ -4,7 +4,7 @@ import IconButton, { type IconButtonProps } from '@useweb/ui/IconButton'
 import IconHamburger from '../../../icons/IconHamburger'
 
 export default {
-  title: 'Lib/components/useweb/IconButton',
+  title: 'lib/components/useweb/IconButton',
 }
 
 const Template = (args) => {

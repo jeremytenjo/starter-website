@@ -22,7 +22,7 @@ const defaultArgs: SelectProps = {
 }
 
 export default {
-  title: 'Lib/components/useweb/forms/Select',
+  title: 'lib/components/useweb/forms/Select',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

@@ -7,7 +7,7 @@ import Typography from '../../../../theme/tokens/stories/theme.typography'
 const defaultArgs: TextProps = { text: 'hello', variant: 'h1' }
 
 export default {
-  title: 'Lib/Components/useweb/Text',
+  title: 'lib/components/useweb/Text',
   args: defaultArgs,
 }
 

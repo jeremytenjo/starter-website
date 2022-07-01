@@ -23,7 +23,7 @@ const defaultArgs: RootLayoutProps = {
 }
 
 export default {
-  title: '/lib/layouts/Root/RootLayout',
+  title: 'lib/layouts/Root/RootLayout',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

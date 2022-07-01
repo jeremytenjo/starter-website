@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@useweb/ui/Box'
 import IconButton from '@useweb/ui/IconButton'
 
-import IconSearch from '../../../../../../../icons/IconSearch'
+import IconSearch from '../../../../../../../../../../components/icons/IconSearch'
 
 export type SearchBarUiProps = {
   onShowSearchBarClick: () => any

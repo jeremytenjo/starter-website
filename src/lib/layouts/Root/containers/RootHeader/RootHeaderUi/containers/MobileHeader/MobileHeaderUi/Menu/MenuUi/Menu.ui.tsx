@@ -7,8 +7,8 @@ import Text from '@useweb/ui/Text'
 import Link from '@useweb/ui/LinkNext'
 import Image from 'next/image'
 
-import IconHamburger from '../../../../../../../icons/IconHamburger'
-import SocialContacts from '../../../../../../SocialContacts/SocialContacts'
+import IconHamburger from '../../../../../../../../../../components/icons/IconHamburger'
+import SocialContacts from '../../../../../../../../../../components/basic/SocialContacts/SocialContacts'
 
 export type MenuUiProps = {
   links: any[]

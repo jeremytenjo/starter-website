@@ -6,9 +6,9 @@ import List from '@useweb/ui/List'
 import Link from '@useweb/ui/LinkNext'
 import Image from 'next/image'
 
-import SocialContacts from '../../../../SocialContacts/SocialContacts'
-import IconSearch from '../../../../../icons/IconSearch'
-import type ProductSchema from '../../../../../../../data/products/product.schema'
+import SocialContacts from '../../../../../../../../components/basic/SocialContacts/SocialContacts'
+import IconSearch from '../../../../../../../../components/icons/IconSearch'
+import type ProductSchema from '../../../../../../../../../data/products/product.schema'
 
 export type DesktopHeaderUiProps = {
   links: any[]

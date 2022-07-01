@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '@useweb/ui/LinkNext'
 
-import IconLogo from '../../../../../../../icons/IconLogo'
+import IconLogo from '../../../../../../../../../../components/icons/IconLogo'
 
 export type LogoUiProps = {
   title: string

@@ -1,23 +1,20 @@
 import React from 'react'
 import Box from '@useweb/ui/Box'
-import Text from '@useweb/ui/Text'
 
-import Header, { type HeaderProps } from '../../components/basic/Header/Header'
+import RootHeader, { type RootHeaderProps } from './containers/RootHeader/RootHeader'
+import RootFooter from './containers/RootFooter/RootFooter'
 
 export type RootLayoutProps = {
   children: any
-  rootLayoutData: { headerProps: HeaderProps }
+  rootLayoutData: { rootHeaderProps: RootHeaderProps }
 }
 
-export default function RootLayout({
-  children,
-  rootLayoutData = { headerProps: { products: [], navLinks: [] } },
-}: RootLayoutProps) {
+export default function RootLayout({ children, rootLayoutData }: RootLayoutProps) {
   return (
     <Wrapper>
-      <Header {...rootLayoutData.headerProps} />
+      <RootHeader {...rootLayoutData.rootHeaderProps} />
       {children}
-      <Footer />
+      <RootFooter />
     </Wrapper>
   )
 }
@@ -31,25 +28,6 @@ const Wrapper = ({ children }) => {
       }}
     >
       {children}
-    </Box>
-  )
-}
-
-const Footer = ({}) => {
-  return (
-    <Box
-      sx={{
-        m: '0 auto',
-        mt: '250px',
-
-        maxWidth: '700px',
-        display: 'block',
-      }}
-    >
-      <Text
-        text={`Created by Jeremy Tenjo. All Rights Reserved.`}
-        sx={{ color: 'grey.two', textAlign: 'center', fontSize: '14px' }}
-      />
     </Box>
   )
 }

@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { CacheProvider } from '@emotion/react'
 import { SnackbarProvider } from '@useweb/ui/Snackbar'
 
-import appconfig from '../../app.config.cjs'
+import appConfig from '../../app.config.cjs'
 import ClickToComponent from '../lib/components/useweb/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/UiTheme/utils/createEmotionCache'
@@ -26,20 +26,20 @@ export default function MyApp(props) {
       <GoogleAds />
 
       <Head>
-        <meta property='og:image:alt' content={`${appconfig.siteInfo.name} logo`} />
+        <meta property='og:image:alt' content={`${appConfig.siteInfo.name} logo`} />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
         <meta name='author' content='Jeremy Tenjo' />
         {/* vercel staging sites will always have no index */}
         <meta name='robots' content='index, follow' />
-        <title>{appconfig.siteInfo.title}</title>
-        <meta name='description' content={appconfig.siteInfo.description} />
-        <meta property='og:url' content={appconfig.siteInfo.domain} />
+        <title>{appConfig.siteInfo.title}</title>
+        <meta name='description' content={appConfig.siteInfo.description} />
+        <meta property='og:url' content={appConfig.siteInfo.domain} />
         <meta property='og:type' content='website' />
-        <meta property='og:title' content={appconfig.siteInfo.title} />
-        <meta property='og:description' content={appconfig.siteInfo.description} />
+        <meta property='og:title' content={appConfig.siteInfo.title} />
+        <meta property='og:description' content={appConfig.siteInfo.description} />
         <meta
           property='og:image'
-          content={`${appconfig.siteInfo.domain}/images/logo/logo.svg`}
+          content={`${appConfig.siteInfo.domain}/images/logo/logo.svg`}
         />
       </Head>
 

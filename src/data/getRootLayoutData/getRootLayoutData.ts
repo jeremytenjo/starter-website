@@ -17,7 +17,7 @@ export default async function getRootLayoutData({ previewData }) {
   })
 
   return {
-    headerProps: {
+    rootHeaderProps: {
       products,
       navLinks,
     },

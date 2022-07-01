@@ -1,8 +1,9 @@
 import React from 'react'
 
-import Header from '../Header'
+import Header from '../../RootHeader'
+
 export default {
-  title: 'Lib/components/basic/Header',
+  title: 'Lib/components/layout/root/Header',
 }
 
 const Template = (args) => {

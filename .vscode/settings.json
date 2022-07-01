@@ -9,5 +9,6 @@
   "superCodeGenerator.prettierConfigFilePath": "devtools/prettier/prettier.config.json",
   "superCodeGenerator.schemaFilePath": "devtools/codeGenerator/superCodeGen.schema.cjs",
   "thunder-client.saveToWorkspace": true,
-  "thunder-client.workspaceRelativePath": "src/tests/http.tests"
+  "thunder-client.workspaceRelativePath": "src/tests/http.tests",
+  "storyExplorer.storybookConfigDir": "./devtools/storybook"
 }

@@ -20,7 +20,7 @@ const defaultArgs: AutocompleteProps = {
 }
 
 export default {
-  title: '/lib/components/basic/Autocomplete/Autocomplete',
+  title: 'lib/components/basic/Autocomplete/Autocomplete',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import googleAdsConfig from '../../../../../services/google/googleAds/googleAds.config'
+import googleAdsConfig from '../../../../services/google/googleAds/googleAds.config'
 
 import GoogleAdsHeadScript from './GoogleAdsHeadScript/GoogleAdsHeadScript'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Button, { type ButtonProps } from '@useweb/ui/Button'
 import Link from '@useweb/ui/LinkNext'
 
-import { clickedBuyButton } from '../../../utils/integrations/google/googleAnalytics/gtag/gtag'
+import { clickedBuyButton } from '../../../integrations/Google/GoogleAnalytics/utils/gtag/gtag'
 
 export type BuyButtonProps = { storeLink: string; sx?: ButtonProps['sx'] }
 

@@ -1,4 +1,4 @@
-import prismicClient from '../../../lib/utils/integrations/prismic/prismicClient/prismicClient'
+import prismicClient from '../../../lib/integrations/Prismic/utils/prismicClient/prismicClient'
 import type ProductCategorySchema from '../productCategory/productCategory.schema'
 
 export default async function getProductCategories({ previewData = {} }) {

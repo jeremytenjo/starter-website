@@ -6,7 +6,7 @@ import getProductCategories from './getProductCategories.prismic'
 import getProducts from './getProducts.prismic'
 
 export default {
-  title: 'api/products/prismic',
+  title: 'data/products/products.prismic',
   args: {
     autoExec: true,
   },

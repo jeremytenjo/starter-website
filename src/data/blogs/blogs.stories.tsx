@@ -5,7 +5,7 @@ import AsyncTester, { type AsyncTesterProps } from '@useweb/async-tester'
 import getBlogs from './blogs.api/getBlogs'
 
 export default {
-  title: 'api/blogs/prismic',
+  title: 'data/blogs/blogs.prismic',
   args: {
     autoExec: true,
   },

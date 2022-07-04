@@ -18,7 +18,7 @@ const defaultArgs: RichTextProps = {
 }
 
 export default {
-  title: 'lib/components/RichText',
+  title: 'lib/integrations/prismic/components/RichText',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

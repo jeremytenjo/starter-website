@@ -35,7 +35,7 @@ export default {
   },
 }
 
-const Template = (args) => {
+const Template = (args: ${propsName}) => {
   ${isFunction ? `const fn = async () => ${name}(args)` : ''}
 
   return (

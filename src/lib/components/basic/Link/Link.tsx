@@ -46,6 +46,7 @@ export type LinkProps = {
 
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/api-reference/next/link
+// https://github.com/mui/material-ui/blob/461c04bad5e1c840a5c51193fe5a6a699725f877/examples/nextjs-with-typescript/src/Link.tsx
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(props, ref) {
   const {
     as,

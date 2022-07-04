@@ -1,4 +1,4 @@
-import prismicClient from '../../../lib/integrations/prismic/utils/prismicClient/prismicClient'
+import prismicClient from '../../../lib/integrations/Prismic/utils/prismicClient/prismicClient'
 import type BlogSchema from '../blog.schema'
 
 export default async function getBlogs({ previewData = {} } = {}) {

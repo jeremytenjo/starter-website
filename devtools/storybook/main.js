@@ -1,3 +1,5 @@
+const webpackFinal = require('./storybookWebpack/webpackFinal.js')
+
 module.exports = {
   stories: ['../../src/**/*.stories.mdx', '../../src/**/*.stories.@(js|jsx|ts|tsx)'],
   staticDirs: ['../../public'],
@@ -8,4 +10,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
   ],
+  webpackFinal: async (defaultWebpackConfig) => {
+    return webpackFinal({ defaultWebpackConfig })
+  },
 }

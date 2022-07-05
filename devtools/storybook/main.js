@@ -15,7 +15,7 @@ module.exports = {
   },
   refs: {
     useweb: {
-      title: 'useweb ui',
+      title: 'useweb library',
       url: 'https://useweb.dev/',
       expanded: false,
     },

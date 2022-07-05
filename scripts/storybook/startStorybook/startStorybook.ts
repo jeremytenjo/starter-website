@@ -19,5 +19,7 @@ export default function startStorybook() {
     small: true,
   })
 
-  shell(`start-storybook -p ${port} -c ./devtools/storybook --no-open --quiet`)
+  shell(
+    `start-storybook -p ${port} -c ./devtools/storybook --no-open --quiet --no-manager-cache`,
+  )
 }

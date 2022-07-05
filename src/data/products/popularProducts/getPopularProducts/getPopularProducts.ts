@@ -4,7 +4,7 @@ import getImagePlaceholder from '../../../../lib/utils/images/getImagePlaceholde
 import getProductsFromPrismic from '../../products.prismic/getProducts.prismic'
 import getData from '../../../../lib/utils/data/getData/getData'
 
-export default async function getPopularProducts({ previewData }) {
+export default async function getPopularProducts({ previewData = {} } = {}) {
   const getFn = () => getProductsCategoryFromApi({ previewData })
 
   const productCategories: ProductSchema[] = await getData({

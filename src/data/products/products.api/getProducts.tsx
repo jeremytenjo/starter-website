@@ -4,7 +4,7 @@ import type ProductSchema from '../product.schema'
 import getData from '../../../lib/utils/data/getData/getData'
 import getProductsFromPrismic from '../products.prismic/getProducts.prismic'
 
-export default async function getProducts({ previewData }) {
+export default async function getProducts({ previewData = {} } = {}) {
   const getFn = () => getProductsFromApi({ previewData })
 
   const products: ProductSchema[] = await getData({

@@ -3,8 +3,8 @@ import Box, { type BoxProps } from '@useweb/ui/Box'
 import Text from '@useweb/ui/Text'
 import List from '@useweb/ui/List'
 import Form from '@useweb/ui/Form'
+import TextFieldPaste from '@useweb/ui/TextFieldPaste'
 
-import TextFieldPaste from '../../forms/TextFieldPaste/TextFieldPaste'
 import IconSearch from '../../../icons/IconSearch'
 
 export type AutocompleteProps = {

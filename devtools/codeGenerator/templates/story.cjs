@@ -1,6 +1,6 @@
 const docsTemplate = () => {
   return {
-    path: ({ name }) => `stories/${name}.docs.mdx`,
+    path: ({ name }) => `stories/${name}.docs.tsx`,
     template: ({ name, helpers }) => {
       return `import React from 'react'
       import {
@@ -39,7 +39,7 @@ ${isFunction ? `import AsyncTester from '@useweb/async-tester'` : ''}
 
 import ${name}, { type ${propsName} } from '../${name}'
 
-import Docs from './${name}.docs.mdx'
+import Docs from './${name}.docs'
 
 const defaultArgs: ${propsName} = {
   name: '${name}',

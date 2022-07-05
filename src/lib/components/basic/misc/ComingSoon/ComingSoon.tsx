@@ -4,7 +4,7 @@ import Text from '@useweb/ui/Text'
 import Link from '@useweb/ui/LinkNext'
 import Image from 'next/image'
 
-import IconTikTok from '../../icons/IconTikTok'
+import IconTikTok from '../../../icons/IconTikTok'
 
 export default function ComingSoon() {
   return (

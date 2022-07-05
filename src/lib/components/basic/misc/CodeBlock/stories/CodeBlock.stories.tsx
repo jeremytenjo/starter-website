@@ -22,7 +22,7 @@ const defaultArgs: CodeBlockProps = {
 }
 
 export default {
-  title: 'lib/components/basic/CodeBlock',
+  title: 'lib/components/basic/misc/CodeBlock',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

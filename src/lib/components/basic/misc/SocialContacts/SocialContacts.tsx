@@ -1,9 +1,9 @@
 import React from 'react'
 
-import IconTikTok from '../../icons/IconTikTok'
-import IconInstagram from '../../icons/IconInstagram'
-import IconYoutube from '../../icons/IconYoutube'
-import IconPinterest from '../../icons/IconPinterest'
+import IconTikTok from '../../../icons/IconTikTok'
+import IconInstagram from '../../../icons/IconInstagram'
+import IconYoutube from '../../../icons/IconYoutube'
+import IconPinterest from '../../../icons/IconPinterest'
 
 import SocialContactsUi, {
   type SocialContactsUiProps,

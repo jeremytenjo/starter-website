@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import TextField from '@useweb/ui/Textfield'
 import { useFormContext } from 'react-hook-form'
 
-import PasteButton from '../PasteButton/PasteButton'
+import PasteButton from '../../misc/PasteButton/PasteButton'
 
 export type TextFieldPasteProps = {
   onPaste: (clipboardData: { clipboardData: any }) => any

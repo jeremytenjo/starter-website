@@ -6,7 +6,7 @@ import List from '@useweb/ui/List'
 import Link from '@useweb/ui/LinkNext'
 import Image from 'next/image'
 
-import SocialContacts from '../../../../../../../../components/basic/SocialContacts/SocialContacts'
+import SocialContacts from '../../../../../../../../components/basic/misc/SocialContacts/SocialContacts'
 import IconSearch from '../../../../../../../../components/icons/IconSearch'
 import type ProductSchema from '../../../../../../../../../data/products/product.schema'
 

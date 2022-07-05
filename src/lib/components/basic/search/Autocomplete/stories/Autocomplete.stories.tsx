@@ -1,9 +1,9 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 
-import type ProductSchema from '../../../../../data/products/product.schema'
-import ProductsStubs from '../../../../../data/products/products.stubs'
-import ProductSearchResult from '../../ProductSearchResult/ProductSearchResult'
+import type ProductSchema from '../../../../../../data/products/product.schema'
+import ProductsStubs from '../../../../../../data/products/products.stubs'
+import ProductSearchResult from '../../../store/ProductSearchResult/ProductSearchResult'
 import Autocomplete, { type AutocompleteProps } from '../Autocomplete'
 
 import Docs from './Autocomplete.docs.mdx'
@@ -20,7 +20,7 @@ const defaultArgs: AutocompleteProps = {
 }
 
 export default {
-  title: 'lib/components/basic/Autocomplete/Autocomplete',
+  title: 'lib/components/basic/search/Autocomplete/Autocomplete',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

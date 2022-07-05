@@ -3,7 +3,7 @@ import Box from '@useweb/ui/Box'
 import Text from '@useweb/ui/Text'
 import List from '@useweb/ui/List'
 
-import type ProductSchema from '../../../../data/products/product.schema'
+import type ProductSchema from '../../../../../data/products/product.schema'
 import ProductButton from '../ProductButton/ProductButton'
 
 export type ProductsListProps = { title?: string; products: ProductSchema[] }

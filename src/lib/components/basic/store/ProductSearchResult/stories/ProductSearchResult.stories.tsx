@@ -1,13 +1,15 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 
-import GlobalSearchBar, { type GlobalSearchBarProps } from '../GlobalSearchBar'
-import ProductsStubs from '../../../../../data/products/products.stubs'
+import ProductSearchResult, {
+  type ProductSearchResultProps,
+} from '../ProductSearchResult'
+import ProductsStubs from '../../../../../../data/products/products.stubs'
 
-import Docs from './GlobalSearchBar.docs.mdx'
+import Docs from './ProductSearchResult.docs.mdx'
 
 export default {
-  title: 'lib/components/basic/GlobalSearchBar',
+  title: 'lib/components/basic/store/ProductSearchResult',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {
@@ -20,24 +22,20 @@ export default {
 const Template = (args) => {
   return (
     <>
-      <GlobalSearchBar {...args} />
+      <ProductSearchResult {...args} />
     </>
   )
 }
 
 export const Default = Template.bind({}) as any
 
-const defaultArgs: GlobalSearchBarProps = {
-  open: true,
-  onClose: () => null,
-  data: ProductsStubs,
-}
+const defaultArgs: ProductSearchResultProps = ProductsStubs[0]
 
 Default.args = defaultArgs
 
 // export const Variant = Template.bind({}) as any
 
-// const VariantArgs: GlobalSearchBarProps = {
+// const VariantArgs: ProductSearchResultProps = {
 //  ...defaultArgs,
 //  name: 'World',
 // }

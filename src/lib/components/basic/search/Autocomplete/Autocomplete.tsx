@@ -4,8 +4,8 @@ import Text from '@useweb/ui/Text'
 import List from '@useweb/ui/List'
 import Form from '@useweb/ui/Form'
 
-import TextFieldPaste from '../TextFieldPaste/TextFieldPaste'
-import IconSearch from '../../icons/IconSearch'
+import TextFieldPaste from '../../TextFieldPaste/TextFieldPaste'
+import IconSearch from '../../../icons/IconSearch'
 
 export type AutocompleteProps = {
   data: any[]

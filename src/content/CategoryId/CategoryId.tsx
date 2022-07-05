@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@useweb/ui/Box'
 import Text from '@useweb/ui/Text'
 
-import ProductsList from '../../lib/components/basic/ProductsList/ProductsList'
+import ProductsList from '../../lib/components/basic/store/ProductsList/ProductsList'
 
 import useCategoryIdProps from './useCategoryIdProps/useCategoryIdProps'
 

@@ -2,8 +2,8 @@ import React from 'react'
 import Dialog from '@useweb/ui/Dialog'
 
 import Autocomplete from '../Autocomplete/Autocomplete'
-import ProductSearchResult from '../ProductSearchResult/ProductSearchResult'
-import type ProductSchema from '../../../../data/products/product.schema'
+import ProductSearchResult from '../../store/ProductSearchResult/ProductSearchResult'
+import type ProductSchema from '../../../../../data/products/product.schema'
 
 export type GlobalSearchBarProps = { data: any[]; open: boolean; onClose: any }
 

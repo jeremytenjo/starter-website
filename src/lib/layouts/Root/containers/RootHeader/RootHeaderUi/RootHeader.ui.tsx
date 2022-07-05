@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Box from '@useweb/ui/Box'
 
-import GlobalSearchBar from '../../../../../components/basic/GlobalSearchBar/GlobalSearchBar'
+import GlobalSearchBar from '../../../../../components/basic/search/GlobalSearchBar/GlobalSearchBar'
 import type ProductSchema from '../../../../../../data/products/product.schema'
 
 import MobileHeader from './containers/MobileHeader/MobileHeader'

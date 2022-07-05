@@ -2,12 +2,12 @@
 import React from 'react'
 
 import ProductButton, { type ProductButtonProps } from '../ProductButton'
-import productStubs from '../../../../../data/products/products.stubs'
+import productStubs from '../../../../../../data/products/products.stubs'
 
 import Docs from './ProductButton.docs.mdx'
 
 export default {
-  title: 'lib/components/basic/ProductButton',
+  title: 'lib/components/basic/store/ProductButton',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

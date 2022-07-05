@@ -3,7 +3,7 @@ import Box from '@useweb/ui/Box'
 import List from '@useweb/ui/List'
 
 import type ProductCategoriesSchema from '../../../../../data/products/productCategory/productCategory.schema'
-import CategoryButton from '../../../../../lib/components/basic/CategoryButton/CategoryButton'
+import CategoryButton from '../../../../../lib/components/basic/store/CategoryButton/CategoryButton'
 
 export type CategoriesUiProps = {
   categories: ProductCategoriesSchema[]

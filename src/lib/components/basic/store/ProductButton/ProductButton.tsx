@@ -4,8 +4,8 @@ import Text from '@useweb/ui/Text'
 import Link from '@useweb/ui/LinkNext'
 import Image from 'next/image'
 
-import type ProductSchema from '../../../../data/products/product.schema'
-import getProductUrlId from '../../../../data/products/utils/getProductUrlId/getProductUrlId'
+import type ProductSchema from '../../../../../data/products/product.schema'
+import getProductUrlId from '../../../../../data/products/utils/getProductUrlId/getProductUrlId'
 import BuyButton from '../BuyButton/BuyButton'
 
 export type ProductButtonProps = ProductSchema

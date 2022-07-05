@@ -4,8 +4,8 @@ import Text from '@useweb/ui/Text'
 import Link from '@useweb/ui/LinkNext'
 import Image from 'next/image'
 
-import type ProductCategoriesSchema from '../../../../data/products/productCategory/productCategory.schema'
-import getProductCategoriesUrlId from '../../../../data/products/productCategory/getProductCategoryUrlId/getProductCategoryUrlId'
+import type ProductCategoriesSchema from '../../../../../data/products/productCategory/productCategory.schema'
+import getProductCategoriesUrlId from '../../../../../data/products/productCategory/getProductCategoryUrlId/getProductCategoryUrlId'
 
 export type CategoryButtonProps = ProductCategoriesSchema
 

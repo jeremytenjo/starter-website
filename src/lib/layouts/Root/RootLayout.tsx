@@ -9,7 +9,15 @@ export type RootLayoutProps = {
   rootLayoutData: { rootHeaderProps: RootHeaderProps }
 }
 
-export default function RootLayout({ children, rootLayoutData }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+  rootLayoutData = {
+    rootHeaderProps: {
+      navLinks: [],
+      products: [],
+    },
+  },
+}: RootLayoutProps) {
   return (
     <Wrapper>
       <RootHeader {...rootLayoutData.rootHeaderProps} />

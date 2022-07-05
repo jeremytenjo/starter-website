@@ -8,7 +8,7 @@ import CategoryIdContent from '../../content/CategoryId/CategoryId'
 import { CategoryIdPropsProvider } from '../../content/CategoryId/useCategoryIdProps/useCategoryIdProps'
 import getProductCategoriesUrlId from '../../data/products/productCategory/getProductCategoryUrlId/getProductCategoryUrlId'
 import getProductCategories from '../../data/products/productCategory/productCategories.api/getProductCategories'
-import getrootLayoutData from '../../data/getRootLayoutData/getRootLayoutData'
+import getrootLayoutData from '../../data/_root/getRootLayoutData/getRootLayoutData'
 import getProducts from '../../data/products/products.api/getProducts'
 
 export type CategoryIdProps = {

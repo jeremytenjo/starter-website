@@ -1,6 +1,6 @@
 import React from 'react'
 
-import getrootLayoutData from '../data/getRootLayoutData/getRootLayoutData'
+import getrootLayoutData from '../data/_root/getRootLayoutData/getRootLayoutData'
 import HomePageContent from '../content/HomePage/HomePage'
 import { HomePagePropsProvider } from '../content/HomePage/useHomePageProps/useHomePageProps'
 import getProductCategories from '../data/products/productCategory/productCategories.api/getProductCategories'

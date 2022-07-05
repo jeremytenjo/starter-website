@@ -1,6 +1,6 @@
-import getProducts from '../products/products.api/getProducts'
-import getProductCategories from '../products/productCategory/productCategories.api/getProductCategories'
-import getProductCategoryUrlId from '../products/productCategory/getProductCategoryUrlId/getProductCategoryUrlId'
+import getProducts from '../../products/products.api/getProducts'
+import getProductCategories from '../../products/productCategory/productCategories.api/getProductCategories'
+import getProductCategoryUrlId from '../../products/productCategory/getProductCategoryUrlId/getProductCategoryUrlId'
 
 export default async function getRootLayoutData({ previewData }) {
   const products = await getProducts({ previewData })

@@ -6,7 +6,7 @@ import shell from '../../../devtools/utils/node/shell.js'
 import appConfig from '../../../app.config.cjs'
 
 // in scripts instad of devtoosl/storyboo/scipts because of the pacakge commonjs
-export default function startStorybook() {
+export default async function startStorybook() {
   const port = appConfig.devtools.storybook.port
   const ipAddress = getIpAddress()
   const networkUrl = `http://${ipAddress}:${port}`
@@ -18,6 +18,8 @@ export default function startStorybook() {
   qrCode.generate(networkUrl, {
     small: true,
   })
+
+  await shell('rm -rf node_modules/.cache/storybook')
 
   shell(
     `start-storybook -p ${port} -c ./devtools/storybook --no-open --quiet --no-manager-cache`,

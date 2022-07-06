@@ -81,7 +81,7 @@ const files = [
       import get${upperName} from './${name}.api/get${upperName}'
       
       export default {
-        title: 'api/${name}/prismic',
+        title: 'data/${name}/prismic',
         args: {
           autoExec: true,
         },

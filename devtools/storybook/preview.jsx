@@ -17,7 +17,7 @@ Object.defineProperty(NextImage, 'default', {
 
 const theme = create({
   base: 'light',
-  brandUrl: 'https://github.com/jeremytenjo/starter-webapp',
+  brandUrl: 'https://github.com/jeremytenjo/starter-webiste',
 })
 
 export const decorators = [

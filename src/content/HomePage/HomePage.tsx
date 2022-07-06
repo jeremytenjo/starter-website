@@ -1,16 +1,8 @@
 import React from 'react'
 import Box from '@useweb/ui/Box'
 
-import Categories from './containers/Categories/Categories'
-import PopularProducts from './containers/PopularProducts/PopularProducts'
-
 export default function HomePageContent() {
-  return (
-    <Wrapper>
-      <Categories />
-      <PopularProducts />
-    </Wrapper>
-  )
+  return <Wrapper>HomePage</Wrapper>
 }
 
 const Wrapper = ({ children }) => {

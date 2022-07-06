@@ -1,45 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Box from '@useweb/ui/Box'
-
-import GlobalSearchBar from '../../../../../components/basic/search/GlobalSearchBar/GlobalSearchBar'
-import type ProductSchema from '../../../../../../data/products/product.schema'
 
 import MobileHeader from './containers/MobileHeader/MobileHeader'
 import DesktopHeader from './containers/DesktopHeader/DesktopHeader'
 
-export type RootHeaderUiProps = {
-  products: ProductSchema[]
-  navLinks: {
-    id: string | number
-    label: string
-    url: string
-  }[]
-}
+export type RootHeaderUiProps = any
 
-export default function RootHeaderUi({
-  products = [],
-  navLinks = [],
-}: RootHeaderUiProps) {
-  const [open, setOpen] = useState(false)
-
-  const onShowSearchBarClick = () => {
-    setOpen(true)
-  }
-
-  const closeSearch = () => {
-    setOpen(false)
-  }
-
+export default function RootHeaderUi(props: RootHeaderUiProps) {
   return (
     <Wrapper>
-      <MobileHeader links={navLinks} onShowSearchBarClick={onShowSearchBarClick} />
-      <DesktopHeader
-        links={navLinks}
-        onShowSearchBarClick={onShowSearchBarClick}
-        data={products}
-      />
-
-      <GlobalSearchBar open={open} onClose={closeSearch} data={products} />
+      <MobileHeader />
+      <DesktopHeader />
     </Wrapper>
   )
 }

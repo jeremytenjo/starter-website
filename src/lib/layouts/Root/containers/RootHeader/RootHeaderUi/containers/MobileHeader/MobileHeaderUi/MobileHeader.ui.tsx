@@ -1,23 +1,10 @@
 import React from 'react'
 import Box from '@useweb/ui/Box'
-import Text from '@useweb/ui/Text'
 
-import Menu from './Menu/Menu'
-import Logo from './Logo/Logo'
-import SearchBar from './SearchBar/SearchBar'
+export type MobileHeaderUi = any
 
-export default function MobileHeaderUi({ links, onShowSearchBarClick }) {
-  return (
-    <Wrapper>
-      <Inner>
-        <Menu links={links} />
-        <Logo />
-        <SearchBar onShowSearchBarClick={onShowSearchBarClick} />
-      </Inner>
-
-      <Title />
-    </Wrapper>
-  )
+export default function MobileHeaderUi(props: MobileHeaderUi) {
+  return <Wrapper>Header</Wrapper>
 }
 
 const Wrapper = ({ children }) => {
@@ -35,35 +22,5 @@ const Wrapper = ({ children }) => {
     >
       {children}
     </Box>
-  )
-}
-
-const Inner = ({ children }) => {
-  return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridAutoFlow: 'column',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}
-    >
-      {children}
-    </Box>
-  )
-}
-
-const Title = ({}) => {
-  return (
-    <Text
-      text='We find the best products for you'
-      sx={{
-        color: 'grey.main',
-        userSelect: 'none',
-        justifySelf: 'center',
-        textAlign: 'center',
-        fontSize: '13px',
-      }}
-    />
   )
 }

@@ -1,9 +1,7 @@
 import React from 'react'
 
-import RootHeaderUi, { type RootHeaderUiProps } from './RootHeaderUi/RootHeader.ui'
+import RootHeaderUi from './RootHeaderUi/RootHeader.ui'
 
-export type RootHeaderProps = RootHeaderUiProps
-
-export default function RootHeader(props: RootHeaderProps) {
-  return <RootHeaderUi {...props} />
+export default function RootHeader() {
+  return <RootHeaderUi />
 }

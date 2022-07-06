@@ -1,26 +1,17 @@
 import React from 'react'
 import Box from '@useweb/ui/Box'
 
-import RootHeader, { type RootHeaderProps } from './containers/RootHeader/RootHeader'
+import RootHeader from './containers/RootHeader/RootHeader'
 import RootFooter from './containers/RootFooter/RootFooter'
 
 export type RootLayoutProps = {
   children: any
-  rootLayoutData: { rootHeaderProps: RootHeaderProps }
 }
 
-export default function RootLayout({
-  children,
-  rootLayoutData = {
-    rootHeaderProps: {
-      navLinks: [],
-      products: [],
-    },
-  },
-}: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Wrapper>
-      <RootHeader {...rootLayoutData.rootHeaderProps} />
+      <RootHeader />
       {children}
       <RootFooter />
     </Wrapper>

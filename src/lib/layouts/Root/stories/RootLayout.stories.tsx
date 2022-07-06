@@ -2,24 +2,11 @@
 import React from 'react'
 
 import RootLayout, { type RootLayoutProps } from '../RootLayout'
-import ProductsStubs from '../../../../data/products/products.stubs'
 
 import Docs from './RootLayout.docs.mdx'
 
 const defaultArgs: RootLayoutProps = {
   children: <main>hello</main>,
-  rootLayoutData: {
-    rootHeaderProps: {
-      navLinks: [
-        {
-          id: 1,
-          label: 'Home',
-          url: '/',
-        },
-      ],
-      products: ProductsStubs,
-    },
-  },
 }
 
 export default {

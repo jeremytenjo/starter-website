@@ -4,9 +4,7 @@ import Box from '@useweb/ui/Box'
 import MobileHeader from './containers/MobileHeader/MobileHeader'
 import DesktopHeader from './containers/DesktopHeader/DesktopHeader'
 
-export type RootHeaderProps = any
-
-export default function RootHeader(props: RootHeaderProps) {
+export default function RootHeader() {
   return (
     <Wrapper>
       <MobileHeader />

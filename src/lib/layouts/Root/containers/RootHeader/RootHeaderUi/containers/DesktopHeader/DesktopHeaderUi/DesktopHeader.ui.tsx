@@ -9,7 +9,15 @@ export default function DesktopHeaderUi(props: DesktopHeaderUiProps) {
 
 const Wrapper = ({ children }) => {
   return (
-    <Box data-id='DesktopHeader' sx={{}}>
+    <Box
+      data-id='DesktopHeader'
+      sx={{
+        display: {
+          xs: 'none',
+          md: 'grid',
+        },
+      }}
+    >
       {children}
     </Box>
   )

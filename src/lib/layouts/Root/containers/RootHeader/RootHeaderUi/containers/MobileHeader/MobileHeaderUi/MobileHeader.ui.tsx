@@ -14,7 +14,7 @@ const Wrapper = ({ children }) => {
       sx={{
         display: {
           xs: 'grid',
-          lg: 'none',
+          md: 'none',
         },
         pb: '20px',
         gap: '12px',

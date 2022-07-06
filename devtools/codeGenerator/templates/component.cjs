@@ -9,7 +9,7 @@ const files = [
 
     export type ${propsName} = { name: string }
   
-    export default function ${namePascalCase}({ name = 'Hello' }: ${propsName}) {
+    export default function ${namePascalCase}({ name = '${namePascalCase}' }: ${propsName}) {
       return (
         <Wrapper>
           {name}

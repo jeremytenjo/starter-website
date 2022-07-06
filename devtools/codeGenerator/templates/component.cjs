@@ -7,9 +7,9 @@ const files = [
       return `import React from 'react'       
     import Box from '@useweb/ui/Box'
 
-    export type ${propsName} = { name?: string }
+    export type ${propsName} = { name: string }
   
-    export default function ${namePascalCase}({ name = '${namePascalCase}' }: ${propsName}) {
+    export default function ${namePascalCase}({ name = 'Hello' }: ${propsName}) {
       return (
         <Wrapper>
           {name}

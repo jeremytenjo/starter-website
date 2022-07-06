@@ -1,3 +1,5 @@
+const dataPrismic = require('./dataPrismic.cjs')
+
 const files = [
   {
     path: ({ name }) => `${name}.schema.tsx`,
@@ -43,7 +45,7 @@ const files = [
       return `
       import ${name}Stubs from '../${name}.stubs'
       import type ${upperName}Schema from '../${name}.schema'
-      import getData from '../../utils/data/getData/getData'
+      import getData from '../../../lib/utils/data/getData/getData'
       
       export default async function get${upperName}() {
         const getFn = () => get${upperName}FromApi()
@@ -81,7 +83,7 @@ const files = [
       import get${upperName} from './${name}.api/get${upperName}'
       
       export default {
-        title: 'data/${name}/prismic',
+        title: 'data/${name}',
         args: {
           autoExec: true,
         },
@@ -92,16 +94,17 @@ const files = [
       }
 
       // ${upperName}
-      export const ${upperName} = Template.bind({}) as any
+      export const ${upperName}Data = Template.bind({}) as any
 
       const ${upperName}Args: AsyncTesterProps = {
         fn: get${upperName},
       }
 
-      ${upperName}.args = ${upperName}Args
+      ${upperName}Data.args = ${upperName}Args
       `
     },
   },
+  ...dataPrismic.files,
 ]
 
 const template = {

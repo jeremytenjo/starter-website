@@ -7,6 +7,7 @@ import Docs from './RootLayout.docs.mdx'
 
 const defaultArgs: RootLayoutProps = {
   children: <main>hello</main>,
+  rootLayoutData: {},
 }
 
 export default {

@@ -2,8 +2,8 @@ import React from 'react'
 import { create } from '@storybook/theming'
 import { SnackbarProvider } from '@useweb/ui/Snackbar'
 import * as NextImage from 'next/image'
+import ClickToComponent from '@useweb/click-to-component'
 
-import ClickToComponent from '../../src/lib/components/useweb/ClickToComponent/ClickToComponent'
 import Prismic from '../../src/lib/integrations/Prismic/Prismic'
 
 import StorybookTheme from './theme/storybookTheme'
@@ -24,7 +24,7 @@ export const decorators = [
   (Story) => {
     return (
       <>
-        <ClickToComponent />
+        {process.env.NODE_ENV === 'development' && <ClickToComponent />}
 
         <Prismic>
           <SnackbarProvider>

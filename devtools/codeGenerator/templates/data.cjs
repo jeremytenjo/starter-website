@@ -37,15 +37,17 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
-      return `${name}.api/get${upperName}.tsx`
+      const fnName = `get${upperName}`
+
+      return `${name}.api/${fnName}/${fnName}.tsx`
     },
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
 
       return `
-      import ${name}Stubs from '../${name}.stubs'
-      import type ${upperName}Schema from '../${name}.schema'
-      import getData from '../../../lib/utils/data/getData/getData'
+      import ${name}Stubs from '../../${name}.stubs'
+      import type ${upperName}Schema from '../../${name}.schema'
+      import getData from '../../../../lib/utils/data/getData/getData'
       
       export default async function get${upperName}() {
         const getFn = () => get${upperName}FromApi()
@@ -70,7 +72,12 @@ const files = [
     },
   },
   {
-    path: ({ name }) => `${name}.stories.tsx`,
+    path: ({ name, helpers }) => {
+      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+      const fnName = `get${upperName}`
+
+      return `${name}.api/${fnName}/stories/${fnName}.stories.tsx`
+    },
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
 
@@ -80,7 +87,7 @@ const files = [
         type AsyncTesterProps,
       } from '@useweb/async-tester'
       
-      import get${upperName} from './${name}.api/get${upperName}'
+      import get${upperName} from '../get${upperName}'
       
       export default {
         title: 'data/${name}',

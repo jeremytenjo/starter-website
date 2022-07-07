@@ -1,22 +1,39 @@
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   {
+    path: ({ name }) => {
+      return `${name}.prismic/${name}.prismic.schema.ts`
+    },
+    template: ({ name, helpers }) => {
+      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+
+      return `
+      // TODO add ${upperName} schema
+      type ${upperName}PrismicSchema = {
+        id: string
+      }
+      
+      export default ${upperName}PrismicSchema
+      `
+    },
+  },
+  {
     path: ({ name, helpers }) => {
       const capCase = `${helpers.changeCase.pascalCase(name)}`
       const getFunction = `get${capCase}FromPrismic`
 
-      return `${name}.prismic/${getFunction}.ts`
+      return `${name}.prismic/${getFunction}/${getFunction}.ts`
     },
     template: ({ name, helpers }) => {
       const capCase = `${helpers.changeCase.pascalCase(name)}`
       const getFunction = `get${capCase}FromPrismic`
       const typeName = helpers.changeCase.paramCase(name)
-      const schema = `${capCase}Schema`
+      const schema = `${capCase}PrismicSchema`
       const getFunctionCap = helpers.changeCase.pascalCase(getFunction)
       const propName = `${getFunctionCap}Props`
 
-      return `import prismicClient from '../../../lib/integrations/Prismic/utils/prismicClient/prismicClient'
-      import type ${schema} from '../${name}.schema'
+      return `import prismicClient from '../../../../lib/integrations/Prismic/utils/prismicClient/prismicClient'
+      import type ${schema} from '../${name}.prismic.schema'
       
       export type ${propName} = any
       
@@ -35,7 +52,7 @@ const files = [
       const capCase = `${helpers.changeCase.pascalCase(name)}`
       const getFunction = `get${capCase}FromPrismic`
 
-      return `${name}.prismic/stories/${getFunction}.docs.tsx`
+      return `${name}.prismic/${getFunction}/stories/${getFunction}.docs.tsx`
     },
     template: ({ name, helpers }) => {
       return `import React from 'react'
@@ -65,7 +82,7 @@ const files = [
       const capCase = `${helpers.changeCase.pascalCase(name)}`
       const getFunction = `get${capCase}FromPrismic`
 
-      return `${name}.prismic/stories/${getFunction}.stories.tsx`
+      return `${name}.prismic/${getFunction}/stories/${getFunction}.stories.tsx`
     },
     template: ({ name, helpers }) => {
       const capCase = `${helpers.changeCase.pascalCase(name)}`

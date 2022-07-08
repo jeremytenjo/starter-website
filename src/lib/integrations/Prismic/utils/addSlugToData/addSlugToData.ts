@@ -5,9 +5,7 @@ export default function addSlugToData({
   slugKey = 'title',
 }: AddSlugToDataProps) {
   const dataWithSlug = data.map((d) => {
-    const slugSplit = d.data[slugKey].split(' ')
-    const slugMap = slugSplit.map((text) => text.toLocaleLowerCase())
-    const slug = slugMap.join('-')
+    const slug = genSlug(d.data[slugKey])
 
     const newData = {
       slug,
@@ -18,4 +16,12 @@ export default function addSlugToData({
   })
 
   return dataWithSlug
+}
+
+export const genSlug = (item) => {
+  const slugSplit = item.split(' ')
+  const slugMap = slugSplit.map((text) => text.toLocaleLowerCase())
+  const slug = slugMap.join('-')
+
+  return slug
 }

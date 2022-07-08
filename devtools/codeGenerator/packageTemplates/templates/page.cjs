@@ -13,7 +13,7 @@ import Head from 'next/head'
 import ${contentPageName}Content from '../../content/${contentPageName}/${contentPageName}'
 import { ${propsProviderName} } from '../../content/${contentPageName}/use${contentPageName}Props/use${contentPageName}Props'
 import getrootLayoutData from '../data/_root/getRootLayoutData/getRootLayoutData'
-import type { RootLayoutProps } from '../lib/layouts/Root/RootLayout'
+import RootLayout, { type RootLayoutProps } from '../lib/layouts/Root/RootLayout'
 
 export type ${propsName} = {
   rootLayoutData: RootLayoutProps
@@ -25,9 +25,12 @@ export default function ${upperName}Page(props: ${propsName}) {
      <title>${upperName}</title>
    </Head>
   
-   <${propsProviderName} pageProps={props} >
-    <${contentPageName}Content />
-   </${propsProviderName}>
+   <RootLayout {...props.rootLayoutData}>
+    <${propsProviderName} pageProps={props} >
+      <${contentPageName}Content />
+    </${propsProviderName}>
+   </RootLayout>
+
   </>
 }
 

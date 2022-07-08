@@ -8,7 +8,6 @@ import appConfig from '../../app.config.cjs'
 import ClickToComponent from '../lib/components/useweb/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/UiTheme/utils/createEmotionCache'
-import RootLayout from '../lib/layouts/Root/RootLayout'
 import Prismic from '../lib/integrations/Prismic/Prismic'
 import GoogleAnalytics from '../lib/integrations/Google/GoogleAnalytics/GoogleAnalytics'
 import GoogleAds from '../lib/integrations/Google/GoogleAds/GoogleAds'
@@ -42,14 +41,11 @@ export default function MyApp(props) {
           content={`${appConfig.siteInfo.domain}/images/logo/logo.svg`}
         />
       </Head>
-
       <CacheProvider value={emotionCache}>
         <Theme>
           <Prismic>
             <SnackbarProvider>
-              <RootLayout {...pageProps}>
-                <Component {...pageProps} />
-              </RootLayout>
+              <Component {...pageProps} />
             </SnackbarProvider>
           </Prismic>
         </Theme>

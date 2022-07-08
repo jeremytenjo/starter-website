@@ -15,10 +15,7 @@ export const RootLayoutContext = createContext<GetRootLayoutDataReturn>(null)
 
 export const useRootLayoutData = () => useContext(RootLayoutContext)
 
-export default function RootLayoutProvider({
-  children,
-  rootLayoutData,
-}: RootLayoutProps) {
+export default function RootLayout({ children, rootLayoutData }: RootLayoutProps) {
   return (
     <RootLayoutContext.Provider value={rootLayoutData}>
       <RootHeader />

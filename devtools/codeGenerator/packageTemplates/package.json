@@ -4,6 +4,6 @@
   "type": "module",
   "main": "superCodeGen.schema.cjs",
   "scripts": {
-    "deploy": "npm publish --access public"
+    "deploy": "npm version minor && npm publish --access public"
   }
 }

@@ -34,15 +34,18 @@ const files = [
 
       return `import prismicClient from '../../../../lib/integrations/Prismic/utils/prismicClient/prismicClient'
       import type ${schema} from '../${name}.prismic.schema'
-      
+      import addSlugToData from '../../../lib/integrations/Prismic/utils/addSlugToData/addSlugToData'
+
       export type ${propName} = any
       
       export default async function ${getFunction}({ previewData = {} }: ${propName} = {}) {
         const ${name}: ${schema}[] = (await prismicClient({
           previewData,
         }).getAllByType('${typeName}')) as ${schema}[]
+
+        const ${name}WithSlug = addSlugToData({ data: ${name}, slugKey: 'title' })
       
-        return ${name}
+        return ${name}WithSlug
       }
       `
     },

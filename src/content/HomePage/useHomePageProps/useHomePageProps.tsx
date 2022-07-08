@@ -1,8 +1,8 @@
 import React, { createContext, useContext } from 'react'
 
-export type HomePagePropsTypes = any
+import type { HomePageProps } from '../../../pages'
 
-export const HomePagePropsContext = createContext<HomePagePropsTypes>(null as any)
+export const HomePagePropsContext = createContext<HomePageProps>(null as any)
 
 export const HomePagePropsProvider = ({ children, pageProps }) => {
   return (

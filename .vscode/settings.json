@@ -10,5 +10,6 @@
   "superCodeGenerator.schemaFilePath": "devtools/codeGenerator/superCodeGen.schema.cjs",
   "thunder-client.saveToWorkspace": true,
   "thunder-client.workspaceRelativePath": "src/tests/http.tests",
-  "storyExplorer.storybookConfigDir": "./devtools/storybook"
+  "storyExplorer.storybookConfigDir": "./devtools/storybook",
+  "cSpell.words": ["Prismic"]
 }

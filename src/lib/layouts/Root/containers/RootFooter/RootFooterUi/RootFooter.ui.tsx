@@ -11,7 +11,7 @@ export default function RootFooterUi(props: RootFooterUiProps) {
 
 const Wrapper = ({ children }) => {
   return (
-    <Box data-id='RootFooter' sx={{}}>
+    <Box data-id='RootFooter' component={'footer'} sx={{}}>
       {children}
     </Box>
   )

@@ -1,9 +1,26 @@
 import React from 'react'
+import Box from '@useweb/ui/Box'
 
-import RootFooterUi from './RootFooterUi/RootFooter.ui'
+import Copyright from './containers/Copyright/Copyright'
 
 export default function RootFooter() {
-  const title = 'RootFooter'
+  return (
+    <Wrapper>
+      <Copyright />
+    </Wrapper>
+  )
+}
 
-  return <RootFooterUi title={title} />
+const Wrapper = ({ children }) => {
+  return (
+    <Box
+      data-id='Footer'
+      component={'footer'}
+      sx={{
+        px: '20px',
+      }}
+    >
+      {children}
+    </Box>
+  )
 }

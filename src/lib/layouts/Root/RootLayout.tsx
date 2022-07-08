@@ -21,11 +21,9 @@ export default function RootLayoutProvider({
 }: RootLayoutProps) {
   return (
     <RootLayoutContext.Provider value={rootLayoutData}>
-      <Wrapper>
-        <RootHeader />
-        {children}
-        <RootFooter />
-      </Wrapper>
+      <RootHeader />
+      <Wrapper>{children}</Wrapper>
+      <RootFooter />
     </RootLayoutContext.Provider>
   )
 }
@@ -35,7 +33,7 @@ const Wrapper = ({ children }) => {
     <Box
       data-id='RootLayout'
       sx={{
-        p: '20px',
+        px: '20px',
       }}
     >
       {children}

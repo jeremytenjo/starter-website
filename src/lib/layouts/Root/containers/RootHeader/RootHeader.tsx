@@ -15,7 +15,13 @@ export default function RootHeader() {
 
 const Wrapper = ({ children }) => {
   return (
-    <Box data-id='Header' component={'header'}>
+    <Box
+      data-id='Header'
+      component={'header'}
+      sx={{
+        p: '20px 20px 0 20px',
+      }}
+    >
       {children}
     </Box>
   )

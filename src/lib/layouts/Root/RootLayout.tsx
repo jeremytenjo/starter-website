@@ -32,6 +32,7 @@ const Wrapper = ({ children }) => {
   return (
     <Box
       data-id='RootLayout'
+      component={'main'}
       sx={{
         px: '20px',
       }}

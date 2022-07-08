@@ -23,18 +23,15 @@ export default function ${name}Content() {
       return `${filesName}/${filesName}.tsx`
     },
     template: ({ name, helpers }) => {
-      const propsName = `${name}Props`
-      const removeUse = propsName.replace('use', '')
+      const removeUse = name.replace('use', '')
       const upperName = helpers.changeCase.capitalCase(removeUse).split(' ').join('')
-      const typesName = `${upperName}Types`
+      const propsName = `${upperName}Props`
 
       return `import React, { createContext, useContext } from 'react'
 
-      export type ${typesName} = {
-        data: any[]
-      }
-      
-      export const ${upperName}Context = createContext<${typesName}>(null as any)
+      import type { ${propsName} } from 'pagepath'
+     
+      export const ${upperName}Context = createContext<${propsName}>(null as any)
       
       export const ${upperName}Provider = ({ children, pageProps }) => {
         return (

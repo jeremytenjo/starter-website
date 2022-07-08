@@ -14,5 +14,9 @@ export default function RootHeader() {
 }
 
 const Wrapper = ({ children }) => {
-  return <Box data-id='Header'>{children}</Box>
+  return (
+    <Box data-id='Header' component={'header'}>
+      {children}
+    </Box>
+  )
 }

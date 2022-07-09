@@ -3,12 +3,12 @@ import React from 'react'
 import AsyncTester from '@useweb/async-tester'
 
 import addSlugToData, { type AddSlugToDataProps } from '../addSlugToData'
-import BlogsStubs from '../../../../../../data/blogs/blogs.api/blogs.stubs'
+// import BlogsStubs from '../../../../../../data/blogs/blogs.api/blogs.stubs'
 
 import Docs from './addSlugToData.docs'
 
 const defaultArgs: AddSlugToDataProps = {
-  data: BlogsStubs,
+  data: [],
   slugKey: 'title',
 }
 

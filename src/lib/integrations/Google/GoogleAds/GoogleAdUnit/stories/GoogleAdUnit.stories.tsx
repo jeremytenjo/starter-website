@@ -1,14 +1,13 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-import GoogleAdUnit, { type GoogleAdUnitProps } from '@useweb/ui/GoogleAdUnit'
+
+import GoogleAdUnit, { type GoogleAdUnitProps } from '../GoogleAdUnit'
 
 import Docs from './GoogleAdUnit.docs.mdx'
 
 const defaultArgs: GoogleAdUnitProps = {
-  isProd: false,
-  dataAdClient: '',
   dataAdFormat: '',
-  dataAdLayout: '',
+  dataAdLayoutKey: '',
   dataAdSlot: '',
 }
 

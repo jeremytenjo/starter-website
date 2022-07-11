@@ -1,9 +1,9 @@
 {
   "name": "@useweb/starter-website-code-gen-templates",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "main": "superCodeGen.schema.cjs",
   "scripts": {
-    "deploy": "npm version minor && npm publish --access public"
+    "deploy": "npm publish --access public"
   }
 }

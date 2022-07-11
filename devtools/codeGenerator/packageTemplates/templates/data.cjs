@@ -6,11 +6,11 @@ const files = [
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
 
-      return `
+      return `import type ${upperName}PrismicSchema from './${name}.prismic/${name}.prismic.schema'
+
+      
       // TODO add ${upperName} schema
-      type ${upperName}Schema = {
-        id: string
-      }
+      type ${upperName}Schema = ${upperName}PrismicSchema
       
       export default ${upperName}Schema
 
@@ -49,8 +49,8 @@ const files = [
       import type ${upperName}Schema from '../../${name}.schema'
       import getData from '../../../../lib/utils/data/getData/getData'
       
-      export default async function get${upperName}() {
-        const getFn = () => get${upperName}FromApi()
+      export default async function get${upperName}({ previewData = {} } = {}) {
+        const getFn = () => get${upperName}FromApi({previewData})
 
         const ${name}: ${upperName}Schema[] = await getData({
           stubs: ${name}Stubs,
@@ -60,7 +60,7 @@ const files = [
         return ${name}
       }
       
-      const get${upperName}FromApi = async () => {
+      const get${upperName}FromApi = async ({previewData}) => {
         const ${name}: ${upperName}Schema[] = []
         // TODO get ${name} from api
       

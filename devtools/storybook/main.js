@@ -1,7 +1,10 @@
 const webpackFinal = require('./storybookWebpack/webpackFinal.js')
 
 module.exports = {
-  stories: ['../../src/**/*.stories.@(ts|tsx|mdx)'],
+  stories: [
+    '../../src/**/*.stories.@(|ts|tsx|mdx)',
+    '../../slices/**/*.stories.@(|ts|tsx)',
+  ],
   staticDirs: ['../../public'],
   features: { emotionAlias: false, storyStoreV7: true },
   framework: '@storybook/react',

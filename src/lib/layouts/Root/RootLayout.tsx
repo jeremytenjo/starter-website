@@ -6,16 +6,13 @@ import { type GetRootLayoutDataReturn } from '../../../data/_root/getRootLayoutD
 import RootHeader from './containers/RootHeader/RootHeader'
 import RootFooter from './containers/RootFooter/RootFooter'
 
-export type RootLayoutProps = {
-  children: any
-  rootLayoutData: GetRootLayoutDataReturn
-}
+export type RootLayoutProps = GetRootLayoutDataReturn
 
 export const RootLayoutContext = createContext<GetRootLayoutDataReturn>(null as any)
 
 export const useRootLayoutData = () => useContext(RootLayoutContext)
 
-export default function RootLayout({ children, rootLayoutData }: RootLayoutProps) {
+export default function RootLayout({ children, rootLayoutData }) {
   return (
     <RootLayoutContext.Provider value={{ ...rootLayoutData }}>
       <RootHeader />

@@ -25,7 +25,7 @@ export default function ${upperName}Page(props: ${propsName}) {
      <title>${upperName}</title>
    </Head>
   
-   <RootLayout {...props.rootLayoutData}>
+   <RootLayout {...props}>
     <${propsProviderName} pageProps={props} >
       <${contentPageName}Content />
     </${propsProviderName}>

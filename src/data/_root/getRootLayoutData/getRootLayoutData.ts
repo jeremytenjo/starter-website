@@ -2,7 +2,7 @@ type GetRootLayoutDataProps = {
   previewData?: any
 }
 
-export type GetRootLayoutDataReturn = any
+export type GetRootLayoutDataReturn = GetRootLayoutDataProps
 
 export default async function getRootLayoutData({
   previewData = {},

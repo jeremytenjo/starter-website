@@ -11,7 +11,7 @@ export type RootLayoutProps = {
   rootLayoutData: GetRootLayoutDataReturn
 }
 
-export const RootLayoutContext = createContext<GetRootLayoutDataReturn>(null)
+export const RootLayoutContext = createContext<GetRootLayoutDataReturn>(null as any)
 
 export const useRootLayoutData = () => useContext(RootLayoutContext)
 

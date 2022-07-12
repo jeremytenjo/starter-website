@@ -1,4 +1,4 @@
-type GetRootLayoutDataProps = {
+export type GetRootLayoutDataProps = {
   previewData?: any
 }
 

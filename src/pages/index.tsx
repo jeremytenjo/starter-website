@@ -12,7 +12,7 @@ export type HomePageProps = {
 export default function HomePage(props: HomePageProps) {
   return (
     <>
-      <RootLayout {...props}>
+      <RootLayout rootLayoutData={props.rootLayoutData}>
         <HomePagePropsProvider pageProps={props}>
           <HomePageContent />
         </HomePagePropsProvider>

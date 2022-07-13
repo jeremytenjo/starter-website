@@ -7,6 +7,12 @@ import Docs from './RootLayout.docs.mdx'
 
 const defaultArgs: RootLayoutProps = {
   previewData: {},
+  pagesLinks: [
+    {
+      label: 'Home',
+      url: '/',
+    },
+  ],
 }
 
 export default {

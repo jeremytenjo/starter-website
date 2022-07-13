@@ -1,11 +1,16 @@
-export type GetRootLayoutDataProps = {
+import type NavLinkSchema from '../../_commonSchemas/NavLinkSchema'
+
+type GetRootLayoutDataProps = {
   previewData?: any
 }
 
-export type GetRootLayoutDataReturn = GetRootLayoutDataProps
+export type GetRootLayoutDataReturn = GetRootLayoutDataProps & {
+  pagesLinks: NavLinkSchema[]
+}
 
 export default async function getRootLayoutData({
   previewData = {},
 }: GetRootLayoutDataProps = {}): Promise<GetRootLayoutDataReturn> {
-  return { previewData }
+  const pagesLinks: NavLinkSchema[] = []
+  return { previewData, pagesLinks }
 }

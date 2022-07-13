@@ -9,14 +9,10 @@ import IconHamburger from '../../../../../../../../../components/icons/IconHambu
 import Image from '../../../../../../../../../components/basic/misc/Image/Image'
 import Link from '../../../../../../../../../components/basic/misc/Link/Link'
 import appConfig from '../../../../../../../../../../../app.config.cjs'
-
-type MenuLink = {
-  url: string
-  label: string
-}
+import type NavLinkSchema from '../../../../../../../../../../data/_commonSchemas/NavLinkSchema'
 
 export type MenuUiProps = {
-  links: MenuLink[]
+  links: NavLinkSchema[]
   logoSrc: string
 }
 
@@ -111,7 +107,7 @@ const NavLinks = ({ links = [], onLinkClick, activeLink }) => {
         display: 'grid',
       }}
     >
-      {links.map((link: MenuLink) => {
+      {links.map((link: NavLinkSchema) => {
         const isActive = activeLink.includes(link.url as any)
         const color = isActive
           ? {

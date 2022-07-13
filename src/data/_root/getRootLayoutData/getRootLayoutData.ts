@@ -12,5 +12,6 @@ export default async function getRootLayoutData({
   previewData = {},
 }: GetRootLayoutDataProps = {}): Promise<GetRootLayoutDataReturn> {
   const pagesLinks: NavLinkSchema[] = []
+
   return { previewData, pagesLinks }
 }

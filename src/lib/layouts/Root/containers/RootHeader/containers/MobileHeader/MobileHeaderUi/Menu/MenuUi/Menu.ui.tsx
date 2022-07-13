@@ -152,7 +152,7 @@ const CloseButton = ({ closeDialog }) => {
       onClick={closeDialog}
       sx={{
         mb: '20px',
-        justifySelf: 'start',
+        justifySelf: 'end',
         position: 'absolute',
       }}
     >

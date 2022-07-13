@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-import Image, { type ImageProps } from 'next/image'
+
+import Image, { type ImageProps } from '../Image'
 
 import Docs from './Image.docs.mdx'
 
 export default {
-  title: 'lib/components/basic/misc/Image',
+  title: 'lib/components/Image',
   args: {},
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {
@@ -27,7 +28,7 @@ const Template = (args) => {
 export const Default = Template.bind({}) as any
 
 const defaultArgs: ImageProps = {
-  src: '/images/logo/assets/logo.png',
+  src: '/images/test/product-image.webp',
   width: 100,
   height: 100,
   alt: 'hello',

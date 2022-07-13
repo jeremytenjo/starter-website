@@ -1,10 +1,18 @@
 import React from 'react'
-import Box from '@useweb/ui/Box'
+import Box from '@mui/material/Box'
 
-export type MobileHeaderUi = any
+import Menu from './Menu/Menu'
+import Logo from './Logo/Logo'
 
-export default function MobileHeaderUi(props: MobileHeaderUi) {
-  return <Wrapper>Header</Wrapper>
+export default function MobileHeaderUi() {
+  return (
+    <Wrapper>
+      <Inner>
+        <Logo />
+        <Menu />
+      </Inner>
+    </Wrapper>
+  )
 }
 
 const Wrapper = ({ children }) => {
@@ -14,10 +22,25 @@ const Wrapper = ({ children }) => {
       sx={{
         display: {
           xs: 'grid',
-          md: 'none',
+          lg: 'none',
         },
         pb: '20px',
         gap: '12px',
+      }}
+    >
+      {children}
+    </Box>
+  )
+}
+
+const Inner = ({ children }) => {
+  return (
+    <Box
+      sx={{
+        display: 'grid',
+        gridAutoFlow: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
       }}
     >
       {children}

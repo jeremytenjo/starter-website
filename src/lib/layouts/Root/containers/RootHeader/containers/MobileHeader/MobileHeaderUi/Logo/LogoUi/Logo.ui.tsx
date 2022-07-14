@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SiteLogo from '../../../../../../../../../components/basic/SiteLogo/SiteLogo'
+import SiteLogo from '../../../../../../../../../components/basic/misc/SiteLogo/SiteLogo'
 
 export type LogoUiProps = {
   src?: string

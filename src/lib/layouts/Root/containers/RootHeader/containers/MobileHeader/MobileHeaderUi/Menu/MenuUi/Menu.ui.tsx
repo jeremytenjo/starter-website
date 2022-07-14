@@ -8,7 +8,7 @@ import IconxSmall from '../../../../../../../../../components/icons/IconxSmall'
 import IconHamburger from '../../../../../../../../../components/icons/IconHamburger'
 import Link from '../../../../../../../../../components/basic/misc/Link/Link'
 import type NavLinkSchema from '../../../../../../../../../../data/_commonSchemas/NavLinkSchema'
-import SiteLogo from '../../../../../../../../../components/basic/SiteLogo/SiteLogo'
+import SiteLogo from '../../../../../../../../../components/basic/misc/SiteLogo/SiteLogo'
 
 export type MenuUiProps = {
   links: NavLinkSchema[]

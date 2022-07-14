@@ -13,6 +13,7 @@ const defaultArgs: RootLayoutProps = {
       url: '/',
     },
   ],
+  settings: {},
 }
 
 export default {

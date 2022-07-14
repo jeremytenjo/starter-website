@@ -8,7 +8,6 @@ export default function Menu() {
   const rootLayoutData = useRootLayoutData()
 
   const links: MenuUiProps['links'] = rootLayoutData.pagesLinks
-  const logoSrc = '/images/logo/logo.svg'
 
-  return <MenuUi links={links} logoSrc={logoSrc} />
+  return <MenuUi links={links} />
 }

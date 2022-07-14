@@ -6,14 +6,13 @@ import Text from '@useweb/ui/Text'
 
 import IconxSmall from '../../../../../../../../../components/icons/IconxSmall'
 import IconHamburger from '../../../../../../../../../components/icons/IconHamburger'
-import Image from '../../../../../../../../../components/basic/misc/Image/Image'
 import Link from '../../../../../../../../../components/basic/misc/Link/Link'
-import appConfig from '../../../../../../../../../../../app.config.cjs'
 import type NavLinkSchema from '../../../../../../../../../../data/_commonSchemas/NavLinkSchema'
+import SiteLogo from '../../../../../../../../../components/basic/SiteLogo/SiteLogo'
 
 export type MenuUiProps = {
   links: NavLinkSchema[]
-  logoSrc: string
+  logoSrc?: string
 }
 
 export default function MenuUi({ links = [], logoSrc }: MenuUiProps) {
@@ -71,6 +70,10 @@ const Modal = ({ open, activeLink, links, closeDialog, onLinkClick, logoSrc }) =
         sx={{
           p: 3,
           display: 'grid',
+          backgroundColor: 'white.main',
+          height: '100%',
+          alignItems: 'start',
+          alignContent: 'start',
         }}
       >
         <Logo src={logoSrc} />
@@ -82,22 +85,7 @@ const Modal = ({ open, activeLink, links, closeDialog, onLinkClick, logoSrc }) =
 }
 
 const Logo = ({ src }) => {
-  return (
-    <Link
-      href='/'
-      sx={{
-        justifySelf: 'center',
-        mb: '35px',
-      }}
-    >
-      <Image
-        src={src}
-        width={'80px'}
-        height={'80px'}
-        alt={`${appConfig.siteInfo.name} beautiful logo`}
-      />
-    </Link>
-  )
+  return <SiteLogo src={src} width={164} height={68} />
 }
 
 const NavLinks = ({ links = [], onLinkClick, activeLink }) => {
@@ -111,10 +99,10 @@ const NavLinks = ({ links = [], onLinkClick, activeLink }) => {
         const isActive = activeLink.includes(link.url as any)
         const color = isActive
           ? {
-              color: 'black.main',
+              color: 'primary.main',
             }
           : {
-              color: 'white.main',
+              color: 'black.main',
             }
 
         return (
@@ -134,7 +122,7 @@ const NavLinks = ({ links = [], onLinkClick, activeLink }) => {
               mb: 2,
 
               '&:hover': {
-                color: 'black.main',
+                color: 'primary.main',
               },
             }}
           >

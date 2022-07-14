@@ -11,7 +11,7 @@ export type SiteLogoProps = {
   height?: string | number
 }
 
-export default function SiteLogo({ src, width = 164, height = 68 }: SiteLogoProps) {
+export default function SiteLogo({ src, width = 40, height = 40 }: SiteLogoProps) {
   const rootData = useRootLayoutData()
   const siteLogo = src || rootData?.settings?.data?.logo?.url || '/images/logo/logo.svg'
 

@@ -11,6 +11,7 @@ import createEmotionCache from '../theme/UiTheme/utils/createEmotionCache'
 import Prismic from '../lib/integrations/Prismic/Prismic'
 import GoogleAnalytics from '../lib/integrations/Google/GoogleAnalytics/GoogleAnalytics'
 import GoogleAds from '../lib/integrations/Google/GoogleAds/GoogleAds'
+import GoogleSearchConsole from '../lib/integrations/Google/GoogleSearchConsole/components/GoogleSearchConsole'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -21,6 +22,7 @@ export default function MyApp(props) {
   return (
     <>
       <ClickToComponent />
+      <GoogleSearchConsole />
       <GoogleAnalytics />
       <GoogleAds />
 

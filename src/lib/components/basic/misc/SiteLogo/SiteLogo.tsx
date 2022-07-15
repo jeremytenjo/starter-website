@@ -21,7 +21,7 @@ export default function SiteLogo({
   onClick,
 }: SiteLogoProps) {
   const rootData = useRootLayoutData()
-  const siteLogo = src || rootData.settings.data.logo.url
+  const siteLogo = src || rootData?.settings?.data?.logo?.url
 
   return (
     <Link href='/' data-id='Logo' sx={{ ...sx }} onClick={onClick}>

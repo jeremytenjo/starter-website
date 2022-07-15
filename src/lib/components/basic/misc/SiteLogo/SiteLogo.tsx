@@ -10,25 +10,21 @@ export type SiteLogoProps = {
   width?: string | number
   height?: string | number
   sx?: LinkProps['sx']
+  onClick?: any
 }
 
 export default function SiteLogo({
   src,
-  width = 40,
-  height = 40,
+  width = 164,
+  height = 68,
   sx = {},
+  onClick,
 }: SiteLogoProps) {
   const rootData = useRootLayoutData()
-  const siteLogo = src || rootData?.settings?.data?.logo?.url || '/images/logo/logo.svg'
+  const siteLogo = src || rootData.settings.data.logo.url
 
   return (
-    <Link
-      href='/'
-      data-id='Logo'
-      sx={{
-        ...sx,
-      }}
-    >
+    <Link href='/' data-id='Logo' sx={{ ...sx }} onClick={onClick}>
       <Image
         src={siteLogo}
         width={width}

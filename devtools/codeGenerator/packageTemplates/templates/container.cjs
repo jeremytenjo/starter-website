@@ -37,7 +37,7 @@ const files = [
     }
     
     const Wrapper = ({ children }) => {
-      return <Box data-id='${name}'>{children}</Box>
+      return <Box data-id='${name}' sx={{}}>{children}</Box>
     }
     `
     },

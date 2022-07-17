@@ -12,7 +12,7 @@ import Head from 'next/head'
 
 import ${contentPageName}Content from '../../content/${contentPageName}/${contentPageName}'
 import { ${propsProviderName} } from '../../content/${contentPageName}/use${contentPageName}Props/use${contentPageName}Props'
-import getrootLayoutData from '../data/_root/getRootLayoutData/getRootLayoutData'
+import getrootLayoutData from '../data/_root/getRootData/getRootData'
 import RootLayout, { type RootLayoutProps } from '../lib/layouts/Root/RootLayout'
 
 export type ${propsName} = {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import getRootLayoutData from '../data/_root/getRootLayoutData/getRootLayoutData'
+import getRootData from '../data/_root/getRootData/getRootData'
 import HomePageContent from '../content/HomePage/HomePage'
 import { HomePagePropsProvider } from '../content/HomePage/useHomePageProps/useHomePageProps'
 import RootLayout, { type RootLayoutProps } from '../lib/layouts/Root/RootLayout'
@@ -22,7 +22,7 @@ export default function HomePage(props: HomePageProps) {
 }
 
 export async function getStaticProps({ previewData }): Promise<{ props: HomePageProps }> {
-  const rootLayoutData: RootLayoutProps = await getRootLayoutData({ previewData })
+  const rootLayoutData: RootLayoutProps = await getRootData({ previewData })
 
   return {
     props: {

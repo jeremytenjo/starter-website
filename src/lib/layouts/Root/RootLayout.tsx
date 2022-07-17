@@ -1,14 +1,14 @@
 import React, { createContext, useContext } from 'react'
 import Box from '@useweb/ui/Box'
 
-import { type GetRootLayoutDataReturn } from '../../../data/_root/getRootLayoutData/getRootLayoutData'
+import { type GetRootDataReturn } from '../../../data/_root/getRootData/getRootData'
 
 import RootHeader from './containers/RootHeader/RootHeader'
 import RootFooter from './containers/RootFooter/RootFooter'
 
-export type RootLayoutProps = GetRootLayoutDataReturn
+export type RootLayoutProps = GetRootDataReturn
 
-export const RootLayoutContext = createContext<GetRootLayoutDataReturn>(null as any)
+export const RootLayoutContext = createContext<GetRootDataReturn>(null as any)
 
 export const useRootLayoutData = () => useContext(RootLayoutContext)
 

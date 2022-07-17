@@ -7,6 +7,7 @@ const defaults: ComponentDefaultsProps = {
     root: {
       borderRadius: '10px',
       fontWeight: 'bold',
+      boxShadow: 'none',
       width: '100%',
       textTransform: 'none' as const,
       fontFamily: 'PoppinsRegular',

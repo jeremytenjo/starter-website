@@ -39,6 +39,10 @@ const defaults: ComponentDefaultsProps = {
     scrollbar-width: thin;
   }
 
+  input, textarea {
+    font-family: var(--font-main);
+  }
+
   body::-webkit-scrollbar-thumb {
     background-color: #C1C1C1;
     border-radius: 10px;

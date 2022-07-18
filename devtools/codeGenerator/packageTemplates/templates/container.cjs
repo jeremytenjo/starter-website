@@ -8,7 +8,7 @@ const files = [
     
     export default function ${name}() {
       const uiProps: ${name}UiProps = {
-        name: '${name}'
+        title: '${name}'
       }
 
       return <${name}Ui {...uiProps} />

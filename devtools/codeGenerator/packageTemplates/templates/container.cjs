@@ -33,13 +33,21 @@ const files = [
     export default function ${name}Ui(props: ${propsName}) {        
       return (
         <Wrapper>
-         {props.title}
+          <Title {...props} />
         </Wrapper>
       )
     }
     
     const Wrapper = ({ children }) => {
       return <Box data-id='${name}' sx={{}}>{children}</Box>
+    }
+
+    const Title = (props: ${propsName}) => {
+      return (
+        <Box data-id='Title' sx={{}}>
+          {props.title}
+        </Box>
+      )
     }
     `
     },

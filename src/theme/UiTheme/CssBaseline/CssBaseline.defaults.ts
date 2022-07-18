@@ -29,6 +29,7 @@ const defaults: ComponentDefaultsProps = {
     box-sizing: border-box;
     margin: 0;
     background-color: ${colors.backgroundColor};
+    overflow-x: hidden;
   }
 
   body::-webkit-scrollbar {

@@ -50,7 +50,7 @@
     "@useweb/click-to-component": "2.2.1",
     "@useweb/fetch-tester": "1.4.0",
     "@useweb/next-api-tester": "1.3.0",
-    "@useweb/ui": "4.1.3",
+    "@useweb/ui": "4.2.8",
     "@useweb/ui-theme": "1.0.1",
     "@useweb/use-async": "4.2.0",
     "@useweb/use-event-listener": "1.2.0",

@@ -30,10 +30,10 @@ const files = [
       title: string
     }
 
-    export default function ${name}Ui({ title }: ${propsName}) {        
+    export default function ${name}Ui(props: ${propsName}) {        
       return (
         <Wrapper>
-         {title}
+         {props.title}
         </Wrapper>
       )
     }

@@ -14,6 +14,7 @@ const defaults: ComponentDefaultsProps = {
       backgroundColor: 'white',
       '&:hover': {
         backgroundColor: 'white',
+        boxShadow: 'none',
       },
       '&:active': {
         boxShadow: 'none',

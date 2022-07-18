@@ -4,12 +4,14 @@ const files = [
     template: ({ name }) => {
       return `import React from 'react'
     
-    import ${name}Ui from './${name}Ui/${name}.ui'
+    import ${name}Ui, { type ${name}UiProps } from './${name}Ui/${name}.ui'
     
     export default function ${name}() {
-      const title = '${name}'  
+      const uiProps: ${name}UiProps = {
+        name: '${name}'
+      }
 
-      return <${name}Ui title={title} />
+      return <${name}Ui {...uiProps} />
     }`
     },
   },

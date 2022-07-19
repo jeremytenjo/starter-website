@@ -14,6 +14,7 @@ export type FileProps = {
 export type GenCodeFromTemplateProps = {
   name: string
   outputPath: string
+  noParentFolder?: boolean
   files: {
     parentFolderName?: (props: FileProps) => string
     path: (props: FileProps) => string
@@ -25,6 +26,7 @@ export default async function genCodeFromTemplate({
   files,
   name,
   outputPath = '',
+  noParentFolder,
 }: GenCodeFromTemplateProps) {
   try {
     const fileProperties: FileProps = {
@@ -35,11 +37,9 @@ export default async function genCodeFromTemplate({
 
     await Promise.all(
       files.map(async (file) => {
-        const parentFolderName = (
-          file?.parentFolderName?.(fileProperties) ||
-          name ||
-          ''
-        ).replaceAll(' ', '')
+        const parentFolderName = !noParentFolder
+          ? (file?.parentFolderName?.(fileProperties) || name || '').replaceAll(' ', '')
+          : ''
 
         const filePath = path.join(
           outputPath,

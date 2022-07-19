@@ -34,7 +34,12 @@ export default async function genCodeFromTemplate({
 
     await Promise.all(
       files.map(async (file) => {
-        const parentFolderName = file?.parentFolderName?.(fileProperties) || name || ''
+        const parentFolderName = (
+          file?.parentFolderName?.(fileProperties) ||
+          name ||
+          ''
+        ).replaceAll(' ', '')
+
         const filePath = path.join(
           outputPath,
           parentFolderName,

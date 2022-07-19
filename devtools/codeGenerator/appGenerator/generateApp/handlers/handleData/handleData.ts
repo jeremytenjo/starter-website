@@ -1,7 +1,7 @@
 import path from 'path'
 
-import createFile from '../../../../../utils/node/createFile'
 import { type ContextProps } from '../../generateApp'
+import genCodeFromTemplate from '../../utils/genCodeFromTemplate/genCodeFromTemplate.js'
 
 export type DataProps = {
   context: ContextProps
@@ -15,7 +15,12 @@ export default async function handleData({ data = [], context }: DataProps) {
 
   await Promise.all(
     data.map(async (item: DataProps['data'][0]) => {
-      // console.log(item)
+      // create items
+      await genCodeFromTemplate({
+        name: item.name,
+        files: context.templates.data,
+        outputPath: dataDir,
+      })
     }),
   )
 }

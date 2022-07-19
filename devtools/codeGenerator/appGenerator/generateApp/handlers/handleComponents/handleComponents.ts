@@ -1,8 +1,8 @@
 import path from 'path'
 
-import createFile from '../../../../../utils/node/createFile'
 import { type ComponentProps } from '../../sharedTypes'
 import { type ContextProps } from '../../generateApp'
+import genCodeFromTemplate from '../../utils/genCodeFromTemplate/genCodeFromTemplate.js'
 
 export type ComponentsProps = {
   context: ContextProps
@@ -20,7 +20,12 @@ export default async function handleComponents({
 
   await Promise.all(
     components.map(async (component: ComponentsProps['components'][0]) => {
-      // console.log(component)
+      // create components
+      await genCodeFromTemplate({
+        name: component.name,
+        files: context.templates.component,
+        outputPath: componentsDir,
+      })
     }),
   )
 }

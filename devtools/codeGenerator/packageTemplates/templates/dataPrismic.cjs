@@ -34,7 +34,7 @@ const files = [
 
       return `import prismicClient from '../../../../lib/integrations/Prismic/utils/prismicClient/prismicClient'
       import type ${schema} from '../${name}.prismic.schema'
-      import addSlugToData from '../../../lib/integrations/Prismic/utils/addSlugToData/addSlugToData'
+      import addSlugToData from '../../../../lib/integrations/Prismic/utils/addSlugToData/addSlugToData'
 
       export type ${propName} = any
       

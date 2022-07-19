@@ -3,6 +3,7 @@ import path from 'path'
 import createFile from '../../../../../utils/node/createFile.js'
 import prettifyFile from '../../../../../utils/node/prettifyFile/prettifyFile.js'
 import helpers from '../../handlers/fileProphelpers/fileProphelpers.cjs'
+import prettierConfig from '../../../../../prettier/prettier.config.json' assert { type: 'json' }
 
 export type FileProps = {
   name: string
@@ -47,6 +48,7 @@ export default async function genCodeFromTemplate({
         )
         const fileContent = prettifyFile({
           content: file.template(fileProperties),
+          prettierConfig,
         })
 
         await createFile({

@@ -18,17 +18,22 @@ export default async function handlePages({ pages = [], context }: PagesProps) {
 
   await Promise.all(
     pages.map(async (page: PagesProps['pages'][0]) => {
+      // create page
       await genCodeFromTemplate({
         name: page.name,
         files: context.templates.page,
         outputPath: pagesDir,
       })
 
+      // create page content
       await genCodeFromTemplate({
         name: page.name,
         files: context.templates.pageContent,
         outputPath: pagesContentDir,
       })
+
+      // create page content containers
+      console.log(page.containers)
     }),
   )
 }

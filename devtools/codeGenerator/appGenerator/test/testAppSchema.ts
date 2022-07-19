@@ -161,10 +161,11 @@ const data = (): DataProps['data'] => {
 
 const templates = {
   page: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
-  pageContent: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
-  container: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
-  component: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
-  data: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
+  pageContent: superCodeGenSchema.find((s) => s.type === 'Page Content')?.files || [],
+  container: superCodeGenSchema.find((s) => s.type === 'Container')?.files || [],
+  component:
+    superCodeGenSchema.find((s) => s.type === 'Component with story')?.files || [],
+  data: superCodeGenSchema.find((s) => s.type === 'Data')?.files || [],
 }
 
 export default async function appSchema() {

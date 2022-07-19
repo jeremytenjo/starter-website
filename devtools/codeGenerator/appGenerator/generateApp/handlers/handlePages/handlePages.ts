@@ -23,6 +23,12 @@ export default async function handlePages({ pages = [], context }: PagesProps) {
         files: context.templates.page,
         outputPath: pagesDir,
       })
+
+      await genCodeFromTemplate({
+        name: page.name,
+        files: context.templates.pageContent,
+        outputPath: pagesContentDir,
+      })
     }),
   )
 }

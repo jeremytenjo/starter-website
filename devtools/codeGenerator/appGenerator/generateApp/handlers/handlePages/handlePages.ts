@@ -35,43 +35,46 @@ export default async function handlePages({ pages = [], context }: PagesProps) {
       // create page content containers
       const { containers = [] } = page
 
-      const recursiveCreateContainers = async ({ containersToGen }) => {
-        if (containersToGen?.length) {
-          await Promise.all(
-            containersToGen.map(async (container: ContainerProps) => {
-              await createContainers({
-                containers: page.containers,
-                name: container.name,
-                outputPath: pagesContentDir,
-                files: context.templates.container,
-                parentFolderName: page.name,
-              })
-
-              if (container.containers) {
-                console.log({ containersToGen, container })
-
-                await recursiveCreateContainers({ containersToGen: container.containers })
-              }
-            }),
-          )
-        }
-      }
-
-      await recursiveCreateContainers({ containersToGen: containers })
+      await recursiveCreateContainers({
+        containersToGen: containers,
+        outputPath: pagesContentDir,
+        files: context.templates.container,
+        parentFolderName: page.name,
+      })
     }),
   )
 }
 
-const createContainers = async ({
-  containers,
-  name,
+const recursiveCreateContainers = async ({
+  containersToGen,
   outputPath,
   files,
   parentFolderName,
 }) => {
-  const outputPathFinal = path
-    .join(outputPath, parentFolderName, 'containers', name)
-    .replaceAll(' ', '')
+  await Promise.all(
+    containersToGen.map(async (container: ContainerProps) => {
+      const { containerOutputPath } = await createContainers({
+        name: container.name,
+        outputPath,
+        files,
+        parentFolderName,
+      })
+
+      if (container?.containers?.length) {
+        await recursiveCreateContainers({
+          containersToGen: container.containers,
+          parentFolderName: path.join(containerOutputPath, `${container.name}Ui`),
+          files,
+          outputPath,
+        })
+      }
+    }),
+  )
+}
+
+const createContainers = async ({ name, outputPath, files, parentFolderName }) => {
+  const containerOutputPath = path.join(parentFolderName, 'containers', name)
+  const outputPathFinal = path.join(outputPath, containerOutputPath).replaceAll(' ', '')
 
   await genCodeFromTemplate({
     name,
@@ -79,4 +82,6 @@ const createContainers = async ({
     outputPath: outputPathFinal,
     noParentFolder: true,
   })
+
+  return { containerOutputPath }
 }

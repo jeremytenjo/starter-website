@@ -26,6 +26,7 @@ const pages = (): PagesProps['pages'] => {
             },
             {
               name: 'Reasons List',
+              containers: [{ name: 'Child of Reasons list' }],
             },
           ],
         },

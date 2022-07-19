@@ -29,10 +29,11 @@ export default function ${pascalName}Content() {
       const removeUse = name.replace('use', '')
       const upperName = helpers.changeCase.pascalCase(removeUse).replaceAll(' ', '')
       const propsName = `${upperName}Props`
+      const pageName = helpers.changeCase.paramCase(name).split(' ').join('')
 
       return `import React, { createContext, useContext } from 'react'
 
-      import type { ${propsName} } from 'pagepath'
+      import type { ${propsName} } from '../../../pages/${pageName}'
      
       export const ${upperName}Context = createContext<${propsName}>(null as any)
       

@@ -1,5 +1,3 @@
-import appSchema from '../../../../app.schema.js'
-
 import handlePages, { type PagesProps } from './handlers/handlePages/handlePages.js'
 import handleData, { type DataProps } from './handlers/handleData/handleData.js'
 import handleComponents, {
@@ -30,9 +28,15 @@ export type SchemaProps = {
 export type ContextProps = {
   templates: SchemaProps['templates']
   rootDir: string
+  isTestEnv: boolean
 }
 
 export default async function generateApp() {
+  const isTestEnv = process.env.NODE_ENV === 'test'
+  const appSchema = isTestEnv
+    ? (await import('../test/testAppSchema.js')).default
+    : (await import('../../../../app.schema.js')).default
+
   const {
     templates,
     pages = () => [],
@@ -43,6 +47,7 @@ export default async function generateApp() {
   const context: ContextProps = {
     templates,
     rootDir: process.cwd(),
+    isTestEnv,
   }
 
   try {

@@ -1,7 +1,7 @@
 import superCodeGenSchema from './devtools/codeGenerator/superCodeGen.schema.cjs'
 import {
   type SchemaProps,
-  ElementsTypes,
+  type ElementsTypes,
 } from './devtools/codeGenerator/appGenerator/generateApp/generateApp'
 
 // open devtools/codeGenerator/appGenerator/test/testAppSchema.ts for an example

@@ -27,7 +27,7 @@ export default async function genCodeFromTemplate({
 }: GenCodeFromTemplateProps) {
   try {
     const fileProperties: FileProps = {
-      name,
+      name: name.replaceAll(' ', ''),
       helpers,
       folderPath: outputPath,
     }

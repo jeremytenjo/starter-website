@@ -4,7 +4,11 @@ const files = [
   {
     path: ({ name }) => `${name}.schema.tsx`,
     template: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+      const upperName = helpers.changeCase
+        .pascalCase(name)
+        .split('-')
+        .join('')
+        .replaceAll(' ', '')
 
       return `import type ${upperName}PrismicSchema from './${name}.prismic/${name}.prismic.schema'
 
@@ -20,7 +24,11 @@ const files = [
   {
     path: ({ name }) => `${name}.stubs.tsx`,
     template: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+      const upperName = helpers.changeCase
+        .pascalCase(name)
+        .split('-')
+        .join('')
+        .replaceAll(' ', '')
 
       return `
       import type ${upperName}Schema from './${name}.schema'
@@ -36,13 +44,21 @@ const files = [
   },
   {
     path: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+      const upperName = helpers.changeCase
+        .pascalCase(name)
+        .split('-')
+        .join('')
+        .replaceAll(' ', '')
       const fnName = `get${upperName}`
 
       return `${name}.api/${fnName}/${fnName}.tsx`
     },
     template: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+      const upperName = helpers.changeCase
+        .pascalCase(name)
+        .split('-')
+        .join('')
+        .replaceAll(' ', '')
 
       return `
       import ${name}Stubs from '../../${name}.stubs'
@@ -73,13 +89,21 @@ const files = [
   },
   {
     path: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+      const upperName = helpers.changeCase
+        .pascalCase(name)
+        .split('-')
+        .join('')
+        .replaceAll(' ', '')
       const fnName = `get${upperName}`
 
       return `${name}.api/${fnName}/stories/${fnName}.stories.tsx`
     },
     template: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
+      const upperName = helpers.changeCase
+        .pascalCase(name)
+        .split('-')
+        .join('')
+        .replaceAll(' ', '')
 
       return `// https://storybook.js.org/docs/react/api/argtypes
       import React from 'react'

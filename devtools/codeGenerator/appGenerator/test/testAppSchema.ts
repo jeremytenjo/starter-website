@@ -8,7 +8,6 @@ const pages = (): PagesProps['pages'] => {
   return [
     {
       name: 'hometest',
-      path: 'hometest',
       containers: [
         {
           name: 'Hero',
@@ -38,7 +37,6 @@ const pages = (): PagesProps['pages'] => {
     },
     {
       name: 'dr-osborne-partnership',
-      path: 'dr-osborne-partnership',
       containers: [
         {
           name: 'Hero',

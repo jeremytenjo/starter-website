@@ -8,7 +8,6 @@ export type PagesProps = {
   context: ContextProps
   pages: {
     name: string
-    path: string
     containers?: ContainerProps[]
   }[]
 }

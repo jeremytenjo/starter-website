@@ -41,8 +41,8 @@ export default async function generateApp() {
 
   try {
     await handlePages({ pages: await pages(), context })
-    // await handleData({ data: await data(), context })
-    // await handleComponents({ components: await components(), context })
+    await handleData({ data: await data(), context })
+    await handleComponents({ components: await components(), context })
 
     console.log('')
     console.log(`🚀  App Generated`)

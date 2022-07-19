@@ -6,8 +6,8 @@ import { type PagesProps } from '../generateApp/handlers/handlePages/handlePages
 const pages = (): PagesProps['pages'] => {
   return [
     {
-      name: 'home',
-      path: '/',
+      name: 'hometest',
+      path: 'hometest',
       containers: [
         {
           name: 'Hero',

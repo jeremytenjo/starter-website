@@ -60,27 +60,29 @@ const files = [
         .join('')
         .replaceAll(' ', '')
 
+      const cleanName = helpers.changeCase.camelCase(upperName)
+
       return `
-      import ${name}Stubs from '../../${name}.stubs'
-      import type ${upperName}Schema from '../../${name}.schema'
+      import ${cleanName}Stubs from '../../${cleanName}.stubs'
+      import type ${upperName}Schema from '../../${cleanName}.schema'
       import getData from '../../../../lib/utils/data/getData/getData'
       
       export default async function get${upperName}({ previewData = {} } = {}) {
         const getFn = () => get${upperName}FromApi({previewData})
 
-        const ${name}: ${upperName}Schema[] = await getData({
-          stubs: ${name}Stubs,
+        const ${cleanName}: ${upperName}Schema[] = await getData({
+          stubs: ${cleanName}Stubs,
           getFn,
         })
       
-        return ${name}
+        return ${cleanName}
       }
       
       const get${upperName}FromApi = async ({previewData}) => {
-        const ${name}: ${upperName}Schema[] = []
-        // TODO get ${name} from api
+        const ${cleanName}: ${upperName}Schema[] = []
+        // TODO get ${cleanName} from api
       
-        return ${name}
+        return ${cleanName}
       }
       
 

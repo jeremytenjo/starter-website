@@ -1,3 +1,7 @@
+import path from 'path'
+
+import removeFolder from '../../../utils/node/removeFolder.js'
+
 import handlePages, { type PagesProps } from './handlers/handlePages/handlePages.js'
 import handleData, { type DataProps } from './handlers/handleData/handleData.js'
 import handleComponents, {
@@ -36,6 +40,10 @@ export default async function generateApp() {
   const appSchema = isTestEnv
     ? (await import('../test/testAppSchema.js')).default
     : (await import('../../../../app.schema.js')).default
+
+  if (isTestEnv) {
+    await removeFolder(path.join(process.cwd(), 'src'))
+  }
 
   const {
     templates,

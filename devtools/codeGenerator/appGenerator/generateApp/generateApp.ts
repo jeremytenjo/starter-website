@@ -39,7 +39,15 @@ export default async function generateApp() {
     rootDir: process.cwd(),
   }
 
-  await handlePages({ pages: await pages(), context })
-  await handleData({ data: await data(), context })
-  await handleComponents({ components: await components(), context })
+  try {
+    await handlePages({ pages: await pages(), context })
+    await handleData({ data: await data(), context })
+    await handleComponents({ components: await components(), context })
+
+    console.log('')
+    console.log(`🚀  App Generated`)
+    console.log('')
+  } catch (error) {
+    console.log(error)
+  }
 }

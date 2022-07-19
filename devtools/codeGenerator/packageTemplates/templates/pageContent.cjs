@@ -3,14 +3,16 @@ const files = [
     path: ({ name }) => {
       return `${name}.tsx`
     },
-    template: ({ name }) => {
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
       return `
       import React from 'react'
 
-export default function ${name}Content() {
+export default function ${pascalName}Content() {
   return (
     <div>
-    ${name}
+    ${pascalName}
     </div>
   )
 }
@@ -18,8 +20,9 @@ export default function ${name}Content() {
     },
   },
   {
-    path: ({ name }) => {
-      const filesName = `use${name}Props`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const filesName = `use${pascalName}Props`
       return `${filesName}/${filesName}.tsx`
     },
     template: ({ name, helpers }) => {

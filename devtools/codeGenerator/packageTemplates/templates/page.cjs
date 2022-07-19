@@ -14,8 +14,8 @@ const files = [
       return `import React from 'react' 
 import Head from 'next/head'
 
-import ${contentPageName}Content from '../../pagesCcontent/${contentPageName}/${contentPageName}'
-import { ${propsProviderName} } from '../../pagesCcontent/${contentPageName}/use${contentPageName}Props/use${contentPageName}Props'
+import ${contentPageName}Content from '../../pagesContent/${contentPageName}/${contentPageName}'
+import { ${propsProviderName} } from '../../pagesContent/${contentPageName}/use${contentPageName}Props/use${contentPageName}Props'
 import getrootLayoutData from '../data/_root/getRootData/getRootData'
 import RootLayout, { type RootLayoutProps } from '../lib/layouts/Root/RootLayout'
 

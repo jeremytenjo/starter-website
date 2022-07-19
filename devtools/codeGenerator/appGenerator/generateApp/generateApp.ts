@@ -1,10 +1,16 @@
-import testAppSchema from '../test/testAppSchema.js'
+import appSchema from '../../../../app.schema.js'
 
 import handlePages, { type PagesProps } from './handlers/handlePages/handlePages.js'
 import handleData, { type DataProps } from './handlers/handleData/handleData.js'
 import handleComponents, {
   type ComponentsProps,
 } from './handlers/handleComponents/handleComponents.js'
+
+export type ElementsTypes = {
+  PagesProps: PagesProps
+  DataProps: DataProps
+  ComponentsProps: ComponentsProps
+}
 
 export type SchemaProps = {
   templates: {
@@ -32,7 +38,7 @@ export default async function generateApp() {
     pages = () => [],
     data = () => [],
     components = () => [],
-  }: SchemaProps = await testAppSchema()
+  }: SchemaProps = await appSchema()
 
   const context: ContextProps = {
     templates,

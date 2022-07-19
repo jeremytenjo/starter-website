@@ -63,8 +63,8 @@ const files = [
       const cleanName = helpers.changeCase.camelCase(upperName)
 
       return `
-      import ${cleanName}Stubs from '../../${cleanName}.stubs'
-      import type ${upperName}Schema from '../../${cleanName}.schema'
+      import ${cleanName}Stubs from '../../${name}.stubs'
+      import type ${upperName}Schema from '../../${name}.schema'
       import getData from '../../../../lib/utils/data/getData/getData'
       
       export default async function get${upperName}({ previewData = {} } = {}) {

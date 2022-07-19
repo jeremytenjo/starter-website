@@ -25,6 +25,7 @@ const files = [
       return `${name}.prismic/${getFunction}/${getFunction}.ts`
     },
     template: ({ name, helpers }) => {
+      const cleanName = helpers.changeCase.camelCase(name).replaceAll(' ', '')
       const capCase = `${helpers.changeCase.pascalCase(name)}`
       const getFunction = `get${capCase}FromPrismic`
       const typeName = helpers.changeCase.paramCase(name)
@@ -39,13 +40,13 @@ const files = [
       export type ${propName} = any
       
       export default async function ${getFunction}({ previewData = {} }: ${propName} = {}) {
-        const ${name}: ${schema}[] = (await prismicClient({
+        const ${cleanName}: ${schema}[] = (await prismicClient({
           previewData,
         }).getAllByType('${typeName}')) as ${schema}[]
 
-        const ${name}WithSlug = addSlugToData({ data: ${name}, slugKey: 'title' })
+        const ${cleanName}WithSlug = addSlugToData({ data: ${cleanName}, slugKey: 'title' })
       
-        return ${name}WithSlug
+        return ${cleanName}WithSlug
       }
       `
     },

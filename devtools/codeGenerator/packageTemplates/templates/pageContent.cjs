@@ -4,7 +4,7 @@ const files = [
       return `${name}.tsx`
     },
     template: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
 
       return `
       import React from 'react'
@@ -21,13 +21,13 @@ export default function ${pascalName}Content() {
   },
   {
     path: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name).replaceAll(' ', '')
       const filesName = `use${pascalName}Props`
       return `${filesName}/${filesName}.tsx`
     },
     template: ({ name, helpers }) => {
       const removeUse = name.replace('use', '')
-      const upperName = helpers.changeCase.capitalCase(removeUse).split(' ').join('')
+      const upperName = helpers.changeCase.pascalCase(removeUse).split(' ').join('')
       const propsName = `${upperName}Props`
 
       return `import React, { createContext, useContext } from 'react'

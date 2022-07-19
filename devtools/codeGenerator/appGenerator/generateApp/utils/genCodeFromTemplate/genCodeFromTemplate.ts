@@ -14,6 +14,7 @@ export type GenCodeFromTemplateProps = {
   name: string
   outputPath: string
   files: {
+    parentFolderName?: (props: FileProps) => string
     path: (props: FileProps) => string
     template: (props: FileProps) => string
   }[]
@@ -24,16 +25,21 @@ export default async function genCodeFromTemplate({
   name,
   outputPath = '',
 }: GenCodeFromTemplateProps) {
-  const fileProperties: FileProps = {
-    name,
-    helpers,
-    folderPath: outputPath,
-  }
-
   try {
+    const fileProperties: FileProps = {
+      name,
+      helpers,
+      folderPath: outputPath,
+    }
+
     await Promise.all(
       files.map(async (file) => {
-        const filePath = path.join(outputPath, name, file.path(fileProperties))
+        const parentFolderName = file?.parentFolderName?.(fileProperties) || name || ''
+        const filePath = path.join(
+          outputPath,
+          parentFolderName,
+          file.path(fileProperties),
+        )
         const fileContent = prettifyFile({
           content: file.template(fileProperties),
         })
@@ -42,6 +48,7 @@ export default async function genCodeFromTemplate({
           filePath: filePath,
           fileContent,
           noTimestamp: true,
+          nojs: true,
         })
       }),
     )

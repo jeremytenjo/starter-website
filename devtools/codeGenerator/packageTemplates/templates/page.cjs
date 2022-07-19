@@ -1,11 +1,15 @@
 const files = [
   {
+    parentFolderName: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.paramCase(name).split(' ').join('')
+      return pascalName
+    },
     path: () => `index.tsx`,
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
       const contentPageName = `${upperName}Page`
       const propsProviderName = `${contentPageName}PropsProvider`
-      const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
+      const propsName = `${helpers.changeCase.pascalCase(name).split(' ').join('')}Props`
 
       return `import React from 'react' 
 import Head from 'next/head'

@@ -3,11 +3,14 @@ import prettier from 'prettier'
 
 import prettierConfig from '../../prettier/prettier.config.json' assert { type: 'json' }
 
+import doesFolderOrFileExist from './doesFolderOrFileExist.js'
+
 type Props = {
   filePath: string
   fileContent: string
   nojs?: boolean
   noTimestamp?: boolean
+  overwrite?: boolean
 }
 
 export default async function createFile({
@@ -15,7 +18,14 @@ export default async function createFile({
   fileContent,
   nojs,
   noTimestamp,
+  overwrite = false,
 }: Props) {
+  const exists = await doesFolderOrFileExist(filePath)
+
+  if (exists && !overwrite) {
+    return
+  }
+
   const formateed = nojs
     ? fileContent
     : prettier.format(noTimestamp ? fileContent : addTimestamp(fileContent), {

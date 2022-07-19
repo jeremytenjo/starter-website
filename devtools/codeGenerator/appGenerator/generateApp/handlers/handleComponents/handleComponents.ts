@@ -19,7 +19,7 @@ export default async function handleComponents({
   const componentsDir = path.join(context.rootDir, 'src', 'lib', 'components')
 
   await Promise.all(
-    components.map((component) => {
+    components.map(async (component: ComponentsProps['components'][0]) => {
       // console.log(component)
     }),
   )

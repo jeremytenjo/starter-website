@@ -1,3 +1,4 @@
+import superCodeGenSchema from '../../superCodeGen.schema.cjs'
 import { type SchemaProps } from '../generateApp/generateApp'
 import { type ComponentsProps } from '../generateApp/handlers/handleComponents/handleComponents'
 import { type DataProps } from '../generateApp/handlers/handleData/handleData'
@@ -160,8 +161,17 @@ const data = (): DataProps['data'] => {
   ]
 }
 
+const templates = {
+  page: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
+  pageContent: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
+  container: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
+  component: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
+  data: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
+}
+
 export default async function appSchema() {
   const schema: SchemaProps = {
+    templates,
     pages,
     data,
     components,

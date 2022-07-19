@@ -14,7 +14,7 @@ export default async function handleData({ data = [], context }: DataProps) {
   const dataDir = path.join(context.rootDir, 'src', 'data')
 
   await Promise.all(
-    data.map((item) => {
+    data.map(async (item: DataProps['data'][0]) => {
       // console.log(item)
     }),
   )

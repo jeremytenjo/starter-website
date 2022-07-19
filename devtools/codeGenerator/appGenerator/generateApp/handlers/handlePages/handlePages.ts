@@ -1,8 +1,9 @@
 import path from 'path'
 
-import createFile from '../../../../../utils/node/createFile'
+import createFile from '../../../../../utils/node/createFile.js'
 import { type ContainerProps } from '../../sharedTypes'
 import { type ContextProps } from '../../generateApp'
+import genCodeFromTemplate from '../../utils/genCodeFromTemplate/genCodeFromTemplate.js'
 
 export type PagesProps = {
   context: ContextProps
@@ -18,8 +19,13 @@ export default async function handlePages({ pages = [], context }: PagesProps) {
   const pagesContentDir = path.join(context.rootDir, 'src', 'pagesContent')
 
   await Promise.all(
-    pages.map((page) => {
-      console.log(page)
+    pages.map(async (page: PagesProps['pages'][0]) => {
+      // console.log(page)
+      await genCodeFromTemplate({
+        files: context.templates.page,
+        name: page.name,
+        outputPath: pagesDir,
+      })
     }),
   )
 }

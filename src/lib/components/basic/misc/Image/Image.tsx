@@ -13,5 +13,7 @@ const storybookProps = {
 }
 
 export default function Image(props: ImageProps) {
-  return <NextImage {...props} {...(isStorybook ? storybookProps : {})} />
+  return props.src ? (
+    <NextImage {...props} {...(isStorybook ? storybookProps : {})} />
+  ) : null
 }

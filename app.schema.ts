@@ -4,6 +4,8 @@ import {
   ElementsTypes,
 } from './devtools/codeGenerator/appGenerator/generateApp/generateApp'
 
+// open devtools/codeGenerator/appGenerator/test/testAppSchema.ts for an example
+
 const pages = (): ElementsTypes['PagesProps']['pages'] => {
   return []
 }

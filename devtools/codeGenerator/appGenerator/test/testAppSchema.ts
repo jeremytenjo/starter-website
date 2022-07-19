@@ -140,9 +140,6 @@ const components = (): ComponentsProps['components'] => {
     {
       name: 'PhoneNumberLink',
     },
-    {
-      name: 'SiteLogo',
-    },
   ]
 }
 

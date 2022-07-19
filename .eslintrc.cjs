@@ -5,7 +5,13 @@ module.exports = {
     node: true,
     es6: true,
   },
-  ignorePatterns: ['node_modules', 'build', '.env', 'dist'],
+  ignorePatterns: [
+    'node_modules',
+    'build',
+    '.env',
+    'dist',
+    'devtools/codeGenerator/appGenerator/test/testApp',
+  ],
   plugins: ['react', 'react-hooks', 'import'],
   extends: [
     'next/core-web-vitals',

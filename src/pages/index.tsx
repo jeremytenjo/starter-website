@@ -1,8 +1,8 @@
 import React from 'react'
 
 import getRootData from '../data/_root/getRootData/getRootData'
-import HomePageContent from '../pagesContent/HomePage/HomePage'
-import { HomePagePropsProvider } from '../pagesContent/HomePage/useHomePageProps/useHomePageProps'
+import HomeContent from '../pagesContent/Home/HomePage'
+import { HomePagePropsProvider } from '../pagesContent/Home/useHomePageProps/useHomePageProps'
 import RootLayout, { type RootLayoutProps } from '../lib/layouts/Root/RootLayout'
 
 export type HomePageProps = {
@@ -14,7 +14,7 @@ export default function HomePage(props: HomePageProps) {
     <>
       <RootLayout rootLayoutData={props.rootLayoutData}>
         <HomePagePropsProvider pageProps={props}>
-          <HomePageContent />
+          <HomeContent />
         </HomePagePropsProvider>
       </RootLayout>
     </>

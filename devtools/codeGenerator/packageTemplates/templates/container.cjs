@@ -1,23 +1,35 @@
 const files = [
   {
     path: ({ name }) => `${name}.tsx`,
-    template: ({ name }) => {
+    template: ({ name, slots = {} }) => {
+      const noChildContainers = !slots?.childContainers
+
       return `import React from 'react'
     
-    import ${name}Ui, { type ${name}UiProps } from './${name}Ui/${name}.ui'
+    import ${name}Ui${renderIfTrue(
+        noChildContainers,
+        `, { type ${name}UiProps }`,
+      )} from './${name}Ui/${name}.ui'
     
     export default function ${name}() {
-      const uiProps: ${name}UiProps = {
-        title: '${name}'
-      }
+      ${renderIfTrue(
+        noChildContainers,
+        `const uiProps: ${name}UiProps = {
+          title: '${name}'
+         }`,
+      )}
 
-      return <${name}Ui {...uiProps} />
+
+
+      ${noChildContainers ? `return <${name}Ui {...uiProps} />` : `return <${name}Ui />`}
+
     }`
     },
   },
   {
     path: ({ name }) => `${name}Ui/${name}.ui.tsx`,
     template: ({ name, helpers, slots = {} }) => {
+      const noChildContainers = !slots?.childContainers
       const propsName = `${helpers.changeCase
         .capitalCase(name)
         .split(' ')
@@ -28,14 +40,21 @@ const files = [
 
     ${slots?.childContainers?.importStatements || ''}
 
-    export type ${propsName} = {
+    ${renderIfTrue(
+      noChildContainers,
+      `export type ${propsName} = {
       title: string
-    }
+    }`,
+    )}
 
-    export default function ${name}Ui(props: ${propsName}) {        
+
+    export default function ${name}Ui(${renderIfTrue(
+        noChildContainers,
+        `props: ${propsName}`,
+      )}) {        
       return (
         <Wrapper>
-          <Title {...props} />
+          ${renderIfTrue(noChildContainers, `<Title {...props} />`)}
           ${slots?.childContainers?.components || ''}
         </Wrapper>
       )
@@ -45,13 +64,16 @@ const files = [
       return <Box data-id='${name}' sx={{}}>{children}</Box>
     }
 
-    const Title = (props: ${propsName}) => {
+    ${renderIfTrue(
+      noChildContainers,
+      `const Title = (props: ${propsName}) => {
       return (
         <Box data-id='Title' sx={{}}>
           {props.title}
         </Box>
       )
-    }
+    }`,
+    )}
     `
     },
   },
@@ -65,4 +87,8 @@ const template = {
 module.exports = {
   files,
   template,
+}
+
+const renderIfTrue = (condition, string) => {
+  return condition ? string : ``
 }

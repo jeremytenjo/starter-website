@@ -7,13 +7,7 @@ import { type PagesProps } from '../generateApp/handlers/handlePages/handlePages
 const pages = (): PagesProps['pages'] => {
   return [
     {
-      name: 'home',
-    },
-    {
-      name: 'settings',
-    },
-    {
-      name: 'Home Test',
+      name: 'Home',
       containers: [
         {
           name: 'Hero',
@@ -41,6 +35,9 @@ const pages = (): PagesProps['pages'] => {
           localComponents: [{ name: 'Certificates List' }],
         },
       ],
+    },
+    {
+      name: 'settings',
     },
     {
       name: 'Dr Osborne Partnership',

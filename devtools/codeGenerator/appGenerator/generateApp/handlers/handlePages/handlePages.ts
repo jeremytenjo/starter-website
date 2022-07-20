@@ -23,13 +23,11 @@ export default async function handlePages({ pages = [], context }: PagesProps) {
   await Promise.all(
     pages.map(async (page: PagesProps['pages'][0]) => {
       // create page
-      if (page.name !== 'home' && page.name !== 'Home') {
-        await genCodeFromTemplate({
-          name: page.name,
-          files: context.templates.page,
-          outputPath: pagesDir,
-        })
-      }
+      await genCodeFromTemplate({
+        name: page.name,
+        files: context.templates.page,
+        outputPath: pagesDir,
+      })
 
       // create page content
       await genCodeFromTemplate({

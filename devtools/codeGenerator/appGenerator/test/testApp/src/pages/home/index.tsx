@@ -1,26 +1,26 @@
 import React from 'react'
 import Head from 'next/head'
 
-import HomeTestContent from '../../pagesContent/HomeTest/HomeTest'
-import { HomeTestProvider } from '../../pagesContent/HomeTest/useHomeTestProps/useHomeTestProps'
+import HomeContent from '../../pagesContent/Home/Home'
+import { HomeProvider } from '../../pagesContent/Home/useHomeProps/useHomeProps'
 import getrootLayoutData from '../../data/_root/getRootData/getRootData'
 import RootLayout, { type RootLayoutProps } from '../../lib/layouts/Root/RootLayout'
 
-export type HomeTestProps = {
+export type HomeProps = {
   rootLayoutData: RootLayoutProps,
 }
 
-export default function HomeTestPage(props: HomeTestProps) {
+export default function HomePage(props: HomeProps) {
   return (
     <>
       <Head>
-        <title>HomeTest</title>
+        <title>Home</title>
       </Head>
 
       <RootLayout rootLayoutData={props.rootLayoutData}>
-        <HomeTestProvider pageProps={props}>
-          <HomeTestContent />
-        </HomeTestProvider>
+        <HomeProvider pageProps={props}>
+          <HomeContent />
+        </HomeProvider>
       </RootLayout>
     </>
   )

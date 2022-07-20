@@ -53,7 +53,7 @@ const getSlots = ({ localComponents = [], parentName }) => {
         ${componentName}
         </Box>
         )
-      } \n`
+      } \n \n`
   })
 
   const slots: any = {

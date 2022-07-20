@@ -23,11 +23,13 @@ export default async function handlePages({ pages = [], context }: PagesProps) {
   await Promise.all(
     pages.map(async (page: PagesProps['pages'][0]) => {
       // create page
-      await genCodeFromTemplate({
-        name: page.name,
-        files: context.templates.page,
-        outputPath: pagesDir,
-      })
+      if (page.name !== 'home') {
+        await genCodeFromTemplate({
+          name: page.name,
+          files: context.templates.page,
+          outputPath: pagesDir,
+        })
+      }
 
       // create page content
       await genCodeFromTemplate({
@@ -144,7 +146,7 @@ const getSlots = ({ childContainers = [], localComponents = [], parentName }) =>
         ${componentName}
         </Box>
         )
-      } \n`
+      } \n \n`
   })
 
   const slots: any = {

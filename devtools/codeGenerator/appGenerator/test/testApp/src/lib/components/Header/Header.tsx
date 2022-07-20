@@ -28,6 +28,7 @@ const DesktopHeader = (props: HeaderProps) => {
     </Box>
   )
 }
+
 const MobileHeader = (props: HeaderProps) => {
   return (
     <Box data-id='MobileHeader' sx={{}}>

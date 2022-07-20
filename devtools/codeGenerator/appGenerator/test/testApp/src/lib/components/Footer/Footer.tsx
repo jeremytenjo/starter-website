@@ -29,6 +29,7 @@ const ContactUsForm = (props: FooterProps) => {
     </Box>
   )
 }
+
 const Copyright = (props: FooterProps) => {
   return (
     <Box data-id='Copyright' sx={{}}>
@@ -36,6 +37,7 @@ const Copyright = (props: FooterProps) => {
     </Box>
   )
 }
+
 const Info = (props: FooterProps) => {
   return (
     <Box data-id='Info' sx={{}}>

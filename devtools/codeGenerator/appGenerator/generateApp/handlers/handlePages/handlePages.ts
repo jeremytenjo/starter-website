@@ -126,16 +126,19 @@ const getSlots = ({ childContainers = [], localComponents = [] }) => {
     localComponentsDeclarationsString += `<${componentName} /> \n`
   })
 
-  const slots = {
-    childContainers: !childContainers.length && {
+  const slots: any = {
+    childContainers: {
       importStatements: localImports,
       importedComponents: localImportedComponents,
     },
-    localComponents: !localComponents.length && {
+    localComponents: {
       localComponents: localComponentsString,
       localComponentsDeclarations: localComponentsDeclarationsString,
     },
   }
+
+  if (!childContainers.length) delete slots.childContainers
+  if (!localComponents.length) delete slots.localComponents
 
   return slots
 }

@@ -126,10 +126,10 @@ const getSlots = ({ childContainers = [], localComponents = [] }) => {
     localComponentsString += `const Title = (props: ${componentName}UiProps) => {
       return (
         <Box data-id='Title' sx={{}}>
-          {props.title}
+        {props.title}
         </Box>
-      )
-    }' \n`
+        )
+      }' \n`
   })
 
   const slots: any = {

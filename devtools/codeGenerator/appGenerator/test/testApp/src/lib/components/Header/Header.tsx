@@ -4,13 +4,34 @@ import Box from '@useweb/ui/Box'
 export type HeaderProps = { name: string }
 
 export default function Header({ name = 'Header' }: HeaderProps) {
-  return <Wrapper>{name}</Wrapper>
+  return (
+    <Wrapper>
+      {name}
+      <DesktopHeader {...props} />
+      <MobileHeader {...props} />
+    </Wrapper>
+  )
 }
 
 const Wrapper = ({ children }) => {
   return (
     <Box data-id='Header' sx={{}}>
       {children}
+    </Box>
+  )
+}
+
+const DesktopHeader = (props: HeaderProps) => {
+  return (
+    <Box data-id='DesktopHeader' sx={{}}>
+      DesktopHeader
+    </Box>
+  )
+}
+const MobileHeader = (props: HeaderProps) => {
+  return (
+    <Box data-id='MobileHeader' sx={{}}>
+      MobileHeader
     </Box>
   )
 }

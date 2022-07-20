@@ -30,7 +30,7 @@ export default async function handleComponents({
         files: context.templates.component,
         outputPath: componentsDir,
         slots: getSlots({
-          localComponents: component.localComponents,
+          localComponents: component.localComponents as any,
           parentName: component.name,
         }),
       })
@@ -47,7 +47,7 @@ const getSlots = ({ localComponents = [], parentName }) => {
     const componentName = changeCase.pascalCase(component.name)
 
     localComponentsDeclarationsString += `<${componentName} {...props} /> \n`
-    localComponentsString += `const ${componentName} = (props: ${parentName}UiProps) => {
+    localComponentsString += `const ${componentName} = (props: ${parentName}Props) => {
       return (
         <Box data-id='${componentName}' sx={{}}>
         ${componentName}

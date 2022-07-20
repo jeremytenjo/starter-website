@@ -16,8 +16,8 @@ import React, { createContext, useContext } from 'react'
         )
       }
       
-      const usesettings = () => useContext(SettingsContext)
+      const useSettings = () => useContext(SettingsContext)
       
-      export default usesettings
+      export default useSettings
       
       

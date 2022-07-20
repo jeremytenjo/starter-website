@@ -9,10 +9,10 @@ const files = [
 
     export type ${propsName} = { name: string }
   
-    export default function ${namePascalCase}({ name = '${name}' }: ${propsName}) {
+    export default function ${namePascalCase}(props: ${propsName}) {
       return (
         <Wrapper>
-          {name}
+          ${name}
           ${slots?.localComponents?.localComponentsDeclarations || ''}
         </Wrapper>
       );

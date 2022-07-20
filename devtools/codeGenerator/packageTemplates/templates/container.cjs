@@ -26,7 +26,7 @@ const files = [
       return `import React from 'react'
     import Box from '@useweb/ui/Box'
 
-    ${slots?.localImports || ''}
+    ${slots?.childContainer?.imports || ''}
 
     export type ${propsName} = {
       title: string
@@ -36,7 +36,7 @@ const files = [
       return (
         <Wrapper>
           <Title {...props} />
-          ${slots?.localImportedComponents || ''}
+          ${slots?.childContainers?.components || ''}
         </Wrapper>
       )
     }

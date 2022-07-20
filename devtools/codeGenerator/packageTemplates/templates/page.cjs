@@ -13,8 +13,8 @@ const files = [
       return `import React from 'react' 
 import Head from 'next/head'
 
-import ${upperName}Content from '../../pagesContent/${upperName}/${upperName}'
-import { ${providerName} } from '../../pagesContent/${upperName}/use${upperName}Props/use${upperName}Props'
+import ${upperName}Content from '../../pagesContent/${name}/${name}'
+import { ${providerName} } from '../../pagesContent/${name}/use${upperName}Props/use${upperName}Props'
 import getrootLayoutData from '../../data/_root/getRootData/getRootData'
 import RootLayout, { type RootLayoutProps } from '../../lib/layouts/Root/RootLayout'
 

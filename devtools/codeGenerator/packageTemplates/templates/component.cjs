@@ -1,7 +1,7 @@
 const files = [
   {
     path: ({ name }) => `${name}.tsx`,
-    template: ({ name, helpers }) => {
+    template: ({ name, helpers, slots = {} }) => {
       const namePascalCase = helpers.changeCase.pascalCase(name)
       const propsName = `${namePascalCase}Props`
       return `import React from 'react'       
@@ -13,6 +13,7 @@ const files = [
       return (
         <Wrapper>
           {name}
+          ${slots?.localComponents?.localComponentsDeclarations || ''}
         </Wrapper>
       );
     }
@@ -20,6 +21,9 @@ const files = [
     const Wrapper = ({ children }) => {
       return <Box data-id='${name}' sx={{}}>{children}</Box>
     }
+
+    ${slots?.localComponents?.localComponents || ''}
+
       `
     },
   },

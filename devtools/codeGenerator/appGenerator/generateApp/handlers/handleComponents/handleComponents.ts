@@ -1,5 +1,7 @@
 import path from 'path'
 
+import changeCase from 'change-case'
+
 import { type ComponentProps } from '../../sharedTypes'
 import { type ContextProps } from '../../generateApp'
 import genCodeFromTemplate from '../../utils/genCodeFromTemplate/genCodeFromTemplate.js'
@@ -27,7 +29,41 @@ export default async function handleComponents({
         name: component.name,
         files: context.templates.component,
         outputPath: componentsDir,
+        slots: getSlots({
+          localComponents: component.localComponents,
+          parentName: component.name,
+        }),
       })
     }),
   )
+}
+
+const getSlots = ({ localComponents = [], parentName }) => {
+  // create local component slots
+  let localComponentsString = ''
+  let localComponentsDeclarationsString = ''
+
+  localComponents.map((component: { name: string }) => {
+    const componentName = changeCase.pascalCase(component.name)
+
+    localComponentsDeclarationsString += `<${componentName} {...props} /> \n`
+    localComponentsString += `const ${componentName} = (props: ${parentName}UiProps) => {
+      return (
+        <Box data-id='${componentName}' sx={{}}>
+        ${componentName}
+        </Box>
+        )
+      } \n`
+  })
+
+  const slots: any = {
+    localComponents: {
+      localComponentsDeclarations: localComponentsDeclarationsString,
+      localComponents: localComponentsString,
+    },
+  }
+
+  if (!localComponents.length) delete slots.localComponents
+
+  return slots
 }

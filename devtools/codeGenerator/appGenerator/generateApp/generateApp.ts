@@ -53,7 +53,9 @@ export default async function generateApp() {
   }: SchemaProps = await appSchema()
 
   if (!pages.length && !data.length && !components.length) {
-    return console.log('No pages, data or components to generate')
+    console.log('No pages, data or components to generate')
+    console.log('')
+    return
   }
 
   const context: ContextProps = {

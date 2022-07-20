@@ -123,13 +123,13 @@ const getSlots = ({ childContainers = [], localComponents = [] }) => {
     const componentName = changeCase.pascalCase(component.name)
 
     localComponentsDeclarationsString += `<${componentName} /> \n`
-    localComponentsString += `const Title = (props: ${componentName}UiProps) => {
+    localComponentsString += `const ${componentName} = (props: ${componentName}UiProps) => {
       return (
-        <Box data-id='Title' sx={{}}>
+        <Box data-id='${componentName}' sx={{}}>
         {props.title}
         </Box>
         )
-      }' \n`
+      } \n`
   })
 
   const slots: any = {

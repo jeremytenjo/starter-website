@@ -62,9 +62,9 @@ export default function ${pascalName}Content() {
         )
       }
       
-      const use${removeUse} = () => useContext(${upperName}Context)
+      const use${upperName} = () => useContext(${upperName}Context)
       
-      export default use${removeUse}
+      export default use${upperName}
       
       `
     },

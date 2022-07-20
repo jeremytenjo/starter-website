@@ -89,7 +89,7 @@ const createContainers = async ({
   const outputPathFinal = path.join(outputPath, containerOutputPath).replaceAll(' ', '')
 
   if (localContainers || localComponents) {
-    slots = getSlots({ containers: localContainers, localComponents })
+    slots = getSlots({ childContainers: localContainers, localComponents })
   }
 
   await genCodeFromTemplate({
@@ -103,12 +103,12 @@ const createContainers = async ({
   return { containerOutputPath }
 }
 
-const getSlots = ({ containers = [], localComponents = [] }) => {
+const getSlots = ({ childContainers = [], localComponents = [] }) => {
   // create inner containers slots
   let localImports = ''
   let localImportedComponents = ''
 
-  containers.map((container: { name: string }) => {
+  childContainers.map((container: { name: string }) => {
     const componentName = changeCase.pascalCase(container.name)
 
     localImports += `import ${componentName} from './containers/${componentName}/${componentName}' \n`
@@ -127,11 +127,11 @@ const getSlots = ({ containers = [], localComponents = [] }) => {
   })
 
   const slots = {
-    childContainers: {
+    childContainers: !childContainers.length && {
       importStatements: localImports,
       importedComponents: localImportedComponents,
     },
-    localComponents: {
+    localComponents: !localComponents.length && {
       localComponents: localComponentsString,
       localComponentsDeclarations: localComponentsDeclarationsString,
     },

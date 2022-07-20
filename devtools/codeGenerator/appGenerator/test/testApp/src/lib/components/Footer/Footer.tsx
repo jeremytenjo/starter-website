@@ -3,10 +3,10 @@ import Box from '@useweb/ui/Box'
 
 export type FooterProps = { name: string }
 
-export default function Footer({ name = 'Footer' }: FooterProps) {
+export default function Footer(props: FooterProps) {
   return (
     <Wrapper>
-      {name}
+      Footer
       <ContactUsForm {...props} />
       <Copyright {...props} />
       <Info {...props} />

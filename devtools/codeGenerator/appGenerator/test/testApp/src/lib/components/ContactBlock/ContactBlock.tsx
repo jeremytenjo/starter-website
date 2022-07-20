@@ -3,8 +3,8 @@ import Box from '@useweb/ui/Box'
 
 export type ContactBlockProps = { name: string }
 
-export default function ContactBlock({ name = 'ContactBlock' }: ContactBlockProps) {
-  return <Wrapper>{name}</Wrapper>
+export default function ContactBlock(props: ContactBlockProps) {
+  return <Wrapper>ContactBlock</Wrapper>
 }
 
 const Wrapper = ({ children }) => {

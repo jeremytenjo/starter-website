@@ -3,10 +3,10 @@ import Box from '@useweb/ui/Box'
 
 export type HeaderProps = { name: string }
 
-export default function Header({ name = 'Header' }: HeaderProps) {
+export default function Header(props: HeaderProps) {
   return (
     <Wrapper>
-      {name}
+      Header
       <DesktopHeader {...props} />
       <MobileHeader {...props} />
     </Wrapper>

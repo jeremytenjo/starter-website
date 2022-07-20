@@ -3,10 +3,8 @@ import Box from '@useweb/ui/Box'
 
 export type ContactUsButtonProps = { name: string }
 
-export default function ContactUsButton({
-  name = 'ContactUsButton',
-}: ContactUsButtonProps) {
-  return <Wrapper>{name}</Wrapper>
+export default function ContactUsButton(props: ContactUsButtonProps) {
+  return <Wrapper>ContactUsButton</Wrapper>
 }
 
 const Wrapper = ({ children }) => {

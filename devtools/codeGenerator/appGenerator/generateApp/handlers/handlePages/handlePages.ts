@@ -57,6 +57,7 @@ const recursiveCreateContainers = async ({
     containersToGen.map(async (container: ContainerProps) => {
       const { containerOutputPath } = await createContainers({
         localContainers: container.containers,
+        localComponents: container.localComponents,
         name: container.name,
         outputPath,
         files,
@@ -81,13 +82,14 @@ const createContainers = async ({
   files,
   parentFolderName,
   localContainers,
+  localComponents,
 }) => {
   let slots = {}
   const containerOutputPath = path.join(parentFolderName, 'containers', name)
   const outputPathFinal = path.join(outputPath, containerOutputPath).replaceAll(' ', '')
 
-  if (localContainers) {
-    slots = getSlots({ containers: localContainers })
+  if (localContainers || localComponents) {
+    slots = getSlots({ containers: localContainers, localComponents })
   }
 
   await genCodeFromTemplate({
@@ -101,20 +103,37 @@ const createContainers = async ({
   return { containerOutputPath }
 }
 
-const getSlots = ({ containers = [] }) => {
+const getSlots = ({ containers = [], localComponents = [] }) => {
+  // create inner containers slots
   let localImports = ''
   let localImportedComponents = ''
 
   containers.map((container: { name: string }) => {
     const componentName = changeCase.pascalCase(container.name)
+
     localImports += `import ${componentName} from './containers/${componentName}/${componentName}' \n`
     localImportedComponents += `<${componentName} /> \n`
+  })
+
+  // create local component slots
+  let localComponentsString = ''
+  let localComponentsDeclarationsString = ''
+
+  localComponents.map((component: { name: string }) => {
+    const componentName = changeCase.pascalCase(component.name)
+
+    localComponentsString += `import ${componentName} from './containers/${componentName}/${componentName}' \n`
+    localComponentsDeclarationsString += `<${componentName} /> \n`
   })
 
   const slots = {
     childContainers: {
       importStatements: localImports,
       importedComponents: localImportedComponents,
+    },
+    localComponents: {
+      localComponents: localComponentsString,
+      localComponentsDeclarations: localComponentsDeclarationsString,
     },
   }
 

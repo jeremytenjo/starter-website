@@ -81,6 +81,9 @@ const createContainers = async ({ name, outputPath, files, parentFolderName }) =
     files,
     outputPath: outputPathFinal,
     noParentFolder: true,
+    slots: {
+      localImports: 'hello local import',
+    },
   })
 
   return { containerOutputPath }

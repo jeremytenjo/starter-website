@@ -113,7 +113,7 @@ const getSlots = ({ containers = [] }) => {
 
   const slots = {
     childContainers: {
-      imports: localImports,
+      importStatements: localImports,
       components: localImportedComponents,
     },
   }

@@ -26,7 +26,7 @@ const files = [
       return `import React from 'react'
     import Box from '@useweb/ui/Box'
 
-    ${slots?.childContainer?.imports || ''}
+    ${slots?.childContainers?.importStatements || ''}
 
     export type ${propsName} = {
       title: string

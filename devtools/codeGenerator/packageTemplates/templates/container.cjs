@@ -55,7 +55,7 @@ const files = [
       return (
         <Wrapper>
           ${renderIfTrue(noChildContainers, `<Title {...props} />`)}
-          ${slots?.childContainers?.components || ''}
+          ${slots?.childContainers?.importedComponents || ''}
         </Wrapper>
       )
     }

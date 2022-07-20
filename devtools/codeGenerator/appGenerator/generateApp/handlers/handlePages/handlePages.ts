@@ -89,7 +89,11 @@ const createContainers = async ({
   const outputPathFinal = path.join(outputPath, containerOutputPath).replaceAll(' ', '')
 
   if (localContainers || localComponents) {
-    slots = getSlots({ childContainers: localContainers, localComponents })
+    slots = getSlots({
+      childContainers: localContainers,
+      localComponents,
+      parentName: name,
+    })
   }
 
   await genCodeFromTemplate({
@@ -103,7 +107,7 @@ const createContainers = async ({
   return { containerOutputPath }
 }
 
-const getSlots = ({ childContainers = [], localComponents = [] }) => {
+const getSlots = ({ childContainers = [], localComponents = [], parentName }) => {
   // create inner containers slots
   let localImports = ''
   let localImportedComponents = ''
@@ -122,11 +126,11 @@ const getSlots = ({ childContainers = [], localComponents = [] }) => {
   localComponents.map((component: { name: string }) => {
     const componentName = changeCase.pascalCase(component.name)
 
-    localComponentsDeclarationsString += `<${componentName} /> \n`
-    localComponentsString += `const ${componentName} = (props: ${componentName}UiProps) => {
+    localComponentsDeclarationsString += `<${componentName} {...props} /> \n`
+    localComponentsString += `const ${componentName} = (props: ${parentName}UiProps) => {
       return (
         <Box data-id='${componentName}' sx={{}}>
-        {props.title}
+        ${componentName}
         </Box>
         )
       } \n`

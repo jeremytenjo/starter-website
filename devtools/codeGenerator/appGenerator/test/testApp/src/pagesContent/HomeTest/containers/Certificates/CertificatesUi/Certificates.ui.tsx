@@ -9,6 +9,7 @@ export default function CertificatesUi(props: CertificatesUiProps) {
   return (
     <Wrapper>
       <Title {...props} />
+      <CertificatesList {...props} />
     </Wrapper>
   )
 }
@@ -25,6 +26,14 @@ const Title = (props: CertificatesUiProps) => {
   return (
     <Box data-id='Title' sx={{}}>
       {props.title}
+    </Box>
+  )
+}
+
+const CertificatesList = (props: CertificatesUiProps) => {
+  return (
+    <Box data-id='CertificatesList' sx={{}}>
+      CertificatesList
     </Box>
   )
 }

@@ -1,5 +1,7 @@
 import path from 'path'
 
+import changeCase from 'change-case'
+
 import { type ContainerProps } from '../../sharedTypes'
 import { type ContextProps } from '../../generateApp'
 import genCodeFromTemplate from '../../utils/genCodeFromTemplate/genCodeFromTemplate.js'
@@ -54,6 +56,7 @@ const recursiveCreateContainers = async ({
   await Promise.all(
     containersToGen.map(async (container: ContainerProps) => {
       const { containerOutputPath } = await createContainers({
+        localContainers: container.containers,
         name: container.name,
         outputPath,
         files,
@@ -72,19 +75,46 @@ const recursiveCreateContainers = async ({
   )
 }
 
-const createContainers = async ({ name, outputPath, files, parentFolderName }) => {
+const createContainers = async ({
+  name,
+  outputPath,
+  files,
+  parentFolderName,
+  localContainers,
+}) => {
+  let slots = {}
   const containerOutputPath = path.join(parentFolderName, 'containers', name)
   const outputPathFinal = path.join(outputPath, containerOutputPath).replaceAll(' ', '')
+
+  if (localContainers) {
+    slots = getSlots({ containers: localContainers })
+  }
 
   await genCodeFromTemplate({
     name,
     files,
     outputPath: outputPathFinal,
     noParentFolder: true,
-    slots: {
-      localImports: 'hello local import',
-    },
+    slots,
   })
 
   return { containerOutputPath }
+}
+
+const getSlots = ({ containers = [] }) => {
+  let localImports = ''
+  let localImportedComponents = ''
+
+  containers.map((container: { name: string }) => {
+    const componentName = changeCase.pascalCase(container.name)
+    localImports += `import ${componentName} from 'containers/${componentName}/${componentName}' \n`
+    localImportedComponents += `<${componentName} /> \n`
+  })
+
+  const slots = {
+    localImports,
+    localImportedComponents,
+  }
+
+  return slots
 }

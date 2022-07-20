@@ -107,7 +107,7 @@ const getSlots = ({ containers = [] }) => {
 
   containers.map((container: { name: string }) => {
     const componentName = changeCase.pascalCase(container.name)
-    localImports += `import ./${componentName} from 'containers/${componentName}/${componentName}' \n`
+    localImports += `import ${componentName} from './containers/${componentName}/${componentName}' \n`
     localImportedComponents += `<${componentName} /> \n`
   })
 

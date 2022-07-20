@@ -122,8 +122,14 @@ const getSlots = ({ childContainers = [], localComponents = [] }) => {
   localComponents.map((component: { name: string }) => {
     const componentName = changeCase.pascalCase(component.name)
 
-    localComponentsString += `import ${componentName} from './containers/${componentName}/${componentName}' \n`
     localComponentsDeclarationsString += `<${componentName} /> \n`
+    localComponentsString += `const Title = (props: ${componentName}UiProps) => {
+      return (
+        <Box data-id='Title' sx={{}}>
+          {props.title}
+        </Box>
+      )
+    }' \n`
   })
 
   const slots: any = {
@@ -132,8 +138,8 @@ const getSlots = ({ childContainers = [], localComponents = [] }) => {
       importedComponents: localImportedComponents,
     },
     localComponents: {
-      localComponents: localComponentsString,
       localComponentsDeclarations: localComponentsDeclarationsString,
+      localComponents: localComponentsString,
     },
   }
 

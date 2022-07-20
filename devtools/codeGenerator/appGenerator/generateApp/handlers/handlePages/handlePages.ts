@@ -34,6 +34,7 @@ export default async function handlePages({ pages = [], context }: PagesProps) {
         name: page.name,
         files: context.templates.pageContent,
         outputPath: pagesContentDir,
+        slots: getPageContainerSlots({ pageContentContainers: page.containers }),
       })
 
       // create page content containers
@@ -47,6 +48,14 @@ export default async function handlePages({ pages = [], context }: PagesProps) {
       })
     }),
   )
+}
+
+const getPageContainerSlots = ({ pageContentContainers }) => {
+  if (!pageContentContainers && !pageContentContainers?.length) {
+    return undefined
+  }
+  const slots = getSlots({ childContainers: pageContentContainers } as any)
+  return slots
 }
 
 const recursiveCreateContainers = async ({

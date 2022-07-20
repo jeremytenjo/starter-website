@@ -13,17 +13,22 @@ const files = [
 
       return `
       import React from 'react'
+      import Box from '@useweb/ui/Box'
 
     ${slots?.childContainers?.importStatements || ''}
 
 
 export default function ${pascalName}Content() {
   return (
-    <div>
+    <Wrapper>
     ${slots?.childContainers?.importedComponents || pascalName}
-    </div>
+    </Wrapper>
   )
 }
+
+  const Wrapper = ({ children }) => {
+    return <Box data-id='${name}' sx={{}}>{children}</Box>
+  }
 `
     },
   },

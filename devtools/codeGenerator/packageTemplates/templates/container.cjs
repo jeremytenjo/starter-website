@@ -56,6 +56,7 @@ const files = [
         <Wrapper>
           ${renderIfTrue(noChildContainers, `<Title {...props} />`)}
           ${slots?.childContainers?.importedComponents || ''}
+          ${slots?.childContainers?.localComponentsDeclarations || ''}
         </Wrapper>
       )
     }
@@ -74,6 +75,9 @@ const files = [
       )
     }`,
     )}
+
+    ${slots?.childContainers?.localComponents || ''}
+
     `
     },
   },

@@ -36,6 +36,7 @@ const files = [
       return (
         <Wrapper>
           <Title {...props} />
+          ${slots?.localImportedComponents || ''}
         </Wrapper>
       )
     }

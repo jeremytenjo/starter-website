@@ -1,5 +1,9 @@
 const files = [
   {
+    parentFolderName: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
+      return pascalName
+    },
     path: ({ name }) => {
       return `${name}.tsx`
     },

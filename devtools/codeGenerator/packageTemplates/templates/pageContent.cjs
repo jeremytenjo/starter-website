@@ -3,16 +3,19 @@ const files = [
     path: ({ name }) => {
       return `${name}.tsx`
     },
-    template: ({ name, helpers }) => {
+    template: ({ name, helpers, slots = {} }) => {
       const pascalName = helpers.changeCase.pascalCase(name).replaceAll(' ', '')
 
       return `
       import React from 'react'
 
+    ${slots?.childContainers?.importStatements || ''}
+
+
 export default function ${pascalName}Content() {
   return (
     <div>
-    ${pascalName}
+    ${slots?.childContainers?.importedComponents || pascalName}
     </div>
   )
 }

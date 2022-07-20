@@ -1,8 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 
-import SettingsContent from '../../pagesContent/Settings/Settings'
-import { SettingsProvider } from '../../pagesContent/Settings/useSettingsProps/useSettingsProps'
+import SettingsContent from '../../pagesContent/settings/settings'
+import { SettingsProvider } from '../../pagesContent/settings/useSettingsProps/useSettingsProps'
 import getrootLayoutData from '../../data/_root/getRootData/getRootData'
 import RootLayout, { type RootLayoutProps } from '../../lib/layouts/Root/RootLayout'
 

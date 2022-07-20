@@ -4,8 +4,9 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
       return pascalName
     },
-    path: ({ name }) => {
-      return `${name}.tsx`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
+      return `${pascalName}.tsx`
     },
     template: ({ name, helpers, slots = {} }) => {
       const pascalName = helpers.changeCase.pascalCase(name).replaceAll(' ', '')

@@ -17,7 +17,7 @@ const files = [
   },
   {
     path: ({ name }) => `${name}Ui/${name}.ui.tsx`,
-    template: ({ name, helpers }) => {
+    template: ({ name, helpers, slots = {} }) => {
       const propsName = `${helpers.changeCase
         .capitalCase(name)
         .split(' ')
@@ -25,6 +25,8 @@ const files = [
 
       return `import React from 'react'
     import Box from '@useweb/ui/Box'
+
+    ${slots?.localImports || ''}
 
     export type ${propsName} = {
       title: string

@@ -11,6 +11,8 @@ export type DataProps = {
 }
 
 export default async function handleData({ data = [], context }: DataProps) {
+  if (!data.length) return { noData: true }
+
   const dataDir = path.join(context.rootDir, 'src', 'data')
 
   await Promise.all(

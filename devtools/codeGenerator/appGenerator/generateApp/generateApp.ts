@@ -52,12 +52,6 @@ export default async function generateApp() {
     components = () => [],
   }: SchemaProps = await appSchema()
 
-  if (!pages.length && !data.length && !components.length) {
-    console.log('No pages, data or components to generate')
-    console.log('')
-    return
-  }
-
   const context: ContextProps = {
     templates,
     rootDir: process.cwd(),
@@ -65,13 +59,21 @@ export default async function generateApp() {
   }
 
   try {
-    await handlePages({ pages: await pages(), context })
-    await handleData({ data: await data(), context })
-    await handleComponents({ components: await components(), context })
+    const pagesRes = await handlePages({ pages: await pages(), context })
+    const dataRes = await handleData({ data: await data(), context })
+    const componentsRes = await handleComponents({
+      components: await components(),
+      context,
+    })
 
-    console.log('')
-    console.log(`🚀  App Generated`)
-    console.log('')
+    if (pagesRes?.noPages && dataRes?.noData && componentsRes?.noComponents) {
+      console.log('No pages, data or components to generate')
+      console.log('')
+    } else {
+      console.log('')
+      console.log(`🚀  App Generated`)
+      console.log('')
+    }
   } catch (error) {
     console.log(error)
   }

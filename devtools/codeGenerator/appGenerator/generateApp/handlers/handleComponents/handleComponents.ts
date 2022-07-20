@@ -16,6 +16,8 @@ export default async function handleComponents({
   components = [],
   context,
 }: ComponentsProps) {
+  if (!components.length) return { noComponents: true }
+
   const componentsDir = path.join(context.rootDir, 'src', 'lib', 'components')
 
   await Promise.all(

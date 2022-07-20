@@ -15,7 +15,21 @@ const templates = {
 }
 
 const pages = (): ElementsTypes['PagesProps']['pages'] => {
-  return []
+  return [
+    {
+      name: 'settings',
+      containers: [{ name: 'Notifications' }],
+    },
+    {
+      name: 'blogs',
+    },
+    {
+      name: 'contact-us',
+    },
+    {
+      name: 'releases',
+    },
+  ]
 }
 
 const components = (): ElementsTypes['ComponentsProps']['components'] => {
@@ -23,7 +37,7 @@ const components = (): ElementsTypes['ComponentsProps']['components'] => {
 }
 
 const data = (): ElementsTypes['DataProps']['data'] => {
-  return []
+  return [...pages()]
 }
 
 export default async function appSchema() {

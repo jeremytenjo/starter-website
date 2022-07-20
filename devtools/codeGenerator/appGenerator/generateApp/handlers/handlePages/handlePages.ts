@@ -15,6 +15,8 @@ export type PagesProps = {
 }
 
 export default async function handlePages({ pages = [], context }: PagesProps) {
+  if (!pages.length) return { noPages: true }
+
   const pagesDir = path.join(context.rootDir, 'src', 'pages')
   const pagesContentDir = path.join(context.rootDir, 'src', 'pagesContent')
 

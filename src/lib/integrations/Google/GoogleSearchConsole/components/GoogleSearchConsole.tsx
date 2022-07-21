@@ -11,12 +11,5 @@ export default function GoogleSearchConsole() {
         content={googleSearchConsoleConfig.googleSiteVerification}
       />
     </Head>
-  ) : (
-    <>
-      {console.log(
-        'Missing google-site-verification - https://search.google.com/search-console',
-      )}
-      {}
-    </>
-  )
+  ) : null
 }

@@ -31,7 +31,6 @@
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
     "helpers:update-useweb-deps": "npm-check-updates -f /@useweb/*/ -u && npm i && npm run tests:ts-types",
     "helpers:generate-app": "node --experimental-json-modules --loader ts-node/esm ./devtools/codeGenerator/appGenerator/generateApp/run.ts",
-    "postbuild": "next-sitemap --config next-sitemap.cjs",
     "prepare": "node --experimental-json-modules --loader ts-node/esm ./scripts/prepare/run.ts"
   },
   "dependencies": {

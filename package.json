@@ -26,6 +26,7 @@
     "tests:ts-types": "tsc --noemit",
     "tests:all": "npm run build && npm run tests:lint && npm run tests:ts-types && npm run tests:unit:ci",
     "prettify": "node --loader  ts-node/esm ./devtools/prettier/scripts/runPrettier/runPrettier.ts",
+    "helpers:generate-sitemap": "npm run build && next-sitemap --config next-sitemap.cjs",
     "helpers:generate-logo-assets": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
     "helpers:create-icon": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",

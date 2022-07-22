@@ -136,9 +136,10 @@ const getSlots = ({ childContainers = [], localComponents = [], parentName }) =>
 
   localComponents.map((component: { name: string }) => {
     const componentName = changeCase.pascalCase(component.name).replaceAll(' ', '')
+    const propsName = `${parentName}UiProps`.replaceAll(' ', '')
 
     localComponentsDeclarationsString += `<${componentName} {...props} /> \n`
-    localComponentsString += `const ${componentName} = (props: ${parentName}UiProps) => {
+    localComponentsString += `const ${componentName} = (props: ${propsName}UiProps) => {
       return (
         <Box data-id='${componentName}' sx={{}}>
         ${componentName}

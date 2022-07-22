@@ -124,7 +124,7 @@ const getSlots = ({ childContainers = [], localComponents = [], parentName }) =>
   let localImportedComponents = ''
 
   childContainers.map((container: { name: string }) => {
-    const componentName = changeCase.pascalCase(container.name)
+    const componentName = changeCase.pascalCase(container.name).replaceAll(' ', '')
 
     localImports += `import ${componentName} from './containers/${componentName}/${componentName}' \n`
     localImportedComponents += `<${componentName} /> \n`

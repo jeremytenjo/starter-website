@@ -118,13 +118,14 @@ const createContainers = async ({
   return { containerOutputPath }
 }
 
-const getSlots = ({ childContainers = [], localComponents = [], parentName }) => {
+const getSlots = ({ childContainers = [], localComponents = [], parentName = '' }) => {
+  const cleanParentName = parentName.replaceAll(' ', '')
   // create inner containers slots
   let localImports = ''
   let localImportedComponents = ''
 
   childContainers.map((container: { name: string }) => {
-    const componentName = changeCase.pascalCase(container.name).replaceAll(' ', '')
+    const componentName = changeCase.pascalCase(container.name)
 
     localImports += `import ${componentName} from './containers/${componentName}/${componentName}' \n`
     localImportedComponents += `<${componentName} /> \n`
@@ -136,13 +137,13 @@ const getSlots = ({ childContainers = [], localComponents = [], parentName }) =>
 
   localComponents.map((component: { name: string }) => {
     const componentName = changeCase.pascalCase(component.name).replaceAll(' ', '')
-    const propsName = `${parentName}UiProps`.replaceAll(' ', '')
+    const propsName = `${cleanParentName}UiProps`.replaceAll(' ', '')
 
     localComponentsDeclarationsString += `<${componentName} {...props} /> \n`
-    localComponentsString += `const ${componentName} = (props: ${propsName}UiProps) => {
+    localComponentsString += `const ${componentName} = (props: ${propsName}) => {
       return (
         <Box data-id='${componentName}' sx={{}}>
-        ${componentName}
+        ${cleanParentName}${componentName}
         </Box>
         )
       } \n \n`

@@ -48,23 +48,23 @@ export default function ${pascalName}Content() {
 
       import type { ${propsName} } from '../../../pages/${pageName}'
      
-      export const ${upperName}Context = createContext<${propsName}>(null as any)
+      export const ${propsName}Context = createContext<${propsName}>(null as any)
       
-      export const ${upperName}Provider = ({ children, pageProps }) => {
+      export const ${propsName}Provider = ({ children, pageProps }) => {
         return (
-          <${upperName}Context.Provider
+          <${propsName}Context.Provider
             value={{
               ...pageProps,
             }}
           >
             {children}
-          </${upperName}Context.Provider>
+          </${propsName}Context.Provider>
         )
       }
       
-      const use${upperName} = () => useContext(${upperName}Context)
+      const use${propsName} = () => useContext(${propsName}Context)
       
-      export default use${upperName}
+      export default use${propsName}
       
       `
     },

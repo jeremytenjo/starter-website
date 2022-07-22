@@ -7,7 +7,7 @@ const files = [
     path: () => `index.tsx`,
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
-      const providerName = `${upperName}Provider`
+      const providerName = `${upperName}PropsProvider`
       const propsName = `${helpers.changeCase.pascalCase(name).split(' ').join('')}Props`
 
       return `import React from 'react' 

@@ -8,11 +8,11 @@ export type RichTextProps = { field: any; sx?: BoxProps['sx'] }
 
 // https://prismic.io/docs/technologies/prismic-react-v2-migration-guide#convert-html-serializer-function-to-an-object
 export default function RichText({ field, sx = {} }: RichTextProps) {
-  return (
+  return field ? (
     <Wrapper sx={sx}>
       <PrismicRichText field={field} linkResolver={linkResolver} />
     </Wrapper>
-  )
+  ) : null
 }
 
 const Wrapper = ({ children, sx = {} as any }) => {

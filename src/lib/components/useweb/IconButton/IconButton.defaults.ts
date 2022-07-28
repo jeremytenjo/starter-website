@@ -7,9 +7,6 @@ const defaults: ComponentDefaultsProps = {
     root: {
       width: '40px',
       height: '40px',
-      border: '0.985222px solid #E6E6E6',
-      borderRadius: '9.85222px',
-      backgroundColor: 'white',
       ':hover': {
         backgroundColor: 'white',
       },

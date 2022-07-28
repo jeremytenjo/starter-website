@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run tests:all && npm run helpers:generate-sitemap-and-push
+npm run tests:all

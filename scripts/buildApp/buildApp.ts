@@ -1,12 +1,10 @@
 import shell from '../../devtools/utils/node/shell.js'
 
 export default function buildApp() {
-  const commands = [`node --experimental-json-modules node_modules/.bin/next build`]
+  let commands = `node --experimental-json-modules node_modules/.bin/next build`
 
   if (process.env.COMMIT_SITEMAP) {
-    commands.push(
-      `npm run helpers:generate-sitemap && git add public/sitemap.xml && git commit -m "updated sitemap"`,
-    )
+    commands = `${commands} && npm run helpers:generate-sitemap && git add public/sitemap.xml && git commit -m "updated sitemap"`
   }
 
   shell(commands)

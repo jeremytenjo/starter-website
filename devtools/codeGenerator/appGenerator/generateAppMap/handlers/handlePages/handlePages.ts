@@ -3,7 +3,7 @@ import path from 'path'
 import changeCase from 'change-case'
 
 import { type ContainerProps } from '../../sharedTypes'
-import { type ContextProps } from '../../generateApp'
+import { type ContextProps } from '../../generateAppMap'
 import genCodeFromTemplate from '../../utils/genCodeFromTemplate/genCodeFromTemplate.js'
 
 export type PagesProps = {

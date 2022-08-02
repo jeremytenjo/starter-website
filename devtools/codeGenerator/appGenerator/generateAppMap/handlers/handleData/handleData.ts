@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { type ContextProps } from '../../generateApp'
+import { type ContextProps } from '../../generateAppMap'
 import genCodeFromTemplate from '../../utils/genCodeFromTemplate/genCodeFromTemplate.js'
 
 export type DataProps = {

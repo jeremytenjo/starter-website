@@ -1,8 +1,8 @@
 import superCodeGenSchema from '../../superCodeGen.schema.cjs'
-import { type SchemaProps } from '../generateApp/generateApp'
-import { type ComponentsProps } from '../generateApp/handlers/handleComponents/handleComponents'
-import { type DataProps } from '../generateApp/handlers/handleData/handleData'
-import { type PagesProps } from '../generateApp/handlers/handlePages/handlePages'
+import { type MapProps } from '../generateAppMap/generateAppMap'
+import { type ComponentsProps } from '../generateAppMap/handlers/handleComponents/handleComponents'
+import { type DataProps } from '../generateAppMap/handlers/handleData/handleData'
+import { type PagesProps } from '../generateAppMap/handlers/handlePages/handlePages'
 
 const pages = (): PagesProps['pages'] => {
   return [
@@ -170,7 +170,7 @@ const templates = {
 }
 
 export default async function appSchema() {
-  const schema: SchemaProps = {
+  const schema: MapProps = {
     templates,
     pages,
     data,

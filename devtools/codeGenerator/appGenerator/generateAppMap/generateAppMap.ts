@@ -14,7 +14,7 @@ export type ElementsTypes = {
   ComponentsProps: ComponentsProps
 }
 
-export type SchemaProps = {
+export type MapProps = {
   templates: {
     page: any
     pageContent: any
@@ -30,16 +30,16 @@ export type SchemaProps = {
 }
 
 export type ContextProps = {
-  templates: SchemaProps['templates']
+  templates: MapProps['templates']
   rootDir: string
   isTestEnv: boolean
 }
 
-export default async function generateApp() {
+export default async function generateAppMap() {
   const isTestEnv = process.env.NODE_ENV === 'test'
-  const appSchema = isTestEnv
+  const appMap = isTestEnv
     ? (await import('../test/testAppSchema.js')).default
-    : (await import('../../../../app.schema.js')).default
+    : (await import('../../../../app.map.js')).default
 
   if (isTestEnv) {
     await removeFolder(path.join(process.cwd(), 'src'))
@@ -50,7 +50,7 @@ export default async function generateApp() {
     pages = () => [],
     data = () => [],
     components = () => [],
-  }: SchemaProps = await appSchema()
+  }: MapProps = await appMap()
 
   const context: ContextProps = {
     templates,

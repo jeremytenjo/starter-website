@@ -1,9 +1,9 @@
 // open devtools/codeGenerator/appGenerator/test/testAppSchema.ts for an example
 import superCodeGenSchema from './devtools/codeGenerator/superCodeGen.schema.cjs'
 import {
-  type SchemaProps,
+  type MapProps,
   type ElementsTypes,
-} from './devtools/codeGenerator/appGenerator/generateApp/generateApp'
+} from './devtools/codeGenerator/appGenerator/generateAppMap/generateAppMap'
 
 const templates = {
   page: superCodeGenSchema.find((s) => s.type === 'Page')?.files || [],
@@ -27,7 +27,7 @@ const data = (): ElementsTypes['DataProps']['data'] => {
 }
 
 export default async function appSchema() {
-  const schema: SchemaProps = {
+  const schema: MapProps = {
     templates,
     pages,
     data,

@@ -36,7 +36,7 @@ export default function MenuUi({ links = [], logoSrc }: MenuUiProps) {
     closeDialog()
   }
 
-  return (
+  return links?.length ? (
     <Wrapper>
       <Trigger onClick={openDialog} />
       <Modal
@@ -48,7 +48,7 @@ export default function MenuUi({ links = [], logoSrc }: MenuUiProps) {
         logoSrc={logoSrc}
       />
     </Wrapper>
-  )
+  ) : null
 }
 
 const Wrapper = ({ children }) => {

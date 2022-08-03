@@ -7,9 +7,9 @@ export type LogoUiProps = {
 }
 
 export default function LogoUi(props: LogoUiProps) {
-  return (
+  return props.src ? (
     <>
       <SiteLogo src={props.src} width={164} height={68} />
     </>
-  )
+  ) : null
 }

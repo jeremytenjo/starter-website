@@ -59,7 +59,7 @@
     "@useweb/use-fetch": "1.4.0",
     "@useweb/use-next-api": "1.1.5",
     "emotion-theming": "11.0.0",
-    "next": "12.2.1-canary.1",
+    "next": "12.2.3",
     "next-transpile-modules": "9.0.0",
     "npm-check-updates": "15.0.1",
     "plaiceholder": "2.3.0",

@@ -5,14 +5,14 @@ import colors from '../../tokens/colors'
 const defaults: ComponentDefaultsProps = {
   styleOverrides: `
   :root {
-    --font-main: PoppinsRegular;
+    --font-main: PublicSans;
   }
 
   @font-face {
-    font-family: 'PoppinsRegular';
+    font-family: 'PublicSans';
     font-style: normal;
     font-display: swap;
-    src: url('/fonts/poppins/regular.woff2') format('woff2');
+    src: url('/fonts/public-sans/regular.woff2') format('woff2');
   }     
 
   * {

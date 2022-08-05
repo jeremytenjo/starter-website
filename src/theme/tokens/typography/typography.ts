@@ -94,7 +94,7 @@ const variants = {
     letterSpacing: '0.08333em',
     textTransform: 'uppercase' as const,
   },
-  fontFamily: ['PoppinsRegular', '-apple-system', 'Roboto'].join(','),
+  fontFamily: ['PublicSans', '-apple-system', 'Roboto'].join(','),
 }
 
 const variantNames = Object.keys(variants).filter((variant) => variant !== 'fontFamily')

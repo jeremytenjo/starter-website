@@ -3,7 +3,8 @@ import Box from '@useweb/ui/Box'
 
 export type DesktopHeaderUiProps = any
 
-export default function DesktopHeaderUi() {
+export default function DesktopHeaderUi(props: DesktopHeaderUiProps) {
+  props && console.log(props)
   return <Wrapper>Header</Wrapper>
 }
 

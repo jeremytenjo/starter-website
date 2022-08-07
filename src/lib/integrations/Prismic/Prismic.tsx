@@ -10,8 +10,9 @@ export default function Prismic({ children }) {
     <>
       <PrismicScript id='prismic-tags' src={prismicConfig.previewUrl} />
 
-      {/* <PrismicProvider repositoryName={prismicConfig.repositoryName}> */}
-      <PrismicProvider>{children}</PrismicProvider>
+      <PrismicProvider repositoryName={prismicConfig.repositoryName}>
+        {children}
+      </PrismicProvider>
     </>
   ) : (
     children

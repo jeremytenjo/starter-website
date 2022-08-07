@@ -3,6 +3,7 @@ import { create } from '@storybook/theming'
 import { SnackbarProvider } from '@useweb/ui/Snackbar'
 import * as NextImage from 'next/image'
 import ClickToComponent from '@useweb/click-to-component'
+import Box from '@useweb/ui/Box'
 
 import Prismic from '../../src/lib/integrations/Prismic/Prismic'
 
@@ -29,7 +30,14 @@ export const decorators = [
         <Prismic>
           <SnackbarProvider>
             <StorybookTheme>
-              <Story />
+              <Box
+                sx={{
+                  p: 2,
+                  minHeight: '100vh',
+                }}
+              >
+                <Story />
+              </Box>
             </StorybookTheme>
           </SnackbarProvider>
         </Prismic>

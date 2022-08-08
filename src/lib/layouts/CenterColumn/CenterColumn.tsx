@@ -1,16 +1,24 @@
 import React from 'react'
 import Box, { BoxProps } from '@useweb/ui/Box'
 
-export type CenterColumnProps = { children: any; sx?: BoxProps['sx'] }
+export type CenterColumnProps = { children: any; sx?: BoxProps['sx']; dataId?: string }
 
-export default function CenterColumn({ children, sx = {} }: CenterColumnProps) {
-  return <Wrapper sx={sx}>{children}</Wrapper>
+export default function CenterColumn({
+  children,
+  sx = {},
+  dataId = 'CenterColumn',
+}: CenterColumnProps) {
+  return (
+    <Wrapper sx={sx} dataId={dataId}>
+      {children}
+    </Wrapper>
+  )
 }
 
-const Wrapper = ({ children, sx }) => {
+const Wrapper = ({ children, sx, dataId }) => {
   return (
     <Box
-      data-id='CenterColumn'
+      data-id={dataId}
       sx={{
         width: '100%',
         display: 'block',

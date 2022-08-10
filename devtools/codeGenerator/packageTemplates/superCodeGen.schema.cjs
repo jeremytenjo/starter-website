@@ -11,7 +11,6 @@ const container = require('./templates/container.cjs')
 const page = require('./templates/page.cjs')
 const pageContent = require('./templates/pageContent.cjs')
 const globalState = require('./templates/globalState.cjs')
-const asyncHook = require('./templates/asyncHook.cjs')
 const muiOverride = require('./templates/muiOverride.cjs')
 const muiOverrideWithStory = require('./templates/muiOverrideWithStory.cjs')
 const playwrightTest = require('./templates/playwrightTest.cjs')
@@ -49,6 +48,5 @@ module.exports = [
   muiOverride.template,
   muiOverrideWithStory.template,
 
-  asyncHook.template,
   script.template,
 ]

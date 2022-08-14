@@ -21,3 +21,7 @@ yarn-error.log*
 /.next
 tsconfig.tsbuildinfo
 build
+
+# firebase 
+
+firestore-debug.log

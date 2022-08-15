@@ -23,5 +23,5 @@ tsconfig.tsbuildinfo
 build
 
 # firebase 
-
 firestore-debug.log
+firebase-debug.log

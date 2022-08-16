@@ -48,7 +48,7 @@
     "@prismicio/next": "0.1.3",
     "@prismicio/react": "2.4.4",
     "@prismicio/slice-simulator-react": "0.2.2",
-    "@useweb/async-tester": "2.7.0",
+    "@useweb/async-tester": "2.7.2",
     "@useweb/click-to-component": "2.2.2",
     "@useweb/fetch-tester": "1.7.0",
     "@useweb/next-api-tester": "1.3.0",

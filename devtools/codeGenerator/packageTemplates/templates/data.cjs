@@ -3,36 +3,36 @@ const files = [
   // hook
   {
     path: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
-      return `use${capitalName}/use${capitalName}.ts`
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `use${pascalName}/use${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name)
 
       return `import useData, { type UseDataProps, type UseDataReturn } from '@useweb/use-data'
       import { Object } from 'ts-toolbelt'
       
-      import type ${capitalName}Schema from '../${name}.schema'
+      import type ${pascalName}Schema from '../${name}.schema'
       
-      import useCreate${capitalName} from './useCreate${capitalName}/useCreate${capitalName}'
-      import useGet${capitalName} from './useGet${capitalName}/useGet${capitalName}'
-      import useUpdate${capitalName} from './useUpdate${capitalName}/useUpdate${capitalName}'
-      import useRemove${capitalName} from './useRemove${capitalName}/useRemove${capitalName}'
+      import useCreate${pascalName} from './useCreate${pascalName}/useCreate${pascalName}'
+      import useGet${pascalName} from './useGet${pascalName}/useGet${pascalName}'
+      import useUpdate${pascalName} from './useUpdate${pascalName}/useUpdate${pascalName}'
+      import useRemove${pascalName} from './useRemove${pascalName}/useRemove${pascalName}'
       
-      export type Use${capitalName}Props = {
+      export type Use${pascalName}Props = {
         getOptions?: UseDataProps['get']
         createOptions?: UseDataProps['create']
         updateOptions?: UseDataProps['update']
         removeOptions?: UseDataProps['remove']
       }
       
-      export default function use${capitalName}(
-        props: Use${capitalName}Props = {},
-      ): useGet${capitalName}Return {
-        const get = useGet${capitalName}(props?.getOptions)
-        const create = useCreate${capitalName}(props?.createOptions)
-        const update = useUpdate${capitalName}(props?.updateOptions)
-        const remove = useRemove${capitalName}(props?.removeOptions)
+      export default function use${pascalName}(
+        props: Use${pascalName}Props = {},
+      ): useGet${pascalName}Return {
+        const get = useGet${pascalName}(props?.getOptions)
+        const create = useCreate${pascalName}(props?.createOptions)
+        const update = useUpdate${pascalName}(props?.updateOptions)
+        const remove = useRemove${pascalName}(props?.removeOptions)
       
         const ${name} = useData({
           id: '${name}',
@@ -46,25 +46,25 @@ const files = [
       }
       
       // return types
-      type useGet${capitalName}ReturnUpdatedGet = Object.P.Update<
+      type useGet${pascalName}ReturnUpdatedGet = Object.P.Update<
         UseDataReturn,
         ['get', 'data'],
-        ${capitalName}Schema[]
+        ${pascalName}Schema[]
       >
       
-      type useGet${capitalName}ReturnUpdatedCreate = Object.P.Update<
-        useGet${capitalName}ReturnUpdatedGet,
+      type useGet${pascalName}ReturnUpdatedCreate = Object.P.Update<
+        useGet${pascalName}ReturnUpdatedGet,
         ['create', 'exec'],
-        (props: { value: ${capitalName}Schema }) => any
+        (props: { value: ${pascalName}Schema }) => any
       >
       
-      type useGet${capitalName}ReturnUpdatedUpdate = Object.P.Update<
-        useGet${capitalName}ReturnUpdatedCreate,
+      type useGet${pascalName}ReturnUpdatedUpdate = Object.P.Update<
+        useGet${pascalName}ReturnUpdatedCreate,
         ['update', 'exec'],
-        (props: { id: string | number; value: ${capitalName}Schema }) => any
+        (props: { id: string | number; value: ${pascalName}Schema }) => any
       >
       
-      type useGet${capitalName}Return = useGet${capitalName}ReturnUpdatedUpdate
+      type useGet${pascalName}Return = useGet${pascalName}ReturnUpdatedUpdate
       `
     },
   },
@@ -75,14 +75,14 @@ const files = [
       return `${name}.schema.ts`
     },
     template: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name)
 
       return `
-      // TODO add ${capitalName} Schema
+      // TODO add ${pascalName} Schema
 
-      type ${capitalName}Schema = any
+      type ${pascalName}Schema = any
       
-      export default ${capitalName}Schema
+      export default ${pascalName}Schema
       `
     },
   },
@@ -93,16 +93,16 @@ const files = [
       return `${name}.stubs.ts`
     },
     template: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name)
 
       return `
-      import type ${capitalName}Schema from './${name}.schema'
+      import type ${pascalName}Schema from './${name}.schema'
           
-      const ${capitalName}Stubs: ${capitalName}Schema[] = [
-        // TODO add ${capitalName} stubs
+      const ${pascalName}Stubs: ${pascalName}Schema[] = [
+        // TODO add ${pascalName} stubs
       ]
       
-      export default ${capitalName}Stubs
+      export default ${pascalName}Stubs
 `
     },
   },
@@ -113,64 +113,64 @@ const files = [
       return `stories/${name}.stories.tsx`
     },
     template: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name)
 
       return `import React from 'react'
       import AsyncTester from '@useweb/async-tester'
       
       // get
       import {
-        get${capitalName},
-        type Get${capitalName}Props,
-      } from '../use${capitalName}/useGet${capitalName}/useGet${capitalName}'
+        get${pascalName},
+        type Get${pascalName}Props,
+      } from '../use${pascalName}/useGet${pascalName}/useGet${pascalName}'
       // create
       import {
-        create${capitalName},
-        type Create${capitalName}Props,
-      } from '../use${capitalName}/useCreate${capitalName}/useCreate${capitalName}'
+        create${pascalName},
+        type Create${pascalName}Props,
+      } from '../use${pascalName}/useCreate${pascalName}/useCreate${pascalName}'
       // update
       import {
-        update${capitalName},
-        type Update${capitalName}Props,
-      } from '../use${capitalName}/useUpdate${capitalName}/useUpdate${capitalName}'
+        update${pascalName},
+        type Update${pascalName}Props,
+      } from '../use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}'
       // remove
       import {
-        remove${capitalName},
-        type Remove${capitalName}Props,
-      } from '../use${capitalName}/useRemove${capitalName}/useRemove${capitalName}'
+        remove${pascalName},
+        type Remove${pascalName}Props,
+      } from '../use${pascalName}/useRemove${pascalName}/useRemove${pascalName}'
       
       export default {
-        title: 'data/${capitalName}',
+        title: 'data/${pascalName}',
       }
       
-      export const Get${capitalName} = {
+      export const Get${pascalName} = {
         render: () => {
-          const payload: Get${capitalName}Props = {}
-          const fn = async () => get${capitalName}(payload)
+          const payload: Get${pascalName}Props = {}
+          const fn = async () => get${pascalName}(payload)
           return <AsyncTester fn={fn} autoExec />
         },
       }
       
-      export const Create${capitalName} = {
+      export const Create${pascalName} = {
         render: () => {
-          const payload: Create${capitalName}Props = {}
-          const fn = async () => create${capitalName}(payload)
+          const payload: Create${pascalName}Props = {}
+          const fn = async () => create${pascalName}(payload)
           return <AsyncTester fn={fn} autoExec />
         },
       }
       
-      export const Update${capitalName} = {
+      export const Update${pascalName} = {
         render: () => {
-          const payload: Update${capitalName}Props = {}
-          const fn = async () => update${capitalName}(payload)
+          const payload: Update${pascalName}Props = {}
+          const fn = async () => update${pascalName}(payload)
           return <AsyncTester fn={fn} autoExec />
         },
       }
       
-      export const Remove${capitalName} = {
+      export const Remove${pascalName} = {
         render: () => {
-          const payload: Remove${capitalName}Props = {}
-          const fn = async () => remove${capitalName}(payload)
+          const payload: Remove${pascalName}Props = {}
+          const fn = async () => remove${pascalName}(payload)
           return <AsyncTester fn={fn} autoExec />
         },
       }
@@ -181,36 +181,36 @@ const files = [
   // get
   {
     path: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
-      return `use${capitalName}/useGet${capitalName}/useGet${capitalName}.ts`
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `use${pascalName}/useGet${pascalName}/useGet${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name)
 
       return `
 import { type UseDataProps } from '@useweb/use-data'
 
-import type ${capitalName}Schema from '../../${name}.schema'
+import type ${pascalName}Schema from '../../${name}.schema'
 
 // fetcher
-export type Get${capitalName}Props = any
+export type Get${pascalName}Props = any
 
-export const get${capitalName} = async (props: Get${capitalName}Props) => {
-  const ${name}: ${capitalName}Schema[] = []
+export const get${pascalName} = async (props: Get${pascalName}Props) => {
+  const ${name}: ${pascalName}Schema[] = []
 
   return ${name}
 }
 
 // hook
-type useGet${capitalName}Props = UseDataProps['get']
-type useGet${capitalName}Return = UseDataProps['get']
+type useGet${pascalName}Props = UseDataProps['get']
+type useGet${pascalName}Return = UseDataProps['get']
 
-export default function useGet${capitalName}(
-  props: useGet${capitalName}Props,
-): useGet${capitalName}Return {
+export default function useGet${pascalName}(
+  props: useGet${pascalName}Props,
+): useGet${pascalName}Return {
 
-  const get: useGet${capitalName}Return = {
-    fetcher: get${capitalName},
+  const get: useGet${pascalName}Return = {
+    fetcher: get${pascalName},
 
     onGet: (result) => {
       props?.onGet && props.onGet(result)
@@ -230,42 +230,42 @@ export default function useGet${capitalName}(
   // create
   {
     path: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
-      return `use${capitalName}/useCreate${capitalName}/useCreate${capitalName}.ts`
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `use${pascalName}/useCreate${pascalName}/useCreate${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name)
 
       return `
       import { type UseDataProps } from '@useweb/use-data'
 
-      import type ${capitalName}Schema from '../../${name}.schema'
+      import type ${pascalName}Schema from '../../${name}.schema'
       
       // creator
-      export type Create${capitalName}Props = any
+      export type Create${pascalName}Props = any
       
-      export const create${capitalName} = async (props: { value: Create${capitalName}Props }) => {
-        const newItem: ${capitalName}Schema = {id: 'hello'}
+      export const create${pascalName} = async (props: { value: Create${pascalName}Props }) => {
+        const newItem: ${pascalName}Schema = {id: 'hello'}
 
         return { newItem }
       }
       
       // hook
-      type useCreate${capitalName}Props = UseDataProps['create']
-      type useCreate${capitalName}Return = UseDataProps['create']
+      type useCreate${pascalName}Props = UseDataProps['create']
+      type useCreate${pascalName}Return = UseDataProps['create']
       
-      export default function useCreate${capitalName}(
-        props: useCreate${capitalName}Props,
-      ): useCreate${capitalName}Return {
-        const create: useCreate${capitalName}Return = {
-          creator: create${capitalName},
+      export default function useCreate${pascalName}(
+        props: useCreate${pascalName}Props,
+      ): useCreate${pascalName}Return {
+        const create: useCreate${pascalName}Return = {
+          creator: create${pascalName},
       
           onCreate: (result) => {
             props?.onCreate && props?.onCreate(result)
           },
       
           onCreateError: (error) => {      
-            console.error('useCreate${capitalName} error')
+            console.error('useCreate${pascalName} error')
             console.error(error)
             props?.onCreateError && props?.onCreateError(error)
 
@@ -281,33 +281,33 @@ export default function useGet${capitalName}(
   // update
   {
     path: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
-      return `use${capitalName}/useUpdate${capitalName}/useUpdate${capitalName}.ts`
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name)
 
       return `import { type UseDataProps } from '@useweb/use-data'
 
-      import type ${capitalName}Schema from '../../${name}.schema'
+      import type ${pascalName}Schema from '../../${name}.schema'
       
       // updater
-      export type Update${capitalName}Props = any
+      export type Update${pascalName}Props = any
       
-      export const update${capitalName} = async (props: {updatedItem: Update${capitalName}Props}) => {
+      export const update${pascalName} = async (props: {updatedItem: Update${pascalName}Props}) => {
         console.log(props)
       }
       
       // hook
-      type useUpdate${capitalName}Props = UseDataProps['update']
-      type useUpdate${capitalName}Return = UseDataProps['update']
+      type useUpdate${pascalName}Props = UseDataProps['update']
+      type useUpdate${pascalName}Return = UseDataProps['update']
       
-      export default function useUpdate${capitalName}(
-        props: useUpdate${capitalName}Props,
-      ): useUpdate${capitalName}Return {
+      export default function useUpdate${pascalName}(
+        props: useUpdate${pascalName}Props,
+      ): useUpdate${pascalName}Return {
       
-        const update: useUpdate${capitalName}Return = {
-          updater: update${capitalName},
+        const update: useUpdate${pascalName}Return = {
+          updater: update${pascalName},
       
           onUpdate: (result) => {
             props?.onUpdate && props.onUpdate(result)
@@ -326,33 +326,33 @@ export default function useGet${capitalName}(
   // remove
   {
     path: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
-      return `use${capitalName}/useRemove${capitalName}/useRemove${capitalName}.ts`
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `use${pascalName}/useRemove${pascalName}/useRemove${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
-      const capitalName = helpers.changeCase.capitalCase(name)
+      const pascalName = helpers.changeCase.pascalCase(name)
 
       return `import { type UseDataProps } from '@useweb/use-data'
 
-      import type ${capitalName}Schema from '../../${name}.schema'
+      import type ${pascalName}Schema from '../../${name}.schema'
       
       // remover
-      export type Remove${capitalName}Props = any
+      export type Remove${pascalName}Props = any
       
-      export const remove${capitalName} = async (props: {removedItemId: Remove${capitalName}Props}) => {
+      export const remove${pascalName} = async (props: {removedItemId: Remove${pascalName}Props}) => {
         console.log(props)
       }
       
       // hook
-      type useRemove${capitalName}Props = UseDataProps['remove']
-      type useRemove${capitalName}Return = UseDataProps['remove']
+      type useRemove${pascalName}Props = UseDataProps['remove']
+      type useRemove${pascalName}Return = UseDataProps['remove']
       
-      export default function useRemove${capitalName}(
-        props: useRemove${capitalName}Props,
-      ): useRemove${capitalName}Return {
+      export default function useRemove${pascalName}(
+        props: useRemove${pascalName}Props,
+      ): useRemove${pascalName}Return {
       
-        const remove: useRemove${capitalName}Return = {
-          remover: remove${capitalName},
+        const remove: useRemove${pascalName}Return = {
+          remover: remove${pascalName},
       
           onRemove: (result) => {
             props?.onRemove && props.onRemove(result)

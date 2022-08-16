@@ -237,14 +237,19 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
 
       return `
-      import { type UseDataProps } from '@useweb/use-data'
+      import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
+      import { Object } from 'ts-toolbelt'
 
       import type ${pascalName}Schema from '../../${name}.schema'
       
       // creator
-      export type Create${pascalName}Props = any
+      export type Create${pascalName}Props = Object.P.Update<
+      CreatorProps,
+      ['value'],
+      ${pascalName}Schema
+    >
       
-      export const create${pascalName} = async (props: { value: Create${pascalName}Props }) => {
+      export const create${pascalName} = async (props: Create${pascalName}Props) => {
         const newItem: ${pascalName}Schema = {id: 'hello'}
 
         return { newItem }
@@ -288,11 +293,16 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
+      import { Object } from 'ts-toolbelt'
 
       import type ${pascalName}Schema from '../../${name}.schema'
       
       // updater
-      export type Update${pascalName}Props = UpdaterProps
+      export type Update${pascalName}Props = Object.P.Update<
+        UpdaterProps,
+        ['updatedItem'],
+        ${pascalName}Schema
+      >
       
       export const update${pascalName} = async (props: Update${pascalName}Props) => {
         console.log(props)

@@ -287,14 +287,14 @@ export default function useGet${pascalName}(
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
 
-      return `import { type UseDataProps } from '@useweb/use-data'
+      return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
 
       import type ${pascalName}Schema from '../../${name}.schema'
       
       // updater
-      export type Update${pascalName}Props = any
+      export type Update${pascalName}Props = UpdaterProps
       
-      export const update${pascalName} = async (props: {updatedItem: Update${pascalName}Props}) => {
+      export const update${pascalName} = async (props: Update${pascalName}Props) => {
         console.log(props)
       }
       

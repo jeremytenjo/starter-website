@@ -297,13 +297,7 @@ export default function useGet${pascalName}(
 
       import type ${pascalName}Schema from '../../${name}.schema'
       
-      // updater
-      export type Update${pascalName}Props = Object.P.Update<
-        UpdaterProps,
-        ['updatedItem'],
-        ${pascalName}Schema
-      >
-      
+      // updater      
       export const update${pascalName} = async (props: Update${pascalName}Props) => {
         console.log(props)
       }
@@ -329,7 +323,20 @@ export default function useGet${pascalName}(
         }
       
         return update
-      }`
+      }
+      
+      // types 
+      type Update${pascalName}Props1 = Object.P.Update<
+        UpdaterProps,
+        ['updatedItem'],
+        ${pascalName}Schema
+      >
+      
+      export type Update${pascalName}Props = Object.P.Update<
+        Update${pascalName}Props1,
+        ['latestData'],
+        ${pascalName}Schema[]
+      >`
     },
   },
 
@@ -342,14 +349,13 @@ export default function useGet${pascalName}(
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
 
-      return `import { type UseDataProps } from '@useweb/use-data'
+      return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
+      import { Object } from 'ts-toolbelt'
 
       import type ${pascalName}Schema from '../../${name}.schema'
       
       // remover
-      export type Remove${pascalName}Props = any
-      
-      export const remove${pascalName} = async (props: {removedItemId: Remove${pascalName}Props}) => {
+      export const remove${pascalName} = async (props: Remove${pascalName}Props) => {
         console.log(props)
       }
       
@@ -374,7 +380,23 @@ export default function useGet${pascalName}(
         }
       
         return remove
-      }`
+      }
+      
+      // types
+      type Remove${pascalName}Props1 = Object.P.Update<
+        RemoverProps,
+        ['latestData'],
+        NewsArticlesSchema[]
+      >
+
+      type Remove${pascalName}Props2 = Object.P.Update<
+        Remove${pascalName}Props1,
+        ['latestData'],
+        ${pascalName}Schema[]
+      >
+          
+      export type Remove${pascalName}Props = Remove${pascalName}Props2 | undefined
+`
     },
   },
 ]

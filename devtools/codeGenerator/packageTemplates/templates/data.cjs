@@ -250,7 +250,7 @@ export default function useGet${pascalName}(
     >
       
       export const create${pascalName} = async (props: Create${pascalName}Props) => {
-        const newItem: ${pascalName}Schema = {id: 'hello'}
+        const newItem: ${pascalName}Schema | undefined = undefined
 
         return { newItem }
       }

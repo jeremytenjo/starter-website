@@ -1,7 +1,7 @@
 // https://github.com/open-cli-tools/concurrently
-import concurrently from 'concurrently'
+import concurrently, { type ConcurrentlyCommandInput } from 'concurrently'
 
-type Props = string | string[]
+type ShellProps = string | string[] | ConcurrentlyCommandInput[]
 
 /**
  * @example
@@ -11,7 +11,7 @@ type Props = string | string[]
 // run concurrently
  * shell(['npm run start:app', 'npm run start:storybook'])
  */
-export default async function shell(commands: Props) {
+export default async function shell(commands: ShellProps) {
   const _commands = typeof commands === 'string' ? [commands] : commands
 
   const { result } = await concurrently(_commands, {

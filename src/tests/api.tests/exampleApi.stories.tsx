@@ -5,4 +5,14 @@ export default {
   title: 'api/Api Example',
 }
 
-export const Test = () => <NextApiTester name='example' />
+export const Test = () => (
+  <NextApiTester
+    name='example'
+    payload={{
+      method: 'post',
+      body: JSON.stringify({
+        name: 'YOU',
+      }),
+    }}
+  />
+)

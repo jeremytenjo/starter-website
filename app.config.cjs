@@ -5,6 +5,9 @@ module.exports = {
     description: 'Website_StarterDesc',
     title: 'Website_Starter',
   },
+  nextjs: {
+    port: 3001,
+  },
   devtools: {
     storybook: {
       port: 6006,

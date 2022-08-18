@@ -7,6 +7,7 @@ import appConfig from '../../../app.config.cjs'
 
 export default async function startStorybook() {
   const port = appConfig.devtools.storybook.port
+  const nextPort = appConfig.nextjs.port
   const ipAddress = getIpAddress()
   const networkUrl = `http://${ipAddress}:${port}`
 
@@ -20,7 +21,11 @@ export default async function startStorybook() {
 
   await shell('rm -rf node_modules/.cache/storybook')
 
-  shell(
-    `start-storybook -p ${port} -c ./devtools/storybook --no-open --quiet --no-manager-cache`,
-  )
+  shell([
+    {
+      command: `start-storybook -p ${port} -c ./devtools/storybook --no-open --quiet --no-manager-cache`,
+      name: 'deploy',
+      env: { STORYBOOK_NEXT_PORT: nextPort },
+    },
+  ])
 }

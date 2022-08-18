@@ -2,6 +2,7 @@ import withBundleAnalyzer from '@next/bundle-analyzer'
 // https://github.com/martpie/next-transpile-modules
 import ntm from 'next-transpile-modules'
 
+import appConfig from './app.config.cjs'
 import packageJSON from './package.json' assert { type: 'json' }
 
 const withBundleAnalyzerFn = withBundleAnalyzer({
@@ -15,6 +16,9 @@ export default async () => {
   const nextConfig = withBundleAnalyzerFn(
     transpileESMNodeModules({
       config: {
+        env: {
+          nextjsPort: String(appConfig.nextjs.port),
+        },
         images: {
           domains: ['images.prismic.io'],
         },

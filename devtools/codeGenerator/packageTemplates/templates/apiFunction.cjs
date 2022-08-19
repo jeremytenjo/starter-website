@@ -21,7 +21,7 @@ const files = [
         }
       
         try {
-          const data = await ${name}({ body } as any)
+          const data = await ${name}(body)
       
           res.status(200).json({ data })
         } catch (error: any) {
@@ -41,9 +41,7 @@ const files = [
       const upperName = helpers.changeCase.capitalCase(name)
       const upperNameNoSpace = upperName.split(' ').join('')
       return `export type ${upperNameNoSpace}Props = {
-        body: {
-          name: string
-        }
+        name?: string
       }
       
       export default async function ${name}(props: ${upperNameNoSpace}Props) {
@@ -79,7 +77,7 @@ const files = [
         args: {
           payload: {
             name: '${name}'
-          } as ${upperNameNoSpace}Props['body'],
+          } as ${upperNameNoSpace}Props,
         },
       }
       

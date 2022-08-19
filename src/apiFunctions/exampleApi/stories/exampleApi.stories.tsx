@@ -9,7 +9,7 @@ export default {
   args: {
     payload: {
       name: 'Ralph',
-    } as ExampleApiProps['body'],
+    } as ExampleApiProps,
   },
 }
 

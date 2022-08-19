@@ -8,16 +8,19 @@ const files = [
       
       export default {
         title: 'api/${name}',
+        args: {
+          body: {
+            name: 'Ralph'
+          }
+        }
       }
       
-      export const Test = () => (
+      export const Test = (args) => (
         <NextApiTester
           name='${name}'
           payload={{
             method: 'post',
-            body: JSON.stringify({
-              name: 'hello',
-            }),
+            body: args.body,
           }}
         />
       )`

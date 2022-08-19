@@ -51,7 +51,6 @@
     "@useweb/async-tester": "2.7.2",
     "@useweb/click-to-component": "2.2.2",
     "@useweb/fetch-tester": "1.7.0",
-    "@useweb/next-api-tester": "2.0.0",
     "@useweb/ui": "4.8.4",
     "@useweb/ui-theme": "1.0.2",
     "@useweb/use-async": "4.4.2",

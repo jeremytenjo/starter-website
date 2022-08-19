@@ -1,37 +1,6 @@
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 
 const files = [
-  // vercel api function
-  {
-    path: ({ name }) => {
-      return `src/pages/api/${name}.ts`
-    },
-    template: ({ name }) => {
-      return `import type { NextApiRequest, NextApiResponse } from 'next'
-
-      import ${name} from '../../apiFunctions/${name}/${name}'
-      
-      export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-        let body = {}
-      
-        try {
-          body = JSON.parse(req.body)
-        } catch (e) {
-          body = req.body
-        }
-      
-        try {
-          const data = await ${name}(body)
-      
-          res.status(200).json({ data })
-        } catch (error: any) {
-          console.log('${name} API:', error)
-          res.status(500).json({ error: error.toString() })
-        }
-      }`
-    },
-  },
-
   // api function
   {
     path: ({ name }) => {
@@ -94,6 +63,37 @@ const files = [
         return <AsyncTester fn={async () => fetcher(args)} autoExec />
       }
       `
+    },
+  },
+
+  // vercel api function
+  {
+    path: ({ name }) => {
+      return `src/pages/api/${name}.ts`
+    },
+    template: ({ name }) => {
+      return `import type { NextApiRequest, NextApiResponse } from 'next'
+  
+        import ${name} from '../../apiFunctions/${name}/${name}'
+        
+        export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+          let body = {}
+        
+          try {
+            body = JSON.parse(req.body)
+          } catch (e) {
+            body = req.body
+          }
+        
+          try {
+            const data = await ${name}(body)
+        
+            res.status(200).json({ data })
+          } catch (error: any) {
+            console.log('${name} API:', error)
+            res.status(500).json({ error: error.toString() })
+          }
+        }`
     },
   },
 ]

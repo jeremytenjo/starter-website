@@ -1,7 +1,4 @@
-import type { NextApiRequest } from 'next'
-
 export type ExampleApiProps = {
-  req?: NextApiRequest
   body: {
     name: string
   }

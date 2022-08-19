@@ -40,10 +40,7 @@ const files = [
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name)
       const upperNameNoSpace = upperName.split(' ').join('')
-      return `import type { NextApiRequest } from 'next'
-
-      export type ${upperNameNoSpace}Props = {
-        req?: NextApiRequest
+      return `export type ${upperNameNoSpace}Props = {
         body: {
           name: string
         }

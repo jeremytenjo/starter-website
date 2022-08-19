@@ -1,16 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { NextApiRequest } from 'next'
 
 type ExampleApiProps = {
-  name: string
+  req?: NextApiRequest
+  body: {
+    name: string
+  }
 }
 
-export default async function exampleApi({
-  req = {} as NextApiRequest,
-  body = {} as ExampleApiProps,
-}) {
+export default async function exampleApi(props: ExampleApiProps) {
   try {
-    const data = `hello ${body.name} from the example api :)`
+    const data = `hello ${props.body.name} from the example api :)`
 
     return data
   } catch (error: any) {

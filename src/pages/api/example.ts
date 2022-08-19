@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     res.status(200).json({ sucess: data })
   } catch (error: any) {
-    console.log('exampleApi API ERROR:', error)
+    console.log('exampleApi API:', error)
     res.status(500).json({ error: error.toString() })
   }
 }

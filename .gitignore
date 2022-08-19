@@ -4,6 +4,8 @@ playwright-report
 # dependencies
 /node_modules
 devtools/node_modules
+functions/node_modules
+
 
 # misc
 .DS_Store

@@ -21,7 +21,7 @@ const files = [
         }
       
         try {
-          const data = await ${name}({ req, body } as any)
+          const data = await ${name}({ body } as any)
       
           res.status(200).json({ data })
         } catch (error: any) {

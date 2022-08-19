@@ -2,13 +2,14 @@ import React from 'react'
 import AsyncTester from '@useweb/async-tester'
 
 import nextApi from '../../../lib/utils/nextjs/nextApi/nextApi'
+import { type ExampleApiProps } from '../exampleApi'
 
 export default {
   title: 'api/Api Example',
   args: {
     payload: {
       name: 'Ralph',
-    },
+    } as ExampleApiProps['body'],
   },
 }
 

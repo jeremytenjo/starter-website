@@ -20,7 +20,6 @@ const reactContext = require('./templates/ReactContext.cjs')
 const vitestTest = require('./templates/vitestTest.cjs')
 const script = require('./templates/script.cjs')
 const apiFunction = require('./templates/apiFunction.cjs')
-const apiFunctionTester = require('./templates/apiFunctionTester.cjs')
 
 module.exports = [
   container.template,
@@ -34,7 +33,6 @@ module.exports = [
   functionWithStory.template,
 
   apiFunction.template,
-  apiFunctionTester.template,
 
   data.template,
   dataPrismic.template,

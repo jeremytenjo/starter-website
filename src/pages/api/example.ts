@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import exampleApi from '../../apiFunction/exampleApi/exampleApi'
+import exampleApi from '../../apiFunctions/exampleApi/exampleApi'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   let body = {}

@@ -3,16 +3,19 @@ import NextApiTester from '@useweb/next-api-tester'
 
 export default {
   title: 'api/Api Example',
+  args: {
+    body: {
+      name: 'Ralph',
+    },
+  },
 }
 
-export const Test = () => (
+export const Test = (args) => (
   <NextApiTester
     name='example'
     payload={{
       method: 'post',
-      body: JSON.stringify({
-        name: 'YOU',
-      }),
+      body: args.body,
     }}
   />
 )

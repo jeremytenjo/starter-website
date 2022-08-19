@@ -34,7 +34,7 @@ export default function dev() {
   }
 
   // firebase
-  commands.push('firebase emulators:start --only firestore')
+  // commands.push('firebase emulators:start --only firestore')
 
   shell(commands)
 }

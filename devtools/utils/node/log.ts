@@ -44,7 +44,7 @@ export default function log(
     process.exit(1)
   } else if (warning) {
     console.log()
-    console.log(chalk.keyword('orange')(rawMessage))
+    console.log(chalk.yellow(rawMessage))
     console.log()
     return { spinner: {} as any, chalk }
   } else if (loading) {
@@ -57,7 +57,7 @@ export default function log(
     if (step !== '') message = `${chalk.green(rawMessage)}`
     if (step !== '') step = `${chalk.magenta(step)}`
 
-    message = `${chalk.keyword('lightgreen')('✔')}${message}`
+    message = `${chalk.greenBright('✔')}${message}`
   }
 
   if (space) console.log()

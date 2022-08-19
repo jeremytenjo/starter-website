@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 export type NextApiProps = { name: string; payload?: object; port?: number }
 
+export type NextApiReturn = { data: any; error?: any }
+
 // can't be in node_modules because it would not have access to procce.env or import.meta
-export default async function nextApi(props: NextApiProps) {
+export default async function nextApi(props: NextApiProps): Promise<NextApiReturn> {
   if (!props.name) throw new Error('Missing name prop')
 
   const port =

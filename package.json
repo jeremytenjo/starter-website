@@ -55,7 +55,7 @@
     "@useweb/ui": "4.8.4",
     "@useweb/ui-theme": "1.0.2",
     "@useweb/use-async": "4.4.2",
-    "@useweb/use-data": "10.4.0",
+    "@useweb/use-data": "10.5.0",
     "@useweb/use-event-listener": "1.2.0",
     "@useweb/use-fetch": "1.4.0",
     "@useweb/use-next-api": "1.1.5",

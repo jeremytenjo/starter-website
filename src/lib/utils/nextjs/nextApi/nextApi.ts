@@ -15,7 +15,7 @@ export default async function nextApi(props: NextApiProps) {
 
   const prefix =
     // @ts-ignore
-    process.env.NODE_ENV === 'development' || import.meta.env.DEV
+    process.env.NODE_ENV === 'development' || import.meta?.env?.DEV
       ? `http://localhost:${port}/`
       : '/'
 

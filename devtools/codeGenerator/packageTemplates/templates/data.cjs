@@ -340,14 +340,14 @@ export default function useGet${pascalName}(
       }
       
       // types 
-      type Update${pascalName}Props1 = Object.P.Update<
+      type UpProps1 = Object.P.Update<
         UpdaterProps,
         ['updatedItem'],
         ${nameSinglePascal}Schema
       >
       
       export type Update${pascalName}Props = Object.P.Update<
-        Update${pascalName}Props1,
+        UpProps1,
         ['latestData'],
         ${nameSinglePascal}Schema[]
       >`

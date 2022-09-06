@@ -1,10 +1,8 @@
 const webpackFinal = require('./storybookWebpack/webpackFinal.js')
+const stories = require('./storiesList.cjs')
 
 module.exports = {
-  stories: [
-    '../../src/**/*.stories.@(|ts|tsx|mdx)',
-    '../../slices/**/*.stories.@(|ts|tsx)',
-  ],
+  stories: [...stories, '../../slices/**/*.stories.@(|ts|tsx)'],
   staticDirs: ['../../public'],
   features: { emotionAlias: false, storyStoreV7: true },
   framework: '@storybook/react',
@@ -17,11 +15,11 @@ module.exports = {
   webpackFinal: async (defaultWebpackConfig) => {
     return webpackFinal({ defaultWebpackConfig })
   },
-  refs: {
-    useweb: {
-      title: 'useweb library',
-      url: 'https://useweb.dev/',
-      expanded: false,
-    },
-  },
+  // refs: {
+  //   useweb: {
+  //     title: 'useweb library',
+  //     url: 'https://useweb.dev/',
+  //     expanded: false,
+  //   },
+  // },
 }

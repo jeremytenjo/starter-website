@@ -28,7 +28,7 @@ const Template = (args) => {
 export const Default = Template.bind({}) as any
 
 const defaultArgs: ImageProps = {
-  src: '/images/test/product-image.webp',
+  src: '/images/logo/logo.svg',
   width: 100,
   height: 100,
   alt: 'hello',

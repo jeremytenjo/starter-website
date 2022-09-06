@@ -27,7 +27,7 @@ export const decorators = [
       <>
         {process.env.NODE_ENV === 'development' && <ClickToComponent />}
 
-        <Prismic>
+        <Prismic disablePreview>
           <SnackbarProvider>
             <StorybookTheme>
               <Box

@@ -5,7 +5,7 @@ import { PrismicPreview } from '@prismicio/next'
 import Link from '../../../../components/basic/misc/Link/Link'
 import linkResolver from '../linkResolver/linkResolver'
 
-export default function PrismicProvider({ children, repositoryName }) {
+export default function PrismicProvider({ children, repositoryName, disablePreview }) {
   return (
     <PrismicProviderLib
       linkResolver={linkResolver}
@@ -15,7 +15,11 @@ export default function PrismicProvider({ children, repositoryName }) {
         </Link>
       )}
     >
-      <PrismicPreview repositoryName={repositoryName}>{children}</PrismicPreview>
+      {!disablePreview && (
+        <PrismicPreview repositoryName={repositoryName}>{children}</PrismicPreview>
+      )}
+
+      {disablePreview && children}
     </PrismicProviderLib>
   )
 }

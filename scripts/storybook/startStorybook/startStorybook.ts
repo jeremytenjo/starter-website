@@ -5,7 +5,7 @@ import chalk from 'chalk'
 
 import getIpAddress from '../../../devtools/utils/node/getIpAddress.js'
 import shell from '../../../devtools/utils/node/shell.js'
-import appConfig from '../../../app.config.cjs'
+import appConfig from '../../../app.config.js'
 
 import generateStoriesList from './handlers/generateStoriesList/generateStoriesList.js'
 

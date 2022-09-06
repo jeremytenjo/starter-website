@@ -2,7 +2,7 @@ import withBundleAnalyzer from '@next/bundle-analyzer'
 // https://github.com/martpie/next-transpile-modules
 import ntm from 'next-transpile-modules'
 
-import appConfig from './app.config.cjs'
+import appConfig from './app.config.js'
 import packageJSON from './package.json' assert { type: 'json' }
 
 const withBundleAnalyzerFn = withBundleAnalyzer({

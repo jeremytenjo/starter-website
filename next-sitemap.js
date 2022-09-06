@@ -1,6 +1,6 @@
-const appConfig = require('./app.config.cjs')
+import appConfig from './app.config.js'
 
-module.exports = {
+export default {
   siteUrl: appConfig.siteInfo.domain,
   generateRobotsTxt: true,
   robotsTxtOptions: {

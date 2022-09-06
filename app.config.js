@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   siteInfo: {
     name: 'Website_Starter',
     domain: 'https://www.starter-website.vercel.app/',

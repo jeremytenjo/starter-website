@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { CacheProvider } from '@emotion/react'
 import { SnackbarProvider } from '@useweb/ui/Snackbar'
 
-import appConfig from '../../app.config.cjs'
+import appConfig from '../../app.config'
 import ClickToComponent from '../lib/components/useweb/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/UiTheme/utils/createEmotionCache'

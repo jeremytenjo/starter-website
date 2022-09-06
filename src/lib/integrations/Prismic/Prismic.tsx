@@ -5,19 +5,24 @@ import prismicConfig from '../../../services/prismic/prismic.config'
 import PrismicProvider from './utils/PrismicProvider/PrismicProvider'
 import PrismicScript from './utils/PrismicScript/PrismicScript'
 
-export default function Prismic({ children, disablePreview }) {
+type PrismicProps = {
+  children: any
+  disablePreview?: boolean
+}
+
+export default function Prismic(props: PrismicProps) {
   return prismicConfig.accessToken ? (
     <>
       <PrismicScript id='prismic-tags' src={prismicConfig.previewUrl} />
 
       <PrismicProvider
         repositoryName={prismicConfig.repositoryName}
-        disablePreview={disablePreview}
+        disablePreview={props.disablePreview}
       >
-        {children}
+        {props.children}
       </PrismicProvider>
     </>
   ) : (
-    children
+    props.children
   )
 }

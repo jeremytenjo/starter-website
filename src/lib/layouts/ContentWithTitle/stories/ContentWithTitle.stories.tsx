@@ -7,7 +7,7 @@ import Docs from './ContentWithTitle.docs'
 
 const defaultArgs: ContentWithTitleProps = {
   title: 'ContentWithTitle',
-  content: () => <div>content</div>,
+  content: 'content',
 }
 
 export default {

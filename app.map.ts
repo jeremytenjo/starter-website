@@ -14,15 +14,15 @@ const templates = {
   data: superCodeGenSchema.find((s) => s.type === 'Data')?.files || [],
 }
 
+const data = (): ElementsTypes['DataProps']['data'] => {
+  return []
+}
+
 const pages = (): ElementsTypes['PagesProps']['pages'] => {
   return []
 }
 
 const components = (): ElementsTypes['ComponentsProps']['components'] => {
-  return []
-}
-
-const data = (): ElementsTypes['DataProps']['data'] => {
   return []
 }
 

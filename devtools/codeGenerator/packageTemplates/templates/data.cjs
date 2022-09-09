@@ -410,125 +410,125 @@ export default function useGet${pascalName}(
     },
   },
 
-  // components - stories
-  {
-    path: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
-      return `components/stories/${pascalName}.stories.tsx`
-    },
-    template: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+  // // components - stories
+  // {
+  //   path: ({ name, helpers }) => {
+  //     const pascalName = helpers.changeCase.pascalCase(name)
+  //     return `components/stories/${pascalName}.stories.tsx`
+  //   },
+  //   template: ({ name, helpers }) => {
+  //     const pascalName = helpers.changeCase.pascalCase(name)
+  //     const nameSingle = pluralize.singular(name)
+  //     const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
-      return `import React from 'react'
+  //     return `import React from 'react'
 
-      import ${pascalName}Stubs from '../../${name}.stubs'
-      import ${nameSinglePascal}Component, { type ${nameSinglePascal}Props } from '../${nameSinglePascal}/${nameSinglePascal}'
-      import ${pascalName}ListComponent, { type ${pascalName}ListProps } from '../${pascalName}List/${pascalName}List'
+  //     import ${pascalName}Stubs from '../../${name}.stubs'
+  //     import ${nameSinglePascal}Component, { type ${nameSinglePascal}Props } from '../${nameSinglePascal}/${nameSinglePascal}'
+  //     import ${pascalName}ListComponent, { type ${pascalName}ListProps } from '../${pascalName}List/${pascalName}List'
 
-      export default {
-        title: 'data/${pascalName}/components',
-      }
+  //     export default {
+  //       title: 'data/${pascalName}/components',
+  //     }
 
-      export const ${nameSinglePascal} = {
-        args: {
-          ${nameSingle}: ${pascalName}Stubs[0],
-        } as ${nameSinglePascal}Props,
-      
-        render: (args) => {
-          return <${nameSinglePascal}Component {...args} />
-        },
-      }
+  //     export const ${nameSinglePascal} = {
+  //       args: {
+  //         ${nameSingle}: ${pascalName}Stubs[0],
+  //       } as ${nameSinglePascal}Props,
 
-      export const ${pascalName}List  = {
-        args: {} as ${pascalName}ListProps,
-      
-        render: (args) => {
-          return <${pascalName}ListComponent {...args} />
-        },
-      }`
-    },
-  },
+  //       render: (args) => {
+  //         return <${nameSinglePascal}Component {...args} />
+  //       },
+  //     }
 
-  // components - Single
-  {
-    path: ({ name, helpers }) => {
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+  //     export const ${pascalName}List  = {
+  //       args: {} as ${pascalName}ListProps,
 
-      return `components/${nameSinglePascal}/${nameSinglePascal}.tsx`
-    },
-    template: ({ name, helpers }) => {
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+  //       render: (args) => {
+  //         return <${pascalName}ListComponent {...args} />
+  //       },
+  //     }`
+  //   },
+  // },
 
-      return `import React from 'react'
-      import Box from '@useweb/ui/Box'
-      
-      import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
-      
-      export type ${nameSinglePascal}Props = {
-        ${nameSingle}: ${nameSinglePascal}Schema
-      }
-      
-      export default function ${nameSinglePascal}(props: ${nameSinglePascal}Props) {
-        console.log(props)
-        return <Wrapper>${nameSinglePascal}</Wrapper>
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${nameSinglePascal}' sx={{}}>
-            {children}
-          </Box>
-        )
-      }`
-    },
-  },
+  // // components - Single
+  // {
+  //   path: ({ name, helpers }) => {
+  //     const nameSingle = pluralize.singular(name)
+  //     const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
-  // components - List
-  {
-    path: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
+  //     return `components/${nameSinglePascal}/${nameSinglePascal}.tsx`
+  //   },
+  //   template: ({ name, helpers }) => {
+  //     const nameSingle = pluralize.singular(name)
+  //     const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
-      return `components/${pascalName}List/${pascalName}List.tsx`
-    },
-    template: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+  //     return `import React from 'react'
+  //     import Box from '@useweb/ui/Box'
 
-      return `import React from 'react'
-      import Box from '@useweb/ui/Box'
-      import List from '@useweb/ui/List'
-      
-      import ${nameSinglePascal} from '../${nameSinglePascal}/${nameSinglePascal}'
-      import use${pascalName} from '../../use${pascalName}/use${pascalName}'
-      
-      export type ${pascalName}ListProps = any
-      
-      export default function ${pascalName}List(props: ${pascalName}ListProps) {
-        const ${name} = use${pascalName}()
-        console.log(${name})
-      
-        return (
-          <Wrapper>
-            <List data={${name}.get.data} ListItemComponent={({ itemData }) => <${nameSinglePascal} {...itemData} />} />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${pascalName}List' sx={{}}>
-            {children}
-          </Box>
-        )
-      }
-      `
-    },
-  },
+  //     import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
+
+  //     export type ${nameSinglePascal}Props = {
+  //       ${nameSingle}: ${nameSinglePascal}Schema
+  //     }
+
+  //     export default function ${nameSinglePascal}(props: ${nameSinglePascal}Props) {
+  //       console.log(props)
+  //       return <Wrapper>${nameSinglePascal}</Wrapper>
+  //     }
+
+  //     const Wrapper = ({ children }) => {
+  //       return (
+  //         <Box data-id='${nameSinglePascal}' sx={{}}>
+  //           {children}
+  //         </Box>
+  //       )
+  //     }`
+  //   },
+  // },
+
+  // // components - List
+  // {
+  //   path: ({ name, helpers }) => {
+  //     const pascalName = helpers.changeCase.pascalCase(name)
+
+  //     return `components/${pascalName}List/${pascalName}List.tsx`
+  //   },
+  //   template: ({ name, helpers }) => {
+  //     const pascalName = helpers.changeCase.pascalCase(name)
+  //     const nameSingle = pluralize.singular(name)
+  //     const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+
+  //     return `import React from 'react'
+  //     import Box from '@useweb/ui/Box'
+  //     import List from '@useweb/ui/List'
+
+  //     import ${nameSinglePascal} from '../${nameSinglePascal}/${nameSinglePascal}'
+  //     import use${pascalName} from '../../use${pascalName}/use${pascalName}'
+
+  //     export type ${pascalName}ListProps = any
+
+  //     export default function ${pascalName}List(props: ${pascalName}ListProps) {
+  //       const ${name} = use${pascalName}()
+  //       console.log(${name})
+
+  //       return (
+  //         <Wrapper>
+  //           <List data={${name}.get.data} ListItemComponent={({ itemData }) => <${nameSinglePascal} {...itemData} />} />
+  //         </Wrapper>
+  //       )
+  //     }
+
+  //     const Wrapper = ({ children }) => {
+  //       return (
+  //         <Box data-id='${pascalName}List' sx={{}}>
+  //           {children}
+  //         </Box>
+  //       )
+  //     }
+  //     `
+  //   },
+  // },
 ]
 
 const template = {

@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@useweb/ui/Box'
 
 export type CopyrightUiProps = {
-  title: string,
+  title: string
 }
 
 export default function CopyrightUi({ title }: CopyrightUiProps) {

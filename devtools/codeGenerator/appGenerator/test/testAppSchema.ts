@@ -157,6 +157,14 @@ const data = (): DataProps['data'] => {
     {
       name: 'settings',
     },
+    {
+      name: 'gameCourses',
+      components: [
+        { name: 'GameCoursesPreviewList' },
+        { name: 'GameCoursesList' },
+        { name: 'GameCourseVideoPlayer' },
+      ],
+    },
   ]
 }
 

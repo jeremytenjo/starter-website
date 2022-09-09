@@ -48,7 +48,9 @@ const files = [
         title: 'api/${upperName}',
         args: {
           payload: {
-            name: '${name}'
+            body: {
+              name: '${name}'
+            }
           } as ${upperNameNoSpace}Props,
         },
       }

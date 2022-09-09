@@ -10,6 +10,7 @@ export type ComponentsProps = {
   context: ContextProps
   components: {
     name: string
+    folder?: string
     localComponents?: ComponentProps[]
   }[]
 }
@@ -28,7 +29,7 @@ export default async function handleComponents({
       await genCodeFromTemplate({
         name: component.name,
         files: context.templates.component,
-        outputPath: componentsDir,
+        outputPath: path.join(componentsDir, component.folder || ''),
         slots: getSlots({
           localComponents: component.localComponents as any,
           parentName: component.name,

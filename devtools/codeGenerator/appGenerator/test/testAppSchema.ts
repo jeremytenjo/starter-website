@@ -63,6 +63,8 @@ const pages = (): PagesProps['pages'] => {
 
 const components = (): ComponentsProps['components'] => {
   return [
+    { name: 'PublicHeader', folder: 'PrismicSlices' },
+    { name: 'PublicFooter', folder: 'PrismicSlices' },
     {
       name: 'Footer',
       localComponents: [

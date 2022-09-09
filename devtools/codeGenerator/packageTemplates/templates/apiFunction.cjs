@@ -9,8 +9,11 @@ const files = [
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name)
       const upperNameNoSpace = upperName.split(' ').join('')
-      return `export type ${upperNameNoSpace}Props = {
-        name?: string
+      return `import type { NextApiRequest } from 'next'
+
+      export type ${upperNameNoSpace}Props = {
+        req?: NextApiRequest
+        body: { name?: string }
       }
       
       export default async function ${name}(props: ${upperNameNoSpace}Props) {
@@ -86,7 +89,7 @@ const files = [
           }
         
           try {
-            const data = await ${name}(body)
+            const data = await ${name}({ body, req })
         
             res.status(200).json({ data })
           } catch (error: any) {

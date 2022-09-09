@@ -32,7 +32,7 @@
     "helpers:create-icon": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/createIcon/run.ts",
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
     "helpers:update-useweb-deps": "npm-check-updates -f /@useweb/*/ -u && npm i && npm run prettify && npm run tests:ts-types",
-    "helpers:generate-app-map": "node --experimental-json-modules --loader ts-node/esm ./devtools/codeGenerator/appGenerator/generateAppMap/run.ts",
+    "helpers:generate-app-map": "node --experimental-json-modules --loader ts-node/esm ./devtools/codeGenerator/appGenerator/generateAppMap/run.ts && npm run prettify",
     "prepare": "node --experimental-json-modules --loader ts-node/esm ./scripts/prepare/run.ts"
   },
   "dependencies": {

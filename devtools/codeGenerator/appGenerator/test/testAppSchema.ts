@@ -151,7 +151,7 @@ const components = (): ComponentsProps['components'] => {
 const data = (): DataProps['data'] => {
   return [
     {
-      name: 'dr-osborne-partnership',
+      name: 'drOsbornePartnership',
     },
     {
       name: 'homepage',

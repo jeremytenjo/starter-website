@@ -92,6 +92,7 @@ const files = [
         
           try {
             const data = await ${name}({ body, req })
+            console.log('${name} response: ', JSON.stringify(data))
         
             res.status(200).json({ data })
           } catch (error: any) {

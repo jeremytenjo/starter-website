@@ -2,7 +2,7 @@ import UserSchema from './user.schema.js'
 
 const userStubs: UserSchema[] = [
   {
-    userId: '<added auto by addauth emulator data>',
+    userId: '<added by addMockDataToFirestore>',
     displayName: 'Chicken Raccoon',
   },
 ]

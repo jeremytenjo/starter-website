@@ -179,6 +179,7 @@ const files = [
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
       const schemaName = `${nameSinglePascal}Schema`
+      const propsName = `Get${pascalName}Props`
 
       return `
 import { type UseDataProps } from '@useweb/use-data'
@@ -186,9 +187,9 @@ import { type UseDataProps } from '@useweb/use-data'
 import type ${schemaName} from '../../${nameSingle}.schema'
 
 // fetcher
-export type Get${pascalName}Props = any
+export type ${propsName} = any
 
-export const get${pascalName} = async (props: Get${pascalName}Props) => {
+export const get${pascalName} = async (props: ${propsName}) => {
   const ${name}: ${schemaName}[] = []
 
   return ${name}
@@ -231,14 +232,17 @@ export default function useGet${pascalName}(
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
       const schemaName = `${nameSinglePascal}Schema`
+      const propsName = `Create${pascalName}Props`
 
       return `
       import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
 
       import type ${schemaName} from '../../${nameSingle}.schema'
-      
+
+      export type ${propsName} = CreatorProps<${schemaName}>
+
       // creator
-      export const create${pascalName} = async (props: CreatorProps<${schemaName}>) => {
+      export const create${pascalName} = async (props: ${propsName}) => {
         const newItem: ${schemaName} | undefined = undefined
 
         return { newItem }
@@ -283,13 +287,16 @@ export default function useGet${pascalName}(
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
       const schemaName = `${nameSinglePascal}Schema`
+      const propsName = `Update${pascalName}Props`
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
 
       import type ${schemaName} from '../../${nameSingle}.schema'
+
+      export type ${propsName} = UpdaterProps<${schemaName}>
       
       // updater      
-      export const update${pascalName} = async (props: UpdaterProps<${schemaName}>) => {
+      export const update${pascalName} = async (props: ${propsName}) => {
         console.log(props)
       }
       
@@ -331,13 +338,16 @@ export default function useGet${pascalName}(
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
       const schemaName = `${nameSinglePascal}Schema`
+      const propsName = `Remove${pascalName}Props`
 
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
 
       import type ${schemaName} from '../../${nameSingle}.schema'
+
+      export type ${propsName} = RemoverProps<${schemaName}>
       
       // remover
-      export const remove${pascalName} = async (props: RemoverProps<${schemaName}>) => {
+      export const remove${pascalName} = async (props: ${propsName}) => {
         console.log(props)
       }
       

@@ -12,11 +12,11 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const schemaName = `${nameSinglePascal}Schema`
 
-      return `import useData, { type UseDataProps, type UseDataReturn } from '@useweb/use-data'
-      import { Object } from 'ts-toolbelt'
+      return `import useData, { type UseDataProps } from '@useweb/use-data'
       
-      import type ${nameSinglePascal}Schema from '../${nameSingle}.schema'
+      import type ${schemaName} from '../${nameSingle}.schema'
       
       import useCreate${pascalName} from './useCreate${pascalName}/useCreate${pascalName}'
       import useGet${pascalName} from './useGet${pascalName}/useGet${pascalName}'
@@ -24,21 +24,21 @@ const files = [
       import useRemove${pascalName} from './useRemove${pascalName}/useRemove${pascalName}'
       
       export type Use${pascalName}Props = {
-        getOptions?: UseDataProps['get']
-        createOptions?: UseDataProps['create']
-        updateOptions?: UseDataProps['update']
-        removeOptions?: UseDataProps['remove']
+        getOptions?: UseDataProps<${schemaName}>['get']
+        createOptions?: UseDataProps<${schemaName}>['create']
+        updateOptions?: UseDataProps<${schemaName}>['update']
+        removeOptions?: UseDataProps<${schemaName}>['remove']
       }
       
       export default function use${pascalName}(
         props: Use${pascalName}Props = {},
-      ): useGet${pascalName}Return {
+      ) {
         const get = useGet${pascalName}(props?.getOptions)
         const create = useCreate${pascalName}(props?.createOptions)
         const update = useUpdate${pascalName}(props?.updateOptions)
         const remove = useRemove${pascalName}(props?.removeOptions)
       
-        const ${name} = useData({
+        const ${name} = useData<${schemaName}>({
           id: '${name}',
           get,
           create,
@@ -49,26 +49,6 @@ const files = [
         return ${name}
       }
       
-      // return types
-      type useGet${pascalName}ReturnUpdatedGet = Object.P.Update<
-        UseDataReturn,
-        ['get', 'data'],
-        ${nameSinglePascal}Schema[]
-      >
-      
-      type useGet${pascalName}ReturnUpdatedCreate = Object.P.Update<
-        useGet${pascalName}ReturnUpdatedGet,
-        ['create', 'exec'],
-        (props: { value: ${nameSinglePascal}Schema }) => any
-      >
-      
-      type useGet${pascalName}ReturnUpdatedUpdate = Object.P.Update<
-        useGet${pascalName}ReturnUpdatedCreate,
-        ['update', 'exec'],
-        (props: { id: string | number; value: ${nameSinglePascal}Schema }) => any
-      >
-      
-      type useGet${pascalName}Return = useGet${pascalName}ReturnUpdatedUpdate
       `
     },
   },
@@ -82,13 +62,14 @@ const files = [
     template: ({ name, helpers }) => {
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const schemaName = `${nameSinglePascal}Schema`
 
       return `
       // TODO add ${nameSinglePascal} Schema
 
-      type ${nameSinglePascal}Schema = any
+      type ${schemaName} = any
       
-      export default ${nameSinglePascal}Schema
+      export default ${schemaName}
       `
     },
   },
@@ -102,11 +83,12 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const schemaName = `${nameSinglePascal}Schema`
 
       return `
-      import type ${nameSinglePascal}Schema from './${nameSingle}.schema'
+      import type ${schemaName} from './${nameSingle}.schema'
           
-      const ${pascalName}Stubs: ${nameSinglePascal}Schema[] = [
+      const ${pascalName}Stubs: ${schemaName}[] = [
         // TODO add ${pascalName} stubs
       ]
       
@@ -196,24 +178,25 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const schemaName = `${nameSinglePascal}Schema`
 
       return `
 import { type UseDataProps } from '@useweb/use-data'
 
-import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
+import type ${schemaName} from '../../${nameSingle}.schema'
 
 // fetcher
 export type Get${pascalName}Props = any
 
 export const get${pascalName} = async (props: Get${pascalName}Props) => {
-  const ${name}: ${nameSinglePascal}Schema[] = []
+  const ${name}: ${schemaName}[] = []
 
   return ${name}
 }
 
 // hook
-type useGet${pascalName}Props = UseDataProps['get']
-type useGet${pascalName}Return = UseDataProps['get']
+type useGet${pascalName}Props = UseDataProps<${schemaName}>['get']
+type useGet${pascalName}Return = UseDataProps<${schemaName}>['get']
 
 export default function useGet${pascalName}(
   props: useGet${pascalName}Props,
@@ -247,29 +230,23 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const schemaName = `${nameSinglePascal}Schema`
 
       return `
       import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
-      import { Object } from 'ts-toolbelt'
 
-      import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
+      import type ${schemaName} from '../../${nameSingle}.schema'
       
       // creator
-      export type Create${pascalName}Props = Object.P.Update<
-      CreatorProps,
-      ['value'],
-      ${nameSinglePascal}Schema
-    >
-      
-      export const create${pascalName} = async (props: Create${pascalName}Props) => {
-        const newItem: ${nameSinglePascal}Schema | undefined = undefined
+      export const create${pascalName} = async (props: CreatorProps<${schemaName}>) => {
+        const newItem: ${schemaName} | undefined = undefined
 
         return { newItem }
       }
       
       // hook
-      type useCreate${pascalName}Props = UseDataProps['create']
-      type useCreate${pascalName}Return = UseDataProps['create']
+      type useCreate${pascalName}Props = UseDataProps<${schemaName}>['create']
+      type useCreate${pascalName}Return = UseDataProps<${schemaName}>['create']
       
       export default function useCreate${pascalName}(
         props: useCreate${pascalName}Props,
@@ -305,20 +282,20 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const schemaName = `${nameSinglePascal}Schema`
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
-      import { Object } from 'ts-toolbelt'
 
-      import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
+      import type ${schemaName} from '../../${nameSingle}.schema'
       
       // updater      
-      export const update${pascalName} = async (props: Update${pascalName}Props) => {
+      export const update${pascalName} = async (props: UpdaterProps<${schemaName}>) => {
         console.log(props)
       }
       
       // hook
-      type useUpdate${pascalName}Props = UseDataProps['update']
-      type useUpdate${pascalName}Return = UseDataProps['update']
+      type useUpdate${pascalName}Props = UseDataProps<${schemaName}>['update']
+      type useUpdate${pascalName}Return = UseDataProps<${schemaName}>['update']
       
       export default function useUpdate${pascalName}(
         props: useUpdate${pascalName}Props,
@@ -339,18 +316,7 @@ export default function useGet${pascalName}(
         return update
       }
       
-      // types 
-      type UpProps1 = Object.P.Update<
-        UpdaterProps,
-        ['updatedItem'],
-        ${nameSinglePascal}Schema
-      >
-      
-      export type Update${pascalName}Props = Object.P.Update<
-        UpProps1,
-        ['latestData'],
-        ${nameSinglePascal}Schema[]
-      >`
+      `
     },
   },
 
@@ -364,20 +330,20 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const schemaName = `${nameSinglePascal}Schema`
 
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
-      import { Object } from 'ts-toolbelt'
 
-      import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
+      import type ${schemaName} from '../../${nameSingle}.schema'
       
       // remover
-      export const remove${pascalName} = async (props: Remove${pascalName}Props) => {
+      export const remove${pascalName} = async (props: RemoverProps<${schemaName}>) => {
         console.log(props)
       }
       
       // hook
-      type useRemove${pascalName}Props = UseDataProps['remove']
-      type useRemove${pascalName}Return = UseDataProps['remove']
+      type useRemove${pascalName}Props = UseDataProps<${schemaName}>['remove']
+      type useRemove${pascalName}Return = UseDataProps<${schemaName}>['remove']
       
       export default function useRemove${pascalName}(
         props: useRemove${pascalName}Props,
@@ -398,14 +364,6 @@ export default function useGet${pascalName}(
         return remove
       }
       
-      // types
-      type Remove${pascalName}Props1 = Object.P.Update<
-        RemoverProps,
-        ['latestData'],
-        ${nameSinglePascal}Schema[]
-      >
-          
-      export type Remove${pascalName}Props = Remove${pascalName}Props1 | undefined
 `
     },
   },
@@ -466,10 +424,10 @@ export default function useGet${pascalName}(
   //     return `import React from 'react'
   //     import Box from '@useweb/ui/Box'
 
-  //     import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
+  //     import type ${schemaName} from '../../${nameSingle}.schema'
 
   //     export type ${nameSinglePascal}Props = {
-  //       ${nameSingle}: ${nameSinglePascal}Schema
+  //       ${nameSingle}: ${schemaName}
   //     }
 
   //     export default function ${nameSinglePascal}(props: ${nameSinglePascal}Props) {

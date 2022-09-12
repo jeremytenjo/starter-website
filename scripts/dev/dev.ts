@@ -39,11 +39,9 @@ export default async function dev() {
     commands.push('npm run storybook:dev')
   }
 
-  // firebase
-  // commands.push('firebase emulators:start --only firestore')
-
   if (scriptArgs.withArgs) {
-    await devScriptArgs()
+    const command = await devScriptArgs()
+    command && commands.push(command)
   }
 
   shell(commands)

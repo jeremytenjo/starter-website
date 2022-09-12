@@ -27,8 +27,8 @@ export default async function addMockDataToFirestore({ db, createdUserId }) {
         // add userId property to document
         else if (collection.setUserIdToDataFromSignedInUser) {
           db.collection(collection.name).add({
-            userId: createdUserId,
             ...collectionData,
+            userId: createdUserId,
           })
         } else {
           db.collection(collection.name).add(collectionData)
@@ -54,10 +54,14 @@ async function getCollectionsData() {
     stubsData.map(async (stubPath) => {
       const [name] = stubPath.split('/').pop()?.split('.') || []
       const { default: data } = await import(stubPath)
+      const setUserIdToDataFromSignedInUser = Object.keys(data?.[0] || {})?.includes(
+        'userId',
+      )
 
       return {
         name,
         data,
+        setUserIdToDataFromSignedInUser,
       }
     }),
   )

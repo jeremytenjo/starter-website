@@ -5,7 +5,9 @@ import shell from '../../devtools/utils/node/shell.js'
 import getCommandLineArgs from '../../devtools/utils/node/getCommandLineArgs.js'
 import appConfig from '../../app.config.js'
 
-export default function dev() {
+import devScriptArgs from './handlers/devScriptArgs/devScriptArgs.js'
+
+export default async function dev() {
   console.clear()
   const ipAddress = getIpAddress()
 
@@ -22,6 +24,10 @@ export default function dev() {
       name: 'onlyApp',
       type: Boolean,
     },
+    {
+      name: 'withArgs',
+      type: Boolean,
+    },
   ])
   const dataSource = scriptArgs.dataSource || 'dev'
 
@@ -35,6 +41,10 @@ export default function dev() {
 
   // firebase
   // commands.push('firebase emulators:start --only firestore')
+
+  if (scriptArgs.withArgs) {
+    await devScriptArgs()
+  }
 
   shell(commands)
 }

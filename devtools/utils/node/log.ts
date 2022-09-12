@@ -4,6 +4,20 @@ import chalk from 'chalk'
 // https://github.com/sindresorhus/ora
 import ora, { type Ora as OraInterface } from 'ora'
 
+type LogOptions = {
+  error?: boolean
+  warning?: string
+  color?: string
+  space?: boolean
+  success?: boolean
+  step?: string
+  startEmoji?: string
+  endEmoji?: string
+  raw?: string
+  loading?: boolean
+  trace?: boolean
+}
+
 type Return = {
   spinner: OraInterface
   chalk: any
@@ -29,7 +43,7 @@ export default function log(
     raw,
     loading,
     trace = true,
-  }: any = {},
+  }: LogOptions = {},
 ): Return {
   let message = chalk[color](rawMessage)
   message = `${startEmoji ? emoji.get(startEmoji) : ''}  ${message} ${

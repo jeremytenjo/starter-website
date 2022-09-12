@@ -10,13 +10,6 @@ import devScriptArgs from './handlers/devScriptArgs/devScriptArgs.js'
 export default async function dev() {
   console.clear()
   const ipAddress = getIpAddress()
-
-  console.log('')
-  console.log(chalk.cyan('Nextjs'))
-  console.log('')
-
-  console.log(`${chalk.green('network')} - http://${ipAddress}:${appConfig.nextjs.port}`)
-
   // args
   const scriptArgs = getCommandLineArgs([
     { name: 'dataSource', type: String },
@@ -43,6 +36,12 @@ export default async function dev() {
     const command = await devScriptArgs()
     command && commands.push(command)
   }
+
+  console.log('')
+  console.log(chalk.cyan('Nextjs'))
+  console.log('')
+
+  console.log(`${chalk.green('network')} - http://${ipAddress}:${appConfig.nextjs.port}`)
 
   shell(commands)
 }

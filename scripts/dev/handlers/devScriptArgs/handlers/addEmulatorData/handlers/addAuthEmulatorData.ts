@@ -1,3 +1,5 @@
+import log from '../../../../../../../devtools/utils/node/log.js'
+
 /**
  * [Docs](https://firebase.google.com/docs/emulator-suite/connect_auth)
  */
@@ -13,9 +15,11 @@ export default async function addAuthEmulatorData({ auth }) {
       photoURL: 'https://www.jeremytenjo.com/images/profile_photo.webp',
     })
 
-    console.log('User creation was successful')
+    log('User creation was successful', { success: true })
     return createdUser.uid
   } catch (error) {
-    console.log(error, 'User creation failed')
+    log(error, {
+      error: true,
+    })
   }
 }

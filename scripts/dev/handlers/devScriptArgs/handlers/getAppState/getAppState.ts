@@ -9,7 +9,7 @@ type GetAppStateReturn = {
 
 export default async function getAppState(): Promise<GetAppStateReturn> {
   const scriptArgs = getCommandLineArgs([
-    { name: 'withArgs', type: Boolean },
+    { name: 'withMockData', type: Boolean },
     { name: 'isUserSignedIn', type: Boolean },
   ])
 

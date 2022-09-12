@@ -18,7 +18,7 @@ export default async function dev() {
       type: Boolean,
     },
     {
-      name: 'withArgs',
+      name: 'withMockData',
       type: Boolean,
     },
   ])
@@ -32,7 +32,7 @@ export default async function dev() {
     commands.push('npm run storybook:dev')
   }
 
-  if (scriptArgs.withArgs) {
+  if (scriptArgs.withMockData) {
     const command = await devScriptArgs()
     command && commands.push(command)
   }

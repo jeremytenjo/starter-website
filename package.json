@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts",
-    "dev:with-args": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --withArgs",
+    "dev:with-mock-data": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --withMockData",
     "dev:app": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --onlyApp",
     "dev:dataSource-prod": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod",
     "dev:for-testing": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod --onlyApp",

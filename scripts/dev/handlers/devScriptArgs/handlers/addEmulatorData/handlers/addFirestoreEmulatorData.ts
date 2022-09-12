@@ -34,7 +34,7 @@ export default async function addMockDataToFirestore({ db, createdUserId }) {
       })
     })
 
-    console.log('Database seed was successful')
+    console.log('Data added to firestore emulator')
   } catch (error) {
     console.log(error, 'Database seed failed')
   }

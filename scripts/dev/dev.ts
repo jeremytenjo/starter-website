@@ -2,39 +2,29 @@ import chalk from 'chalk'
 
 import getIpAddress from '../../devtools/utils/node/getIpAddress.js'
 import shell from '../../devtools/utils/node/shell.js'
-import getCommandLineArgs from '../../devtools/utils/node/getCommandLineArgs.js'
 import appConfig from '../../app.config.js'
 
-import devScriptArgs from './handlers/devScriptArgs/devScriptArgs.js'
+import getDevScriptArgs from './handlers/getDevScriptArgs/getDevScriptArgs.js'
+import addEmulatorData from './handlers/addEmulatorData/addEmulatorData.js'
 
 export default async function dev() {
   console.clear()
   const ipAddress = getIpAddress()
   // args
-  const scriptArgs = getCommandLineArgs([
-    { name: 'dataSource', type: String },
-    {
-      name: 'onlyApp',
-      type: Boolean,
-    },
-    {
-      name: 'withMockData',
-      type: Boolean,
-    },
-  ])
-  const dataSource = scriptArgs.dataSource || 'dev'
+  const devScriptArgs = await getDevScriptArgs()
 
   const commands = [
-    `DATA_SOURCE=${dataSource} node --experimental-json-modules --loader ts-node/esm node_modules/.bin/next dev -p ${appConfig.nextjs.port}`,
+    `DATA_SOURCE=${devScriptArgs.dataSource} node --experimental-json-modules --loader ts-node/esm node_modules/.bin/next dev -p ${appConfig.nextjs.port}`,
   ]
 
-  if (!scriptArgs.onlyApp) {
+  if (!devScriptArgs.onlyApp) {
     commands.push('npm run storybook:dev')
   }
 
-  if (scriptArgs.withMockData) {
-    const command = await devScriptArgs()
-    command && commands.push(command)
+  const emulatorCommand = await addEmulatorData({ addAuth: devScriptArgs.signedIn })
+
+  if (emulatorCommand) {
+    commands.push(emulatorCommand)
   }
 
   console.log('')

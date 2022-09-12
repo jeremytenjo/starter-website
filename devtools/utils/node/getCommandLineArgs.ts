@@ -3,6 +3,7 @@ import commandLineArgs from 'command-line-args'
 type ArgOptions = {
   name: string
   type: any
+  defaultValue?: any
 }
 
 /**

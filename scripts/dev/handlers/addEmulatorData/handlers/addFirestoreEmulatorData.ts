@@ -1,7 +1,7 @@
 import path from 'path'
 
-import glob from '../../../../../../../devtools/utils/node/glob.js'
-import log from '../../../../../../../devtools/utils/node/log.js'
+import glob from '../../../../../devtools/utils/node/glob.js'
+import log from '../../../../../devtools/utils/node/log.js'
 
 export type CollectionType = {
   name: string

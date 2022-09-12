@@ -1,4 +1,4 @@
-import log from '../../../../../../../devtools/utils/node/log.js'
+import log from '../../../../../devtools/utils/node/log.js'
 
 /**
  * [Docs](https://firebase.google.com/docs/emulator-suite/connect_auth)

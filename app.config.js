@@ -1,6 +1,3 @@
-// import firebaseJson from '../../../../../../firebase.json' assert { type: 'json' }
-// import firebaseConfig from '../../../../../services/firebase/firebase.config.js'
-
 export default {
   siteInfo: {
     name: 'Website_Starter',
@@ -15,9 +12,5 @@ export default {
     storybook: {
       port: 6006,
     },
-  },
-  firebase: {
-    // firebaseJson: firebaseJson,
-    // config: firebaseConfig,
   },
 }

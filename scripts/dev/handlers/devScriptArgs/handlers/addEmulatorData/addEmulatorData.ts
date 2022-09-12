@@ -1,22 +1,23 @@
 import admin from 'firebase-admin'
 
-import appConfig from '../../../../../../app.config.js'
+import firebaseJson from '../../../../../../firebase.json' assert { type: 'json' }
+import firebaseConfig from '../../../../../../src/services/google/firebase/firebase.config.js'
 
 import addMockDataToFirestore from './handlers/addFirestoreEmulatorData.js'
 import addAuthEmulatorData from './handlers/addAuthEmulatorData.js'
 
-const addFirestoreData = appConfig?.firebase?.emulators?.firestore?.port
-const addAuthData = appConfig?.firebase?.emulators?.auth?.port
+const addFirestoreData = firebaseJson?.emulators?.firestore?.port
+const addAuthData = firebaseJson?.emulators?.auth?.port
 
 // https://firebase.google.com/docs/emulator-suite/connect_firestore
 addFirestoreData &&
-  (process.env.FIRESTORE_EMULATOR_HOST = `localhost:${appConfig?.firebase.emulators.firestore.port}`)
+  (process.env.FIRESTORE_EMULATOR_HOST = `localhost:${firebaseJson?.emulators.firestore.port}`)
 
 // https://firebase.google.com/docs/emulator-suite/connect_auth
 addAuthData &&
-  (process.env.FIREBASE_AUTH_EMULATOR_HOST = `localhost:${appConfig?.firebase.emulators.auth.port}`)
+  (process.env.FIREBASE_AUTH_EMULATOR_HOST = `localhost:${firebaseJson?.emulators.auth.port}`)
 
-admin.initializeApp(appConfig.firebase.config)
+admin.initializeApp(firebaseConfig)
 
 const db = admin.firestore()
 const auth = admin.auth()

@@ -31,13 +31,13 @@ export default async function addEmulatorData(props: AddEmulatorDataProps) {
     return
   }
 
-  let command = 'firebase emulators:start --only '
+  let command = 'firebase emulators:start --only'
   if (addFirestoreData) {
     command = `${command} firestore`
   }
 
   if (addAuthData) {
-    command = `${command}, auth`
+    command = `${command},auth`
   }
 
   const createdUserId = props.addAuth ? await addAuthEmulatorData({ auth }) : 'null'

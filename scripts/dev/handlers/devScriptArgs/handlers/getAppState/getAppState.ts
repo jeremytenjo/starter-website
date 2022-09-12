@@ -20,6 +20,7 @@ export default async function getAppState(): Promise<GetAppStateReturn> {
       name: 'isUserSignedIn',
       message: 'Is user signed in?',
       skip: scriptArgs.isUserSignedIn,
+      initial: true,
     },
     // add more as needed here...
   ]

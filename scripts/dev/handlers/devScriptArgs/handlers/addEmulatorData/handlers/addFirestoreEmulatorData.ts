@@ -1,6 +1,7 @@
 import path from 'path'
 
 import glob from '../../../../../../../devtools/utils/node/glob.js'
+import log from '../../../../../../../devtools/utils/node/log.js'
 
 export type CollectionType = {
   name: string
@@ -13,7 +14,8 @@ export type CollectionType = {
  * [Docs](https://firebase.google.com/docs/emulator-suite/connect_firestore)
  */
 export default async function addMockDataToFirestore({ db, createdUserId }) {
-  const mockDatabaseCollections = await getCollectionsData()
+  const mockDatabaseCollections: CollectionType[] = await getCollectionsData()
+  const collectionsList = mockDatabaseCollections.map((c) => c.name).join(', ')
 
   try {
     mockDatabaseCollections.map((collection: CollectionType) => {
@@ -34,9 +36,11 @@ export default async function addMockDataToFirestore({ db, createdUserId }) {
       })
     })
 
-    console.log('Data added to firestore emulator')
+    log(`Collections added to firestore emulator: ${collectionsList}`)
   } catch (error) {
-    console.log(error, 'Database seed failed')
+    log(error, {
+      error: true,
+    })
   }
 }
 

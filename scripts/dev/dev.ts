@@ -23,7 +23,10 @@ export default async function dev() {
     emulatorPorts.push(value.port)
   }
 
-  const startFirebaseEmulators = !noProjectDefinedInFirebaserc && firebaseJson.emulators
+  const startApp = true
+  const startStorybook = !devScriptArgs.onlyApp
+  const startFirebaseEmulators =
+    !noProjectDefinedInFirebaserc && firebaseJson.emulators && !devScriptArgs.onlyApp
   const waitForPorts = startFirebaseEmulators
     ? {
         ports: emulatorPorts,
@@ -31,9 +34,11 @@ export default async function dev() {
       }
     : undefined
 
-  const commands: CommandProps[] = [
-    // nextjs
-    {
+  const commands: CommandProps[] = []
+
+  // nextjs
+  if (startApp) {
+    const nextjsCommand = {
       label: 'Nextjs',
       command: {
         root: 'node',
@@ -44,12 +49,14 @@ export default async function dev() {
       },
       ports: [appConfig.nextjs.port],
       color: '#01BF81',
-      // enableQRCode: true,
       waitForPorts,
-    },
+    }
+    commands.push(nextjsCommand)
+  }
 
-    // storybok
-    {
+  // storybok
+  if (startStorybook) {
+    const storybookCommand = {
       label: `Storybook`,
       command: {
         root: 'npm',
@@ -57,10 +64,10 @@ export default async function dev() {
       },
       ports: [appConfig.devtools.storybook.port],
       color: '#FF4785',
-      // enableQRCode: true,
       waitForPorts,
-    },
-  ]
+    }
+    commands.push(storybookCommand)
+  }
 
   // firebase emulator
   if (startFirebaseEmulators) {

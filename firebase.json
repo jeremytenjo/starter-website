@@ -11,9 +11,6 @@
     "auth": {
       "port": 9005
     },
-    "functions": {
-      "port": 5002
-    },
     "firestore": {
       "port": 9002
     },

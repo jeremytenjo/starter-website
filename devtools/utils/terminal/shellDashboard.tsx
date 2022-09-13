@@ -19,7 +19,11 @@ export type Props = {
 
 export type CommandProps = {
   label: string
-  command: string
+  command: {
+    root: string
+    args?: string
+    env?: object
+  }
   ports: number[]
   waitForPorts?: {
     ports: number[]
@@ -29,6 +33,7 @@ export type CommandProps = {
   index?: number
   enableQRCode?: boolean
   onCommandRunning?: () => any
+  onOutput?: (output: string) => any
 }
 
 let commandsRunningTriggered = false
@@ -50,33 +55,63 @@ export default async function shellDashboard({ commands, onCommandsRunning }: Pr
 
     // output commands
     const SubprocessOutput = () => {
+      const [output, setOutput] = React.useState('')
+      const onOutput = (newOutput) => {
+        setOutput(newOutput)
+      }
+
       return (
-        <Box flexDirection='row'>
+        <Box flexDirection='column'>
           {commands.map((arg, index) => (
-            <Command key={arg.label} {...arg} index={index} />
+            <Header key={arg.label} {...arg} index={index} />
+          ))}
+
+          <Box marginTop={1}>
+            <Text>{output}</Text>
+          </Box>
+
+          {commands.map((arg, index) => (
+            <Command key={arg.label} {...arg} index={index} onOutput={onOutput} />
           ))}
         </Box>
       )
     }
 
+    const Header = (props: CommandProps & { index: number; key: any }) => {
+      const [port] = props.ports
+      const restardInput = (props.index + 1).toString()
+      const networkUrl = `http://${getIpAddress()}:${port}`
+
+      return (
+        <Box flexDirection='column'>
+          <Box flexDirection='row'>
+            <Text color={props.color}>{props.label}: </Text>
+            <Text dimColor>http://localhost:{port}</Text>
+            <Text> - </Text>
+            <Text dimColor>{networkUrl}</Text>
+          </Box>
+          <Text dimColor>Press {restardInput} to restart</Text>
+        </Box>
+      )
+    }
+
     const Command = ({
-      label,
       command,
       ports,
       waitForPorts,
-      color,
       index = 1,
-      enableQRCode,
       onCommandRunning = () => null,
+      onOutput = () => null,
     }: CommandProps) => {
-      const [port] = ports
       const shellRef = React.useRef<any>(null)
       const [output, setOutput] = React.useState('')
       const [error, setError] = React.useState<string>('')
-      const [qrcodeString, setQrcodeString] = React.useState('')
       const restardInput = (index + 1).toString()
-      const networkUrl = `http://${getIpAddress()}:${port}`
       const outputRef = React.useRef('')
+
+      React.useEffect(() => {
+        output && onOutput(output)
+      }, [output])
 
       useInput((input) => {
         if (input === restardInput) {
@@ -100,12 +135,9 @@ export default async function shellDashboard({ commands, onCommandsRunning }: Pr
           await onPortsRunning({ ports: waitForPorts.ports })
         }
 
-        const commandArgs = command.split(' ')
-        commandArgs.shift()
-        const shell = spawn('npm', commandArgs)
+        const commandArgs = command?.args?.split(' ') || ['']
+        const shell = spawn(command.root, commandArgs)
         // https://www.npmjs.com/package/qrcode-terminal
-        enableQRCode &&
-          qrcode.generate(networkUrl, { small: true }, (qr) => setQrcodeString(qr))
 
         // https://www.freecodecamp.org/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/
         shell.stdout.on('data', (data) => {
@@ -137,36 +169,14 @@ export default async function shellDashboard({ commands, onCommandsRunning }: Pr
         initialize()
       }, [setOutput])
 
-      return (
-        <Box flexBasis={'100%'} flexDirection='column'>
-          <Text color={color}>{label}: </Text>
-
-          {error ? (
-            <Box marginTop={1} flexDirection='column'>
-              <Box marginBottom={1}>
-                <Text color={'red'}>Error running `{command}`</Text>
-              </Box>
-              <Text>{error}</Text>
-            </Box>
-          ) : (
-            <>
-              <Box flexDirection='row'>
-                <Text dimColor>http://localhost:{port}</Text>
-                <Text> - </Text>
-                <Text dimColor>{networkUrl}</Text>
-              </Box>
-
-              <Text dimColor>Press {restardInput} to restart</Text>
-
-              {enableQRCode && <Text>{qrcodeString}</Text>}
-
-              <Box marginTop={1}>
-                <Text>{output}</Text>
-              </Box>
-            </>
-          )}
+      return error ? (
+        <Box marginTop={1} flexDirection='column'>
+          <Box marginBottom={1}>
+            <Text color={'red'}>Error running `{JSON.stringify(command)}`</Text>
+          </Box>
+          <Text>{error}</Text>
         </Box>
-      )
+      ) : null
     }
 
     render(<SubprocessOutput />)

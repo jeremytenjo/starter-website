@@ -8,11 +8,12 @@
     "npm": ">=6.0.0"
   },
   "scripts": {
-    "dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=dev",
-    "dev:signedIn": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --signedIn --dataSource=dev",
-    "dev:dataSource-prod": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod",
-    "dev:onlyApp": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --onlyApp",
-    "dev:for-testing": "node --experimental-json-modules --loader ts-node/esm ./scripts/dev/run.ts --dataSource=prod --onlyApp",
+    "dev": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --dataSource=dev",
+    "dev:signedIn": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --signedIn --dataSource=dev",
+    "dev:dataSource-prod": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --dataSource=prod",
+    "dev:onlyApp": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --onlyApp",
+    "dev:for-testing": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --dataSource=prod --onlyApp",
+    "dev:nextjs": "next dev",
     "storybook:dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/storybook/startStorybook/run.ts",
     "cms:slicemachine": "start-slicemachine",
     "build": "node --experimental-json-modules --loader ts-node/esm ./scripts/buildApp/run.ts",

@@ -29,6 +29,7 @@ type AddEmulatorDataProps = {
   addAuth: boolean
 }
 
+// Add a project id to .firebaserc to use firebase emulator
 export default async function addEmulatorData(props: AddEmulatorDataProps) {
   const firebaserc = await readFile(path.join(process.cwd(), '.firebaserc'))
   const noProjectDefinedInFirebaserc = firebaserc.includes('""')

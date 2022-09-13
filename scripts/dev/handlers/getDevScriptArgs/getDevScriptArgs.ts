@@ -11,7 +11,7 @@ type GetAppStateReturn = {
 
 export default async function getDevScriptArgs(): Promise<GetAppStateReturn> {
   const scriptArgs = getCommandLineArgs([
-    { name: 'signedIn', type: Boolean, defaultValue: false },
+    { name: 'signedIn', type: Boolean, defaultValue: true },
     { name: 'dataSource', type: String },
     {
       name: 'onlyApp',
@@ -27,7 +27,7 @@ export default async function getDevScriptArgs(): Promise<GetAppStateReturn> {
       name: 'signedIn',
       message: 'Is user signed in?',
       skip: scriptArgs.signedIn !== undefined,
-      initial: true,
+      initial: Boolean(scriptArgs.signedIn),
     },
 
     {
@@ -44,7 +44,7 @@ export default async function getDevScriptArgs(): Promise<GetAppStateReturn> {
       name: 'onlyApp',
       message: 'Only run nextjs app?',
       skip: scriptArgs.onlyApp !== undefined,
-      initial: false,
+      initial: Boolean(scriptArgs.onlyApp),
     },
 
     // add more as needed here...

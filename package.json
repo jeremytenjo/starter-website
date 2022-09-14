@@ -13,7 +13,7 @@
     "dev:dataSource-prod": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --dataSource=prod",
     "dev:onlyApp": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --onlyApp",
     "dev:for-testing": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --dataSource=prod --onlyApp",
-    "dev:nextjs": "next dev",
+    "dev:nextjs": "next dev -p 3001",
     "storybook:dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/storybook/startStorybook/run.ts",
     "cms:slicemachine": "start-slicemachine",
     "build": "node --experimental-json-modules --loader ts-node/esm ./scripts/buildApp/run.ts",

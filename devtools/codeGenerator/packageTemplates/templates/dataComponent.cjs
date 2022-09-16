@@ -2,6 +2,21 @@ const story = require('./story.cjs')
 
 const files = [
   {
+    path: ({ name }) => `stories/${name}.stories.tsx`,
+    template: ({ name, helpers, folderPath }) => {
+      const namePascalCase = helpers.changeCase.pascalCase(name)
+
+      return story.getStoryTemplate({
+        name,
+        type: 'component',
+        helpers,
+        folderPath,
+        importOverride: `import { type ${namePascalCase}Props } from '../use${namePascalCase}/use${namePascalCase}'
+        import ${namePascalCase} from '../${namePascalCase}'`,
+      })
+    },
+  },
+  {
     path: ({ name }) => `use${name}/use${name}.tsx`,
     template: ({ name, helpers }) => {
       const namePascalCase = helpers.changeCase.pascalCase(name)
@@ -88,21 +103,6 @@ const files = [
     },
   },
   story.docsTemplate(),
-  {
-    path: ({ name }) => `stories/${name}.stories.tsx`,
-    template: ({ name, helpers, folderPath }) => {
-      const namePascalCase = helpers.changeCase.pascalCase(name)
-
-      return story.getStoryTemplate({
-        name,
-        type: 'component',
-        helpers,
-        folderPath,
-        importOverride: `import { type ${namePascalCase}Props } from '../use${namePascalCase}/use${namePascalCase}'
-        import ${namePascalCase} from '../${namePascalCase}'`,
-      })
-    },
-  },
 ]
 
 const template = {

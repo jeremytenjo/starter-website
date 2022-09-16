@@ -26,7 +26,13 @@ const docsTemplate = () => {
   }
 }
 
-const getStoryTemplate = ({ name, type = 'component', helpers, folderPath }) => {
+const getStoryTemplate = ({
+  name,
+  type = 'component',
+  helpers,
+  folderPath,
+  importOverride,
+}) => {
   const isFunction = type === 'function'
   const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
   let storyPrefix = folderPath.split('src')
@@ -37,7 +43,7 @@ const getStoryTemplate = ({ name, type = 'component', helpers, folderPath }) => 
 import React from 'react'
 ${isFunction ? `import AsyncTester from '@useweb/async-tester'` : ''}
 
-import ${name}, { type ${propsName} } from '../${name}'
+${importOverride || `import ${name}, { type ${propsName} } from '../${name}'`}
 
 import Docs from './${name}.docs'
 
@@ -97,4 +103,6 @@ const functionStoryFiles = [docsTemplate(), componentStory({ type: 'function' })
 module.exports = {
   componentStoryFiles,
   functionStoryFiles,
+  docsTemplate,
+  getStoryTemplate,
 }

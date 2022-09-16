@@ -8,6 +8,7 @@ const functions = require('./templates/function.cjs')
 const functionStory = require('./templates/functionStory.cjs')
 const functionWithStory = require('./templates/functionWithStory.cjs')
 const container = require('./templates/container.cjs')
+const dataComponent = require('./templates/dataComponent.cjs')
 const page = require('./templates/page.cjs')
 const pageContent = require('./templates/pageContent.cjs')
 const globalState = require('./templates/globalState.cjs')
@@ -35,6 +36,7 @@ module.exports = [
   apiFunction.template,
 
   data.template,
+  dataComponent.template,
   dataPrismic.template,
   globalState.template,
   reactContext.template,

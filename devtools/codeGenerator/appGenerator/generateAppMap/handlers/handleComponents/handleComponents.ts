@@ -80,7 +80,7 @@ const getFilesTemapte = ({ context, template }) => {
     files = superCodeGenSchema.find((s) => s.type === template)?.files || []
 
     if (!files.length) {
-      log(`File type ${template} does not exists in your super code gen schema`, {
+      log(`Template ${template} does not exists in your super code gen schema`, {
         error: true,
       })
     }

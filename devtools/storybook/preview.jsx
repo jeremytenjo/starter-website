@@ -32,7 +32,6 @@ export const decorators = [
             <StorybookTheme>
               <Box
                 sx={{
-                  p: 2,
                   minHeight: '100vh',
                 }}
               >

@@ -5,11 +5,11 @@ import colors from '../../tokens/colors'
 const defaults: ComponentDefaultsProps = {
   styleOverrides: `
   :root {
-    --font-main: PublicSans;
+    --font-main: PublicSansRegular;
   }
 
   @font-face {
-    font-family: 'PublicSans';
+    font-family: 'PublicSansRegular';
     font-style: normal;
     font-display: swap;
     src: url('/fonts/public-sans/regular.woff2') format('woff2');

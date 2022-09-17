@@ -10,7 +10,7 @@ const defaults: ComponentDefaultsProps = {
       boxShadow: 'none',
       width: '100%',
       textTransform: 'none' as const,
-      fontFamily: 'PublicSans',
+      fontFamily: 'PublicSansRegular',
       backgroundColor: 'white',
       '&:hover': {
         backgroundColor: 'white',

@@ -17,9 +17,9 @@ const files = [
     },
   },
   {
-    path: ({ name }) => `use${name}/use${name}.tsx`,
+    path: ({ name }) => `use${name}Data/use${name}Data.tsx`,
     template: ({ name, helpers }) => {
-      const namePascalCase = helpers.changeCase.pascalCase(name)
+      const namePascalCase = `${helpers.changeCase.pascalCase(name)}Data`
 
       return `import React, { createContext, useContext } from 'react'
 
@@ -61,15 +61,15 @@ const files = [
 
       return `import React from 'react'
 
-      import { ${namePascalCase}Provider } from './use${namePascalCase}/use${namePascalCase}'
+      import { ${namePascalCase}DataProvider } from './use${namePascalCase}Data/use${namePascalCase}Data'
       import ${namePascalCase}Ui from './ui/${namePascalCase}Ui'
       import { type ${namePascalCase}Props } from './use${namePascalCase}/use${namePascalCase}'
       
       export default function ${namePascalCase}(props: ${namePascalCase}Props) {
         return (
-          <${namePascalCase}Provider props={props}>
+          <${namePascalCase}DataProvider props={props}>
             <${namePascalCase}Ui />
-          </${namePascalCase}Provider>
+          </${namePascalCase}DataProvider>
         )
       }
       `

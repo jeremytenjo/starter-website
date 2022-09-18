@@ -3,7 +3,6 @@ import { spawn } from 'child_process'
 import * as React from 'react'
 // https://github.com/vadimdemedes/ink
 import { render, Text, Box, useInput } from 'ink'
-import qrcode from 'qrcode-terminal'
 import { killPortProcess } from 'kill-port-process'
 
 import getIpAddress from '../node/getIpAddress.js'
@@ -174,7 +173,7 @@ export default async function shellDashboard({ commands, onCommandsRunning }: Pr
           <Box marginBottom={1}>
             <Text color={'red'}>Error running `{JSON.stringify(command)}`</Text>
           </Box>
-          <Text>{error}</Text>
+          <Text color={'red'}>{error}</Text>
         </Box>
       ) : null
     }

@@ -1,4 +1,4 @@
-const colors: any = {
+const colors = {
   primary: {
     main: '#5D59FF',
   },
@@ -15,6 +15,8 @@ const colors: any = {
   error: {
     main: '#d93025',
   },
+  themeColor: '',
+  backgroundColor: '',
 }
 
 colors.themeColor = colors.black.main

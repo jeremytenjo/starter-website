@@ -21,7 +21,7 @@ const Wrapper = ({ children, sx, dataId }) => {
       data-id={dataId}
       sx={{
         width: '100%',
-        display: 'block',
+        display: 'grid',
         margin: '0 auto',
         maxWidth: '769px',
         ...sx,

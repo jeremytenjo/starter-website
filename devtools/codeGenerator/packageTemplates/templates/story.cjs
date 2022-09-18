@@ -41,7 +41,11 @@ const getStoryTemplate = ({
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-${isFunction ? `import AsyncTester from '@useweb/async-tester'` : ''}
+${
+  isFunction
+    ? `import AsyncTester from '@useweb/async-tester'`
+    : `import PixelPerfect from '@useweb/pixel-perfect'`
+}
 
 ${importOverride || `import ${name}, { type ${propsName} } from '../${name}'`}
 
@@ -67,7 +71,20 @@ const Template = (args: ${propsName}) => {
 
   return (
     <>
-      ${isFunction ? `<AsyncTester fn={fn} autoExec />` : `<${name} {...args} />`}
+      ${
+        isFunction
+          ? `<AsyncTester fn={fn} autoExec />`
+          : `// <PixelPerfect designImage=''
+            mediaQueryImages={[
+              {
+                width: 1920,
+                url: '',
+              },
+            ]}
+            hideOverlay 
+          />
+          <${name} {...args} />`
+      }
     </>
   )
 }

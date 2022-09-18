@@ -13,7 +13,7 @@ import TextField from '../../lib/components/useweb/forms/fields/TextField/Textfi
 import CssBaseline from './CssBaseline/CssBaseline.defaults'
 
 const themeData: CreateThemeProps = {
-  palette: colors,
+  palette: colors as any,
   typography,
   // https://mui.com/customization/theme-components/#global-style-overrides
   components: {

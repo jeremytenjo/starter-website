@@ -75,15 +75,15 @@ const Template = (args: ${propsName}) => {
         isFunction
           ? `<AsyncTester fn={fn} autoExec />`
           : `
-          // <PixelPerfect designImage=''
-          //   mediaQueryImages={[
-          //     {
-          //       width: 1920,
-          //       url: '',
-          //     },
-          //   ]}
-          //   hideOverlay 
-          // />
+          <PixelPerfect designImage=''
+            mediaQueryImages={[
+              {
+                width: 1920,
+                url: '',
+              },
+            ]}
+            hideOverlay 
+          /> 
           <${name} {...args} />`
       }
     </>

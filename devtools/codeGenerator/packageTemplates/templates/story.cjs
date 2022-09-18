@@ -82,7 +82,7 @@ const Template = (args: ${propsName}) => {
                 url: '',
               },
             ]}
-            hideOverlay 
+            // hideOverlay 
           /> 
           <${name} {...args} />`
       }

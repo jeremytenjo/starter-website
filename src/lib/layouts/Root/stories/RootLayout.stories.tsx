@@ -1,19 +1,13 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 
+import getRootDataStubs from '../../../../data/_root/getRootDataStubs/getRootDataStubs'
 import RootLayout, { type RootLayoutProps } from '../RootLayout'
 
 import Docs from './RootLayout.docs.mdx'
 
 const defaultArgs: RootLayoutProps = {
-  previewData: {},
-  pagesLinks: [
-    {
-      label: 'Home',
-      url: '/',
-    },
-  ],
-  settings: {},
+  ...getRootDataStubs(),
 }
 
 export default {

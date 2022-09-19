@@ -26,7 +26,7 @@ export default function SiteLogo({
 }: SiteLogoProps) {
   const rootData = useRootLayoutData()
   const siteLogo =
-    src || rootData?.settings?.data?.logo?.url || '/images/logo/logo-full.png'
+    src || rootData?.globalSettings?.data?.logo?.url || '/images/logo/logo-full.png'
 
   return (
     <Link

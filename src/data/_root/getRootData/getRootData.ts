@@ -14,9 +14,12 @@ export type GetRootDataReturn = GetRootDataProps & {
 export default async function getRootData({
   previewData = {},
 }: GetRootDataProps = {}): Promise<GetRootDataReturn> {
-  const globalSettings = {}
-  const navLinks: NavLinkSchema[] = []
-  const socialLinks: SocialLinksSchema[] = []
+  const rootData: GetRootDataReturn = {
+    previewData,
+    globalSettings: {},
+    navLinks: [],
+    socialLinks: [],
+  }
 
-  return { previewData, globalSettings, navLinks, socialLinks }
+  return rootData
 }

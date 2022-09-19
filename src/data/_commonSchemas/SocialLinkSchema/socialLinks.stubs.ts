@@ -1,6 +1,6 @@
-import type SocialLinksSchema from './SocialLinkSchema'
+import type SocialLinkSchema from './SocialLinkSchema'
 
-const socialLinksStubs: SocialLinksSchema[] = [
+const socialLinksStubs: SocialLinkSchema[] = [
   {
     icon: 'https://firebasestorage.googleapis.com/v0/b/portfolio-83749.appspot.com/o/Screenshots%2Ffacebook.svg?alt=media&token=4b6d0593-805e-4ce1-b492-b1e38ba7c9dc',
     url: '/',

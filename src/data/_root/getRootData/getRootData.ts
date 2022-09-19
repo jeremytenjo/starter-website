@@ -1,5 +1,5 @@
 import type NavLinkSchema from '../../_commonSchemas/NavLinkSchema/NavLinkSchema'
-import type SocialLinksSchema from '../../_commonSchemas/SocialLinkSchema/SocialLinkSchema'
+import type SocialLinkSchema from '../../_commonSchemas/SocialLinkSchema/SocialLinkSchema'
 
 type GetRootDataProps = {
   previewData?: any
@@ -7,7 +7,7 @@ type GetRootDataProps = {
 
 export type GetRootDataReturn = GetRootDataProps & {
   navLinks: NavLinkSchema[]
-  socialLinks: SocialLinksSchema[]
+  socialLinks: SocialLinkSchema[]
   globalSettings: any
 }
 

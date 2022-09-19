@@ -1,6 +1,6 @@
-type SocialLinksSchema = {
+type SocialLinkSchema = {
   icon: string
   url: string
 }
 
-export default SocialLinksSchema
+export default SocialLinkSchema

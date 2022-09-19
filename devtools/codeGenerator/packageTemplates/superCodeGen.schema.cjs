@@ -21,6 +21,7 @@ const reactContext = require('./templates/ReactContext.cjs')
 const vitestTest = require('./templates/vitestTest.cjs')
 const script = require('./templates/script.cjs')
 const apiFunction = require('./templates/apiFunction.cjs')
+const tsSchema = require('./templates/tsSchema.cjs')
 
 module.exports = [
   container.template,
@@ -40,6 +41,8 @@ module.exports = [
   dataPrismic.template,
   globalState.template,
   reactContext.template,
+
+  tsSchema.template,
 
   playwrightTest.template,
   vitestTest.template,

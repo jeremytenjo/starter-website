@@ -35,10 +35,7 @@ const files = [
       }
       
       export const ${namePascalCase}Provider = (props: ${namePascalCase}ProviderProps) => {
-        const localData: ${namePascalCase}Return = {}
-
         const data: ${namePascalCase}Return = {
-          ...localData,
           ...props.props,
         }
       

@@ -17,6 +17,7 @@ const muiOverrideWithStory = require('./templates/muiOverrideWithStory.cjs')
 const playwrightTest = require('./templates/playwrightTest.cjs')
 const data = require('./templates/data.cjs')
 const dataPrismic = require('./templates/dataPrismic.cjs')
+const dataVariant = require('./templates/dataVariant.cjs')
 const reactContext = require('./templates/ReactContext.cjs')
 const vitestTest = require('./templates/vitestTest.cjs')
 const script = require('./templates/script.cjs')
@@ -38,6 +39,7 @@ module.exports = [
 
   data.template,
   dataComponent.template,
+  dataVariant.template,
   dataPrismic.template,
   globalState.template,
   reactContext.template,

@@ -6,9 +6,9 @@ type GetRootDataProps = {
 }
 
 export type GetRootDataReturn = GetRootDataProps & {
+  globalSettings: any
   navLinks: NavLinkSchema[]
   socialLinks: SocialLinkSchema[]
-  globalSettings: any
 }
 
 export default async function getRootData({

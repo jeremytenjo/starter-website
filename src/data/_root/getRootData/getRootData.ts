@@ -2,7 +2,7 @@ import type NavLinkSchema from '../../_commonSchemas/NavLinkSchema/NavLinkSchema
 import type SocialLinkSchema from '../../_commonSchemas/SocialLinkSchema/SocialLinkSchema'
 
 type GetRootDataProps = {
-  previewData?: any
+  previewData: any
 }
 
 export type GetRootDataReturn = GetRootDataProps & {
@@ -11,9 +11,9 @@ export type GetRootDataReturn = GetRootDataProps & {
   socialLinks: SocialLinkSchema[]
 }
 
-export default async function getRootData({
-  previewData = {},
-}: GetRootDataProps = {}): Promise<GetRootDataReturn> {
+export default async function getRootData(
+  { previewData = {} }: GetRootDataProps = { previewData: undefined },
+): Promise<GetRootDataReturn> {
   const rootData: GetRootDataReturn = {
     previewData,
     globalSettings: {},

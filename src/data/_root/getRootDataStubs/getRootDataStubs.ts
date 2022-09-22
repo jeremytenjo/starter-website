@@ -4,6 +4,7 @@ import socialLinksStubs from '../../_commonSchemas/SocialLinkSchema/socialLinks.
 
 export default function getRootDataStubs(): GetRootDataReturn {
   const data: GetRootDataReturn = {
+    previewData: false,
     globalSettings: {},
     navLinks: navLinksStubs,
     socialLinks: socialLinksStubs,

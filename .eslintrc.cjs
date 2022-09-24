@@ -44,6 +44,7 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-unused-vars': 1,
     'prefer-const': 2,

@@ -6,6 +6,7 @@ import shellDashboard, {
   type CommandProps,
 } from '../../devtools/utils/terminal/shellDashboard.js'
 import readFile from '../../devtools/utils/node/readFile.js'
+import shell from '../../devtools/utils/node/shell.js'
 
 import getDevScriptArgs from './handlers/getDevScriptArgs/getDevScriptArgs.js'
 
@@ -35,6 +36,9 @@ export default async function dev() {
     : undefined
 
   const commands: CommandProps[] = []
+
+  // generate prismic types
+  shell('npm run cms:prismic-generate-types')
 
   // nextjs
   if (startApp) {

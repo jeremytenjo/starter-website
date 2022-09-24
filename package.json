@@ -16,6 +16,7 @@
     "dev:nextjs": "next dev -p 3001",
     "storybook:dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/storybook/startStorybook/run.ts",
     "cms:slicemachine": "start-slicemachine",
+    "cms:prismic-generate-types": "prismic-ts-codegen -c ./src/services/prismic/codegen/prismic.codegen.config.ts",
     "build": "node --experimental-json-modules --loader ts-node/esm ./scripts/buildApp/run.ts",
     "build:analyze": "ANALYZE=true next build",
     "build-and-serve": "npm run build && npm run serve",
@@ -78,6 +79,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.10",
+    "@prismicio/types": "0.2.3",
     "@storybook/addon-actions": "6.5.10",
     "@storybook/addon-essentials": "6.5.10",
     "@storybook/addon-interactions": "6.5.10",
@@ -116,6 +118,7 @@
     "ora": "6.1.2",
     "pluralize": "8.0.0",
     "prettier": "2.7.1",
+    "prismic-ts-codegen": "0.1.5",
     "qrcode-terminal": "0.12.0",
     "sharp": "0.30.7",
     "slice-machine-ui": "0.4.2",

@@ -9,6 +9,7 @@ import readFile from '../../devtools/utils/node/readFile.js'
 import shell from '../../devtools/utils/node/shell.js'
 
 import getDevScriptArgs from './handlers/getDevScriptArgs/getDevScriptArgs.js'
+import generatePrismicTypes from './handlers/generatePrismicTypes/generatePrismicTypes.js'
 
 const addFirestoreData = firebaseJson?.emulators?.firestore?.port
 const addAuthData = firebaseJson?.emulators?.auth?.port
@@ -37,8 +38,7 @@ export default async function dev() {
 
   const commands: CommandProps[] = []
 
-  // generate prismic types
-  shell('npm run cms:prismic-generate-types')
+  generatePrismicTypes()
 
   // nextjs
   if (startApp) {

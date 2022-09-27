@@ -3,7 +3,7 @@ const story = require('./story.cjs')
 const files = [
   {
     path: ({ name }) => `stories/${name}.stories.tsx`,
-    template: ({ name, helpers, folderPath }) => {
+    template: ({ name, helpers, folderPath, slots = {} }) => {
       const namePascalCase = helpers.changeCase.pascalCase(name)
 
       return story.getStoryTemplate({
@@ -12,6 +12,7 @@ const files = [
         helpers,
         folderPath,
         importOverride: `import { type ${namePascalCase}DataProps as ${namePascalCase}Props } from '../use${namePascalCase}Data/use${namePascalCase}Data'
+        ${slots?.importOverride ? slots?.importOverride : ''}
         import ${namePascalCase} from '../${namePascalCase}'`,
       })
     },

@@ -32,6 +32,7 @@ const getStoryTemplate = ({
   helpers,
   folderPath,
   importOverride,
+  storiesDefaultArgs,
 }) => {
   const isFunction = type === 'function'
   const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
@@ -52,7 +53,7 @@ ${importOverride || `import ${name}, { type ${propsName} } from '../${name}'`}
 import Docs from './${name}.docs'
 
 const defaultArgs: ${propsName} = {
-  name: '${name}',
+ ${!storiesDefaultArgs ? `name: '${name}',` : storiesDefaultArgs}
 }
 
 export default {

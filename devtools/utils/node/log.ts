@@ -73,7 +73,7 @@ export default function log(
     if (step !== '') message = `${chalk.green(rawMessage)}`
     if (step !== '') step = `${chalk.magenta(step)}`
 
-    message = `${chalk.greenBright('✔')}${message}`
+    message = `${chalk.greenBright('✔')} ${message}`
   }
 
   if (space) console.log()

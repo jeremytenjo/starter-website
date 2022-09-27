@@ -14,6 +14,7 @@ const files = [
         importOverride: `import { type ${namePascalCase}DataProps as ${namePascalCase}Props } from '../use${namePascalCase}Data/use${namePascalCase}Data'
         import ${namePascalCase} from '../${namePascalCase}'
         ${slots?.importOverride ? slots?.importOverride : ''}`,
+        storiesDefaultArgs: slots.storiesDefaultArgs,
       })
     },
   },

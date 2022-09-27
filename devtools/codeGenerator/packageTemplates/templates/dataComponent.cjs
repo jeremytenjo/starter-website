@@ -7,11 +7,11 @@ const files = [
       const namePascalCase = helpers.changeCase.pascalCase(name)
 
       return story.getStoryTemplate({
-        name: `${name}Data`,
+        name: `${name}`,
         type: 'component',
         helpers,
         folderPath,
-        importOverride: `import { type ${namePascalCase}DataProps } from '../use${namePascalCase}Data/use${namePascalCase}Data'
+        importOverride: `import { type ${namePascalCase}DataProps as ${namePascalCase}Props } from '../use${namePascalCase}Data/use${namePascalCase}Data'
         import ${namePascalCase} from '../${namePascalCase}'`,
       })
     },

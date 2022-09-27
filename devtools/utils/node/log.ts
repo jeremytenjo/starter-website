@@ -46,9 +46,11 @@ export default function log(
   }: LogOptions = {},
 ): Return {
   let message = chalk[color](rawMessage)
-  message = `${startEmoji ? emoji.get(startEmoji) : ''}  ${message} ${
+
+  message = `${startEmoji ? `${emoji.get(startEmoji)} ` : ''}${message} ${
     endEmoji ? emoji.get(endEmoji) : ''
   }`
+
   if (error) {
     console.log()
     console.log(chalk.red(rawMessage))
@@ -76,7 +78,7 @@ export default function log(
 
   if (space) console.log()
   if (raw) console.log(rawMessage)
-  else console.log(`${chalk.cyan(`${step ? `[${step}]` : ''}`)} ${message}`)
+  else console.log(`${chalk.cyan(`${step ? `[${step}] ` : ''}`)}${message}`)
   if (space) console.log()
 
   return { spinner: {} as any, chalk }

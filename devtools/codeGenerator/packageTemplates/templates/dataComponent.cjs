@@ -7,7 +7,7 @@ const files = [
       const namePascalCase = helpers.changeCase.pascalCase(name)
 
       return story.getStoryTemplate({
-        name,
+        name: `${name}Data`,
         type: 'component',
         helpers,
         folderPath,

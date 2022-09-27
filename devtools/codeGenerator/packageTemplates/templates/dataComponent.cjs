@@ -20,12 +20,14 @@ const files = [
   },
   {
     path: ({ name }) => `use${name}Data/use${name}Data.tsx`,
-    template: ({ name, helpers }) => {
+    template: ({ name, helpers, slots = {} }) => {
       const namePascalCase = `${helpers.changeCase.pascalCase(name)}Data`
 
       return `import React, { createContext, useContext } from 'react'
 
-      export type ${namePascalCase}Props = any
+      ${slots?.useDataImports || ''}
+
+      export type ${namePascalCase}Props = ${slots?.useDataTypeImportName || 'any'}
       
       export type ${namePascalCase}Return = ${namePascalCase}Props
       

@@ -12,8 +12,8 @@ const files = [
         helpers,
         folderPath,
         importOverride: `import { type ${namePascalCase}DataProps as ${namePascalCase}Props } from '../use${namePascalCase}Data/use${namePascalCase}Data'
-        ${slots?.importOverride ? slots?.importOverride : ''}
-        import ${namePascalCase} from '../${namePascalCase}'`,
+        import ${namePascalCase} from '../${namePascalCase}'
+        ${slots?.importOverride ? slots?.importOverride : ''}`,
       })
     },
   },

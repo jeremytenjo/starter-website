@@ -15,7 +15,7 @@
     "dev:for-testing": "ts-node-esm --project ./devtools/utils/terminal/terminal-tsconfig.json ./scripts/dev/run.ts --dataSource=prod --onlyApp",
     "dev:nextjs": "next dev -p 3001",
     "storybook:dev": "node --experimental-json-modules --loader ts-node/esm ./scripts/storybook/startStorybook/run.ts",
-    "cms:slicemachine": "start-slicemachine",
+    "cms:slicemachine": "ts-node-esm ./scripts/cms/prismic/startSliceMachine/run.ts",
     "cms:prismic-generate-types": "prismic-ts-codegen -c ./src/services/prismic/codegen/prismic.codegen.config.ts",
     "build": "node --experimental-json-modules --loader ts-node/esm ./scripts/buildApp/run.ts",
     "build:analyze": "ANALYZE=true next build",

@@ -29,6 +29,7 @@
     "tests:ts-types": "tsc --noemit",
     "tests:all": "COMMIT_SITEMAP=true npm run build && npm run tests:lint && npm run tests:ts-types && npm run tests:vitest:ci",
     "prettify": "node --loader  ts-node/esm ./devtools/prettier/scripts/runPrettier/runPrettier.ts",
+    "prepare": "node --experimental-json-modules --loader ts-node/esm ./scripts/prepare/run.ts",
     "helpers:generate-sitemap": "npm run build && next-sitemap --config next-sitemap.js",
     "helpers:generate-sitemap-and-push": "node --loader ts-node/esm ././scripts/sitemap/genAndPushSitemap/run.ts",
     "helpers:generate-logo-assets": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateLogoAssets/run.ts",
@@ -36,7 +37,7 @@
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
     "helpers:update-useweb-deps": "npm-check-updates -f /@useweb/*/ -u && npm i && npm run prettify && npm run tests:ts-types",
     "helpers:generate-app-map": "node --experimental-json-modules --loader ts-node/esm ./devtools/codeGenerator/appGenerator/generateAppMap/run.ts && npm run prettify",
-    "prepare": "node --experimental-json-modules --loader ts-node/esm ./scripts/prepare/run.ts"
+    "helpers:figma-to-code": "ts-node-esm ./scripts/design/figma/figmaToCode/run.ts"
   },
   "dependencies": {
     "@emotion/cache": "11.10.1",
@@ -63,7 +64,9 @@
     "@useweb/use-event-listener": "1.2.0",
     "@useweb/use-fetch": "1.4.0",
     "@useweb/use-next-api": "1.1.5",
+    "dotenv": "16.0.2",
     "emotion-theming": "11.0.0",
+    "figma-api": "1.10.1",
     "firebase": "9.9.4",
     "firebase-admin": "11.0.1",
     "next": "12.3.1",

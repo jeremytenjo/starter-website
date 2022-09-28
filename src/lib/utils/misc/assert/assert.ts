@@ -1,3 +1,5 @@
+import chalk from 'chalk'
+
 type AssertProps = {
   condition: boolean
   message: string
@@ -5,6 +7,11 @@ type AssertProps = {
 
 export default function assert({ condition, message }: AssertProps) {
   if (condition) {
+    console.log(chalk.red('Assertion failed:'))
+    console.log(' ')
+    console.trace()
+    console.log(' ')
+
     throw message
   }
 }

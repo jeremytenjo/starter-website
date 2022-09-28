@@ -18,7 +18,7 @@ export default function handleNewPrismicSlice() {
       if (!itemPath.includes('.')) {
         createSliceLibComponent({ newSlicePath: itemPath })
       } else {
-        // on file changes
+        // update slice types on file changes
         shell('npm run cms:prismic-generate-types')
       }
     },

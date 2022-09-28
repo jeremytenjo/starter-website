@@ -21,7 +21,7 @@ export default async function runPlayWright() {
 
     watchFolder({
       folderToWatch,
-      onChange: runPlaywrightTests,
+      onChange: runPlaywrightTests as any,
     })
   }
 }

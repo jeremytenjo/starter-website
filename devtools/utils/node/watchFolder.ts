@@ -1,5 +1,10 @@
 import nodeWatch from 'node-watch'
 
+type WatchFolderProps = {
+  folderToWatch: string
+  onChange: (event: string, itemPath: string) => any
+}
+
 /**
  * [Docs](https://github.com/yuanchuan/node-watch)
  * 
@@ -10,6 +15,6 @@ import nodeWatch from 'node-watch'
       onChange: runPlaywrightTests,
     })
  */
-export default function watchFolder({ folderToWatch, onChange }) {
+export default function watchFolder({ folderToWatch, onChange }: WatchFolderProps) {
   nodeWatch(folderToWatch, { recursive: true }, onChange)
 }

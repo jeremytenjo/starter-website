@@ -84,7 +84,7 @@ const files = [
         import ${name} from '../../apiFunctions/${name}/${name}'
         
         export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-          let body = {}
+          let body: any = {}
         
           try {
             body = JSON.parse(req.body)

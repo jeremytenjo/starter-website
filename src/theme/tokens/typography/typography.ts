@@ -101,6 +101,8 @@ const variantNames = Object.keys(variants).filter((variant) => variant !== 'font
 
 export { variants, variantNames }
 
+// extend variants types
+
 // declare module '@mui/material/Typography' {
 //   interface TypographyPropsVariantOverrides {
 //     h1Bold: true;

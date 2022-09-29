@@ -43,15 +43,17 @@ const files = [
       
       import nextApi from '../../../lib/utils/nextjs/nextApi/nextApi'
       import { type ${upperNameNoSpace}Props } from '../${name}'
+
+      const body: ${upperNameNoSpace}Props['body'] = {
+        name: '${upperNameNoSpace}',
+      }
       
       export default {
         title: 'api/${upperName}',
         args: {
           payload: {
-            body: {
-              name: '${name}'
-            }
-          } as ${upperNameNoSpace}Props,
+            body
+          }
         },
       }
       

@@ -51,9 +51,7 @@ const files = [
       export default {
         title: 'api/${upperName}',
         args: {
-          payload: {
-            body
-          }
+          payload: body
         },
       }
       

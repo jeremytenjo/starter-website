@@ -11,9 +11,7 @@ const defaults: ComponentDefaultsProps = {
       width: '100%',
       textTransform: 'none' as const,
       fontFamily: 'PublicSansRegular',
-      backgroundColor: 'white',
       '&:hover': {
-        backgroundColor: 'white',
         boxShadow: 'none',
       },
       '&:active': {

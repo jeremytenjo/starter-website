@@ -64,9 +64,9 @@ const files = [
 
       import { ${namePascalCase}DataProvider } from './use${namePascalCase}Data/use${namePascalCase}Data'
       import ${namePascalCase}Ui from './ui/${namePascalCase}Ui'
-      import { type ${namePascalCase}Props } from './use${namePascalCase}/use${namePascalCase}'
+      import { type ${namePascalCase}DataProps } from './use${namePascalCase}Data/use${namePascalCase}Data'
       
-      export default function ${namePascalCase}(props: ${namePascalCase}Props) {
+      export default function ${namePascalCase}(props: ${namePascalCase}DataProps) {
         return (
           <${namePascalCase}DataProvider props={props}>
             <${namePascalCase}Ui />

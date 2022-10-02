@@ -98,7 +98,7 @@ const files = [
         
             res.status(200).json({ data })
           } catch (error: any) {
-            console.log('${name} API:')
+            console.log('${name} API Error:')
             console.log(' ')
             console.log(error)
             res.status(500).json({ error: error.toString() })

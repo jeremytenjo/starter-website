@@ -92,11 +92,15 @@ const files = [
         
           try {
             const data = await ${name}({ body, req })
-            console.log('${name} response: ', JSON.stringify(data))
+            console.log('${name} response:')
+            console.log(' ')
+            console.log(JSON.stringify(data))
         
             res.status(200).json({ data })
           } catch (error: any) {
-            console.log('${name} API:', error)
+            console.log('${name} API:')
+            console.log(' ')
+            console.log(error)
             res.status(500).json({ error: error.toString() })
           }
         }`

@@ -82,6 +82,11 @@ const files = [
         import ${name} from '../../apiFunctions/${name}/${name}'
         
         export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+          console.log(' ')
+          console.log(' ')
+          console.log('${name} API Started')
+          console.log(' ')
+
           let body: any = {}
         
           try {

@@ -92,7 +92,7 @@ const files = [
         
           try {
             const data = await ${name}({ body, req })
-            console.log('${name} response:')
+            console.log('${name} API Response:')
             console.log(' ')
             console.log(JSON.stringify(data))
         

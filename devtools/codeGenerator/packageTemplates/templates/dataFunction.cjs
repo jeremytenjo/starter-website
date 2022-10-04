@@ -5,7 +5,7 @@ const files = [
     template: ({ name, helpers }) => {
       const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
 
-      return `import task from '../../../../../../utils/node/task/task'
+      return `import task from '../utils/node/task/task'
 
 export type ${propsName} = {name: string}
 
@@ -17,7 +17,7 @@ export type ${propsName} = {name: string}
       }
       
     
-     function ${name}Fn(props: ${propsName}) {
+     async function ${name}Fn(props: ${propsName}) {
       console.log(props)
       const data = 'hi'
       

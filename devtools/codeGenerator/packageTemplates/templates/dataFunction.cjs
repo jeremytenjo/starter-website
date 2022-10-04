@@ -17,7 +17,7 @@ export type ${propsName} = {name: string}
       }
       
     
-    export default function ${name}Fn(props: ${propsName}) {
+     function ${name}Fn(props: ${propsName}) {
       console.log(props)
       const data = 'hi'
       

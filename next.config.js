@@ -20,6 +20,7 @@ export default async () => {
           nextjsPort: String(appConfig.nextjs.port),
         },
         images: {
+          allowFutureImage: true,
           domains: ['images.prismic.io'],
         },
       },

@@ -1,5 +1,5 @@
 import React from 'react'
-import NextImage, { type ImageProps as NextImageProps } from 'next/image'
+import NextImage, { type ImageProps as NextImageProps } from 'next/future/image'
 
 import getIsStorybook from '../../../../utils/storybook/getIsStorybook/getIsStorybook'
 

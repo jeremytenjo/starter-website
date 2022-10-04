@@ -21,11 +21,17 @@ export default async function nextApi(props: NextApiProps): Promise<NextApiRetur
       ? `http://localhost:${port}/`
       : '/'
 
+  const url = `${prefix}api/${props.name}`
+  const body = JSON.stringify(props.payload)
+
   const data = await fetch(
-    `${prefix}api/${props.name}`,
+    url,
     props.payload && {
       method: 'post',
-      body: JSON.stringify(props.payload),
+      body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     },
   ).then((res) => res.json())
 

@@ -521,6 +521,7 @@ export default function useGet${pascalName}(
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
+      import LinearProgress from '@mui/material/LinearProgress'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
       import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
@@ -529,7 +530,11 @@ export default function useGet${pascalName}(
         UseDataUiComponentProps<${nameSinglePascal}Schema>['loading']
       
       export default function ${pascalName}Loading(props: ${pascalName}LoadingProps) {
-        return <Wrapper>${pascalName}Loading...</Wrapper>
+        return (
+          <Wrapper>
+            <LinearProgress />
+          </Wrapper>
+        )
       }
       
       const Wrapper = ({ children }) => {
@@ -556,6 +561,7 @@ export default function useGet${pascalName}(
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
+      import Text from '@useweb/ui/Text'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
       import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
@@ -564,7 +570,19 @@ export default function useGet${pascalName}(
         UseDataUiComponentProps<${nameSinglePascal}Schema>['error']
       
       export default function ${pascalName}Error(props: ${pascalName}ErrorProps) {
-        return <Wrapper>${pascalName}Error</Wrapper>
+        const error =
+        props.error instanceof Error ? String(props.error) : JSON.stringify(props.error)
+
+        return (
+          <Wrapper>
+            <Text
+              text={error}
+              sx={{
+                color: 'red',
+              }}
+            />
+          </Wrapper>
+        )
       }
       
       const Wrapper = ({ children }) => {
@@ -739,7 +757,10 @@ export default function useGet${pascalName}(
                 ]}
               />
       
-              <${pascalName}Error_ {...commonProps} error='Error fetching data' />
+              <VideoKeyframesError_
+                {...commonProps}
+                error={new Error('${pascalName} failed')}
+              />
             </>
           )
         },

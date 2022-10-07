@@ -380,7 +380,7 @@ export default function useGet${pascalName}(
 
   // ui
 
-  // main
+  // ui main
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -437,7 +437,7 @@ export default function useGet${pascalName}(
     },
   },
 
-  // with data
+  // ui with data
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -470,7 +470,7 @@ export default function useGet${pascalName}(
     },
   },
 
-  // empty data
+  // ui empty data
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -505,7 +505,7 @@ export default function useGet${pascalName}(
     },
   },
 
-  // loading
+  // ui loading
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -540,7 +540,7 @@ export default function useGet${pascalName}(
     },
   },
 
-  // error
+  // ui error
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -575,11 +575,10 @@ export default function useGet${pascalName}(
     },
   },
 
-  // stories
+  // ui stories
   {
-    path: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
-      return `ui/stories/${pascalName}.stories.tsx`
+    path: ({ name }) => {
+      return `ui/stories/${name}.stories.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)

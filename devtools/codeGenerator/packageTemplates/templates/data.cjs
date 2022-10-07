@@ -378,125 +378,376 @@ export default function useGet${pascalName}(
     },
   },
 
-  // // components - stories
-  // {
-  //   path: ({ name, helpers }) => {
-  //     const pascalName = helpers.changeCase.pascalCase(name)
-  //     return `components/stories/${pascalName}.stories.tsx`
-  //   },
-  //   template: ({ name, helpers }) => {
-  //     const pascalName = helpers.changeCase.pascalCase(name)
-  //     const nameSingle = pluralize.singular(name)
-  //     const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+  // ui
 
-  //     return `import React from 'react'
+  // main
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalName}/${pascalName}.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const useName = `use${pascalName}`
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
-  //     import ${pascalName}Stubs from '../../${name}.stubs'
-  //     import ${nameSinglePascal}Component, { type ${nameSinglePascal}Props } from '../${nameSinglePascal}/${nameSinglePascal}'
-  //     import ${pascalName}ListComponent, { type ${pascalName}ListProps } from '../${pascalName}List/${pascalName}List'
+      return `import React from 'react'
+      import Box from '@useweb/ui/Box'
+      import UseDataUi from '@useweb/use-data-ui'
+      
+      import ${useName}, {
+        type Use${pascalName}Props,
+      } from '../../${useName}/${useName}'
+      import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
+      
+      import ${pascalName}Data from './${pascalName}Data/${pascalName}Data'
+      import ${pascalName}EmptyData from './${pascalName}EmptyData/${pascalName}EmptyData'
+      import ${pascalName}Loading from './${pascalName}Loading/${pascalName}Loading'
+      import ${pascalName}Error from './${pascalName}Error/${pascalName}Error'
+      
+      export type ${pascalName}Props = {
+        UseProps?: Use${pascalName}Props
+      }
+      
+      export default function ${pascalName}(props: ${pascalName}Props) {
+        const ${name} = ${useName}(props.UseProps)
+      
+        return (
+          <Wrapper>
+            <UseDataUi<${nameSinglePascal}Schema>
+              asyncFunctionVariable={${name}}
+              data={${pascalName}Data}
+              emptyData={${pascalName}EmptyData}
+              loading={${pascalName}Loading}
+              error={${pascalName}Error}
+            />
+          </Wrapper>
+        )
+      }
+      
+      const Wrapper = ({ children }) => {
+        return (
+          <Box data-id='${pascalName}' sx={{}}>
+            {children}
+          </Box>
+        )
+      }
+      `
+    },
+  },
 
-  //     export default {
-  //       title: 'data/${pascalName}/components',
-  //     }
+  // with data
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalName}/${pascalName}Data/${pascalName}Data.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
-  //     export const ${nameSinglePascal} = {
-  //       args: {
-  //         ${nameSingle}: ${pascalName}Stubs[0],
-  //       } as ${nameSinglePascal}Props,
+      return `import React from 'react'
+      import Box from '@useweb/ui/Box'
+      import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
+      
+      import type ${nameSinglePascal}}Schema from '../../../${nameSingle}.schema'
+      
+      export type ${pascalName}DataProps = UseDataUiComponentProps<${nameSinglePascal}}Schema>['data']
+      
+      export default function ${pascalName}Data(props: ${pascalName}DataProps) {
+        return <Wrapper>${pascalName}Data</Wrapper>
+      }
+      
+      const Wrapper = ({ children }) => {
+        return (
+          <Box data-id='${pascalName}Data' sx={{}}>
+            {children}
+          </Box>
+        )
+      }`
+    },
+  },
 
-  //       render: (args) => {
-  //         return <${nameSinglePascal}Component {...args} />
-  //       },
-  //     }
+  // empty data
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalName}/${pascalName}EmptyData/${pascalName}EmptyData.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
-  //     export const ${pascalName}List  = {
-  //       args: {} as ${pascalName}ListProps,
+      return `import React from 'react'
+      import Box from '@useweb/ui/Box'
+      import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
+      
+      import type ${nameSinglePascal}}Schema from '../../../${nameSingle}.schema'
+      
+      export type ${pascalName}EmptyDataProps =
+        UseDataUiComponentProps<${nameSinglePascal}}Schema>['emptyData']
+      
+      export default function ${pascalName}EmptyData(props: ${pascalName}EmptyDataProps) {
+        return <Wrapper>${pascalName}EmptyData</Wrapper>
+      }
+      
+      const Wrapper = ({ children }) => {
+        return (
+          <Box data-id='${pascalName}EmptyData' sx={{}}>
+            {children}
+          </Box>
+        )
+      }
+      `
+    },
+  },
 
-  //       render: (args) => {
-  //         return <${pascalName}ListComponent {...args} />
-  //       },
-  //     }`
-  //   },
-  // },
+  // loading
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalName}/${pascalName}Loading/${pascalName}Loading.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
-  // // components - Single
-  // {
-  //   path: ({ name, helpers }) => {
-  //     const nameSingle = pluralize.singular(name)
-  //     const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      return `import React from 'react'
+      import Box from '@useweb/ui/Box'
+      import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
+      
+      import type ${nameSinglePascal}}Schema from '../../../${nameSingle}.schema'
+      
+      export type ${pascalName}LoadingProps =
+        UseDataUiComponentProps<${nameSinglePascal}}Schema>['loading']
+      
+      export default function ${pascalName}Loading(props: ${pascalName}LoadingProps) {
+        return <Wrapper>${pascalName}Loading...</Wrapper>
+      }
+      
+      const Wrapper = ({ children }) => {
+        return (
+          <Box data-id='${pascalName}Loading' sx={{}}>
+            {children}
+          </Box>
+        )
+      }
+      `
+    },
+  },
 
-  //     return `components/${nameSinglePascal}/${nameSinglePascal}.tsx`
-  //   },
-  //   template: ({ name, helpers }) => {
-  //     const nameSingle = pluralize.singular(name)
-  //     const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+  // error
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalName}/${pascalName}Error/${pascalName}Error.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
-  //     return `import React from 'react'
-  //     import Box from '@useweb/ui/Box'
+      return `import React from 'react'
+      import Box from '@useweb/ui/Box'
+      import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
+      
+      import type ${nameSinglePascal}}Schema from '../../../${nameSingle}.schema'
+      
+      export type ${pascalName}ErrorProps =
+        UseDataUiComponentProps<${nameSinglePascal}}Schema>['error']
+      
+      export default function ${pascalName}Error(props: ${pascalName}ErrorProps) {
+        return <Wrapper>${pascalName}Error</Wrapper>
+      }
+      
+      const Wrapper = ({ children }) => {
+        return (
+          <Box data-id='${pascalName}Error' sx={{}}>
+            {children}
+          </Box>
+        )
+      }
+      `
+    },
+  },
 
-  //     import type ${schemaName} from '../../${nameSingle}.schema'
+  // stories
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalName}/${pascalName}Data/${pascalName}Data.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
 
-  //     export type ${nameSinglePascal}Props = {
-  //       ${nameSingle}: ${schemaName}
-  //     }
-
-  //     export default function ${nameSinglePascal}(props: ${nameSinglePascal}Props) {
-  //       console.log(props)
-  //       return <Wrapper>${nameSinglePascal}</Wrapper>
-  //     }
-
-  //     const Wrapper = ({ children }) => {
-  //       return (
-  //         <Box data-id='${nameSinglePascal}' sx={{}}>
-  //           {children}
-  //         </Box>
-  //       )
-  //     }`
-  //   },
-  // },
-
-  // // components - List
-  // {
-  //   path: ({ name, helpers }) => {
-  //     const pascalName = helpers.changeCase.pascalCase(name)
-
-  //     return `components/${pascalName}List/${pascalName}List.tsx`
-  //   },
-  //   template: ({ name, helpers }) => {
-  //     const pascalName = helpers.changeCase.pascalCase(name)
-  //     const nameSingle = pluralize.singular(name)
-  //     const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
-
-  //     return `import React from 'react'
-  //     import Box from '@useweb/ui/Box'
-  //     import List from '@useweb/ui/List'
-
-  //     import ${nameSinglePascal} from '../${nameSinglePascal}/${nameSinglePascal}'
-  //     import use${pascalName} from '../../use${pascalName}/use${pascalName}'
-
-  //     export type ${pascalName}ListProps = any
-
-  //     export default function ${pascalName}List(props: ${pascalName}ListProps) {
-  //       const ${name} = use${pascalName}()
-  //       console.log(${name})
-
-  //       return (
-  //         <Wrapper>
-  //           <List data={${name}.get.data} ListItemComponent={({ itemData }) => <${nameSinglePascal} {...itemData} />} />
-  //         </Wrapper>
-  //       )
-  //     }
-
-  //     const Wrapper = ({ children }) => {
-  //       return (
-  //         <Box data-id='${pascalName}List' sx={{}}>
-  //           {children}
-  //         </Box>
-  //       )
-  //     }
-  //     `
-  //   },
-  // },
+      return `//https://storybook.js.org/docs/react/writing-docs/docs-page
+      import React, { useEffect } from 'react'
+      import PixelPerfect from '@useweb/pixel-perfect'
+      
+      import use${pascalName} from '../../../use${pascalName}/use${pascalName}'
+      import ${pascalName}Stubs from '../../../${name}.stubs'
+      import ${pascalName}, { type ${pascalName}Props } from '../${pascalName}'
+      import ${pascalName}Data_ from '../${pascalName}Data/${pascalName}Data'
+      import ${pascalName}EmptyData_ from '../${pascalName}EmptyData/${pascalName}EmptyData'
+      import ${pascalName}Loading_ from '../${pascalName}Loading/${pascalName}Loading'
+      import ${pascalName}Error_ from '../${pascalName}Error/${pascalName}Error'
+      
+      import Docs from './${pascalName}.docs'
+      
+      const defaultArgs: ${pascalName}Props = {
+        UseProps: {
+          getOptions: {
+            onGet: ({ result }) => console.log({ result }),
+          },
+        },
+      }
+      
+      export default {
+        title: 'data/${pascalName}/ui/${pascalName}',
+        args: defaultArgs,
+      }
+      
+      // full example
+      const Example = ({ children }) => {
+        const ${name}Data = use${pascalName}()
+      
+        useEffect(() => {
+          ${name}Data.get.exec()
+        }, [])
+      
+        return <>{children}</>
+      }
+      
+      export const ${pascalName}Example = {
+        render: () => {
+          return (
+            <>
+              <PixelPerfect
+                assets={[
+                  {
+                    width: 0,
+                    url: '',
+                  },
+                  {
+                    width: 1920,
+                    url: '',
+                  },
+                ]}
+              />
+              <Example>
+                <${pascalName} />
+              </Example>
+            </>
+          )
+        },
+      }
+      
+      // data
+      export const ${pascalName}WithData = {
+        render: () => {
+          return (
+            <>
+              <PixelPerfect
+                assets={[
+                  {
+                    width: 0,
+                    url: '',
+                  },
+                  {
+                    width: 1920,
+                    url: '',
+                  },
+                ]}
+              />
+      
+              <${pascalName}Data_ {...commonProps} data={${pascalName}Stubs} />
+            </>
+          )
+        },
+      }
+      
+      // empty data
+      export const ${pascalName}EmptyData = {
+        render: () => {
+          return (
+            <>
+              <PixelPerfect
+                assets={[
+                  {
+                    width: 0,
+                    url: '',
+                  },
+                  {
+                    width: 1920,
+                    url: '',
+                  },
+                ]}
+              />
+      
+              <${pascalName}EmptyData_ {...commonProps} />
+            </>
+          )
+        },
+      }
+      
+      // loading
+      export const ${pascalName}Loading = {
+        render: () => {
+          return (
+            <>
+              <PixelPerfect
+                assets={[
+                  {
+                    width: 0,
+                    url: '',
+                  },
+                  {
+                    width: 1920,
+                    url: '',
+                  },
+                ]}
+              />
+      
+              <${pascalName}Loading_ {...commonProps} />
+            </>
+          )
+        },
+      }
+      
+      // error
+      export const ${pascalName}Error = {
+        render: () => {
+          return (
+            <>
+              <PixelPerfect
+                assets={[
+                  {
+                    width: 0,
+                    url: '',
+                  },
+                  {
+                    width: 1920,
+                    url: '',
+                  },
+                ]}
+              />
+      
+              <${pascalName}Error_ {...commonProps} error='Error fetching data' />
+            </>
+          )
+        },
+      }
+      
+      const commonProps = {
+        exec: () => null,
+      }
+      `
+    },
+  },
 ]
 
 const template = {

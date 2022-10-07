@@ -579,7 +579,7 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `ui/${pascalName}/${pascalName}Data/${pascalName}Data.tsx`
+      return `ui/stories/${pascalName}.stories.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -595,8 +595,6 @@ export default function useGet${pascalName}(
       import ${pascalName}EmptyData_ from '../${pascalName}EmptyData/${pascalName}EmptyData'
       import ${pascalName}Loading_ from '../${pascalName}Loading/${pascalName}Loading'
       import ${pascalName}Error_ from '../${pascalName}Error/${pascalName}Error'
-      
-      import Docs from './${pascalName}.docs'
       
       const defaultArgs: ${pascalName}Props = {
         UseProps: {

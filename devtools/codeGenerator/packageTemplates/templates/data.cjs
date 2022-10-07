@@ -452,9 +452,9 @@ export default function useGet${pascalName}(
       import Box from '@useweb/ui/Box'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}}Schema from '../../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
       
-      export type ${pascalName}DataProps = UseDataUiComponentProps<${nameSinglePascal}}Schema>['data']
+      export type ${pascalName}DataProps = UseDataUiComponentProps<${nameSinglePascal}Schema>['data']
       
       export default function ${pascalName}Data(props: ${pascalName}DataProps) {
         return <Wrapper>${pascalName}Data</Wrapper>
@@ -485,10 +485,10 @@ export default function useGet${pascalName}(
       import Box from '@useweb/ui/Box'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}}Schema from '../../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
       
       export type ${pascalName}EmptyDataProps =
-        UseDataUiComponentProps<${nameSinglePascal}}Schema>['emptyData']
+        UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
       
       export default function ${pascalName}EmptyData(props: ${pascalName}EmptyDataProps) {
         return <Wrapper>${pascalName}EmptyData</Wrapper>
@@ -520,10 +520,10 @@ export default function useGet${pascalName}(
       import Box from '@useweb/ui/Box'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}}Schema from '../../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
       
       export type ${pascalName}LoadingProps =
-        UseDataUiComponentProps<${nameSinglePascal}}Schema>['loading']
+        UseDataUiComponentProps<${nameSinglePascal}Schema>['loading']
       
       export default function ${pascalName}Loading(props: ${pascalName}LoadingProps) {
         return <Wrapper>${pascalName}Loading...</Wrapper>
@@ -555,10 +555,10 @@ export default function useGet${pascalName}(
       import Box from '@useweb/ui/Box'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}}Schema from '../../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
       
       export type ${pascalName}ErrorProps =
-        UseDataUiComponentProps<${nameSinglePascal}}Schema>['error']
+        UseDataUiComponentProps<${nameSinglePascal}Schema>['error']
       
       export default function ${pascalName}Error(props: ${pascalName}ErrorProps) {
         return <Wrapper>${pascalName}Error</Wrapper>

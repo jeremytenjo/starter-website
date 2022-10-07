@@ -757,7 +757,7 @@ export default function useGet${pascalName}(
                 ]}
               />
       
-              <VideoKeyframesError_
+              <${pascalName}Error_
                 {...commonProps}
                 error={new Error('${pascalName} failed')}
               />

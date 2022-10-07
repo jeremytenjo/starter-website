@@ -104,7 +104,7 @@ const files = [
     path: ({ name }) => {
       return `stories/${name}.stories.tsx`
     },
-    template: ({ name, helpers }) => {
+    template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const storyPrefix = getStoryPrefix({ folderPath })
 

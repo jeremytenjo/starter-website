@@ -1,5 +1,7 @@
 const pluralize = require('pluralize')
 
+const { getStoryPrefix } = require('./story.cjs')
+
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   // hook
@@ -104,6 +106,7 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const storyPrefix = getStoryPrefix({ folderPath })
 
       return `import React from 'react'
       import AsyncTester from '@useweb/async-tester'
@@ -130,7 +133,7 @@ const files = [
       } from '../use${pascalName}/useRemove${pascalName}/useRemove${pascalName}'
       
       export default {
-        title: 'data/${pascalName}',
+        title: '${storyPrefix}/${pascalName}',
       }
       
       export const Get${pascalName} = {
@@ -577,11 +580,14 @@ export default function useGet${pascalName}(
 
   // ui stories
   {
-    path: ({ name }) => {
-      return `ui/stories/${name}.stories.tsx`
-    },
-    template: ({ name, helpers }) => {
+    path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `ui/${pascalName}/stories/${name}.stories.tsx`
+    },
+    template: ({ name, helpers, folderPath }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const storyPrefix = getStoryPrefix({ folderPath })
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       import React, { useEffect } from 'react'
@@ -604,7 +610,7 @@ export default function useGet${pascalName}(
       }
       
       export default {
-        title: 'data/${pascalName}/ui/${pascalName}',
+        title: '${storyPrefix}/${pascalName}/ui/${pascalName}',
         args: defaultArgs,
       }
       

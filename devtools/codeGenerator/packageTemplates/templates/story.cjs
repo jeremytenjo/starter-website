@@ -26,6 +26,14 @@ const docsTemplate = () => {
   }
 }
 
+const getStoryPrefix = ({ folderPath }) => {
+  let storyPrefix = folderPath.split('src')
+  storyPrefix = storyPrefix.pop()
+  storyPrefix = storyPrefix.substring(1)
+
+  return storyPrefix
+}
+
 const getStoryTemplate = ({
   name,
   type = 'component',
@@ -36,9 +44,7 @@ const getStoryTemplate = ({
 }) => {
   const isFunction = type === 'function'
   const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
-  let storyPrefix = folderPath.split('src')
-  storyPrefix = storyPrefix.pop()
-  storyPrefix = storyPrefix.substring(1)
+  const storyPrefix = getStoryPrefix({ folderPath })
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
@@ -127,4 +133,5 @@ module.exports = {
   functionStoryFiles,
   docsTemplate,
   getStoryTemplate,
+  getStoryPrefix,
 }

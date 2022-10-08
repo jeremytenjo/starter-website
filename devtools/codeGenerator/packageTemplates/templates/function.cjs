@@ -10,7 +10,7 @@ const files = [
     export default function ${name}(props: ${propsName}) {
       const data = 'hi'
       
-      return data
+      return { data }
     }`
     },
   },

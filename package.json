@@ -57,7 +57,7 @@
     "@useweb/fetch-tester": "1.13.0",
     "@useweb/firebase": "6.1.0",
     "@useweb/pixel-perfect": "6.0.2",
-    "@useweb/ui": "4.12.1",
+    "@useweb/ui": "4.12.2",
     "@useweb/ui-theme": "1.0.2",
     "@useweb/use-async": "4.4.2",
     "@useweb/use-data": "12.0.0",

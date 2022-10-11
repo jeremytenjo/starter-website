@@ -46,12 +46,12 @@ const files = [
 
       return `import create from 'zustand'
 
-      type Use${pascalName}Store = {
+      type Use${pascalName}StoreProps = {
         item: string
         setItem: (props: { value: string }) => void
       }
       
-      const use${pascalName}Store = create<Use${pascalName}Store>((set) => ({
+      const use${pascalName}Store = create<Use${pascalName}StoreProps>((set) => ({
         item: 'hello',
         setItem: ({ value }) => {
           set(() => ({ item: value }))

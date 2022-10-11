@@ -207,7 +207,6 @@ const files = [
 
   // ui
 
-  // ui main
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -260,16 +259,14 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
-      import { type UseResultUiComponentProps } from '@useweb/use-data-ui'
+      import { type UseAsyncUiComponentProps } from '@useweb/use-async-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
+      import type ${pascalName}Schema from '../${pascalName}.schema'
       
-      export type ${pascalName}ResultProps = UseResultUiComponentProps<${nameSinglePascal}Schema>['data']
+      export type ${pascalName}ResultProps = UseAsyncUiComponentProps<${pascalName}Schema>['data']
       
       export default function ${pascalName}Result(props: ${pascalName}ResultProps) {
         return <Wrapper>${pascalName}Result</Wrapper>
@@ -293,18 +290,16 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
       import LinearProgress from '@mui/material/LinearProgress'
-      import { type UseResultUiComponentProps } from '@useweb/use-data-ui'
+      import { type UseAsyncUiComponentProps } from '@useweb/use-async-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
+      import type ${pascalName}Schema from '../${pascalName}.schema'
       
       export type ${pascalName}LoadingProps =
-        UseResultUiComponentProps<${nameSinglePascal}Schema>['loading']
+        UseAsyncUiComponentProps<${pascalName}Schema>['loading']
       
       export default function ${pascalName}Loading(props: ${pascalName}LoadingProps) {
         return (
@@ -333,18 +328,16 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
       import Text from '@useweb/ui/Text'
-      import { type UseResultUiComponentProps } from '@useweb/use-data-ui'
+      import { type UseAsyncUiComponentProps } from '@useweb/use-async-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
+      import type ${pascalName}Schema from '../${pascalName}.schema'
       
       export type ${pascalName}ErrorProps =
-        UseResultUiComponentProps<${nameSinglePascal}Schema>['error']
+        UseAsyncUiComponentProps<${pascalName}Schema>['error']
       
       export default function ${pascalName}Error(props: ${pascalName}ErrorProps) {
         const error =

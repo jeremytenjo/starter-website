@@ -17,7 +17,6 @@ const files = [
 
       import type ${pascalName}Schema from '../${pascalName}.schema'
 
-
       export type ResultSchema = ${pascalName}Schema
       
       export type ExecProps = any

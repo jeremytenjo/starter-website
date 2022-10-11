@@ -77,7 +77,10 @@ const files = [
     },
   },
   {
-    path: ({ name }) => `ui/${name}Ui.tsx`,
+    path: ({ name, helpers }) => {
+      const namePascalCase = helpers.changeCase.pascalCase(name)
+      return `ui/${namePascalCase}Ui.tsx`
+    },
     template: ({ name, helpers }) => {
       const namePascalCase = helpers.changeCase.pascalCase(name)
 

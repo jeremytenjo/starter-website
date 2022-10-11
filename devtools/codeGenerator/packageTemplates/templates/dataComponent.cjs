@@ -1,5 +1,3 @@
-const pluralize = require('pluralize')
-
 const { getStoryPrefix } = require('./story.cjs')
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
@@ -32,6 +30,36 @@ const files = [
       
         return ${name}
       }    
+      
+      `
+    },
+  },
+
+  // store
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `use${pascalName}/use${pascalName}Store/use${pascalName}Store.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `import create from 'zustand'
+
+      type Use${pascalName}Store = {
+        item: string
+        setItem: (props: { value: string }) => void
+      }
+      
+      const use${pascalName}Store = create<Use${pascalName}Store>((set) => ({
+        item: 1,
+        setItem: ({ value }) => {
+          set(() => ({ item: value }))
+        },
+      
+      }))
+      
+      export default use${pascalName}Store
       
       `
     },

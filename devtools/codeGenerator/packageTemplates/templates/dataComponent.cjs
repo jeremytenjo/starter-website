@@ -21,8 +21,6 @@ const files = [
       
       export type ExecProps = any
       
-      export type Use${pascalName}Props = any
-      
       export default function use${pascalName}() {
         const ${name} = useAsync<ResultSchema, ExecProps>({
           fn: async (props) => {

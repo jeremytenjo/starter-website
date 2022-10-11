@@ -266,7 +266,7 @@ const files = [
       
       import type ${pascalName}Schema from '../${pascalName}.schema'
       
-      export type ${pascalName}ResultProps = UseAsyncUiComponentProps<${pascalName}Schema>['data']
+      export type ${pascalName}ResultProps = UseAsyncUiComponentProps<${pascalName}Schema>['result']
       
       export default function ${pascalName}Result(props: ${pascalName}ResultProps) {
         return <Wrapper>${pascalName}Result</Wrapper>

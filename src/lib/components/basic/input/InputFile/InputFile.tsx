@@ -2,18 +2,18 @@ import React from 'react'
 import Button, { type ButtonProps } from '@useweb/ui/Button'
 
 export type InputFileProps = {
-  onChange: ({ file }: { file: File }) => any
+  onFileInput: ({ file }: { file: File }) => any
   label?: string
   sx?: ButtonProps['sx']
   inputProps?: React.HTMLProps<HTMLInputElement>
 }
 
 export default function InputFile(props: InputFileProps) {
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file: File | undefined = e?.target?.files?.[0]
 
     if (file) {
-      props.onChange({ file })
+      props.onFileInput({ file })
     }
   }
   return (
@@ -28,7 +28,7 @@ export default function InputFile(props: InputFileProps) {
       }}
     >
       {props.label || 'Input File'}
-      <input hidden type='file' onChange={onChange} {...(props.inputProps || {})} />
+      <input hidden type='file' onChange={onFileInput} {...(props.inputProps || {})} />
     </Button>
   )
 }

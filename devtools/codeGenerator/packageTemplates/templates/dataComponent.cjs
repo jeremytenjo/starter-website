@@ -168,7 +168,7 @@ const files = [
                 ]}
               />
       
-              <${pascalName}Result_ {...commonProps} result={${pascalName}Stubs} />
+              <${pascalName}Result_ {...commonProps} result={${pascalName}Stubs as any} />
             </>
           )
         },

@@ -52,7 +52,7 @@ const files = [
       }
       
       const use${pascalName}Store = create<Use${pascalName}Store>((set) => ({
-        item: 1,
+        item: 'hello',
         setItem: ({ value }) => {
           set(() => ({ item: value }))
         },

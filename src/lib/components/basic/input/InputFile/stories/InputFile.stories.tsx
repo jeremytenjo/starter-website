@@ -6,7 +6,7 @@ import InputFile, { type InputFileProps } from '../InputFile'
 import Docs from './InputFile.docs'
 
 const defaultArgs: InputFileProps = {
-  onChange({ file }) {
+  onFileInput({ file }) {
     console.log(file)
   },
 }

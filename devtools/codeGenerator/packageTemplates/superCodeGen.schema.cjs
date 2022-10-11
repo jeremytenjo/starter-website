@@ -7,9 +7,9 @@ const componentWithStory = require('./templates/componentWithStory.cjs')
 const functions = require('./templates/function.cjs')
 const functionStory = require('./templates/functionStory.cjs')
 const functionWithStory = require('./templates/functionWithStory.cjs')
+const componentWithProvider = require('./templates/componentWithProvider.cjs')
 const dataFunction = require('./templates/dataFunction.cjs')
 const container = require('./templates/container.cjs')
-const dataComponent = require('./templates/dataComponent.cjs')
 const page = require('./templates/page.cjs')
 const pageContent = require('./templates/pageContent.cjs')
 const globalState = require('./templates/globalState.cjs')
@@ -17,7 +17,7 @@ const muiOverride = require('./templates/muiOverride.cjs')
 const muiOverrideWithStory = require('./templates/muiOverrideWithStory.cjs')
 const playwrightTest = require('./templates/playwrightTest.cjs')
 const data = require('./templates/data.cjs')
-const dataFetchingComponent = require('./templates/dataFetchingComponent.cjs')
+const dataComponent = require('./templates/dataComponent.cjs')
 const dataPrismic = require('./templates/dataPrismic.cjs')
 const dataVariant = require('./templates/dataVariant.cjs')
 const reactContext = require('./templates/ReactContext.cjs')
@@ -41,8 +41,8 @@ module.exports = [
   apiFunction.template,
 
   data.template,
+  componentWithProvider.template,
   dataComponent.template,
-  dataFetchingComponent.template,
   dataVariant.template,
   dataPrismic.template,
   globalState.template,

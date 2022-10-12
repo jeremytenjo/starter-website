@@ -30,7 +30,15 @@ export default function InputFile(props: InputFileProps) {
       name='InputFile'
     >
       {props.label || 'Input File'}
-      <input hidden type='file' onChange={onFileInput} {...(props.inputProps || {})} />
+      <input
+        hidden
+        type='file'
+        onChange={onFileInput}
+        onClick={(e: any) => {
+          e.target.value = null
+        }}
+        {...(props.inputProps || {})}
+      />
     </Button>
   )
 }

@@ -6,6 +6,7 @@ export type InputFileProps = {
   label?: string
   sx?: ButtonProps['sx']
   inputProps?: React.HTMLProps<HTMLInputElement>
+  buttonProps?: ButtonProps
 }
 
 export default function InputFile(props: InputFileProps) {
@@ -19,13 +20,14 @@ export default function InputFile(props: InputFileProps) {
   return (
     <Button
       data-id='InputFile'
-      name='InputFile'
       component='label'
       variant='contained'
       sx={{
         width: 'fit-content',
         ...(props.sx || {}),
       }}
+      {...(props.buttonProps || {})}
+      name='InputFile'
     >
       {props.label || 'Input File'}
       <input hidden type='file' onChange={onFileInput} {...(props.inputProps || {})} />

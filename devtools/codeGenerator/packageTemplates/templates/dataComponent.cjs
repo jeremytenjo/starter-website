@@ -10,18 +10,19 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const resultSchema = `${pascalName}ResultSchema`
 
       return `import useAsync from '@useweb/use-async'
 
       import type ${pascalName}Schema from '../${pascalName}.schema'
 
-      export type ResultSchema = ${pascalName}Schema
+      export type ${resultSchema} = ${pascalName}Schema
       
       export type ExecProps = any
       
       export default function use${pascalName}() {
-        const ${name} = useAsync<ResultSchema, ExecProps>({
-          fn: async (props) => {
+        const ${name} = useAsync<${resultSchema}, ExecProps>({
+          fn: async (props): Promise<${resultSchema} | undefined> => {
             const data = ''
 
             return { data }

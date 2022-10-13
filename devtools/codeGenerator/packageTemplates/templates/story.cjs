@@ -74,7 +74,11 @@ export default {
 }
 
 const Template = (args: ${propsName}) => {
-  ${isFunction ? `const fn = async () => ${name}(args)` : ''}
+  ${
+    isFunction
+      ? `const fn = async (triggerProps = {}) => ${name}({ ...args, ...triggerProps })`
+      : ''
+  }
 
   return (
     <>

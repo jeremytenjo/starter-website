@@ -1,19 +1,27 @@
-type TaskProps = {
-  fn: (props?: any) => Promise<any>
+type TaskProps<ResultProps = any> = {
+  fn: (props?: any) => Promise<ResultProps>
   title: string
-  onError?: (error: any) => any
   noBail?: boolean
+  onError?: (props: { error: any }) => any
+  onLoading?: (props: { loading: boolean }) => any
 }
 
-export default async function task(props: TaskProps) {
+export default async function task<ResultProps = any>(
+  props: TaskProps<ResultProps>,
+): Promise<ResultProps> {
+  props.onLoading && props.onLoading({ loading: true })
   console.log(`IN PROGRESS: ${props.title}`)
   console.log('')
 
   try {
     const result = await props.fn()
 
-    if (result.error || result.errno) {
-      throw new Error(`Code: ${result.error?.code} - Message: ${result.error?.message}`)
+    // handle error return
+    const potentialVars: any = result
+    if (potentialVars?.error || potentialVars?.errno) {
+      throw new Error(
+        `Code: ${potentialVars.error?.code} - Message: ${potentialVars.error?.message}`,
+      )
     }
 
     console.log('')
@@ -23,7 +31,7 @@ export default async function task(props: TaskProps) {
   } catch (error: any) {
     if (props?.onError) {
       await props.onError(error)
-      return
+      return undefined as any
     }
 
     const errorMessage = error.toString() || ''
@@ -33,16 +41,17 @@ export default async function task(props: TaskProps) {
     console.error(errorMessage)
     console.trace()
 
-    if (props.noBail) return
+    if (props.noBail) return undefined as any
 
     throw new Error(errorMessage)
   } finally {
+    props.onLoading && props.onLoading({ loading: false })
     console.log('')
   }
 }
 
 const log = {
-  success: (text) => {
+  success: (text: string) => {
     console.log(`SUCCESS: ${text}`)
   },
 }

@@ -13,6 +13,7 @@ const files = [
       const resultSchema = `${pascalName}ResultSchema`
 
       return `import useAsync from '@useweb/use-async'
+      import task from '@useweb/task'
 
       import type ${pascalName}Schema from '../${pascalName}.schema'
 
@@ -23,9 +24,12 @@ const files = [
       export default function use${pascalName}() {
         const ${name} = useAsync<${resultSchema}, ExecProps>({
           fn: async (props): Promise<${resultSchema} | undefined> => {
-            const data = ''
+            const task1Data = await task<any>({
+              title: 'task1',
+              fn: async () => 'replace this string with async function eg await asyncfunction()',
+            })
 
-            return { data }
+            return { task1Data }
           },
         })
       

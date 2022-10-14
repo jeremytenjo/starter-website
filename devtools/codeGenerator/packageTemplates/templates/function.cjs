@@ -10,13 +10,15 @@ const files = [
         .join('')}Return`
 
       return `export type ${propsName} = {name: string}
-      export type ${returnName} = any
     
     export default function ${name}(props: ${propsName}): ${returnName} {
       const data = 'hi'
       
       return { data }
-    }`
+    }
+    
+    export type ${returnName} = any
+    `
     },
   },
 ]

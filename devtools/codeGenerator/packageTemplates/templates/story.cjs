@@ -44,6 +44,7 @@ const getStoryTemplate = ({
 }) => {
   const isFunction = type === 'function'
   const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
+  const returnName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Return`
   const storyPrefix = getStoryPrefix({ folderPath })
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
@@ -54,7 +55,12 @@ ${
     : `import PixelPerfect from '@useweb/pixel-perfect'`
 }
 
-${importOverride || `import ${name}, { type ${propsName} } from '../${name}'`}
+${
+  importOverride ||
+  `import ${name}, { type ${propsName} ${
+    isFunction ? `, type ${returnName}` : ''
+  } } from '../${name}'`
+}
 
 import Docs from './${name}.docs'
 

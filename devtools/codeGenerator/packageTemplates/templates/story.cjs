@@ -90,7 +90,7 @@ const Template = (args: ${propsName}) => {
     <>
       ${
         isFunction
-          ? `<AsyncTester fn={fn} autoExec />`
+          ? `<AsyncTester<${returnName}, ${propsName}> fn={fn} autoExec />`
           : `
           <PixelPerfect
             assets={[

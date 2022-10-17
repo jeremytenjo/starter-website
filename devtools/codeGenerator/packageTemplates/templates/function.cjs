@@ -11,7 +11,7 @@ const files = [
 
       return `export type ${propsName} = {name: string}
     
-    export default function ${name}(props: ${propsName}): ${returnName} {
+    export default function ${name}(props: ${propsName}) {
       const data = 'hi'
       
       return { data }

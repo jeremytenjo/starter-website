@@ -17,7 +17,7 @@ const files = [
       return { data }
     }
     
-    export type ${returnName} = any
+    export type ${returnName} = { data: string }
     `
     },
   },

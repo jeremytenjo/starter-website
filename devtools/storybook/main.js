@@ -4,7 +4,7 @@ const stories = require('./storiesList.cjs')
 module.exports = {
   stories: [...stories, '../../slices/**/*.stories.@(|ts|tsx)'],
   staticDirs: ['../../public'],
-  features: { emotionAlias: false, storyStoreV7: true },
+  features: { emotionAlias: false },
   framework: '@storybook/react',
   core: { builder: '@storybook/builder-vite' },
   addons: [

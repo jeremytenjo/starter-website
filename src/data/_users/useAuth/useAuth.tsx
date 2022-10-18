@@ -6,14 +6,26 @@ import useSnackbar from '@useweb/ui/Snackbar'
 
 const provider = new GoogleAuthProvider()
 
-type UseAuthProps = {
-  onSignOut?: UseFirebaseAuthProps['onSignOut']
-  onSignIn?: UseFirebaseAuthProps['onSignIn']
-  onSignInError?: UseFirebaseAuthProps['onSignInError']
+type UseAuthProps<SignInFetcherReturn> = {
+  onSignOut?: UseFirebaseAuthProps<SignInFetcherReturn>['onSignOut']
+  onSignIn?: UseFirebaseAuthProps<SignInFetcherReturn>['onSignIn']
+  onSignInError?: UseFirebaseAuthProps<SignInFetcherReturn>['onSignInError']
 }
 
+const signInFetcher = async () => {
+  const auth = getAuth()
+  const result = await signInWithPopup(auth, provider)
+  const credential = GoogleAuthProvider.credentialFromResult(result)
+  const accessToken = credential?.accessToken
+  const user = result.user
+
+  return { ...user, accessToken }
+}
+
+type SignInFetcherReturn = Awaited<ReturnType<typeof signInFetcher>>
+
 export default function useAuth(
-  props: UseAuthProps = {
+  props: UseAuthProps<SignInFetcherReturn> = {
     onSignOut: undefined,
     onSignIn: undefined,
     onSignInError: undefined,
@@ -21,22 +33,13 @@ export default function useAuth(
 ) {
   const snackbar = useSnackbar()
 
-  const signInWithGoogle = useFirebaseAuth({
+  const signInWithGoogle = useFirebaseAuth<SignInFetcherReturn>({
     auth: getAuth(),
-    signInFetcher: async () => {
-      const auth = getAuth()
-      const result = await signInWithPopup(auth, provider)
-      const credential = GoogleAuthProvider.credentialFromResult(result)
-      const accessToken = credential?.accessToken
-      const user = result.user
-
-      return { ...user, accessToken }
-    },
-
+    signInFetcher,
     onSignIn: () => {
       snackbar.show({ severity: 'success', message: 'Welcome' })
     },
-    onSignInError: (error) => {
+    onSignInError: ({ error }) => {
       if (error.code !== 'auth/popup-closed-by-user') {
         snackbar.show({
           severity: 'error',

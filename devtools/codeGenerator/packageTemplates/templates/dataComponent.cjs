@@ -17,9 +17,9 @@ const files = [
 
       import type ${pascalName}Schema from '../${pascalName}.schema'
 
-      export type ${resultSchema} = ${pascalName}Schema
-      
       export type ExecProps = any
+      
+      export type ${resultSchema} = ${pascalName}Schema
       
       export default function use${pascalName}() {
         const ${name} = useAsync<${resultSchema}, ExecProps>({
@@ -74,7 +74,6 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-
       return `${pascalName}.schema.ts`
     },
     template: ({ name, helpers }) => {
@@ -92,17 +91,15 @@ const files = [
 
   // stubs
   {
-    path: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
-
-      return `${pascalName}.stubs.ts`
+    path: ({ name }) => {
+      return `${name}.stubs.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const schemaName = `${pascalName}Schema`
 
       return `
-      import type ${schemaName} from './${pascalName}.schema'
+      import type ${schemaName} from './${name}.schema'
           
       const ${pascalName}Stubs: ${schemaName}[] = [
         // TODO add ${pascalName} stubs
@@ -126,7 +123,7 @@ const files = [
       import React from 'react'
       import PixelPerfect from '@useweb/pixel-perfect'
       
-      import ${pascalName}Stubs from '../${pascalName}.stubs'
+      import ${pascalName}Stubs from '../${name}.stubs'
       import ${pascalName} from '../${pascalName}'
       import ${pascalName}Result_ from '../${pascalName}Result/${pascalName}Result'
       import ${pascalName}Loading_ from '../${pascalName}Loading/${pascalName}Loading'

@@ -97,7 +97,7 @@ export default async function dev() {
         args: commandArgs,
       },
       ports: emulatorPorts,
-      color: '#FFCB2E',
+      color: '#FF825A',
       onCommandRunning: async () => {
         const addEmulatorData = await import(
           './handlers/addEmulatorData/addEmulatorData.js'

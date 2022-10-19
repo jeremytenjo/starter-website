@@ -72,8 +72,10 @@ const files = [
 
   // schema
   {
-    path: ({ name }) => {
-      return `${name}.schema.ts`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `${pascalName}.schema.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -90,8 +92,10 @@ const files = [
 
   // stubs
   {
-    path: ({ name }) => {
-      return `${name}.stubs.ts`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `${pascalName}.stubs.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)

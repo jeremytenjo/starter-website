@@ -117,12 +117,13 @@ const files = [
 
   // ui stories
   {
-    path: ({ name }) => {
-      return `stories/${name}.stories.tsx`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalName}/stories/${name}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const storyPrefix = getStoryPrefix({ folderPath })
+      const storyPrefix = getStoryPrefix({ folderPath: `${folderPath}/ui/` })
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       import React from 'react'
@@ -249,7 +250,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `${pascalName}.tsx`
+      return `ui/${pascalName}/${pascalName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -258,7 +259,7 @@ const files = [
       import Box from '@useweb/ui/Box'
       import UseAsyncUi from '@useweb/use-async-ui'
       
-      import use${pascalName} from './use${pascalName}/use${pascalName}'
+      import use${pascalName} from '../use${pascalName}/use${pascalName}'
       import ${pascalName}Result from './${pascalName}Result/${pascalName}Result'
       import ${pascalName}Loading from './${pascalName}Loading/${pascalName}Loading'
       import ${pascalName}Error from './${pascalName}Error/${pascalName}Error'
@@ -294,7 +295,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `${pascalName}Result/${pascalName}Result.tsx`
+      return `ui/${pascalName}/${pascalName}Result/${pascalName}Result.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -325,7 +326,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `${pascalName}Loading/${pascalName}Loading.tsx`
+      return `ui/${pascalName}/${pascalName}Loading/${pascalName}Loading.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -363,7 +364,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `${pascalName}Error/${pascalName}Error.tsx`
+      return `ui/${pascalName}/${pascalName}Error/${pascalName}Error.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)

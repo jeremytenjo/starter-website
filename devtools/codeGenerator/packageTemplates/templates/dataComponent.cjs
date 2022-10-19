@@ -1,4 +1,4 @@
-const { getStoryPrefix } = require('./story.cjs')
+const { getStoryPrefix, functionStoryFiles } = require('./story.cjs')
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
@@ -20,25 +20,30 @@ const files = [
       export type ExecProps = any
       
       export type ${resultSchema} = ${pascalName}Schema
-      
-      export default function use${pascalName}() {
-        const ${name} = useAsync<${resultSchema}, ExecProps>({
-          fn: async (props): Promise<${resultSchema} | undefined> => {
-            const task1Data = await task<any>({
-              title: 'task1',
-              fn: async () => 'replace this string with async function eg await asyncfunction()',
-            })
 
-            return { task1Data }
-          },
+      export const ${name} = async (props: ExecProps): Promise<${resultSchema}> => {
+        const task1Data = await task<any>({
+          title: 'task1',
+          fn: async () => 'replace this string with async function eg await asyncfunction()',
         })
       
-        return ${name}
+        return { task1Data }
+      }
+      
+      export default function use${pascalName}() {
+        const ${name}Fn = useAsync<${resultSchema}, ExecProps>({
+          fn: ${name}
+        })
+      
+        return ${name}Fn
       }    
       
       `
     },
   },
+
+  // hook fetcher stories
+  ...functionStoryFiles,
 
   // store
   {
@@ -110,7 +115,7 @@ const files = [
     },
   },
 
-  // stories
+  // ui stories
   {
     path: ({ name }) => {
       return `stories/${name}.stories.tsx`

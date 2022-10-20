@@ -50,7 +50,7 @@ const files = [
       export type ${resultSchema} = ${pascalName}Return
 
       export default function use${pascalName}() {
-        const ${name}Fn = useAsync<${resultSchema}, ExecProps>({
+        const ${name}Fn = useAsync<ExecProps, ${resultSchema}>({
           fn: ${name}
         })
       

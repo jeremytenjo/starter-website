@@ -79,7 +79,7 @@ export default {
   },
 }
 
-const Template = (args: ${propsName}) => {
+const Template = (args: typeof defaultArgs) => {
   ${
     isFunction
       ? `const fn = async (triggerProps = {}) => {

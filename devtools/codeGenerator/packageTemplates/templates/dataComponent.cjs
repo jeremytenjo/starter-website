@@ -15,8 +15,6 @@ const files = [
       import type ${pascalName}Schema from './${pascalName}.schema'
 
       export type ${pascalName}Props = any
-
-      export type ${pascalName}Return = Promise<${pascalName}Schema>
       
       export default async function ${name}(props: ${pascalName}Props): ${pascalName}Return {
         const task1Data = await task({
@@ -27,7 +25,10 @@ const files = [
         })
       
         return { task1Data }
-      }`
+      }
+      
+      export type ${pascalName}Return = Promise<${pascalName}Schema>
+      `
     },
   },
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@useweb/ui/Box'
 
 export default function HomePageContent() {
-  return <Wrapper>HomePage</Wrapper>
+  return <Wrapper>HomePageContent</Wrapper>
 }
 
 const Wrapper = ({ children }) => {

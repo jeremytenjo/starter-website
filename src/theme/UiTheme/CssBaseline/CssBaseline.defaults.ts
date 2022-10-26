@@ -1,8 +1,9 @@
+import { type CssBaselineProps } from '@mui/material'
 import { type ComponentDefaultsProps } from '@useweb/ui-theme'
 
 import colors from '../../tokens/colors'
 
-const defaults: ComponentDefaultsProps = {
+const defaults: ComponentDefaultsProps<CssBaselineProps> = {
   styleOverrides: `
   :root {
     --font-main: PublicSansRegular;

@@ -80,6 +80,7 @@ export default async function dev() {
     }
 
     const startAuthEmulator = Boolean(addAuthData) && devScriptArgs.signedIn
+    // https://firebase.google.com/docs/emulator-suite/install_and_configure#startup
     let commandArgs = 'emulators:start --only'
 
     if (addFirestoreData) {
@@ -97,7 +98,7 @@ export default async function dev() {
         args: commandArgs,
       },
       ports: emulatorPorts,
-      color: '#FFCB2E',
+      color: '#FF825A',
       onCommandRunning: async () => {
         const addEmulatorData = await import(
           './handlers/addEmulatorData/addEmulatorData.js'

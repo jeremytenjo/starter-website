@@ -1,7 +1,37 @@
-const { getStoryPrefix } = require('./story.cjs')
+const { getStoryPrefix, functionStoryFiles } = require('./story.cjs')
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
+  // function
+  {
+    path: ({ name }) => {
+      return `${name}.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `import task from '@useweb/task'
+
+      import type ${pascalName}Schema from './${pascalName}.schema'
+
+      export type ${pascalName}Props = any
+      
+      export default async function ${name}(props: ${pascalName}Props): ${pascalName}Return {
+        const task1Data = await task({
+          title: 'task1',
+          fn: async () => {
+            return 'replace this string with async function eg await asyncfunction()'
+          },
+        })
+      
+        return { task1Data }
+      }
+      
+      export type ${pascalName}Return = Promise<${pascalName}Schema>
+      `
+    },
+  },
+
   // hook
   {
     path: ({ name, helpers }) => {
@@ -13,32 +43,27 @@ const files = [
       const resultSchema = `${pascalName}ResultSchema`
 
       return `import useAsync from '@useweb/use-async'
-      import task from '@useweb/task'
 
-      import type ${pascalName}Schema from '../${pascalName}.schema'
+      import ${name}, { type ${pascalName}Props, type ${pascalName}Return } from '../${name}'
 
-      export type ${resultSchema} = ${pascalName}Schema
+      export type ExecProps = ${pascalName}Props
       
-      export type ExecProps = any
-      
+      export type ${resultSchema} = ${pascalName}Return
+
       export default function use${pascalName}() {
-        const ${name} = useAsync<${resultSchema}, ExecProps>({
-          fn: async (props): Promise<${resultSchema} | undefined> => {
-            const task1Data = await task<any>({
-              title: 'task1',
-              fn: async () => 'replace this string with async function eg await asyncfunction()',
-            })
-
-            return { task1Data }
-          },
+        const ${name}Fn = useAsync<ExecProps, ${resultSchema}>({
+          fn: ${name}
         })
       
-        return ${name}
+        return ${name}Fn
       }    
       
       `
     },
   },
+
+  // hook fetcher stories
+  ...functionStoryFiles,
 
   // store
   {
@@ -72,8 +97,9 @@ const files = [
 
   // schema
   {
-    path: ({ name }) => {
-      return `${name}.schema.ts`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `${pascalName}.schema.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -109,27 +135,28 @@ const files = [
     },
   },
 
-  // stories
+  // ui stories
   {
-    path: ({ name }) => {
-      return `stories/${name}.stories.tsx`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalName}/stories/${name}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const storyPrefix = getStoryPrefix({ folderPath })
+      const storyPrefix = getStoryPrefix({ folderPath: folderPath })
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       import React from 'react'
       import PixelPerfect from '@useweb/pixel-perfect'
       
-      import ${pascalName}Stubs from '../${pascalName}.stubs'
+      import ${pascalName}Stubs from '../../../${name}.stubs'
       import ${pascalName} from '../${pascalName}'
       import ${pascalName}Result_ from '../${pascalName}Result/${pascalName}Result'
       import ${pascalName}Loading_ from '../${pascalName}Loading/${pascalName}Loading'
       import ${pascalName}Error_ from '../${pascalName}Error/${pascalName}Error'
       
       export default {
-        title: '${storyPrefix}/${pascalName}/ui/${pascalName}',
+        title: '${storyPrefix}/${name}/ui/${pascalName}',
       }
       
       // full example
@@ -243,7 +270,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `${pascalName}.tsx`
+      return `ui/${pascalName}/${pascalName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -252,7 +279,8 @@ const files = [
       import Box from '@useweb/ui/Box'
       import UseAsyncUi from '@useweb/use-async-ui'
       
-      import use${pascalName} from './use${pascalName}/use${pascalName}'
+      import use${pascalName} from '../../use${pascalName}/use${pascalName}'
+
       import ${pascalName}Result from './${pascalName}Result/${pascalName}Result'
       import ${pascalName}Loading from './${pascalName}Loading/${pascalName}Loading'
       import ${pascalName}Error from './${pascalName}Error/${pascalName}Error'
@@ -288,7 +316,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `${pascalName}Result/${pascalName}Result.tsx`
+      return `ui/${pascalName}/${pascalName}Result/${pascalName}Result.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -297,7 +325,7 @@ const files = [
       import Box from '@useweb/ui/Box'
       import { type UseAsyncUiComponentProps } from '@useweb/use-async-ui'
       
-      import type ${pascalName}Schema from '../${pascalName}.schema'
+      import type ${pascalName}Schema from '../../../${pascalName}.schema'
       
       export type ${pascalName}ResultProps = UseAsyncUiComponentProps<${pascalName}Schema>['result']
       
@@ -319,7 +347,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `${pascalName}Loading/${pascalName}Loading.tsx`
+      return `ui/${pascalName}/${pascalName}Loading/${pascalName}Loading.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -329,7 +357,7 @@ const files = [
       import LinearProgress from '@mui/material/LinearProgress'
       import { type UseAsyncUiComponentProps } from '@useweb/use-async-ui'
       
-      import type ${pascalName}Schema from '../${pascalName}.schema'
+      import type ${pascalName}Schema from '../../../${pascalName}.schema'
       
       export type ${pascalName}LoadingProps =
         UseAsyncUiComponentProps<${pascalName}Schema>['loading']
@@ -357,7 +385,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `${pascalName}Error/${pascalName}Error.tsx`
+      return `ui/${pascalName}/${pascalName}Error/${pascalName}Error.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -367,7 +395,7 @@ const files = [
       import Text from '@useweb/ui/Text'
       import { type UseAsyncUiComponentProps } from '@useweb/use-async-ui'
       
-      import type ${pascalName}Schema from '../${pascalName}.schema'
+      import type ${pascalName}Schema from '../../../${pascalName}.schema'
       
       export type ${pascalName}ErrorProps =
         UseAsyncUiComponentProps<${pascalName}Schema>['error']

@@ -15,18 +15,19 @@ const files = [
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
       const schemaName = `${nameSinglePascal}Schema`
+      const getpropsName = `Get${pascalName}Props`
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
       
       import type ${schemaName} from '../${nameSingle}.schema'
       
+      import useGet${pascalName}, { type ${getpropsName} } from './useGet${pascalName}/useGet${pascalName}'
       import useCreate${pascalName} from './useCreate${pascalName}/useCreate${pascalName}'
-      import useGet${pascalName} from './useGet${pascalName}/useGet${pascalName}'
       import useUpdate${pascalName} from './useUpdate${pascalName}/useUpdate${pascalName}'
       import useRemove${pascalName} from './useRemove${pascalName}/useRemove${pascalName}'
       
       export type Use${pascalName}Props = {
-        getOptions?: UseDataProps<${schemaName}>['get']
+        getOptions?: UseDataProps<${schemaName}, ${getpropsName}>['get']
         createOptions?: UseDataProps<${schemaName}>['create']
         updateOptions?: UseDataProps<${schemaName}>['update']
         removeOptions?: UseDataProps<${schemaName}>['remove']

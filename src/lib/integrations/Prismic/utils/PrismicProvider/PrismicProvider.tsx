@@ -1,8 +1,8 @@
 import React from 'react'
 import { PrismicProvider as PrismicProviderLib } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'
+import Link from '@useweb/ui/Link'
 
-import Link from '../../../../components/basic/misc/Link/Link'
 import linkResolver from '../linkResolver/linkResolver'
 
 export default function PrismicProvider({ children, repositoryName, disablePreview }) {

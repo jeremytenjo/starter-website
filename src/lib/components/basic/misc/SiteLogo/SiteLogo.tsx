@@ -1,9 +1,9 @@
 import React from 'react'
+import Link, { type LinkProps } from '@useweb/ui/Link'
+import Image from '@useweb/ui/Image'
 
 import appConfig from '../../../../../../app.config'
 import { useRootLayoutData } from '../../../../layouts/Root/RootLayout'
-import Link, { type LinkProps } from '../Link/Link'
-import Image from '../Image/Image'
 
 export type SiteLogoProps = {
   src?: string

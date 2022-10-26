@@ -1,8 +1,9 @@
 // https://mui.com/customization/theme-components/#global-style-overrides
 // import in src/theme/mui/MuiProvider.jsx
 import { type ComponentDefaultsProps } from '@useweb/ui-theme'
+import { type DialogProps } from '@useweb/ui/Dialog'
 
-const defaults: ComponentDefaultsProps = {
+const defaults: ComponentDefaultsProps<DialogProps> = {
   styleOverrides: {
     root: {
       '& .MuiPaper-root': {

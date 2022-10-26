@@ -1,8 +1,9 @@
 // https://mui.com/customization/theme-components/#global-style-overrides
 // import in src/theme/mui/MuiProvider.jsx
 import { type ComponentDefaultsProps } from '@useweb/ui-theme'
+import { type ButtonProps } from '@useweb/ui/Button'
 
-const defaults: ComponentDefaultsProps = {
+const defaults: ComponentDefaultsProps<ButtonProps> = {
   styleOverrides: {
     root: {
       borderRadius: '10px',

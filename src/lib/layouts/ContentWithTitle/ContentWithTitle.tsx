@@ -26,7 +26,7 @@ export default function ContentWithTitle(props: ContentWithTitleProps) {
         {props.title && (
           <Text
             text={props.title}
-            tag={props.titleTag || 'p'}
+            tag={props.titleTag || 'h3'}
             sx={{
               fontWeight: 'bold',
               fontSize: {

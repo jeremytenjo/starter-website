@@ -12,7 +12,7 @@ const files = [
 
       return `
       export type ${upperName}Props = any
-      
+
       export type ${upperName}Return = any
       
       export default function ${lowerName}(
@@ -62,6 +62,7 @@ const files = [
       import ${lowerName}Stubs from './${lowerName}.stubs'
       
       const input: ${upperName}Props = {}
+      
       const expectedResult: ${upperName}Return = ${lowerName}Stubs
       
       test('returns NavLinksSortedByCategory', async () => {

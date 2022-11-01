@@ -11,14 +11,14 @@ const files = [
       const withoutGet = lowerCaseFirst(`${name.replace('get', '').replace('Get', '')}`)
 
       return `
-      export type ${upperName}Props = any
+      export type ${upperName}Props = object
 
-      export type ${upperName}Return = any
+      export type ${upperName}Return = object
       
       export default function ${lowerName}(
         props: ${upperName}Props,
-      ) {
-        const ${withoutGet}: ${upperName}Return = []
+      ): ${upperName}Return {
+        const ${withoutGet} = {}
       
         return ${withoutGet}
       }
@@ -28,7 +28,7 @@ const files = [
   {
     path: ({ name }) => {
       const lowerName = lowerCaseFirst(name)
-      return `${lowerName}.stubs.ts`
+      return `${lowerName}.expectedResult.ts`
     },
     template: ({ name }) => {
       const lowerName = lowerCaseFirst(name)
@@ -36,9 +36,9 @@ const files = [
 
       return `import { type ${upperName}Return } from './${lowerName}'
 
-      const ${lowerName}Stubs: ${upperName}Return = []
+      const ${lowerName}ExpectedResult: ${upperName}Return = {}
       
-      export default ${lowerName}Stubs
+      export default ${lowerName}ExpectedResult
       
       `
     },
@@ -59,11 +59,11 @@ const files = [
         type ${upperName}Props,
         type ${upperName}Return,
       } from './${lowerName}'
-      import ${lowerName}Stubs from './${lowerName}.stubs'
+      import ${lowerName}ExpectedResult from './${lowerName}.expectedResult'
       
       const input: ${upperName}Props = {}
-      
-      const expectedResult: ${upperName}Return = ${lowerName}Stubs
+
+      const expectedResult: ${upperName}Return = ${lowerName}ExpectedResult
       
       test('returns NavLinksSortedByCategory', async () => {
         const result: ${upperName}Return = await ${lowerName}(

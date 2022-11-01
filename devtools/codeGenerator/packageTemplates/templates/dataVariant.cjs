@@ -12,6 +12,7 @@ const files = [
 
       return `
       export type ${upperName}Props = any
+      
       export type ${upperName}Return = any
       
       export default function ${lowerName}(

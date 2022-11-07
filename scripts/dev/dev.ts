@@ -6,7 +6,6 @@ import shellDashboard, {
   type CommandProps,
 } from '../../devtools/utils/terminal/shellDashboard.js'
 import readFile from '../../devtools/utils/node/readFile.js'
-import shell from '../../devtools/utils/node/shell.js'
 
 import getDevScriptArgs from './handlers/getDevScriptArgs/getDevScriptArgs.js'
 import generatePrismicTypes from './handlers/generatePrismicTypes/generatePrismicTypes.js'

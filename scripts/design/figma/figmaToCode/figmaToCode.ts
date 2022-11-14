@@ -10,7 +10,7 @@ export default async function figmaToCode() {
 
   await generateCodeFromFigma({
     personalAccessToken,
-    // https://www.figma.com/file/RtKeMMXoXeIytVrKIFhD5z/Figma-To-Code?node-id=102%3A103 Home Page
+    // https://www.figma.com/file/c7FWk1Nfl01MRIOhhT3aFi/starter-website?node-id=1%3A2
     figmaFileId: 'c7FWk1Nfl01MRIOhhT3aFi',
     pageName: 'Designs',
     outputDir: 'src/lib/components/FigmaToCode',

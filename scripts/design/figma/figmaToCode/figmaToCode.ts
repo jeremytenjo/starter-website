@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import generateCodeFromFigma from '@useweb/figma-to-code'
+import generateCodeFromFigma from '@useweb/figma-to-code/build/index.mjs'
 
 import prettierConfig from '../../../../devtools/prettier/prettier.config.json' assert { type: 'json' }
 

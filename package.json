@@ -55,7 +55,7 @@
     "@useweb/async-tester": "2.30.0",
     "@useweb/click-to-component": "2.3.0",
     "@useweb/fetch-tester": "1.28.0",
-    "@useweb/figma-to-code": "1.0.11",
+    "@useweb/figma-to-code": "1.0.12",
     "@useweb/firebase": "7.0.0",
     "@useweb/pixel-perfect": "6.0.6",
     "@useweb/task": "2.0.1",

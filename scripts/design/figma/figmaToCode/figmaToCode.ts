@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import generateCodeFromFigma from '@useweb/figma-to-code/build/index.mjs'
+import generateCodeFromFigma from '@useweb/figma-to-code'
 
 import prettierConfig from '../../../../devtools/prettier/prettier.config.json' assert { type: 'json' }
 
@@ -11,11 +11,11 @@ export default async function figmaToCode() {
   await generateCodeFromFigma({
     personalAccessToken,
     // https://www.figma.com/file/RtKeMMXoXeIytVrKIFhD5z/Figma-To-Code?node-id=102%3A103 Home Page
-    figmaFileId: 'RtKeMMXoXeIytVrKIFhD5z',
-    pageName: 'Page 1',
-    outputDir: 'generatedComponents',
-    iconsDir: 'generatedComponents/icons',
-    storyTitle: 'design/FigmaToCode',
+    figmaFileId: 'c7FWk1Nfl01MRIOhhT3aFi',
+    pageName: 'Designs',
+    outputDir: 'src/lib/components/FigmaToCode',
+    iconsDir: 'src/lib/components/icons',
+    storyTitle: 'FigmaToCode',
     prettierConfig,
   })
 }

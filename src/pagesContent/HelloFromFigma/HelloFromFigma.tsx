@@ -9,12 +9,12 @@ export default function HelloFromFigma() {
   return (
     <Wrapper>
       <Star2Icon
-        sx={{ width: '24.73px', height: '23.52px', color: 'rgba(255, 153, 153, 1)' }}
+        sx={{ width: '24.73px', height: '23.52px', color: 'rgba(0, 61, 24, 1)' }}
         viewBox='0 0 24.72747039794922 23.5172119140625'
       />
       <HelloFromFigma1Text />
       <Star1Icon
-        sx={{ width: '24.73px', height: '23.52px', color: 'rgba(255, 153, 153, 1)' }}
+        sx={{ width: '24.73px', height: '23.52px', color: 'rgba(0, 61, 24, 1)' }}
         viewBox='0 0 24.72747802734375 23.5172119140625'
       />
     </Wrapper>
@@ -52,7 +52,7 @@ const HelloFromFigma1Text = () => {
     <UsewebText
       text={'Hello from FIGMA!'}
       sx={{
-        color: 'rgba(139, 65, 234, 1)',
+        color: 'rgba(0, 61, 24, 1)',
         fontWeight: 700,
         fontSize: 32,
         fontFamily: 'Inter',

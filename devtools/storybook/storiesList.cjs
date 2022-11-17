@@ -6,7 +6,6 @@
 module.exports = [
   '../../src/apiFunctions/exampleApi/stories/exampleApi.stories.tsx',
   '../../src/lib/components/basic/misc/CodeBlock/stories/CodeBlock.stories.tsx',
-  '../../src/lib/components/FigmaToCode/Designs/Hello/stories/Hello.stories.tsx',
   '../../src/lib/components/useweb/Alert/stories/Alert.stories.tsx',
   '../../src/lib/components/useweb/Button/stories/Button.stories.tsx',
   '../../src/lib/components/useweb/forms/fields/Select/stories/Select.stories.tsx',
@@ -23,5 +22,6 @@ module.exports = [
   '../../src/lib/layouts/ContentWithTitle/stories/ContentWithTitle.stories.tsx',
   '../../src/lib/layouts/Root/stories/RootLayout.stories.tsx',
   '../../src/lib/utils/breakbpoints/useMediaQuery/stories/useMediaQuery.stories.tsx',
+  '../../src/pagesContent/HelloFromFigma/stories/HelloFromFigma.stories.tsx',
   '../../src/theme/tokens/stories/tokens.stories.tsx',
 ]

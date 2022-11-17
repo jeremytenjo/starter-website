@@ -17,6 +17,7 @@ export default async function figmaToCode() {
     outputComponentsDir: 'src/lib/components',
     outputIconsDir: 'src/lib/components/icons',
     storyTitlePrefix: 'FigmaToCode',
+    overwrite: true,
     prettierConfig,
   })
 }

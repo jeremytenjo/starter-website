@@ -12,10 +12,11 @@ export default async function figmaToCode() {
     personalAccessToken,
     // https://www.figma.com/file/c7FWk1Nfl01MRIOhhT3aFi/starter-website?node-id=1%3A2
     figmaFileId: 'c7FWk1Nfl01MRIOhhT3aFi',
-    pageName: 'Designs',
-    outputDir: 'src/lib/components/FigmaToCode',
-    iconsDir: 'src/lib/components/icons',
-    storyTitle: 'FigmaToCode',
+    figmaPageName: 'Designs',
+    outputPagesDir: 'src/pagesContent',
+    outputComponentsDir: 'src/lib/components',
+    outputIconsDir: 'src/lib/components/icons',
+    storyTitlePrefix: 'FigmaToCode',
     prettierConfig,
   })
 }

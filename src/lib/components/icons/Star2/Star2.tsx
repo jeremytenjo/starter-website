@@ -8,5 +8,5 @@ export default createSvgIcon(
       fill='#FF9999'
     />
   </svg>,
-  'Star 1',
+  'Star 2',
 )

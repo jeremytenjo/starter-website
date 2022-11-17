@@ -2,19 +2,19 @@ import React from 'react'
 import Box from '@useweb/ui/Box'
 import UsewebText from '@useweb/ui/Text'
 
-import Ellipse1Icon from '../../lib/components/icons/Ellipse1/Ellipse1'
+import Star2Icon from '../../lib/components/icons/Star2/Star2'
 import Star1Icon from '../../lib/components/icons/Star1/Star1'
 
 export default function HelloFromFigma() {
   return (
     <Wrapper>
-      <Ellipse1Icon
-        sx={{ width: '18px', height: '18px', color: 'rgba(255, 87, 50, 1)' }}
-        viewBox='0 0 18 18'
+      <Star2Icon
+        sx={{ width: '24.73px', height: '23.52px', color: 'rgba(255, 153, 153, 1)' }}
+        viewBox='0 0 24.72747039794922 23.5172119140625'
       />
       <HelloFromFigma1Text />
       <Star1Icon
-        sx={{ width: '24.73px', height: '23.52px', color: 'rgba(103, 50, 255, 1)' }}
+        sx={{ width: '24.73px', height: '23.52px', color: 'rgba(255, 153, 153, 1)' }}
         viewBox='0 0 24.72747802734375 23.5172119140625'
       />
     </Wrapper>
@@ -27,10 +27,11 @@ const Wrapper = ({ children }) => {
       data-id='HelloFromFigma'
       sx={{
         display: 'grid',
-        width: '493.73px',
+        width: '500.45px',
         height: '151px',
-        color: 'rgba(255, 255, 255, 1)',
-        backgroundColor: 'rgba(255, 255, 255, 1)',
+        color: 'rgba(169, 255, 203, 1)',
+        backgroundColor: 'rgba(169, 255, 203, 1)',
+        borderRadius: '140px',
         gridAutoFlow: 'column',
         gridGap: '10px',
         alignItems: 'center',
@@ -51,7 +52,7 @@ const HelloFromFigma1Text = () => {
     <UsewebText
       text={'Hello from FIGMA!'}
       sx={{
-        color: 'rgba(50, 132, 255, 1)',
+        color: 'rgba(139, 65, 234, 1)',
         fontWeight: 700,
         fontSize: 32,
         fontFamily: 'Inter',

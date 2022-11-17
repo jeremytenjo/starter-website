@@ -22,7 +22,7 @@ export const HelloFromFigma = {
           assets={[
             {
               width: 0,
-              url: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c5f82a0e-8655-42c9-8fbe-6ee955fdc2c9",
+              url: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/33045702-4fbc-4bc9-babf-be2d8da0f2aa",
             },
           ]}
         />

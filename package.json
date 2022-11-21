@@ -37,7 +37,8 @@
     "helpers:capture-page-screenshots": "node --loader  ts-node/esm ./scripts/assets/capturePageScreenshots/run.ts",
     "helpers:update-useweb-deps": "npm-check-updates -f /@useweb/*/ -u && npm i && npm run prettify && npm run tests:ts-types",
     "helpers:generate-app-map": "node --experimental-json-modules --loader ts-node/esm ./devtools/codeGenerator/appGenerator/generateAppMap/run.ts && npm run prettify",
-    "helpers:figma-to-code": "ts-node-esm ./scripts/design/figma/figmaToCode/run.ts"
+    "helpers:figma-to-code": "figma-to-code -c ./devtools/figmaToCode/figma-to-code.config.js",
+    "helpers:figma-to-code-enquire": "figma-to-code --enquire -c ./devtools/figmaToCode/figma-to-code.config.js"
   },
   "dependencies": {
     "@emotion/cache": "11.10.1",
@@ -55,7 +56,7 @@
     "@useweb/async-tester": "2.30.0",
     "@useweb/click-to-component": "2.3.0",
     "@useweb/fetch-tester": "1.28.0",
-    "@useweb/figma-to-code": "1.4.0",
+    "@useweb/figma-to-code": "2.1.4",
     "@useweb/firebase": "7.0.0",
     "@useweb/pixel-perfect": "6.0.6",
     "@useweb/task": "2.0.1",

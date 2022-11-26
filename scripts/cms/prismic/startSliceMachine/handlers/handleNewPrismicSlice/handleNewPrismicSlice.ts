@@ -5,8 +5,12 @@ import shell from '../../../../../../devtools/utils/node/shell.js'
 import watchFolder from '../../../../../../devtools/utils/node/watchFolder.js'
 
 import createSliceLibComponent from './handlers/createSliceLibComponent/createSliceLibComponent.js'
+import getIsPrismicConfigured from './handlers/getIsPrismicConfigured/getIsPrismicConfigured.js'
 
-export default function handleNewPrismicSlice() {
+export default async function handleNewPrismicSlice() {
+  const { isPrismicConfigured } = await getIsPrismicConfigured()
+  if (!isPrismicConfigured) return
+
   log('Listening for new Prismic Slices')
 
   const slicesFolder = path.join(process.cwd(), 'slices')

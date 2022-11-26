@@ -7,6 +7,7 @@ export type ContentWithTitleProps = {
   title?: string
   titleTag?: string
   titleSx?: BoxProps['sx']
+  headerSx?: BoxProps['sx']
   content: any
   titleActions?: any
 }
@@ -16,17 +17,18 @@ export default function ContentWithTitle(props: ContentWithTitleProps) {
     <Wrapper {...props}>
       <Box
         sx={{
-          mb: '25px',
           display: 'grid',
           gridAutoFlow: 'column',
           justifyContent: 'space-between',
           alignItems: 'center',
+          mb: '25px',
+          ...(props.headerSx || {}),
         }}
       >
         {props.title && (
           <Text
             text={props.title}
-            tag={props.titleTag || 'p'}
+            tag={props.titleTag || 'h3'}
             sx={{
               fontWeight: 'bold',
               fontSize: {

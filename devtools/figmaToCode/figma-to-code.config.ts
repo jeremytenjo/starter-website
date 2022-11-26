@@ -19,9 +19,9 @@ export default async function figmaToCodeConfig() {
     storyTitlePrefix: 'FigmaToCode',
     overwrite: true,
     prettierConfig,
-    filterRootFigmaNodes(props) {
-      return props.figmaNode.name === ''
-    },
+    // filterRootFigmaNodes(props) {
+    //   return props.figmaNode.name === ''
+    // },
   }
 
   return figmaToCodeConfig

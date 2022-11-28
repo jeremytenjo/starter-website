@@ -8,4 +8,6 @@ export default async function removeEmptyFoldersInSrc() {
   await removeEmptyFolders({
     folderPath: srcPath,
   })
+
+  console.log('Removed empty folders')
 }

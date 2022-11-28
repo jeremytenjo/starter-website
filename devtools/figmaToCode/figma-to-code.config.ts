@@ -10,7 +10,6 @@ export default async function figmaToCodeConfig() {
 
   const figmaToCodeConfig: FigmaToCodeConfigProps = {
     personalAccessToken,
-    // https://www.figma.com/file/c7FWk1Nfl01MRIOhhT3aFi/starter-website?node-id=1%3A2
     figmaFileId: 'c7FWk1Nfl01MRIOhhT3aFi',
     figmaPageName: 'Designs',
     outputPagesDir: 'src/pagesContent',

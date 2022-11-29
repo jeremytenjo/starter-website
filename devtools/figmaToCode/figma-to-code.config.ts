@@ -16,7 +16,7 @@ export default async function figmaToCodeConfig() {
     outputComponentsDir: 'src/lib/components',
     outputIconsDir: 'src/lib/components/icons',
     storyTitlePrefix: 'FigmaToCode',
-    overwrite: true,
+    overwrite: false,
     prettierConfig,
     // filterRootFigmaNodes(props) {
     //   return props.figmaNode.name === ''

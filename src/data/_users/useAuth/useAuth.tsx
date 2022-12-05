@@ -59,17 +59,17 @@ export default function useAuth(
 
   return {
     user: signInWithGoogle.user,
-    signInWithGoogle: signInWithGoogle.signIn.exec,
     signingIn: signInWithGoogle.signIn.loading,
     error: signInWithGoogle.signIn.error,
+    signInWithGoogle: signInWithGoogle.signIn.exec,
     signOutFromGoogle: signInWithGoogle.signOut,
   }
 }
 
 export type UseAuthReturn = {
   user: UserProps
-  signInWithGoogle: (payload?: any) => any
   signingIn: boolean
   error: Error
+  signInWithGoogle: (payload?: any) => any
   signOutFromGoogle: () => Promise<void>
 }

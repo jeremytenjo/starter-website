@@ -11,7 +11,7 @@ export default async function figmaToCodeConfig() {
   const figmaToCodeConfig: FigmaToCodeConfigProps = {
     personalAccessToken,
     figmaFileId: 'c7FWk1Nfl01MRIOhhT3aFi',
-    figmaPageName: 'Designs',
+    figmaPageName: 'High Fidelity',
     outputPagesDir: 'src/pagesContent',
     outputComponentsDir: 'src/lib/components',
     outputIconsDir: 'src/lib/components/icons',

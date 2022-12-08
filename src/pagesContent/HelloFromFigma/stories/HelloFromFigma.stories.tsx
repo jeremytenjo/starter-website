@@ -4,14 +4,14 @@
  */
 
 //https://storybook.js.org/docs/react/writing-docs/docs-page
-import React from "react";
-import PixelPerfect from "@useweb/pixel-perfect";
+import React from 'react'
+import PixelPerfect from '@useweb/pixel-perfect'
 
-import HelloFromFigmaComponent from "../HelloFromFigma";
+import HelloFromFigmaComponent from '../HelloFromFigma'
 
 export default {
-  title: "pages",
-};
+  title: 'pages',
+}
 
 export const HelloFromFigma = {
   render: () => {
@@ -22,12 +22,12 @@ export const HelloFromFigma = {
           assets={[
             {
               width: 0,
-              url: "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/366c09ee-b0ed-4879-a6a8-bcc3b1b6b4cd",
+              url: 'https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/366c09ee-b0ed-4879-a6a8-bcc3b1b6b4cd',
             },
           ]}
         />
         <HelloFromFigmaComponent />
       </>
-    );
+    )
   },
-};
+}

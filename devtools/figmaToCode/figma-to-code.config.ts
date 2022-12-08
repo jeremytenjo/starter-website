@@ -15,7 +15,6 @@ export default async function figmaToCodeConfig() {
     outputPagesDir: 'src/pagesContent',
     outputComponentsDir: 'src/lib/components',
     outputIconsDir: 'src/lib/components/icons',
-    storyTitlePrefix: 'FigmaToCode',
     overwrite: false,
     prettierConfig,
     // filterRootFigmaNodes(props) {

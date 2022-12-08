@@ -37,7 +37,11 @@ export default async function dev() {
 
   const commands: CommandProps[] = []
 
-  generatePrismicTypes()
+  // prismic
+  try {
+    const prismicConfig = await import('../../src/services/prismic/prismic.config.js')
+    if (prismicConfig.default.accessToken) generatePrismicTypes()
+  } catch (error) {}
 
   // nextjs
   if (startApp) {

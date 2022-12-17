@@ -75,7 +75,7 @@
     "figma-api": "1.10.1",
     "firebase": "9.9.4",
     "firebase-admin": "11.0.1",
-    "next": "13.0.6",
+    "next": "13.0.7",
     "next-transpile-modules": "10.0.0",
     "npm-check-updates": "16.0.5",
     "plaiceholder": "2.4.0",

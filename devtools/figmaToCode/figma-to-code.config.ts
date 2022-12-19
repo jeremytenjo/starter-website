@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import { type FigmaToCodeConfigProps } from '@useweb/figma-to-code/build/types/generateCodeFromFigma/handlers/getFigmaToCodeConfig/getFigmaToCodeConfig'
+import { type FigmaToCodeConfigProps } from '@useweb/figma-to-code/build/types/packages/design/figma/figmaToCode/src/generateCodeFromFigma/handlers/getFigmaToCodeConfig/getFigmaToCodeConfig'
 
 import prettierConfig from '../prettier/prettier.config.json' assert { type: 'json' }
 

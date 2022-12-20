@@ -5,7 +5,7 @@ module.exports = {
   stories: [...stories, '../../slices/**/*.stories.@(|ts|tsx)'],
   staticDirs: ['../../public'],
   features: { emotionAlias: false },
-  framework: '@storybook/react',
+  framework: '@storybook/nextjs',
   core: { builder: '@storybook/builder-vite' },
   addons: [
     '@storybook/addon-links',

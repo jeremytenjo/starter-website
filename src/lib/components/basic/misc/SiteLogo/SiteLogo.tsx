@@ -1,14 +1,12 @@
 import React from 'react'
 import Link, { type LinkProps } from '@useweb/ui/Link'
-import Image from '@useweb/ui/Image'
+import Image, { type ImageProps } from '@useweb/ui/Image'
 
 import appConfig from '../../../../../../app.config'
 import { useRootLayoutData } from '../../../../layouts/Root/RootLayout'
 
-export type SiteLogoProps = {
+export type SiteLogoProps = Omit<ImageProps, 'alt'> & {
   src?: string
-  width?: string | number
-  height?: string | number
   sx?: LinkProps['sx']
   onClick?: any
 }

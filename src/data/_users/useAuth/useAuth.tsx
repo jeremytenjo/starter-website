@@ -1,4 +1,9 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  type User as UserProps,
+} from 'firebase/auth'
 import useFirebaseAuth, {
   type UseFirebaseAuthProps,
 } from '@useweb/firebase/useFirebaseAuth'
@@ -30,7 +35,7 @@ export default function useAuth(
     onSignIn: undefined,
     onSignInError: undefined,
   },
-) {
+): UseAuthReturn {
   const snackbar = useSnackbar()
 
   const signInWithGoogle = useFirebaseAuth<SignInFetcherReturn>({
@@ -54,9 +59,17 @@ export default function useAuth(
 
   return {
     user: signInWithGoogle.user,
-    signInWithGoogle: signInWithGoogle.signIn.exec,
     signingIn: signInWithGoogle.signIn.loading,
     error: signInWithGoogle.signIn.error,
+    signInWithGoogle: signInWithGoogle.signIn.exec,
     signOutFromGoogle: signInWithGoogle.signOut,
   }
+}
+
+export type UseAuthReturn = {
+  user: UserProps
+  signingIn: boolean
+  error: Error
+  signInWithGoogle: (payload?: any) => any
+  signOutFromGoogle: () => Promise<void>
 }

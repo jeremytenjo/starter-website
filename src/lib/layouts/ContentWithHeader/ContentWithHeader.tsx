@@ -2,7 +2,7 @@ import React from 'react'
 import Box, { type BoxProps } from '@useweb/ui/Box'
 import Text from '@useweb/ui/Text'
 
-export type ContentWithTitleProps = {
+export type ContentWithHeaderProps = {
   sx?: object
   title?: string
   titleTag?: string
@@ -12,7 +12,7 @@ export type ContentWithTitleProps = {
   titleActions?: any
 }
 
-export default function ContentWithTitle(props: ContentWithTitleProps) {
+export default function ContentWithHeader(props: ContentWithHeaderProps) {
   return (
     <Wrapper {...props}>
       <Box
@@ -50,7 +50,7 @@ export default function ContentWithTitle(props: ContentWithTitleProps) {
 
 const Wrapper = ({ children, sx = {} }) => {
   return (
-    <Box data-id='ContentWithTitle' sx={{ ...sx }}>
+    <Box data-id='ContentWithHeader' sx={{ ...sx }}>
       {children}
     </Box>
   )

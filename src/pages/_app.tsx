@@ -8,10 +8,10 @@ import appConfig from '../../app.config'
 import ClickToComponent from '../lib/components/useweb/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/UiTheme/utils/createEmotionCache'
-import Prismic from '../lib/integrations/Prismic/Prismic'
 import GoogleAnalytics from '../lib/integrations/Google/GoogleAnalytics/GoogleAnalytics'
 import GoogleAds from '../lib/integrations/Google/GoogleAds/GoogleAds'
 import GoogleSearchConsole from '../lib/integrations/Google/GoogleSearchConsole/components/GoogleSearchConsole'
+// import Prismic from '../lib/integrations/Prismic/Prismic'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -45,11 +45,11 @@ export default function MyApp(props) {
       </Head>
       <CacheProvider value={emotionCache}>
         <Theme>
-          <Prismic>
-            <SnackbarProvider>
-              <Component {...pageProps} />
-            </SnackbarProvider>
-          </Prismic>
+          {/* <Prismic> */}
+          <SnackbarProvider>
+            <Component {...pageProps} />
+          </SnackbarProvider>
+          {/* </Prismic> */}
         </Theme>
       </CacheProvider>
     </>

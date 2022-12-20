@@ -19,7 +19,7 @@ module.exports = [
   '../../src/lib/integrations/Prismic/utils/addSlugToData/stories/addSlugToData.stories.tsx',
   '../../src/lib/integrations/Prismic/utils/getPrismicData/stories/getPrismicData.stories.tsx',
   '../../src/lib/layouts/ContentPlusAd/stories/ContentPlusAd.stories.tsx',
-  '../../src/lib/layouts/ContentWithTitle/stories/ContentWithTitle.stories.tsx',
+  '../../src/lib/layouts/ContentWithHeader/stories/ContentWithHeader.stories.tsx',
   '../../src/lib/layouts/Root/stories/RootLayout.stories.tsx',
   '../../src/lib/utils/breakbpoints/useMediaQuery/stories/useMediaQuery.stories.tsx',
   '../../src/pagesContent/HelloFromFigma/stories/HelloFromFigma.stories.tsx',

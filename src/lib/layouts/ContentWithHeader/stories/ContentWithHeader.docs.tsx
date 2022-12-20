@@ -12,7 +12,7 @@ export default function Docs() {
   return (
     <>
       <Title />
-      <Description>This is a ContentWithTitle</Description>
+      <Description>This is a ContentWithHeader</Description>
       <Primary />
       <ArgsTable story={PRIMARY_STORY} />
     </>

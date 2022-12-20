@@ -5,6 +5,7 @@ module.exports = {
   stories: [...stories, '../../slices/**/*.stories.@(|ts|tsx)'],
   staticDirs: ['../../public'],
   features: { emotionAlias: false },
+  // https://storybook.js.org/docs/7.0/react/api/new-frameworks
   framework: '@storybook/nextjs',
   core: { builder: '@storybook/builder-vite' },
   addons: [

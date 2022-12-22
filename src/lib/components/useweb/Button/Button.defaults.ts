@@ -4,6 +4,10 @@ import { type ComponentDefaultsProps } from '@useweb/ui-theme'
 import { type ButtonProps } from '@useweb/ui/Button'
 
 const defaults: ComponentDefaultsProps<ButtonProps> = {
+  defaultProps: {
+    variant: 'contained',
+    name: 'default name',
+  },
   styleOverrides: {
     root: {
       borderRadius: '10px',

@@ -1,7 +1,7 @@
 export default {
+  // TODO update site info
   siteInfo: {
     name: 'Website_Starter',
-    // TODO update domain
     domain: 'https://www.starter-website.vercel.app/',
     description: 'Website_StarterDesc',
     title: 'Website_Starter',

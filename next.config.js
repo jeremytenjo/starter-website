@@ -31,6 +31,7 @@ export default async () => {
 
 // Needed in order to import ES Modules from node_modules.
 // Nextjs has an open RFC to support this feature https://github.com/vercel/next.js/discussions/27953
+// TODO replace with https://beta.nextjs.org/docs/api-reference/next.config.js#transpilepackages after 13.0.8 is released
 const transpileESMNodeModules = ({ config }) => {
   const transpiledPackages = Object.keys(packageJSON.dependencies).filter((it) =>
     it.includes('@useweb/'),

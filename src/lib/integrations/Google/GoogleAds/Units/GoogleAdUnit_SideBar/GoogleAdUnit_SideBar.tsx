@@ -4,7 +4,6 @@ import GoogleAdUnit, { type GoogleAdUnitProps } from '../../GoogleAdUnit/GoogleA
 
 export default function GoogleAdUnit_SideBar() {
   const data: GoogleAdUnitProps = {
-    // TODO add proper values
     dataAdSlot: '',
     dataAdFormat: '',
   }

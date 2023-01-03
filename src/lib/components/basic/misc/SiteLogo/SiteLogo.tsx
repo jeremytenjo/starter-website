@@ -25,7 +25,6 @@ export default function SiteLogo({
   return (
     <Link
       href='/'
-      data-id='SiteLogo'
       sx={{
         position: 'relative',
         ...sx,

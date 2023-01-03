@@ -1,4 +1,5 @@
 import React from 'react'
+import MuiCssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider, createTheme, type CreateThemeProps } from '@useweb/ui-theme'
 
 import colors from '../tokens/colors'
@@ -30,5 +31,10 @@ const themeData: CreateThemeProps = {
 export const theme = createTheme(themeData)
 
 export default function UiTheme({ children }) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  return (
+    <ThemeProvider theme={theme}>
+      <MuiCssBaseline />
+      {children}
+    </ThemeProvider>
+  )
 }

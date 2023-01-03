@@ -31,14 +31,11 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
     margin: 0;
     background-color: ${colors.backgroundColor};
     overflow-x: hidden;
+    scrollbar-width: thin;
   }
 
   body::-webkit-scrollbar {
     width: 8px;
-  }
-
-  body {
-    scrollbar-width: thin;
   }
 
   input, textarea {

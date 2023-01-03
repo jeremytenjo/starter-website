@@ -8,7 +8,7 @@ import IconButton from '../../lib/components/useweb/IconButton/IconButton.defaul
 import Dialog from '../../lib/components/useweb/Dialog/Dialog.defaults'
 import Alert from '../../lib/components/useweb/Alert/Alert.defaults'
 import Select from '../../lib/components/useweb/forms/fields/Select/Select.defaults'
-import TextField from '../../lib/components/useweb/forms/fields/TextField/Textfield.defaults'
+import TextField from '../../lib/components/useweb/forms/fields/TextField/TextField.defaults'
 
 import CssBaseline from './CssBaseline/CssBaseline.defaults'
 

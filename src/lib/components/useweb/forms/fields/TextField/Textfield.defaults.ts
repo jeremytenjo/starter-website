@@ -1,8 +1,8 @@
 // https://mui.com/customization/theme-components/#global-style-overrides
 // import in src/theme/mui/MuiProvider.jsx
 import { type ComponentDefaultsProps } from '@useweb/ui-theme'
-import { type TextfieldProps } from '@useweb/ui/Textfield'
+import { type TextFieldProps } from '@useweb/ui/TextField'
 
-const defaults: ComponentDefaultsProps<TextfieldProps> = {}
+const defaults: ComponentDefaultsProps<TextFieldProps> = {}
 
 export default defaults

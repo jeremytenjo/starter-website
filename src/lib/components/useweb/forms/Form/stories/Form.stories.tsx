@@ -1,6 +1,6 @@
 import React from 'react'
 import Form from '@useweb/ui/Form'
-import Textfield from '@useweb/ui/Textfield'
+import TextField from '@useweb/ui/TextField'
 import Select from '@useweb/ui/Select'
 
 export default {
@@ -21,7 +21,7 @@ export const Example = {
     ]
     return (
       <Form onSubmit={onSubmit}>
-        <Textfield name='test-textfield' />
+        <TextField name='test-textfield' />
         <Select label='Season' name='selected_season' options={options} />
       </Form>
     )

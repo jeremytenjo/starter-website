@@ -1,8 +1,6 @@
 import React from 'react'
 import { ThemeProvider, createTheme, type CreateThemeProps } from '@useweb/ui-theme'
 
-console.log({ ThemeProvider })
-
 import colors from '../tokens/colors'
 import { variants as typography } from '../tokens/typography/typography'
 import Button from '../../lib/components/useweb/Button/Button.defaults'

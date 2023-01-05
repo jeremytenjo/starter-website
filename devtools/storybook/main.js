@@ -6,7 +6,7 @@ module.exports = {
   staticDirs: ['../../public'],
   features: { emotionAlias: false, storyStoreV7: true },
   framework: '@storybook/react',
-  core: { builder: '@storybook/builder-vite' },
+  core: { builder: '@storybook/builder-vite', disableTelemetry: true },
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

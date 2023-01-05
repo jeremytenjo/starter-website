@@ -15,11 +15,4 @@ module.exports = {
   webpackFinal: async (defaultWebpackConfig) => {
     return webpackFinal({ defaultWebpackConfig })
   },
-  // refs: {
-  //   useweb: {
-  //     title: 'useweb library',
-  //     url: 'https://useweb.dev/',
-  //     expanded: false,
-  //   },
-  // },
 }

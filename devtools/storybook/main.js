@@ -4,7 +4,6 @@ const stories = require('./storiesList.cjs')
 module.exports = {
   stories: [...stories, '../../slices/**/*.stories.@(|ts|tsx)'],
   staticDirs: ['../../public'],
-  features: { emotionAlias: false, storyStoreV7: true },
   framework: '@storybook/nextjs',
   core: { builder: 'webpack5', disableTelemetry: true },
   addons: [

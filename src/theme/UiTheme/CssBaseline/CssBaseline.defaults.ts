@@ -1,26 +1,17 @@
 import { type CssBaselineProps } from '@mui/material'
 import { type ComponentDefaultsProps } from '@useweb/ui-theme'
 
+import { interFont } from '../../fonts/fonts'
 import colors from '../../tokens/colors'
 
 const defaults: ComponentDefaultsProps<CssBaselineProps> = {
   styleOverrides: `
-  :root {
-    --font-main: PublicSansRegular;
-  }
-
-  @font-face {
-    font-family: 'PublicSansRegular';
-    font-style: normal;
-    font-display: swap;
-    src: url('/fonts/public-sans/regular.woff2') format('woff2');
-  }     
-
   * {
     box-sizing: border-box;
   }
 
   html {
+    font-family: ${interFont.style.fontFamily};
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
@@ -36,10 +27,6 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
 
   body::-webkit-scrollbar {
     width: 8px;
-  }
-
-  input, textarea {
-    font-family: var(--font-main);
   }
 
   body::-webkit-scrollbar-thumb {

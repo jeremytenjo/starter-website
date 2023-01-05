@@ -15,7 +15,6 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       boxShadow: 'none',
       width: '100%',
       textTransform: 'none' as const,
-      fontFamily: 'PublicSansRegular',
       '&:hover': {
         boxShadow: 'none',
       },

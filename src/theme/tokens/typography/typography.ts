@@ -1,3 +1,5 @@
+import { interFont } from '../../fonts/fonts'
+
 export type VariantOptions =
   | 'h1'
   | 'h2'
@@ -94,7 +96,7 @@ const variants = {
     letterSpacing: '0.08333em',
     textTransform: 'uppercase' as const,
   },
-  fontFamily: ['PublicSansRegular', '-apple-system', 'Roboto'].join(','),
+  fontFamily: [interFont.style.fontFamily].join(','),
 }
 
 const variantNames = Object.keys(variants).filter((variant) => variant !== 'fontFamily')

@@ -18,7 +18,7 @@ export default async function startStorybook() {
 
   shell([
     {
-      command: `start-storybook -p ${port} -c ./devtools/storybook --no-open --quiet`,
+      command: `storybook dev -p ${port} -c ./devtools/storybook --no-open --quiet`,
       name: 'start storybook script',
       env: { STORYBOOK_NEXT_PORT: nextPort },
     },

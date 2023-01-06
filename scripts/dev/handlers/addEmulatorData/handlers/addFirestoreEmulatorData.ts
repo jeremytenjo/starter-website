@@ -36,7 +36,7 @@ export default async function addFirestoreEmulatorData({ db, createdUserId }) {
       })
     })
 
-    log(`Collections added to firestore emulator: ${collectionsList}`, { success: true })
+    log(`Firestore emulator: Created collections ${collectionsList}`, { success: true })
     console.log('')
   } catch (error) {
     log(error, {

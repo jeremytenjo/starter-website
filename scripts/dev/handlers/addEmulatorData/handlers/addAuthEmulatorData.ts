@@ -15,7 +15,7 @@ export default async function addAuthEmulatorData({ auth }) {
       photoURL: 'https://www.jeremytenjo.com/images/profile_photo.webp',
     })
 
-    log('User creation was successful', { success: true })
+    log(`Auth emulator: Signed in as ${createdUser.displayName}`, { success: true })
     return createdUser.uid
   } catch (error) {
     log(error, {

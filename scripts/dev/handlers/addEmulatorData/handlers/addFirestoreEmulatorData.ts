@@ -13,7 +13,7 @@ export type CollectionType = {
 /**
  * [Docs](https://firebase.google.com/docs/emulator-suite/connect_firestore)
  */
-export default async function addMockDataToFirestore({ db, createdUserId }) {
+export default async function addFirestoreEmulatorData({ db, createdUserId }) {
   const mockDatabaseCollections: CollectionType[] = await getCollectionsData()
   const collectionsList = mockDatabaseCollections.map((c) => c.name).join(', ')
 
@@ -36,7 +36,8 @@ export default async function addMockDataToFirestore({ db, createdUserId }) {
       })
     })
 
-    log(`Collections added to firestore emulator: ${collectionsList}`)
+    log(`Collections added to firestore emulator: ${collectionsList}`, { success: true })
+    console.log('')
   } catch (error) {
     log(error, {
       error: true,

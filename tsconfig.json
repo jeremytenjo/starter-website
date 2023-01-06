@@ -21,14 +21,20 @@
     "paths": {
       "*": ["devtools/ts/declaredModules/*"]
     },
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "./src",
     "./devtools",
     "devtools/ts/declaredModules/*",
     "scripts/storybook/startStorybook",
-    ".sliceMachine"
+    ".sliceMachine",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules", "devtools/codeGenerator/appGenerator/test/testApp"]
 }

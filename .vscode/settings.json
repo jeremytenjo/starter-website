@@ -11,5 +11,7 @@
   "thunder-client.saveToWorkspace": true,
   "thunder-client.workspaceRelativePath": "src/tests/http.tests",
   "storyExplorer.storybookConfigDir": "./devtools/storybook",
-  "cSpell.words": ["Prismic"]
+  "cSpell.words": ["Prismic"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

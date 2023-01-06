@@ -18,6 +18,7 @@ export default async () => {
     images: {
       domains: ['images.prismic.io'],
     },
+    experimental: { appDir: true },
   })
 
   return nextConfig

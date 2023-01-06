@@ -45,15 +45,10 @@ async function getCollectionsData() {
     stubsData.map(async (stubPath) => {
       const [name] = stubPath.split('/').pop()?.split('.') || []
       const { default: data } = await import(stubPath)
-      // documents with uid property are replaced with emulator user id
-      const setUserIdToDataFromSignedInUser = Object.keys(data?.[0] || {})?.includes(
-        'userId',
-      )
 
       return {
         name,
         data,
-        setUserIdToDataFromSignedInUser,
       }
     }),
   )

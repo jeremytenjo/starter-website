@@ -38,6 +38,9 @@ export default async function addEmulatorData(props: AddEmulatorDataProps) {
     return
   }
 
+  console.log('Adding emulator data...')
+  console.log('')
+
   props.addAuth && (await addAuthEmulatorData({ auth }))
   addFirestoreData && (await addMockDataToFirestore({ db }))
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { create } from '@storybook/theming'
 import { SnackbarProvider } from '@useweb/ui/Snackbar'
-import * as NextImage from 'next/image'
 import ClickToComponent from '@useweb/click-to-component'
 import Box from '@useweb/ui/Box'
 
@@ -9,13 +8,6 @@ import Prismic from '../../src/lib/integrations/Prismic/Prismic'
 // import Firebase from '../../src/lib/integrations/Google/Firebase/firebase'
 
 import StorybookTheme from './theme/storybookTheme'
-
-const OriginalNextImage = NextImage.default
-
-Object.defineProperty(NextImage, 'default', {
-  configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />,
-})
 
 const theme = create({
   base: 'light',

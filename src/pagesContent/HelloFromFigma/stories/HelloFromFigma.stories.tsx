@@ -1,8 +1,3 @@
-/**
- * DON'T EDIT THIS FILE
- * This file is auto generated
- */
-
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 import PixelPerfect from '@useweb/pixel-perfect'

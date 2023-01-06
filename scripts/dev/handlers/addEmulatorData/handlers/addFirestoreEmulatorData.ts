@@ -6,30 +6,20 @@ import log from '../../../../../devtools/utils/node/log.js'
 export type CollectionType = {
   name: string
   data: any[]
-  documentIdIsCreatedUserId?: boolean
-  setUserIdToDataFromSignedInUser?: boolean
 }
 
 /**
  * [Docs](https://firebase.google.com/docs/emulator-suite/connect_firestore)
  */
-export default async function addFirestoreEmulatorData({ db, createdUserId }) {
+export default async function addFirestoreEmulatorData({ db }) {
   const mockDatabaseCollections: CollectionType[] = await getCollectionsData()
   const collectionsList = mockDatabaseCollections.map((c) => c.name).join(', ')
 
   try {
     mockDatabaseCollections.map((collection: CollectionType) => {
       collection.data.map((collectionData) => {
-        // https://firebase.google.com/docs/firestore/manage-data/add-data#set_a_document
-        if (collection.documentIdIsCreatedUserId) {
-          db.collection(collection.name).doc(createdUserId).set(collectionData)
-        }
-        // add userId property to document
-        else if (collection.setUserIdToDataFromSignedInUser) {
-          db.collection(collection.name).add({
-            ...collectionData,
-            userId: createdUserId,
-          })
+        if (collection.name === 'users') {
+          db.collection(collection.name).doc(collectionData.uid).set(collectionData)
         } else {
           db.collection(collection.name).add(collectionData)
         }
@@ -55,7 +45,7 @@ async function getCollectionsData() {
     stubsData.map(async (stubPath) => {
       const [name] = stubPath.split('/').pop()?.split('.') || []
       const { default: data } = await import(stubPath)
-      // documents with userId property are replaced with emulator user id
+      // documents with uid property are replaced with emulator user id
       const setUserIdToDataFromSignedInUser = Object.keys(data?.[0] || {})?.includes(
         'userId',
       )

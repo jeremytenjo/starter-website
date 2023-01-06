@@ -1,3 +1,4 @@
+import usersStubs from '../../../../../src/data/users/users.stubs.js'
 import log from '../../../../../devtools/utils/node/log.js'
 
 /**
@@ -5,18 +6,19 @@ import log from '../../../../../devtools/utils/node/log.js'
  */
 export default async function addAuthEmulatorData({ auth }) {
   try {
-    // https://firebase.google.com/docs/auth/admin/manage-users#create_a_user
-    const createdUser = await auth.createUser({
-      email: 'user@example.com',
-      password: 'secretPassword',
-      emailVerified: true,
-      displayName: 'John Doe',
-      phoneNumber: '+11234567890',
-      photoURL: 'https://www.jeremytenjo.com/images/profile_photo.webp',
-    })
+    const createdUserNames = usersStubs.map((c) => c.displayName).join(', ')
 
-    log(`Auth emulator: Signed in as ${createdUser.displayName}`, { success: true })
-    return createdUser.uid
+    // https://firebase.google.com/docs/auth/admin/manage-users#create_a_user
+    await Promise.all(
+      usersStubs.map(async (stubUser) => {
+        await auth.createUser({
+          ...stubUser,
+          password: 'password',
+        })
+      }),
+    )
+
+    log(`Auth emulator: Created users ${createdUserNames}`, { success: true })
   } catch (error) {
     log(error, {
       error: true,

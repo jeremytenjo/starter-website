@@ -1,30 +1,34 @@
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  type User as UserProps,
-} from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import useFirebaseAuth, {
   type UseFirebaseAuthProps,
 } from '@useweb/firebase/useFirebaseAuth'
 import useSnackbar from '@useweb/ui/Snackbar'
 
-const provider = new GoogleAuthProvider()
+import type UserSchema from '../../../../../../data/users/user.schema'
+import getSingleUser from '../../../../../../data/users/getSingleUser/getSingleUser'
 
-type UseAuthProps<SignInFetcherReturn> = {
-  onSignOut?: UseFirebaseAuthProps<SignInFetcherReturn>['onSignOut']
-  onSignIn?: UseFirebaseAuthProps<SignInFetcherReturn>['onSignIn']
-  onSignInError?: UseFirebaseAuthProps<SignInFetcherReturn>['onSignInError']
+type SignInFetcherProps = {
+  email: string
+  password: string
 }
 
-const signInFetcher = async () => {
-  const auth = getAuth()
-  const result = await signInWithPopup(auth, provider)
-  const credential = GoogleAuthProvider.credentialFromResult(result)
-  const accessToken = credential?.accessToken
-  const user = result.user
+type UseAuthProps<SignInFetcherReturn> = {
+  onSignOut?: UseFirebaseAuthProps<SignInFetcherReturn, SignInFetcherProps>['onSignOut']
+  onSignIn?: UseFirebaseAuthProps<SignInFetcherReturn, SignInFetcherProps>['onSignIn']
+  onSignInError?: UseFirebaseAuthProps<
+    SignInFetcherReturn,
+    SignInFetcherProps
+  >['onSignInError']
+}
 
-  return { ...user, accessToken }
+const signInFetcher = async (props: SignInFetcherProps) => {
+  // auth
+  const auth = getAuth()
+  const firebaseUser = await signInWithEmailAndPassword(auth, props.email, props.password)
+  // get user data from firestore
+  const { user } = await getSingleUser({ uid: firebaseUser.user.uid })
+
+  return user
 }
 
 type SignInFetcherReturn = Awaited<ReturnType<typeof signInFetcher>>
@@ -38,7 +42,7 @@ export default function useAuth(
 ): UseAuthReturn {
   const snackbar = useSnackbar()
 
-  const signInWithGoogle = useFirebaseAuth<SignInFetcherReturn>({
+  const signInWithEmail = useFirebaseAuth<SignInFetcherReturn, SignInFetcherProps>({
     auth: getAuth(),
     signInFetcher,
     onSignIn: () => {
@@ -58,18 +62,14 @@ export default function useAuth(
   })
 
   return {
-    user: signInWithGoogle.user,
-    signingIn: signInWithGoogle.signIn.loading,
-    error: signInWithGoogle.signIn.error,
-    signInWithGoogle: signInWithGoogle.signIn.exec,
-    signOutFromGoogle: signInWithGoogle.signOut,
+    user: signInWithEmail.user,
+    signingIn: signInWithEmail.signIn.loading,
+    error: signInWithEmail.signIn.error,
   }
 }
 
 export type UseAuthReturn = {
-  user: UserProps
+  user: UserSchema
   signingIn: boolean
   error: Error
-  signInWithGoogle: (payload?: any) => any
-  signOutFromGoogle: () => Promise<void>
 }

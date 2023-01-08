@@ -21,7 +21,7 @@ type UseAuthProps<SignInFetcherReturn> = {
   >['onSignInError']
 }
 
-const signInFetcher = async (props: SignInFetcherProps) => {
+const signInWithEmailFetcher = async (props: SignInFetcherProps) => {
   // auth
   const auth = getAuth()
   const firebaseUser = await signInWithEmailAndPassword(auth, props.email, props.password)
@@ -31,7 +31,7 @@ const signInFetcher = async (props: SignInFetcherProps) => {
   return user
 }
 
-type SignInFetcherReturn = Awaited<ReturnType<typeof signInFetcher>>
+type SignInFetcherReturn = Awaited<ReturnType<typeof signInWithEmailFetcher>>
 
 export default function useAuth(
   props: UseAuthProps<SignInFetcherReturn> = {
@@ -39,12 +39,12 @@ export default function useAuth(
     onSignIn: undefined,
     onSignInError: undefined,
   },
-): UseAuthReturn {
+) {
   const snackbar = useSnackbar()
 
   const signInWithEmail = useFirebaseAuth<SignInFetcherReturn, SignInFetcherProps>({
     auth: getAuth(),
-    signInFetcher,
+    signInFetcher: signInWithEmailFetcher,
     onSignIn: () => {
       snackbar.show({ severity: 'success', message: 'Welcome' })
     },
@@ -61,15 +61,5 @@ export default function useAuth(
     },
   })
 
-  return {
-    user: signInWithEmail.user,
-    signingIn: signInWithEmail.signIn.loading,
-    error: signInWithEmail.signIn.error,
-  }
-}
-
-export type UseAuthReturn = {
-  user: UserSchema
-  signingIn: boolean
-  error: Error
+  return { signInWithEmail }
 }

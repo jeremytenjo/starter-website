@@ -4,7 +4,6 @@ import useFirebaseAuth, {
 } from '@useweb/firebase/useFirebaseAuth'
 import useSnackbar from '@useweb/ui/Snackbar'
 
-import type UserSchema from '../../../../../../data/users/user.schema'
 import getSingleUser from '../../../../../../data/users/getSingleUser/getSingleUser'
 
 type SignInFetcherProps = {
@@ -21,7 +20,7 @@ type UseAuthProps<SignInFetcherReturn> = {
   >['onSignInError']
 }
 
-const signInWithEmailFetcher = async (props: SignInFetcherProps) => {
+const signInFetcher = async (props: SignInFetcherProps) => {
   // auth
   const auth = getAuth()
   const firebaseUser = await signInWithEmailAndPassword(auth, props.email, props.password)
@@ -31,7 +30,7 @@ const signInWithEmailFetcher = async (props: SignInFetcherProps) => {
   return user
 }
 
-type SignInFetcherReturn = Awaited<ReturnType<typeof signInWithEmailFetcher>>
+type SignInFetcherReturn = Awaited<ReturnType<typeof signInFetcher>>
 
 export default function useAuth(
   props: UseAuthProps<SignInFetcherReturn> = {
@@ -42,9 +41,9 @@ export default function useAuth(
 ) {
   const snackbar = useSnackbar()
 
-  const signInWithEmail = useFirebaseAuth<SignInFetcherReturn, SignInFetcherProps>({
+  const auth = useFirebaseAuth<SignInFetcherReturn, SignInFetcherProps>({
     auth: getAuth(),
-    signInFetcher: signInWithEmailFetcher,
+    signInFetcher,
     onSignIn: () => {
       snackbar.show({ severity: 'success', message: 'Welcome' })
     },
@@ -61,5 +60,5 @@ export default function useAuth(
     },
   })
 
-  return { signInWithEmail }
+  return auth
 }

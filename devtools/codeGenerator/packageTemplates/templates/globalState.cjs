@@ -3,30 +3,34 @@ const generateUseVariable = require('../utils/generateUseVariable.cjs')
 const files = [
   {
     path: ({ name }) => `${name}.ts`,
-    template: ({ name }) => `import create from 'zustand'
+    template: ({ name }) => {
+      const shortName = generateUseVariable(`${name}`)
+
+      return `import create from 'zustand'
+
+      type ${name}Props = {
+  example: any
+  setExample: (props: any) => any
+}
 
     const ${name}Store = create((set) => ({
-      ${generateUseVariable(`${name}`)}: true,
-    
-      setExample: (newValue) => set(() => ({ ${generateUseVariable(
-        `${name}`,
-      )}: newValue })),
+      example: true,
+      setExample: (newValue) => set(() => ({ ${shortName}: newValue })),
     }))
 
     export default function ${name}() {
-      const ${generateUseVariable(`${name}Store`)} = ${name}Store()
+      const ${shortName}Store = ${name}Store()
 
       const updateExample = (newValue) => {
-        ${generateUseVariable(`${name}Store`)}.setExample(newValue)
+        ${shortName}Store.setExample(newValue)
       }
 
       return {
-        ${generateUseVariable(`${name}`)}: ${generateUseVariable(
-      `${name}Store`,
-    )}.${generateUseVariable(`${name}`)},
+        ${shortName}: ${shortName}Store.${shortName},
         updateExample
       }
-    }`,
+    }`
+    },
   },
 ]
 

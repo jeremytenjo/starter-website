@@ -13,7 +13,7 @@ const files = [
   set${shortName}: (props: any) => any
 }
 
-    export const ${name}Store = create((set) => ({
+    export const ${name}Store = create<${name}Props>((set) => ({
       ${shortName}: true,
       set${shortName}: (newValue) => set(() => ({ ${shortName}: newValue })),
     }))

@@ -5,6 +5,10 @@
 
 module.exports = [
   '../../src/apiFunctions/exampleApi/stories/exampleApi.stories.tsx',
+  '../../src/data/users/getSingleUser/stories/getSingleUser.stories.tsx',
+  '../../src/data/users/stories/users.stories.tsx',
+  '../../src/data/users/ui/Users/stories/users.stories.tsx',
+  '../../src/Hello/stories/Hello.stories.tsx',
   '../../src/lib/components/basic/misc/CodeBlock/stories/CodeBlock.stories.tsx',
   '../../src/lib/components/useweb/Alert/stories/Alert.stories.tsx',
   '../../src/lib/components/useweb/Button/stories/Button.stories.tsx',
@@ -12,6 +16,7 @@ module.exports = [
   '../../src/lib/components/useweb/forms/fields/TextField/stories/TextField.stories.tsx',
   '../../src/lib/components/useweb/forms/Form/stories/Form.stories.tsx',
   '../../src/lib/components/useweb/IconButton/stories/IconButtons.stories.tsx',
+  '../../src/lib/components/useweb/Menu/stories/Menu.stories.tsx',
   '../../src/lib/components/useweb/Snackbar/stories/Snackbar.stories.tsx',
   '../../src/lib/integrations/Google/GoogleAds/GoogleAdUnit/stories/GoogleAdUnit.stories.tsx',
   '../../src/lib/integrations/Prismic/components/RichText/stories/RichText.stories.tsx',

@@ -9,25 +9,25 @@ const files = [
       return `import create from 'zustand'
 
       type ${name}Props = {
-  example: any
-  setExample: (props: any) => any
+  ${shortName}: any
+  set${shortName}: (props: any) => any
 }
 
-    const ${name}Store = create((set) => ({
-      example: true,
-      setExample: (newValue) => set(() => ({ ${shortName}: newValue })),
+    export const ${name}Store = create((set) => ({
+      ${shortName}: true,
+      set${shortName}: (newValue) => set(() => ({ ${shortName}: newValue })),
     }))
 
     export default function ${name}() {
       const ${shortName}Store = ${name}Store()
 
-      const updateExample = (newValue) => {
-        ${shortName}Store.setExample(newValue)
+      const update${shortName} = (newValue) => {
+        ${shortName}Store.set${shortName}(newValue)
       }
 
       return {
         ${shortName}: ${shortName}Store.${shortName},
-        updateExample
+        update${shortName}
       }
     }`
     },

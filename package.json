@@ -39,6 +39,7 @@
     "helpers:generate-app-map": "node --experimental-json-modules --loader ts-node/esm ./devtools/codeGenerator/appGenerator/generateAppMap/run.ts && npm run prettify",
     "helpers:figma-to-code": "node --experimental-json-modules --loader ts-node/esm node_modules/.bin/figma-to-code -c ./devtools/figmaToCode/figma-to-code.config.ts && npm run tests:ts-types",
     "helpers:figma-to-code:fromFigmaUrl": "node --experimental-json-modules --loader ts-node/esm node_modules/.bin/figma-to-code --enquireFigmaUrl -c ./devtools/figmaToCode/figma-to-code.config.ts && npm run tests:ts-types",
+    "helpers:figma-to-code:getFigmaNodeScreenshot": "node --experimental-json-modules --loader ts-node/esm node_modules/.bin/figma-to-code --getFigmaNodeScreenshot -c ./devtools/figmaToCode/figma-to-code.config.ts && npm run tests:ts-types",
     "helpers:figma-to-code:enquire": "node --experimental-json-modules --loader ts-node/esm node_modules/.bin/figma-to-code --enquire -c ./devtools/figmaToCode/figma-to-code.config.ts && npm run tests:ts-types",
     "helpers:remove-empty-folders": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/files/removeEmptyFoldersInSrc/run.ts"
   },
@@ -57,7 +58,7 @@
     "@useweb/async-tester": "2.32.0",
     "@useweb/click-to-component": "2.6.0",
     "@useweb/fetch-tester": "1.30.0",
-    "@useweb/figma-to-code": "2.24.4",
+    "@useweb/figma-to-code": "2.25.0",
     "@useweb/firebase": "7.5.0",
     "@useweb/pixel-perfect": "6.0.6",
     "@useweb/task": "2.0.1",

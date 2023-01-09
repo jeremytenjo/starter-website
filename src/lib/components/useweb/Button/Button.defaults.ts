@@ -1,5 +1,5 @@
 // https://mui.com/customization/theme-components/#global-style-overrides
-// import in src/theme/mui/MuiProvider.jsx
+// import in src/theme/UiTheme/UiTheme.jsx
 import { type ComponentDefaultsProps } from '@useweb/ui-theme'
 import { type ButtonProps } from '@useweb/ui/Button'
 
@@ -17,9 +17,14 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       textTransform: 'none' as const,
       '&:hover': {
         boxShadow: 'none',
+        backgroundColor: 'currentColor',
       },
       '&:active': {
         boxShadow: 'none',
+        backgroundColor: 'currentColor',
+      },
+      '&:focus': {
+        backgroundColor: 'currentColor',
       },
     },
   },

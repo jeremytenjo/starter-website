@@ -17,14 +17,14 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       textTransform: 'none' as const,
       '&:hover': {
         boxShadow: 'none',
-        backgroundColor: 'currentColor',
+        backgroundColor: 'transparent',
       },
       '&:active': {
         boxShadow: 'none',
-        backgroundColor: 'currentColor',
+        backgroundColor: 'transparent',
       },
       '&:focus': {
-        backgroundColor: 'currentColor',
+        backgroundColor: 'transparent',
       },
     },
   },

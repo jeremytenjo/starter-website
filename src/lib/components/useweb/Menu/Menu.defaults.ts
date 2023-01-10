@@ -12,6 +12,9 @@ const defaults: ComponentDefaultsProps<MenuProps> = {
         boxShadow: '0px 9px 38px rgba(0, 0, 0, 0.06)',
         borderRadius: '7px',
         filter: 'none',
+        '&::before': {
+          display: 'none',
+        },
       },
     },
   },

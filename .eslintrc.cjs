@@ -37,13 +37,6 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/no-explicit-any': 0,
-    'import/order': [
-      'error',
-      {
-        groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
-        'newlines-between': 'always',
-      },
-    ],
     '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-unused-vars': 1,

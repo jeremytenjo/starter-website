@@ -2,6 +2,10 @@ const pluralize = require('pluralize')
 
 const { getStoryPrefix } = require('./story.cjs')
 
+function lowercaseFirstLetter(string) {
+  return string.charAt(0).toLowerCase() + string.slice(1)
+}
+
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   // hook
@@ -19,7 +23,7 @@ const files = [
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
       
-      import type ${schemaName} from '../${nameSingle}.schema'
+      import type ${schemaName} from '../${lowercaseFirstLetter(nameSingle)}.schema'
       
       import useGet${pascalName}, { type ${getpropsName} } from './useGet${pascalName}/useGet${pascalName}'
       import useCreate${pascalName} from './useCreate${pascalName}/useCreate${pascalName}'
@@ -58,9 +62,9 @@ const files = [
 
   // schema
   {
-    path: ({ name }) => {
-      const nameSingle = pluralize.singular(name)
-      return `${nameSingle}.schema.ts`
+    path: ({ name, helpers }) => {
+      const nameSingle = helpers.changeCase.pascalCase(pluralize.singular(name))
+      return `${lowercaseFirstLetter(nameSingle)}.schema.ts`
     },
     template: ({ name, helpers }) => {
       const nameSingle = pluralize.singular(name)
@@ -89,7 +93,7 @@ const files = [
       const schemaName = `${nameSinglePascal}Schema`
 
       return `
-      import type ${schemaName} from './${nameSingle}.schema'
+      import type ${schemaName} from './${lowercaseFirstLetter(nameSingle)}.schema'
           
       const ${pascalName}Stubs: ${schemaName}[] = [
         // TODO add ${pascalName} stubs
@@ -188,7 +192,7 @@ const files = [
       return `
 import { type UseDataProps } from '@useweb/use-data'
 
-import type ${schemaName} from '../../${nameSingle}.schema'
+import type ${schemaName} from '../../${lowercaseFirstLetter(nameSingle)}.schema'
 
 // fetcher
 export type ${propsName} = any
@@ -241,7 +245,7 @@ export default function useGet${pascalName}(
       return `
       import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
 
-      import type ${schemaName} from '../../${nameSingle}.schema'
+      import type ${schemaName} from '../../${lowercaseFirstLetter(nameSingle)}.schema'
 
       export type ${propsName} = CreatorProps<${schemaName}>
 
@@ -295,7 +299,7 @@ export default function useGet${pascalName}(
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
 
-      import type ${schemaName} from '../../${nameSingle}.schema'
+      import type ${schemaName} from '../../${lowercaseFirstLetter(nameSingle)}.schema'
 
       export type ${propsName} = UpdaterProps<${schemaName}>
       
@@ -346,7 +350,7 @@ export default function useGet${pascalName}(
 
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
 
-      import type ${schemaName} from '../../${nameSingle}.schema'
+      import type ${schemaName} from '../../${lowercaseFirstLetter(nameSingle)}.schema'
 
       export type ${propsName} = RemoverProps<${schemaName}>
       
@@ -403,7 +407,9 @@ export default function useGet${pascalName}(
       import ${useName}, {
         type Use${pascalName}Props,
       } from '../../${useName}/${useName}'
-      import type ${nameSinglePascal}Schema from '../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../${lowercaseFirstLetter(
+        nameSingle,
+      )}.schema'
       
       import ${pascalName}Data from './${pascalName}Data/${pascalName}Data'
       import ${pascalName}EmptyData from './${pascalName}EmptyData/${pascalName}EmptyData'
@@ -456,7 +462,9 @@ export default function useGet${pascalName}(
       import Box from '@useweb/ui/Box'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
+        nameSingle,
+      )}.schema'
       
       export type ${pascalName}DataProps = UseDataUiComponentProps<${nameSinglePascal}Schema>['data']
       
@@ -489,7 +497,9 @@ export default function useGet${pascalName}(
       import Box from '@useweb/ui/Box'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
+        nameSingle,
+      )}.schema'
       
       export type ${pascalName}EmptyDataProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
@@ -525,7 +535,9 @@ export default function useGet${pascalName}(
       import LinearProgress from '@mui/material/LinearProgress'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
+        nameSingle,
+      )}.schema'
       
       export type ${pascalName}LoadingProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['loading']
@@ -565,7 +577,9 @@ export default function useGet${pascalName}(
       import Text from '@useweb/ui/Text'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${nameSingle}.schema'
+      import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
+        nameSingle,
+      )}.schema'
       
       export type ${pascalName}ErrorProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['error']

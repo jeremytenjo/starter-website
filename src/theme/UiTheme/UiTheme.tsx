@@ -12,6 +12,7 @@ import Select from '../../lib/components/useweb/forms/fields/Select/Select.defau
 import TextField from '../../lib/components/useweb/forms/fields/TextField/TextField.defaults'
 import Menu from '../../lib/components/useweb/Menu/Menu.defaults'
 import Divider from '../../lib/components/useweb/Divider/Divider.defaults'
+import Popover from '../../lib/components/useweb/Popover/Popover.defaults'
 
 import CssBaseline from './CssBaseline/CssBaseline.defaults'
 
@@ -29,6 +30,7 @@ const themeData: CreateThemeProps = {
     TextField,
     Menu,
     Divider,
+    Popover,
   },
 }
 

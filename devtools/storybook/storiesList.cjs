@@ -16,6 +16,7 @@ module.exports = [
   '../../src/lib/components/useweb/forms/Form/stories/Form.stories.tsx',
   '../../src/lib/components/useweb/IconButton/stories/IconButtons.stories.tsx',
   '../../src/lib/components/useweb/Menu/stories/Menu.stories.tsx',
+  '../../src/lib/components/useweb/Popover/stories/Popover.stories.tsx',
   '../../src/lib/components/useweb/Snackbar/stories/Snackbar.stories.tsx',
   '../../src/lib/integrations/Google/GoogleAds/GoogleAdUnit/stories/GoogleAdUnit.stories.tsx',
   '../../src/lib/integrations/Prismic/components/RichText/stories/RichText.stories.tsx',

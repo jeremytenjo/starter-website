@@ -11,5 +11,5 @@ export default createSvgIcon(
       strokeLinejoin='round'
     />
   </svg>,
-  'MenuIcon',
+  'HamburgerMenuIcon',
 )

@@ -8,7 +8,6 @@ module.exports = [
   '../../src/data/users/getSingleUser/stories/getSingleUser.stories.tsx',
   '../../src/data/users/stories/users.stories.tsx',
   '../../src/data/users/ui/Users/stories/users.stories.tsx',
-  '../../src/Hello/stories/Hello.stories.tsx',
   '../../src/lib/components/basic/misc/CodeBlock/stories/CodeBlock.stories.tsx',
   '../../src/lib/components/useweb/Alert/stories/Alert.stories.tsx',
   '../../src/lib/components/useweb/Button/stories/Button.stories.tsx',
@@ -26,6 +25,5 @@ module.exports = [
   '../../src/lib/layouts/ContentWithHeader/stories/ContentWithHeader.stories.tsx',
   '../../src/lib/layouts/Root/stories/RootLayout.stories.tsx',
   '../../src/lib/utils/breakbpoints/useMediaQuery/stories/useMediaQuery.stories.tsx',
-  '../../src/pagesContent/HelloFromFigma/stories/HelloFromFigma.stories.tsx',
   '../../src/theme/tokens/stories/tokens.stories.tsx',
 ]

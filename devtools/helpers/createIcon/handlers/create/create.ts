@@ -24,5 +24,6 @@ export default createSvgIcon(
     filePath: outputPath,
     fileContent: svg,
     noTimestamp: true,
+    overwrite: true,
   })
 }

@@ -9,7 +9,7 @@ import create from './handlers/create/create.js'
 
 export default async function createIcon() {
   const { iconName, svgString } = await enquireSVGData()
-  const iconNameFormatted = changeCase.pascalCase(iconName)
+  const iconNameFormatted = changeCase.pascalCase(iconName) + 'Icon'
   const outputPath = path.join(
     process.cwd(),
     'src',

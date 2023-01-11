@@ -466,6 +466,7 @@ export default function useGet${pascalName}(
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
+      import List from '@useweb/ui/List'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
       import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
@@ -475,7 +476,16 @@ export default function useGet${pascalName}(
       export type ${pascalName}DataProps = UseDataUiComponentProps<${nameSinglePascal}Schema>['data']
       
       export default function ${pascalName}Data(props: ${pascalName}DataProps) {
-        return <Wrapper>${pascalName}Data</Wrapper>
+        return (
+          <Wrapper>
+            <List<${nameSinglePascal}Schema>
+              data={props.data || []}
+              ListItemComponent={({ itemData = {} }) => {
+                return 'Item'
+              }}
+            />
+          </Wrapper>
+        )
       }
       
       const Wrapper = ({ children }) => {

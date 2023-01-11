@@ -18,14 +18,14 @@ const files = [
     }))
 
     export default function use${upperName}() {
-      const ${upperName}Store = ${upperName}Store()
+      const use${upperName}Store = ${upperName}Store()
 
       const update${upperName} = (newValue) => {
-        ${upperName}Store.set${upperName}(newValue)
+        use${upperName}Store.set${upperName}(newValue)
       }
 
       return {
-        ${camelCase}: ${upperName}Store.${camelCase},
+        ${camelCase}: use${upperName}Store.${camelCase},
         update${upperName}
       }
     }`

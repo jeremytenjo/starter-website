@@ -2,6 +2,19 @@
 // import in src/theme/UiTheme/UiTheme.jsx
 import { type ComponentDefaultsProps } from '@useweb/ui-theme'
 import { type ButtonProps } from '@useweb/ui/Button'
+import colors from '../../../../theme/tokens/colors'
+
+const lightVariantStyles = {
+  color: colors.primary.dark,
+  backgroundColor: colors.primary.light,
+  '&:hover, &:focus, &:active': {
+    backgroundColor: colors.primary.light,
+  },
+}
+
+const variantSmallStyles = {
+  fontSize: '0.8125rem',
+}
 
 const defaults: ComponentDefaultsProps<ButtonProps> = {
   defaultProps: {
@@ -22,6 +35,32 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       },
     },
   },
+  variants: [
+    {
+      props: {
+        variant: 'light',
+      },
+      style: {
+        ...lightVariantStyles,
+      },
+    },
+    {
+      props: {
+        variant: 'light',
+        size: 'small',
+      },
+      style: {
+        ...lightVariantStyles,
+        ...variantSmallStyles,
+      },
+    },
+  ],
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    light: true
+  }
 }
 
 export default defaults

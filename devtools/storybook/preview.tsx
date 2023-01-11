@@ -4,7 +4,7 @@ import { SnackbarProvider } from '@useweb/ui/Snackbar'
 import ClickToComponent from '@useweb/click-to-component'
 import Box from '@useweb/ui/Box'
 
-import Prismic from '../../src/lib/integrations/Prismic/Prismic'
+// import Prismic from '../../src/lib/integrations/Prismic/Prismic'
 // import Firebase from '../../src/lib/integrations/Google/Firebase/firebase'
 
 import StorybookTheme from './theme/storybookTheme'
@@ -20,21 +20,21 @@ export const decorators = [
       <>
         {process.env.NODE_ENV === 'development' && <ClickToComponent />}
 
-        <Prismic disablePreview>
-          {/* <Firebase> */}
-          <SnackbarProvider>
-            <StorybookTheme>
-              <Box
-                sx={{
-                  minHeight: '100vh',
-                }}
-              >
-                <Story />
-              </Box>
-            </StorybookTheme>
-          </SnackbarProvider>
-          {/* </Firebase> */}
-        </Prismic>
+        {/* <Prismic disablePreview> */}
+        {/* <Firebase> */}
+        <SnackbarProvider>
+          <StorybookTheme>
+            <Box
+              sx={{
+                minHeight: '100vh',
+              }}
+            >
+              <Story />
+            </Box>
+          </StorybookTheme>
+        </SnackbarProvider>
+        {/* </Firebase> */}
+        {/* </Prismic> */}
       </>
     )
   },
@@ -62,6 +62,13 @@ export const parameters = {
         name: 'Mobile',
         styles: {
           width: '360px',
+          height: '875px',
+        },
+      },
+      tablet: {
+        name: 'Tablet',
+        styles: {
+          width: '900px',
           height: '875px',
         },
       },

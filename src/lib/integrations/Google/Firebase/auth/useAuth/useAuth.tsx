@@ -34,9 +34,9 @@ type SignInFetcherReturn = Awaited<ReturnType<typeof signInFetcher>>
 
 export default function useAuth(
   props: UseAuthProps<SignInFetcherReturn> = {
-    onSignOut: undefined,
     onSignIn: undefined,
     onSignInError: undefined,
+    onSignOut: undefined,
   },
 ) {
   const snackbar = useSnackbar()
@@ -44,11 +44,13 @@ export default function useAuth(
   const auth = useFirebaseAuth<SignInFetcherReturn, SignInFetcherProps>({
     auth: getAuth(),
     signInFetcher,
-    onSignIn: () => {
+    onSignIn: ({ result }) => {
+      props.onSignIn && props.onSignIn({ result })
       snackbar.show({ severity: 'success', message: 'Welcome' })
     },
     onSignInError: ({ error }) => {
       if (error.code !== 'auth/popup-closed-by-user') {
+        props.onSignInError && props.onSignInError(error)
         snackbar.show({
           severity: 'error',
           message: 'Error signing in, please try again.',
@@ -56,6 +58,7 @@ export default function useAuth(
       }
     },
     onSignOut: () => {
+      props.onSignOut && props.onSignOut()
       props.onSignOut && props.onSignOut()
     },
   })

@@ -16,7 +16,7 @@ export default async () => {
       nextjsPort: String(appConfig.nextjs.port),
     },
     images: {
-      domains: ['images.prismic.io'],
+      domains: ['images.prismic.io', 'i.pravatar.cc'],
     },
   })
 

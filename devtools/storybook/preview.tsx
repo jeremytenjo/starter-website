@@ -57,6 +57,7 @@ export const parameters = {
     'storybook/docs/panel': { index: isProd ? -1 : 1 },
   },
   viewport: {
+    // https://mui.com/material-ui/customization/breakpoints/#default-breakpoints
     viewports: {
       mobile: {
         name: 'Mobile',

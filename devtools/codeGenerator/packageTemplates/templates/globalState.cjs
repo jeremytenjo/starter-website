@@ -2,7 +2,8 @@ const files = [
   {
     path: ({ name }) => `${name}.ts`,
     template: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
+      const upperName = helpers.changeCase.pascalCase(name)
 
       return `import create from 'zustand'
 
@@ -12,8 +13,8 @@ const files = [
 }
 
     export const ${upperName}Store = create<${upperName}Props>((set) => ({
-      ${name}: true,
-      set${upperName}: (newValue) => set(() => ({ ${name}: newValue })),
+      ${camelCase}: true,
+      set${upperName}: (newValue) => set(() => ({ ${camelCase}: newValue })),
     }))
 
     export default function use${upperName}() {
@@ -24,7 +25,7 @@ const files = [
       }
 
       return {
-        ${name}: ${upperName}Store.${name},
+        ${camelCase}: ${upperName}Store.${camelCase},
         update${upperName}
       }
     }`

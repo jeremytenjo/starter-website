@@ -1,33 +1,31 @@
-const generateUseVariable = require('../utils/generateUseVariable.cjs')
-
 const files = [
   {
     path: ({ name }) => `${name}.ts`,
-    template: ({ name }) => {
-      const shortName = generateUseVariable(`${name}`)
+    template: ({ name, helpers }) => {
+      const upperName = helpers.changeCase.capitalCase(name)
 
       return `import create from 'zustand'
 
-      type ${name}Props = {
-  ${shortName}: any
-  set${shortName}: (props: any) => any
+      type ${upperName}Props = {
+  ${name}: any
+  set${upperName}: (props: any) => any
 }
 
-    export const ${name}Store = create<${name}Props>((set) => ({
-      ${shortName}: true,
-      set${shortName}: (newValue) => set(() => ({ ${shortName}: newValue })),
+    export const ${upperName}Store = create<${upperName}Props>((set) => ({
+      ${name}: true,
+      set${upperName}: (newValue) => set(() => ({ ${name}: newValue })),
     }))
 
-    export default function ${name}() {
-      const ${shortName}Store = ${name}Store()
+    export default function use${upperName}() {
+      const ${upperName}Store = ${upperName}Store()
 
-      const update${shortName} = (newValue) => {
-        ${shortName}Store.set${shortName}(newValue)
+      const update${upperName} = (newValue) => {
+        ${upperName}Store.set${upperName}(newValue)
       }
 
       return {
-        ${shortName}: ${shortName}Store.${shortName},
-        update${shortName}
+        ${name}: ${upperName}Store.${name},
+        update${upperName}
       }
     }`
     },

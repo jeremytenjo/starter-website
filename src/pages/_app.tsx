@@ -11,7 +11,9 @@ import createEmotionCache from '../theme/UiTheme/utils/createEmotionCache'
 import GoogleAnalytics from '../lib/integrations/Google/GoogleAnalytics/GoogleAnalytics'
 import GoogleAds from '../lib/integrations/Google/GoogleAds/GoogleAds'
 import GoogleSearchConsole from '../lib/integrations/Google/GoogleSearchConsole/components/GoogleSearchConsole'
+// import Firebase from '../lib/integrations/Google/Firebase/firebase'
 // import Prismic from '../lib/integrations/Prismic/Prismic'
+// import AuthUserSetterMounter from '../lib/components/AuthUserSetter/AuthUserSetterMounter'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -43,8 +45,10 @@ export default function MyApp(props) {
           content={`${appConfig.siteInfo.domain}/images/logo/logo.svg`}
         />
       </Head>
+      {/* <Firebase> */}
       <CacheProvider value={emotionCache}>
         <Theme>
+          {/* <AuthUserSetterMounter /> */}
           {/* <Prismic> */}
           <SnackbarProvider>
             <Component {...pageProps} />
@@ -52,6 +56,7 @@ export default function MyApp(props) {
           {/* </Prismic> */}
         </Theme>
       </CacheProvider>
+      {/* </Firebase> */}
     </>
   )
 }

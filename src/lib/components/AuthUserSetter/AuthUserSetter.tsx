@@ -21,6 +21,9 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
     onSignIn() {
       setOpenDialog(() => false)
     },
+    onSignOut() {
+      setOpenDialog(() => false)
+    },
   })
 
   useKeyPress('u', () => setOpenDialog((s) => !s))

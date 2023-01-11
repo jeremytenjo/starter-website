@@ -69,7 +69,7 @@ export const parameters = {
       tablet: {
         name: 'Tablet',
         styles: {
-          width: '900px',
+          width: '600px',
           height: '875px',
         },
       },

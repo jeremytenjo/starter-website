@@ -610,7 +610,6 @@ export default function useGet${pascalName}(
       import React, { useEffect } from 'react'
       import PixelPerfect from '@useweb/pixel-perfect'
       
-      import use${pascalName} from '../../../use${pascalName}/use${pascalName}'
       import ${pascalName}Stubs from '../../../../../${lowercaseFirstLetter(
         splitCamelCase(name),
       )}.stubs'

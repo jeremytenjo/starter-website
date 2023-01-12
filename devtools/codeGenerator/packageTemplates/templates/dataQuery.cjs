@@ -650,7 +650,7 @@ export default function useGet${pascalName}(
                   },
                 ]}
               />
-                // pass fetcher payload via UseProps.getOptions.fetcherPayload
+                {/* pass fetcher payload via UseProps.getOptions.fetcherPayload */}
                 <${pascalName} />
             </>
           )

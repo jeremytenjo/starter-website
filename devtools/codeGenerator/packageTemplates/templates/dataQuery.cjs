@@ -618,7 +618,7 @@ export default function useGet${pascalName}(
       import PixelPerfect from '@useweb/pixel-perfect'
       
       import use${pascalName} from '../../../use${pascalName}/use${pascalName}'
-      import ${pascalName}Stubs from '../../../${lowercaseFirstLetter(
+      import ${pascalName}Stubs from '../../../../../${lowercaseFirstLetter(
         splitCamelCase(name),
       )}.stubs'
       import ${pascalName}, { type ${pascalName}Props } from '../${pascalName}'

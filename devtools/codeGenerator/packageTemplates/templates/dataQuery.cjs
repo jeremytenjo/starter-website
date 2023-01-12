@@ -181,6 +181,8 @@ export default function useGet${pascalName}(
 ): useGet${pascalName}Return {
 
   const get: useGet${pascalName}Return = {
+    ...props,
+
     fetcher: get${pascalName},
 
     onGet: (result) => {

@@ -634,7 +634,7 @@ export default function useGet${pascalName}(
       }
       
       // full example
-      const UseInitializer = ({ children }) => {
+      const UseInitializer = () => {
         use${pascalName}()
         return null
       }

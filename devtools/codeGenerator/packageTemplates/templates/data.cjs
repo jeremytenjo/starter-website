@@ -49,6 +49,16 @@ const files = [
 `
     },
   },
+
+  // readme
+  {
+    path: () => {
+      return `queries/readme.md`
+    },
+    template: () => {
+      return `Use this folder to add 'Data Queries'`
+    },
+  },
 ]
 
 const template = {

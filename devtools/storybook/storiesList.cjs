@@ -5,9 +5,8 @@
 
 module.exports = [
   '../../src/apiFunctions/exampleApi/stories/exampleApi.stories.tsx',
-  '../../src/data/users/getSingleUser/stories/getSingleUser.stories.tsx',
-  '../../src/data/users/stories/users.stories.tsx',
-  '../../src/data/users/ui/Users/stories/users.stories.tsx',
+  '../../src/data/users/queries/getSingleUser/stories/getSingleUser.stories.tsx',
+  '../../src/lib/components/AuthUserSetter/stories/AuthUserSetter.stories.tsx',
   '../../src/lib/components/basic/misc/CodeBlock/stories/CodeBlock.stories.tsx',
   '../../src/lib/components/useweb/Alert/stories/Alert.stories.tsx',
   '../../src/lib/components/useweb/Button/stories/Button.stories.tsx',

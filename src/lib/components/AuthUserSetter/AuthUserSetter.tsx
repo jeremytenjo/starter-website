@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Text from '@useweb/ui/Text'
 import List from '@useweb/ui/List'
 import userStubs from '../../../data/users/users.stubs'
@@ -11,9 +11,9 @@ import Box from '@useweb/ui/Box'
 import Button from '@useweb/ui/Button'
 import IconButton from '@useweb/ui/IconButton'
 import useAuth from '../../integrations/Google/Firebase/auth/useAuth/useAuth'
-import { LinearProgress } from '@mui/material'
+import LinearProgress from '@useweb/ui/LinearProgress'
 
-export type AuthUserSetterProps = { open?: boolean }
+export type AuthUserSetterProps = { open?: boolean; signInAs?: string; children?: any }
 
 export default function AuthUserSetter(props: AuthUserSetterProps) {
   const [openDialog, setOpenDialog] = useState(props.open)
@@ -26,10 +26,25 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
     },
   })
 
+  const renderChildren = props.signInAs ? auth.user : true
+
+  useEffect(() => {
+    if (props.signInAs) {
+      const email = userStubs.filter((u) => u.uid === props.signInAs)[0].email
+      const password = 'password'
+
+      auth.signIn.exec({
+        email,
+        password,
+      })
+    }
+  }, [props.signInAs])
+
   useKeyPress('u', () => setOpenDialog((s) => !s))
 
   return (
     <>
+      {renderChildren && (props.children || null)}
       <IconButton
         name='AuthUserSetter trigger'
         onClick={() => setOpenDialog((s) => !s)}

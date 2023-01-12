@@ -6,6 +6,7 @@ import Box from '@useweb/ui/Box'
 
 // import Prismic from '../../src/lib/integrations/Prismic/Prismic'
 // import Firebase from '../../src/lib/integrations/Google/Firebase/firebase'
+// import AuthUserSetter from '../../src/lib/components/AuthUserSetter/AuthUserSetter'
 
 import StorybookTheme from './theme/storybookTheme'
 
@@ -15,7 +16,9 @@ const theme = create({
 })
 
 export const decorators = [
-  (Story) => {
+  (Story, metadata) => {
+    // const signInAs = metadata?.parameters?.signInAs
+
     return (
       <>
         {process.env.NODE_ENV === 'development' && <ClickToComponent />}
@@ -29,7 +32,9 @@ export const decorators = [
                 minHeight: '100vh',
               }}
             >
+              {/* <AuthUserSetter signInAs={signInAs}> */}
               <Story />
+              {/* </AuthUserSetter> */}
             </Box>
           </StorybookTheme>
         </SnackbarProvider>

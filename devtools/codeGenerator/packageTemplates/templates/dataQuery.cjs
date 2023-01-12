@@ -59,7 +59,7 @@ const files = [
         const update = useUpdate${pascalName}(props?.updateOptions)
         const remove = useRemove${pascalName}(props?.removeOptions)
       
-        const ${name} = useData<${schemaName}>({
+        const ${name} = useData<${schemaName}, ${getpropsName}>({
           id: '${name}',
           get,
           create,

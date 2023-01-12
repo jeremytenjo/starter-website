@@ -634,11 +634,6 @@ export default function useGet${pascalName}(
       }
       
       // full example
-      const UseInitializer = () => {
-        use${pascalName}()
-        return null
-      }
-      
       export const ${pascalName}Example = {
         render: () => {
           return (
@@ -655,7 +650,7 @@ export default function useGet${pascalName}(
                   },
                 ]}
               />
-                <UseInitializer />
+                // pass fetcher data via UseProps.getOptions.fetcherPayload
                 <${pascalName} />
             </>
           )

@@ -6,14 +6,23 @@ function lowercaseFirstLetter(string) {
   return string.charAt(0).toLowerCase() + string.slice(1)
 }
 
+const splitCamelCase = (string) => {
+  return string.split(/(?=[A-Z])/).map((s) => s.toLowerCase())[0]
+}
+
+const getSchemaImportName = (rawName) => {
+  const singularName = pluralize.singular(lowercaseFirstLetter(splitCamelCase(rawName)))
+  return `${singularName}.schema`
+}
+
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   // hook
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
-      return `queries/${camelCase}/use${pascalName}/use${pascalName}.ts`
+
+      return `use${pascalName}/use${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -24,7 +33,7 @@ const files = [
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
       
-      import type ${schemaName} from '../${lowercaseFirstLetter(nameSingle)}.schema'
+      import type ${schemaName} from '../../../${getSchemaImportName(name)}'
       
       import useGet${pascalName}, { type ${getpropsName} } from './useGet${pascalName}/useGet${pascalName}'
       import useCreate${pascalName} from './useCreate${pascalName}/useCreate${pascalName}'
@@ -63,10 +72,8 @@ const files = [
 
   // stories
   {
-    path: ({ name, helpers }) => {
-      const camelCase = helpers.changeCase.camelCase(name)
-
-      return `queries/${camelCase}/stories/${name}.stories.tsx`
+    path: ({ name }) => {
+      return `stories/${name}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -139,9 +146,8 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/use${pascalName}/useGet${pascalName}/useGet${pascalName}.ts`
+      return `use${pascalName}/useGet${pascalName}/useGet${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -153,7 +159,7 @@ const files = [
       return `
 import { type UseDataProps } from '@useweb/use-data'
 
-import type ${schemaName} from '../../${lowercaseFirstLetter(nameSingle)}.schema'
+import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
 // fetcher
 export type ${propsName} = any
@@ -196,9 +202,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/use${pascalName}/useCreate${pascalName}/useCreate${pascalName}.ts`
+      return `use${pascalName}/useCreate${pascalName}/useCreate${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -210,7 +215,7 @@ export default function useGet${pascalName}(
       return `
       import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
 
-      import type ${schemaName} from '../../${lowercaseFirstLetter(nameSingle)}.schema'
+      import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
       export type ${propsName} = CreatorProps<${schemaName}>
 
@@ -253,9 +258,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}.ts`
+      return `use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -266,7 +270,7 @@ export default function useGet${pascalName}(
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
 
-      import type ${schemaName} from '../../${lowercaseFirstLetter(nameSingle)}.schema'
+      import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
       export type ${propsName} = UpdaterProps<${schemaName}>
       
@@ -308,9 +312,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/use${pascalName}/useRemove${pascalName}/useRemove${pascalName}.ts`
+      return `use${pascalName}/useRemove${pascalName}/useRemove${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -321,7 +324,7 @@ export default function useGet${pascalName}(
 
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
 
-      import type ${schemaName} from '../../${lowercaseFirstLetter(nameSingle)}.schema'
+      import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
       export type ${propsName} = RemoverProps<${schemaName}>
       
@@ -365,9 +368,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/ui/${pascalName}/${pascalName}.tsx`
+      return `ui/${pascalName}/${pascalName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -382,9 +384,9 @@ export default function useGet${pascalName}(
       import ${useName}, {
         type Use${pascalName}Props,
       } from '../../${useName}/${useName}'
-      import type ${nameSinglePascal}Schema from '../../${lowercaseFirstLetter(
-        nameSingle,
-      )}.schema'
+      import type ${nameSinglePascal}Schema from '../../../../${getSchemaImportName(
+        name,
+      )}'
       
       import ${pascalName}Data from './${pascalName}Data/${pascalName}Data'
       import ${pascalName}EmptyData from './${pascalName}EmptyData/${pascalName}EmptyData'
@@ -426,9 +428,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/ui/${pascalName}/${pascalName}Data/${pascalName}Data.tsx`
+      return `ui/${pascalName}/${pascalName}Data/${pascalName}Data.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -440,9 +441,9 @@ export default function useGet${pascalName}(
       import List from '@useweb/ui/List'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
-        nameSingle,
-      )}.schema'
+      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
+        name,
+      )}'
       
       export type ${pascalName}DataProps = UseDataUiComponentProps<${nameSinglePascal}Schema>['data']
       
@@ -473,9 +474,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/ui/${pascalName}/${pascalName}EmptyData/${pascalName}EmptyData.tsx`
+      return `ui/${pascalName}/${pascalName}EmptyData/${pascalName}EmptyData.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -486,9 +486,9 @@ export default function useGet${pascalName}(
       import Box from '@useweb/ui/Box'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
-        nameSingle,
-      )}.schema'
+      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
+        name,
+      )}'
       
       export type ${pascalName}EmptyDataProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
@@ -512,9 +512,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/ui/${pascalName}/${pascalName}Loading/${pascalName}Loading.tsx`
+      return `ui/${pascalName}/${pascalName}Loading/${pascalName}Loading.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -526,9 +525,9 @@ export default function useGet${pascalName}(
       import LinearProgress from '@mui/material/LinearProgress'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
-        nameSingle,
-      )}.schema'
+      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
+        name,
+      )}'
       
       export type ${pascalName}LoadingProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['loading']
@@ -556,9 +555,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/ui/${pascalName}/${pascalName}Error/${pascalName}Error.tsx`
+      return `ui/${pascalName}/${pascalName}Error/${pascalName}Error.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -570,9 +568,9 @@ export default function useGet${pascalName}(
       import Text from '@useweb/ui/Text'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../${lowercaseFirstLetter(
-        nameSingle,
-      )}.schema'
+      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
+        name,
+      )}'
       
       export type ${pascalName}ErrorProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['error']
@@ -608,9 +606,8 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
 
-      return `queries/${camelCase}/ui/${pascalName}/stories/${name}.stories.tsx`
+      return `ui/${pascalName}/stories/${name}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -621,7 +618,9 @@ export default function useGet${pascalName}(
       import PixelPerfect from '@useweb/pixel-perfect'
       
       import use${pascalName} from '../../../use${pascalName}/use${pascalName}'
-      import ${pascalName}Stubs from '../../../${name}.stubs'
+      import ${pascalName}Stubs from '../../../${lowercaseFirstLetter(
+        splitCamelCase(name),
+      )}.stubs'
       import ${pascalName}, { type ${pascalName}Props } from '../${pascalName}'
       import ${pascalName}Data_ from '../${pascalName}Data/${pascalName}Data'
       import ${pascalName}EmptyData_ from '../${pascalName}EmptyData/${pascalName}EmptyData'

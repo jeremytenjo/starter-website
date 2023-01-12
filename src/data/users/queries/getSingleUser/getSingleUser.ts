@@ -1,6 +1,6 @@
 import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
-import type UserSchema from '../user.schema'
+import type UserSchema from '../../user.schema'
 
 export type GetSingleUserProps = { uid: UserSchema['uid'] }
 

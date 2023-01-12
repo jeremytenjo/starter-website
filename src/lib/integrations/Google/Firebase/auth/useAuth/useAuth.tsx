@@ -4,7 +4,7 @@ import useFirebaseAuth, {
 } from '@useweb/firebase/useFirebaseAuth'
 import useSnackbar from '@useweb/ui/Snackbar'
 
-import getSingleUser from '../../../../../../data/users/getSingleUser/getSingleUser'
+import getSingleUser from '../../../../../../data/users/queries/getSingleUser/getSingleUser'
 
 type SignInFetcherProps = {
   email: string

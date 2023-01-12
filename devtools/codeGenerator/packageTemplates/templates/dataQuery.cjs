@@ -1,4 +1,5 @@
 const pluralize = require('pluralize')
+const changeCase = require('change-case')
 
 const { getStoryPrefix } = require('./story.cjs')
 
@@ -15,6 +16,11 @@ const getSchemaImportName = (rawName) => {
   return `${singularName}.schema`
 }
 
+const getSchemaName = (rawName) => {
+  const schemaName = pluralize.singular(changeCase.pascalCase(splitCamelCase(rawName)))
+  return `${schemaName}Schema`
+}
+
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   // hook
@@ -26,9 +32,7 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
-      const schemaName = `${nameSinglePascal}Schema`
+      const schemaName = getSchemaName(name)
       const getpropsName = `Get${pascalName}Props`
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
@@ -151,9 +155,7 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
-      const schemaName = `${nameSinglePascal}Schema`
+      const schemaName = getSchemaName(name)
       const propsName = `Get${pascalName}Props`
 
       return `
@@ -207,9 +209,7 @@ export default function useGet${pascalName}(
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
-      const schemaName = `${nameSinglePascal}Schema`
+      const schemaName = getSchemaName(name)
       const propsName = `Create${pascalName}Props`
 
       return `
@@ -263,9 +263,7 @@ export default function useGet${pascalName}(
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
-      const schemaName = `${nameSinglePascal}Schema`
+      const schemaName = getSchemaName(name)
       const propsName = `Update${pascalName}Props`
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
@@ -317,9 +315,7 @@ export default function useGet${pascalName}(
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
-      const schemaName = `${nameSinglePascal}Schema`
+      const schemaName = getSchemaName(name)
       const propsName = `Remove${pascalName}Props`
 
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'

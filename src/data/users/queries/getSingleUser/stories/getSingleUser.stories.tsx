@@ -6,7 +6,7 @@ import getSingleUser, {
   type GetSingleUserProps,
   type GetSingleUserReturn,
 } from '../getSingleUser'
-import userStubs from '../../users.stubs'
+import userStubs from '../../../users.stubs'
 
 import Docs from './getSingleUser.docs'
 

@@ -46,7 +46,7 @@ export default function useAuth(
     signInFetcher,
     onSignIn: ({ result }) => {
       props.onSignIn && props.onSignIn({ result })
-      snackbar.show({ severity: 'success', message: 'Welcome' })
+      snackbar.show({ severity: 'success', message: `Welcome ${result.displayName}` })
     },
     onSignInError: ({ error }) => {
       if (error.code !== 'auth/popup-closed-by-user') {

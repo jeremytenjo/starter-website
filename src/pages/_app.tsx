@@ -45,6 +45,7 @@ export default function MyApp(props) {
           content={`${appConfig.siteInfo.domain}/images/logo/logo.svg`}
         />
       </Head>
+
       {/* <Firebase> */}
       <CacheProvider value={emotionCache}>
         <Theme>

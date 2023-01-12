@@ -49,9 +49,9 @@ export default function MyApp(props) {
       {/* <Firebase> */}
       <CacheProvider value={emotionCache}>
         <Theme>
-          {/* <AuthUserSetterMounter /> */}
           {/* <Prismic> */}
           <SnackbarProvider>
+            {/* <AuthUserSetterMounter /> */}
             <Component {...pageProps} />
           </SnackbarProvider>
           {/* </Prismic> */}

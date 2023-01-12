@@ -1,17 +1,12 @@
-import chalk from 'chalk'
+export type AssertProps = { condition: boolean; name: string }
 
-type AssertProps = {
-  condition: boolean
-  message: string
-}
-
-export default function assert({ condition, message }: AssertProps) {
-  if (condition) {
-    console.log(chalk.red('Assertion failed:'))
-    console.log(' ')
+export default function assert(props: AssertProps) {
+  if (!props.condition) {
+    const message = `${props.name} is undefined`
+    console.error(message)
     console.trace()
-    console.log(' ')
-
-    throw message
+    throw new Error()
   }
 }
+
+export type AssertReturn = ReturnType<typeof assert>

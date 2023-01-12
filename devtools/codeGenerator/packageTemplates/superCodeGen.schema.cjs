@@ -17,6 +17,7 @@ const muiOverride = require('./templates/muiOverride.cjs')
 const muiOverrideWithStory = require('./templates/muiOverrideWithStory.cjs')
 const playwrightTest = require('./templates/playwrightTest.cjs')
 const data = require('./templates/data.cjs')
+const dataQuery = require('./templates/dataQuery.cjs')
 const dataComponent = require('./templates/dataComponent.cjs')
 const dataPrismic = require('./templates/dataPrismic.cjs')
 const dataVariant = require('./templates/dataVariant.cjs')
@@ -41,6 +42,7 @@ module.exports = [
   apiFunction.template,
 
   data.template,
+  dataQuery.template,
   componentWithProvider.template,
   dataComponent.template,
   dataVariant.template,

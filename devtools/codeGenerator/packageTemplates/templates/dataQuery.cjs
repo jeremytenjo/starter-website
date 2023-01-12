@@ -188,8 +188,7 @@ export default function useGet${pascalName}(
     },
 
     onGetError: (error) => {
-      console.error('useGet${pascalName} error')
-      console.error(error)
+      console.error('useGet${pascalName}', error)
       props?.onGetError && props.onGetError(error)
     },
   }
@@ -241,8 +240,7 @@ export default function useGet${pascalName}(
           },
       
           onCreateError: (error) => {      
-            console.error('useCreate${pascalName} error')
-            console.error(error)
+            console.error('useCreate${pascalName}', error)
             props?.onCreateError && props?.onCreateError(error)
 
           },
@@ -293,8 +291,7 @@ export default function useGet${pascalName}(
           },
       
           onUpdateError: (error) => {
-            console.error('useUpdate${pascalName} error')
-            console.error(error)
+            console.error('useUpdate${pascalName}', error)
             props?.onUpdateError && props.onUpdateError(error)
           },
         }
@@ -345,8 +342,7 @@ export default function useGet${pascalName}(
           },
       
           onRemoveError: (error) => {
-            console.error('useRemove${pascalName} error')
-            console.error(error)
+            console.error('useRemove${pascalName}', error)
             props?.onRemoveError && props.onRemoveError(error)
           },
         }

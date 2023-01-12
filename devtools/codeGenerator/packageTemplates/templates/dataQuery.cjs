@@ -634,10 +634,9 @@ export default function useGet${pascalName}(
       }
       
       // full example
-      const Example = ({ children }) => {
+      const UseInitializer = ({ children }) => {
         use${pascalName}()
-      
-        return <>{children}</>
+        return null
       }
       
       export const ${pascalName}Example = {
@@ -656,9 +655,8 @@ export default function useGet${pascalName}(
                   },
                 ]}
               />
-              <Example>
+                <UseInitializer />
                 <${pascalName} />
-              </Example>
             </>
           )
         },

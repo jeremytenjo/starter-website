@@ -635,11 +635,7 @@ export default function useGet${pascalName}(
       
       // full example
       const Example = ({ children }) => {
-        const ${name}Data = use${pascalName}()
-      
-        useEffect(() => {
-          ${name}Data.get.exec()
-        }, [])
+        use${pascalName}()
       
         return <>{children}</>
       }

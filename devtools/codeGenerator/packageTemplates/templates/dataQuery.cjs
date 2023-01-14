@@ -369,6 +369,7 @@ export default function useGet${pascalName}(
       const useName = `use${pascalName}`
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const camelCase = helpers.changeCase.camelCase(name)
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
@@ -391,12 +392,12 @@ export default function useGet${pascalName}(
       }
       
       export default function ${pascalName}(props: ${pascalName}Props) {
-        const ${name} = ${useName}(props.UseProps)
+        const ${camelCase} = ${useName}(props.UseProps)
       
         return (
           <Wrapper>
             <UseDataUi<${nameSinglePascal}Schema>
-              asyncFunctionVariable={${name}}
+              asyncFunctionVariable={${camelCase}}
               data={${pascalName}Data}
               emptyData={${pascalName}EmptyData}
               loading={${pascalName}Loading}

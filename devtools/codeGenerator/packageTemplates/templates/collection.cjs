@@ -22,8 +22,8 @@ const getSchemaImportName = (name) => {
 }
 
 const getStubsName = (name) => {
-  const nameSinglePascal = changeCase.camelCase(name)
-  return `${nameSinglePascal}.stubs`
+  const camelCase = changeCase.camelCase(name)
+  return `${camelCase}.stubs`
 }
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
@@ -543,7 +543,7 @@ import Box from '@useweb/ui/Box'
 import { ${componentName}DataProvider } from './use${componentName}Data/use${componentName}Data'
 import ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
-type ${componentName}Props = ${schemaName}
+export type ${componentName}Props = ${schemaName}
 
 export default function ${componentName}(props: ${componentName}Props) {
   return (
@@ -628,16 +628,16 @@ export default use${componentName}
       const pascalName = helpers.changeCase.pascalCase(name)
       const componentName = `${pascalName}ListItem`
       const storyPrefix = getStoryPrefix({ folderPath })
+      const stubsName = getStubsName(name)
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 import PixelPerfect from '@useweb/pixel-perfect'
 
-import ${componentName}, { type ${componentName}Props } from '../../${componentName}'
+import ${stubsName} from '../../../../${stubsName}'
+import ${componentName}, { type ${componentName}Props } from '../../${componentName}/${componentName}'
 
-const defaultArgs: ${componentName}Props = {
-  name: '${componentName}',
-}
+const defaultArgs: ${componentName}Props = ${stubsName}[0]
 
 export default {
   title: '${storyPrefix}/${componentName}',

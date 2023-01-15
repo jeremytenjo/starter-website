@@ -11,23 +11,22 @@ const splitCamelCase = (string) => {
   return string.split(/(?=[A-Z])/).map((s) => s.toLowerCase())[0]
 }
 
-const getSchemaImportName = (rawName) => {
-  const singularName = pluralize.singular(lowercaseFirstLetter(splitCamelCase(rawName)))
-  return `${singularName}.schema`
-}
-
 const getSchemaName = (rawName) => {
   const schemaName = pluralize.singular(changeCase.pascalCase(splitCamelCase(rawName)))
   return `${schemaName}Schema`
+}
+
+const getSchemaImportName = (name) => {
+  const nameSingle = changeCase.pascalCase(pluralize.singular(name))
+  return `${lowercaseFirstLetter(nameSingle)}.schema`
 }
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   // schema
   {
-    path: ({ name, helpers }) => {
-      const nameSingle = helpers.changeCase.pascalCase(pluralize.singular(name))
-      return `${lowercaseFirstLetter(nameSingle)}.schema.ts`
+    path: ({ name }) => {
+      return `${getSchemaImportName(name)}.ts`
     },
     template: ({ name, helpers }) => {
       const nameSingle = pluralize.singular(name)
@@ -412,7 +411,7 @@ export default function useGet${pascalName}(
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const componentName = `${pascalName}List`
-      const useName = `use${componentName}`
+      const useName = `use${pascalName}`
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
       const camelCase = helpers.changeCase.camelCase(name)
@@ -422,11 +421,9 @@ export default function useGet${pascalName}(
       import UseDataUi from '@useweb/use-data-ui'
       
       import ${useName}, {
-        type Use${componentName}Props,
+        type Use${pascalName}Props,
       } from '../../${useName}/${useName}'
-      import type ${nameSinglePascal}Schema from '../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '../../${getSchemaImportName(name)}'
       
       import ${componentName}Data from './${componentName}Data/${componentName}Data'
       import ${componentName}EmptyData from './${componentName}EmptyData/${componentName}EmptyData'
@@ -434,7 +431,7 @@ export default function useGet${pascalName}(
       import ${componentName}Error from './${componentName}Error/${componentName}Error'
       
       export type ${componentName}Props = {
-        UseProps?: Use${componentName}Props
+        UseProps?: Use${pascalName}Props
       }
       
       export default function ${componentName}(props: ${componentName}Props) {
@@ -518,7 +515,7 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
       const componentName = `${pascalName}ListItem`
 
-      return `ui/${componentName}/ui/${componentName}/${componentName}.tsx`
+      return `ui/${pascalName}List/ui/${componentName}/${componentName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)

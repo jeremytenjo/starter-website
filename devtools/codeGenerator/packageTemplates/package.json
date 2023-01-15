@@ -1,11 +1,12 @@
 {
   "name": "@useweb/starter-website-code-gen-templates",
-  "version": "6.18.10",
+  "version": "6.18.12",
   "type": "module",
   "main": "superCodeGen.schema.cjs",
   "scripts": {
     "deploy:major": "npm version major && npm publish --access public",
     "deploy:minor": "npm version minor && npm publish --access public",
-    "deploy:patch": "npm version patch && npm publish --access public"
+    "deploy:patch": "npm version patch && npm publish --access public",
+    "update-root-useweb": "cd ../../../ && npm run helpers:update-useweb-deps"
   }
 }

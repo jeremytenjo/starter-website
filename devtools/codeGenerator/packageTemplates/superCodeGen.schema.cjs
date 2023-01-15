@@ -26,6 +26,7 @@ const vitestTest = require('./templates/vitestTest.cjs')
 const script = require('./templates/script.cjs')
 const apiFunction = require('./templates/apiFunction.cjs')
 const tsSchema = require('./templates/tsSchema.cjs')
+const collection = require('./templates/collection.cjs')
 
 module.exports = [
   container.template,
@@ -41,6 +42,7 @@ module.exports = [
 
   apiFunction.template,
 
+  collection.template,
   data.template,
   dataQuery.template,
   componentWithProvider.template,

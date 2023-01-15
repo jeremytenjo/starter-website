@@ -620,7 +620,7 @@ export default use${componentName}
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const componentName = `${pascalName}.stories`
+      const componentName = `${pascalName}ListItem.stories`
 
       return `ui/${pascalName}List/ui/${pascalName}ListItem/stories/${componentName}.tsx`
     },
@@ -640,7 +640,7 @@ import ${componentName}, { type ${componentName}Props } from '../../${componentN
 const defaultArgs: ${componentName}Props = ${pascalName}Stubs[0]
 
 export default {
-  title: '${storyPrefix}/${componentName}',
+  title: '${storyPrefix}/${componentName}/${componentName}',
   args: defaultArgs
 }
 

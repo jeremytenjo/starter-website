@@ -564,7 +564,7 @@ const ${componentName}Ui = () => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const componentName = `use${pascalName}ListItemData`
 
-      return `ui/${pascalName}List/ui/${componentName}/${componentName}.ts`
+      return `ui/${pascalName}List/ui/${pascalName}ListItem/${componentName}/${componentName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -574,7 +574,7 @@ const ${componentName}Ui = () => {
       const schemaName = `${nameSinglePascal}Schema`
 
       return `import React, { createContext, useContext } from 'react'
-import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
+import type ${schemaName} from '../../../../../${getSchemaImportName(name)}'
 
 export type ${componentName}Props = ${schemaName}
 

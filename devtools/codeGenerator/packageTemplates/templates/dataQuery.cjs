@@ -32,6 +32,7 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
       const schemaName = getSchemaName(name)
       const getpropsName = `Get${pascalName}Props`
 
@@ -59,15 +60,15 @@ const files = [
         const update = useUpdate${pascalName}(props?.updateOptions)
         const remove = useRemove${pascalName}(props?.removeOptions)
       
-        const ${name} = useData<${schemaName}, ${getpropsName}>({
-          id: '${name}',
+        const ${camelCase} = useData<${schemaName}, ${getpropsName}>({
+          id: '${camelCase}',
           get,
           create,
           update,
           remove
         })
       
-        return ${name}
+        return ${camelCase}
       }
       
       `

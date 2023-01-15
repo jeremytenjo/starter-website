@@ -479,15 +479,16 @@ export default function useGet${pascalName}(
       const componentName = `${pascalName}List`
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const listItemComponentName = `${componentName}Item`
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
       import List from '@useweb/ui/List'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '../../../${getSchemaImportName(name)}'
+      import ${listItemComponentName} from '../ui/${listItemComponentName}/${listItemComponentName}'
+
       
       export type ${componentName}DataProps = UseDataUiComponentProps<${nameSinglePascal}Schema>['data']
       
@@ -496,8 +497,8 @@ export default function useGet${pascalName}(
           <Wrapper>
             <List<${nameSinglePascal}Schema>
               data={props.data || []}
-              ListItemComponent={({ itemData = {} }) => {
-                return 'Item'
+              ListItemComponent={({ itemData }) => {
+                return <${listItemComponentName} {...(itemData || {})} />
               }}
             />
           </Wrapper>
@@ -627,9 +628,7 @@ export default use${componentName}
       import Box from '@useweb/ui/Box'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '../../../${getSchemaImportName(name)}'
       
       export type ${componentName}EmptyDataProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
@@ -668,9 +667,7 @@ export default use${componentName}
       import LinearProgress from '@mui/material/LinearProgress'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '../../../${getSchemaImportName(name)}'
       
       export type ${componentName}LoadingProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['loading']
@@ -713,9 +710,7 @@ export default use${componentName}
       import Text from '@useweb/ui/Text'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '../../../${getSchemaImportName(name)}'
       
       export type ${componentName}ErrorProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['error']

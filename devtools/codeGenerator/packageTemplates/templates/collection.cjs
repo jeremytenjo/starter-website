@@ -634,10 +634,10 @@ export default use${componentName}
 import React from 'react'
 import PixelPerfect from '@useweb/pixel-perfect'
 
-import ${stubsName} from '../../../../${stubsName}'
+import ${pascalName}Stubs from '../../../../../${stubsName}'
 import ${componentName}, { type ${componentName}Props } from '../../${componentName}/${componentName}'
 
-const defaultArgs: ${componentName}Props = ${stubsName}[0]
+const defaultArgs: ${componentName}Props = ${pascalName}Stubs[0]
 
 export default {
   title: '${storyPrefix}/${componentName}',

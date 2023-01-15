@@ -640,7 +640,7 @@ import ${componentName}, { type ${componentName}Props } from '../../${componentN
 const defaultArgs: ${componentName}Props = ${pascalName}Stubs[0]
 
 export default {
-  title: '${storyPrefix}/${componentName}/${componentName}',
+  title: '${storyPrefix}/${pascalName}List/ui/${componentName}',
   args: defaultArgs
 }
 

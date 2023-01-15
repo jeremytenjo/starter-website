@@ -28,4 +28,5 @@ module.exports = [
   '../../src/theme/tokens/stories/tokens.stories.tsx',
   '../../src/topCategories/stories/topCategories.stories.tsx',
   '../../src/topCategories/ui/TopCategoriesList/stories/topCategoriesList.stories.tsx',
+  '../../src/topCategories/ui/TopCategoriesList/ui/TopCategoriesListItem/stories/TopCategoriesListItem.stories.tsx',
 ]

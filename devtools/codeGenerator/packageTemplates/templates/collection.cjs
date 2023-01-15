@@ -41,7 +41,10 @@ const files = [
       return `
       // TODO add ${nameSinglePascal} Schema
 
-      type ${schemaName} = any
+      type ${schemaName} = {
+        id: string 
+        name: string
+      }
       
       export default ${schemaName}
       `
@@ -64,6 +67,10 @@ const files = [
           
       const ${pascalName}Stubs: ${schemaName}[] = [
         // TODO add ${pascalName} stubs
+        {
+          id: '1',
+          name: '${pascalName}'
+        }
       ]
       
       export default ${pascalName}Stubs
@@ -606,6 +613,73 @@ export const ${componentName}Provider = (
 const use${componentName} = () => useContext(${componentName}Context)
 
 export default use${componentName}
+`
+    },
+  },
+  // ui item stories
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const componentName = `${pascalName}.stories`
+
+      return `ui/${pascalName}List/ui/${pascalName}ListItem/stories/${componentName}.tsx`
+    },
+    template: ({ name, helpers, folderPath }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const componentName = `${pascalName}ListItemData`
+      const storyPrefix = getStoryPrefix({ folderPath })
+
+      return `//https://storybook.js.org/docs/react/writing-docs/docs-page
+import React from 'react'
+import PixelPerfect from '@useweb/pixel-perfect'
+
+import ${componentName}, { type ${componentName}Props } from '../${componentName}'
+
+import Docs from './${componentName}.docs'
+
+const defaultArgs: ${componentName}Props = {
+  name: '${componentName}',
+}
+
+export default {
+  title: '${storyPrefix}/${componentName}',
+  args: defaultArgs
+}
+
+const Template = (args: typeof defaultArgs) => {
+  return (
+    <>
+      <PixelPerfect
+        assets={[
+          {
+            width: 0,
+            url: '',
+          },
+          {
+            width: 1920,
+            url: '',
+          },
+        ]}
+      />
+      <${componentName} {...args} />
+    </>
+  )
+}
+
+export const Default = {
+  render: (args) => {
+    return <Template {...args} />
+  },
+}
+
+// const variantArgs: ${componentName}Props = {
+//  name: 'World',
+// }
+
+// export const Variant = {
+//  ...Default,
+//  args: variantArgs
+// }
 `
     },
   },

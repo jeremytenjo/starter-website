@@ -626,16 +626,14 @@ export default use${componentName}
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const componentName = `${pascalName}ListItemData`
+      const componentName = `${pascalName}ListItem`
       const storyPrefix = getStoryPrefix({ folderPath })
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 import PixelPerfect from '@useweb/pixel-perfect'
 
-import ${componentName}, { type ${componentName}Props } from '../${componentName}'
-
-import Docs from './${componentName}.docs'
+import ${componentName}, { type ${componentName}Props } from '../../${componentName}'
 
 const defaultArgs: ${componentName}Props = {
   name: '${componentName}',

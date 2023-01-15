@@ -26,4 +26,6 @@ module.exports = [
   '../../src/lib/layouts/Root/stories/RootLayout.stories.tsx',
   '../../src/lib/utils/breakbpoints/useMediaQuery/stories/useMediaQuery.stories.tsx',
   '../../src/theme/tokens/stories/tokens.stories.tsx',
+  '../../src/topCategories/stories/topCategories.stories.tsx',
+  '../../src/topCategories/ui/TopCategoriesList/stories/topCategoriesList.stories.tsx',
 ]

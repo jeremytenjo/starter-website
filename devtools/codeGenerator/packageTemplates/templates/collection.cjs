@@ -21,6 +21,11 @@ const getSchemaImportName = (name) => {
   return `${lowercaseFirstLetter(nameSingle)}.schema`
 }
 
+const getStubsName = (name) => {
+  const nameSinglePascal = changeCase.camelCase(name)
+  return `${nameSinglePascal}.stubs`
+}
+
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   // schema
@@ -46,7 +51,7 @@ const files = [
   // stubs
   {
     path: ({ name }) => {
-      return `${name}.stubs.ts`
+      return `${getStubsName(name)}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -553,6 +558,57 @@ const ${componentName}Ui = () => {
     },
   },
 
+  // ui item provider
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const componentName = `use${pascalName}ListItemData`
+
+      return `ui/${pascalName}List/ui/${componentName}/${componentName}.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const componentName = `${pascalName}ListItemData`
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const schemaName = `${nameSinglePascal}Schema`
+
+      return `import React, { createContext, useContext } from 'react'
+import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
+
+export type ${componentName}Props = ${schemaName}
+
+export type ${componentName}Return = ${componentName}Props
+
+export const ${componentName}Context =
+  createContext<${componentName}Return>(undefined as any)
+
+type ${componentName}ProviderProps = {
+  children: any
+  props: ${componentName}Props
+}
+
+export const ${componentName}Provider = (
+  props: ${componentName}ProviderProps,
+) => {
+  const data: ${componentName}Return = {
+    ...props.props,
+  }
+
+  return (
+    <${componentName}Context.Provider value={data}>
+      {props.children}
+    </${componentName}Context.Provider>
+  )
+}
+
+const use${componentName} = () => useContext(${componentName}Context)
+
+export default use${componentName}
+`
+    },
+  },
+
   // ui empty data
   {
     path: ({ name, helpers }) => {
@@ -705,12 +761,10 @@ const ${componentName}Ui = () => {
       const storyPrefix = getStoryPrefix({ folderPath })
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
-      import React, { useEffect } from 'react'
+      import React from 'react'
       import PixelPerfect from '@useweb/pixel-perfect'
       
-      import ${componentName}Stubs from '../../../../../${lowercaseFirstLetter(
-        splitCamelCase(name),
-      )}.stubs'
+      import ${componentName}Stubs from '../../../${getStubsName(name)}'
       import ${componentName}, { type ${componentName}Props } from '../${componentName}'
       import ${componentName}Data_ from '../${componentName}Data/${componentName}Data'
       import ${componentName}EmptyData_ from '../${componentName}EmptyData/${componentName}EmptyData'

@@ -1,3 +1,5 @@
+const changeCase = require('change-case')
+
 const docsTemplate = () => {
   return {
     path: ({ name }) => `stories/${name}.docs.tsx`,
@@ -69,7 +71,7 @@ const defaultArgs: ${propsName} = {
 }
 
 export default {
-  title: '${storyPrefix}/${name}',
+  title: '${storyPrefix}/${changeCase.capitalCase(name)}',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {

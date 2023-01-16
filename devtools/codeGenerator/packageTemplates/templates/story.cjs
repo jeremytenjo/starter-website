@@ -115,7 +115,7 @@ const Template = (args: typeof defaultArgs) => {
 }
 
 export const Default = {
-  render: (args) => {
+  render: (args: ${propsName}) => {
     return <Template {...args} />
   },
 }

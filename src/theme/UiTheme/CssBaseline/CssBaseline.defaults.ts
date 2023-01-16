@@ -23,6 +23,7 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
     background-color: ${colors.backgroundColor};
     overflow-x: hidden;
     scrollbar-width: thin;
+    color: ${colors.black.main};
   }
 
   body::-webkit-scrollbar {

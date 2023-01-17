@@ -48,6 +48,8 @@ const getStoryTemplate = ({
   const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
   const returnName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Return`
   const storyPrefix = getStoryPrefix({ folderPath })
+  const pascalCase = helpers.changeCase.pascalCase(name)
+  const componentFunctionName = isFunction ? name : pascalCase
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
@@ -59,7 +61,7 @@ ${
 
 ${
   importOverride ||
-  `import ${name}, { type ${propsName} ${
+  `import ${componentFunctionName}, { type ${propsName} ${
     isFunction ? `, type ${returnName}` : ''
   } } from '../${name}'`
 }
@@ -108,7 +110,7 @@ const Template = (args: typeof defaultArgs) => {
               },
             ]}
           /> 
-          <${name} {...args} />`
+          <${componentFunctionName} {...args} />`
       }
     </>
   )

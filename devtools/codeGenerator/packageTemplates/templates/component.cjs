@@ -12,14 +12,14 @@ const files = [
     export default function ${namePascalCase}(props: ${propsName}) {
       return (
         <Wrapper>
-          ${name}
+          ${namePascalCase}
           ${slots?.localComponents?.localComponentsDeclarations || ''}
         </Wrapper>
       );
     }
 
     const Wrapper = ({ children }) => {
-      return <Box data-id='${name}' sx={{}}>{children}</Box>
+      return <Box data-id='${namePascalCase}' sx={{}}>{children}</Box>
     }
 
     ${slots?.localComponents?.localComponents || ''}

@@ -309,7 +309,6 @@ const files = [
 const template = {
   type: 'Data Component UI',
   files,
-  outputWithoutParentDir: true,
   options: {
     createNamedFolder: false,
   },

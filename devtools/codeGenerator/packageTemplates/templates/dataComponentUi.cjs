@@ -298,6 +298,7 @@ const files = [
 const template = {
   type: 'Data Component UI',
   files,
+  outputWithoutParentDir: true,
 }
 
 module.exports = {

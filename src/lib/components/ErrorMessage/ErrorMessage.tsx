@@ -11,7 +11,7 @@ export default function ErrorMessage(props: ErrorMessageProps) {
   return (
     <Wrapper>
       <Text
-        text={error}
+        text={error.replace(/"/g, '')}
         sx={{
           color: 'error.main',
         }}

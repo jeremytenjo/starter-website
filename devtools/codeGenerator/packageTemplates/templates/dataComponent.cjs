@@ -1,4 +1,4 @@
-const { getStoryPrefix, functionStoryFiles } = require('./story.cjs')
+const { functionStoryFiles } = require('./story.cjs')
 const dataComponentUi = require('./dataComponentUi.cjs')
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties

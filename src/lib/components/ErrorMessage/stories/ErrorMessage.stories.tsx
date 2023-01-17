@@ -7,7 +7,7 @@ import ErrorMessage, { type ErrorMessageProps } from '../ErrorMessage'
 import Docs from './ErrorMessage.docs'
 
 const defaultArgs: ErrorMessageProps = {
-  name: 'ErrorMessage',
+  error: 'ErrorMessage',
 }
 
 export default {

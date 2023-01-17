@@ -27,6 +27,7 @@ const script = require('./templates/script.cjs')
 const apiFunction = require('./templates/apiFunction.cjs')
 const tsSchema = require('./templates/tsSchema.cjs')
 const collection = require('./templates/collection.cjs')
+const dataComponentUi = require('./templates/dataComponentUi.cjs')
 
 module.exports = [
   container.template,
@@ -47,6 +48,7 @@ module.exports = [
   dataQuery.template,
   componentWithProvider.template,
   dataComponent.template,
+  dataComponentUi.template,
   dataVariant.template,
   dataPrismic.template,
   globalState.template,

@@ -1,6 +1,13 @@
+const functionWithComponentName = 'Function with Component'
+
 const files = [
   {
-    path: ({ name }) => `${name}.tsx`,
+    path: ({ name, helpers, type }) => {
+      const namePascalCase = helpers.changeCase.pascalCase(name)
+      const prefix = type === functionWithComponentName ? 'ui/' : ''
+
+      return `${prefix}${namePascalCase}.tsx`
+    },
     template: ({ name, helpers, slots = {} }) => {
       const namePascalCase = helpers.changeCase.pascalCase(name)
       const propsName = `${namePascalCase}Props`

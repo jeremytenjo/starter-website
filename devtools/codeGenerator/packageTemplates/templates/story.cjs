@@ -1,8 +1,13 @@
 const changeCase = require('change-case')
 
+const functionWithComponentName = 'Function with Component'
+
 const docsTemplate = () => {
   return {
-    path: ({ name }) => `stories/${name}.docs.tsx`,
+    path: ({ name, type }) => {
+      const prefix = type === functionWithComponentName ? 'ui/' : ''
+      return `${prefix}stories/${name}.docs.tsx`
+    },
     template: ({ name, helpers }) => {
       return `import React from 'react'
       import {
@@ -66,8 +71,6 @@ ${
   } } from '../${name}'`
 }
 
-import Docs from './${name}.docs'
-
 const defaultArgs: ${propsName} = {
  ${!storiesDefaultArgs ? `name: '${name}',` : storiesDefaultArgs}
 }
@@ -75,12 +78,6 @@ const defaultArgs: ${propsName} = {
 export default {
   title: '${storyPrefix}/${changeCase.capitalCase(name)}',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: typeof defaultArgs) => {
@@ -135,14 +132,18 @@ export const Default = {
 
 const componentStory = ({ type }) => {
   return {
-    path: ({ name }) => `stories/${name}.stories.tsx`,
+    path: ({ name, type }) => {
+      const prefix = type === functionWithComponentName ? 'ui/' : ''
+
+      return `${prefix}stories/${name}.stories.tsx`
+    },
     template: ({ name, helpers, folderPath }) =>
       getStoryTemplate({ name, type, helpers, folderPath }),
   }
 }
 
-const componentStoryFiles = [docsTemplate(), componentStory({ type: 'component' })]
-const functionStoryFiles = [docsTemplate(), componentStory({ type: 'function' })]
+const componentStoryFiles = [componentStory({ type: 'component' })]
+const functionStoryFiles = [componentStory({ type: 'function' })]
 
 module.exports = {
   componentStoryFiles,

@@ -36,6 +36,7 @@ module.exports = {
     propWrapperFunctions: ['forbidExtraProps'],
   },
   rules: {
+    '@typescript-eslint/consistent-type-imports': 2,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-var-requires': 0,

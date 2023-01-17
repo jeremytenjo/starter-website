@@ -81,10 +81,13 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
           <List<UserSchema>
             data={userStubs || []}
             ListItemComponent={({ itemData = {} }) => {
+              const isSignedIn = auth?.user?.uid === itemData.uid
+
               return (
                 <MenuItem
                   {...menuttempoprs}
                   onClick={() => {
+                    if (isSignedIn) return
                     auth.signIn.exec({
                       email: itemData.email as string,
                       password: 'password',
@@ -102,7 +105,27 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
                   }}
                 >
                   <Avatar src={itemData.photoURL} />
-                  <Text text={itemData.displayName} />
+
+                  <Text
+                    text={itemData.displayName}
+                    sx={{
+                      color: isSignedIn ? 'primary.dark' : 'black.main',
+                    }}
+                  />
+
+                  {isSignedIn && (
+                    <Button
+                      onClick={auth.signOut}
+                      name='sign in'
+                      variant='text'
+                      sx={{
+                        color: 'primary.dark',
+                        transform: 'translateX(30px)',
+                      }}
+                    >
+                      Sign out
+                    </Button>
+                  )}
                 </MenuItem>
               )
             }}
@@ -129,20 +152,6 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
               />
             </>
           )}
-
-          <Button
-            onClick={auth.signOut}
-            name='sign out button'
-            variant='text'
-            sx={{
-              color: 'black.main',
-              mt: '30px',
-              width: 'fit-content',
-              fontWeight: '600',
-            }}
-          >
-            Sign out
-          </Button>
         </Box>
       </Dialog>
     </>

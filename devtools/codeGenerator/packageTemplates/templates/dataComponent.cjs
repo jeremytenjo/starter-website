@@ -136,6 +136,7 @@ const files = [
     },
   },
 
+  // ui
   ...dataComponentUi.files,
 ]
 

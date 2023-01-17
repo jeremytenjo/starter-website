@@ -1,12 +1,15 @@
 const { getStoryPrefix } = require('./story.cjs')
 
+const dataComponentName = 'Data Component'
+
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
-  // ui stories
+  // stories
   {
-    path: ({ name, helpers }) => {
+    path: ({ name, helpers, type }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `ui/${pascalName}/stories/${name}.stories.tsx`
+      const prefix = type === dataComponentName ? 'ui/' : '/'
+      return `${prefix}${pascalName}/stories/${name}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -132,12 +135,14 @@ const files = [
     },
   },
 
-  // ui
+  // main
 
   {
-    path: ({ name, helpers }) => {
+    path: ({ name, helpers, type }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `ui/${pascalName}/${pascalName}.tsx`
+      const prefix = type === dataComponentName ? 'ui/' : '/'
+
+      return `${prefix}${pascalName}/${pascalName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -181,9 +186,11 @@ const files = [
 
   // result
   {
-    path: ({ name, helpers }) => {
+    path: ({ name, helpers, type }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `ui/${pascalName}/${pascalName}Result/${pascalName}Result.tsx`
+      const prefix = type === dataComponentName ? 'ui/' : '/'
+
+      return `${prefix}${pascalName}/${pascalName}Result/${pascalName}Result.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -212,9 +219,11 @@ const files = [
 
   // loading
   {
-    path: ({ name, helpers }) => {
+    path: ({ name, helpers, type }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `ui/${pascalName}/${pascalName}Loading/${pascalName}Loading.tsx`
+      const prefix = type === dataComponentName ? 'ui/' : '/'
+
+      return `${prefix}${pascalName}/${pascalName}Loading/${pascalName}Loading.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -250,9 +259,11 @@ const files = [
 
   // error
   {
-    path: ({ name, helpers }) => {
+    path: ({ name, helpers, type }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      return `ui/${pascalName}/${pascalName}Error/${pascalName}Error.tsx`
+      const prefix = type === dataComponentName ? 'ui/' : '/'
+
+      return `${prefix}${pascalName}/${pascalName}Error/${pascalName}Error.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)

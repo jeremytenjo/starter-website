@@ -1,7 +1,6 @@
 import React from 'react'
-import GoogleAdUnitUseweb, {
-  GoogleAdUnitProps as GoogleAdUnitPropsUseweb,
-} from '@useweb/ui/GoogleAdUnit'
+import type { GoogleAdUnitProps as GoogleAdUnitPropsUseweb } from '@useweb/ui/GoogleAdUnit'
+import GoogleAdUnitUseweb from '@useweb/ui/GoogleAdUnit'
 
 import googleAdsConfig from '../../../../../services/google/googleAds/googleAds.config'
 import isProductionSite from '../../../../utils/env/isProductionSite/isProductionSite'

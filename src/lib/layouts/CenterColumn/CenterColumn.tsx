@@ -1,5 +1,6 @@
 import React from 'react'
-import Box, { BoxProps } from '@useweb/ui/Box'
+import type { BoxProps } from '@useweb/ui/Box'
+import Box from '@useweb/ui/Box'
 
 export type CenterColumnProps = {
   children: any

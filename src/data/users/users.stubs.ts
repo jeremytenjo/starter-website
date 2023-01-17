@@ -1,4 +1,4 @@
-import UserSchema from './user.schema.js'
+import type UserSchema from './user.schema.js'
 
 const userStubs: UserSchema[] = [
   {

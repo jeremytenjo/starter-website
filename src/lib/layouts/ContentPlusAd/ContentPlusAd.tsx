@@ -1,5 +1,6 @@
 import React from 'react'
-import Box, { BoxProps } from '@useweb/ui/Box'
+import type { BoxProps } from '@useweb/ui/Box'
+import Box from '@useweb/ui/Box'
 
 import CenterColumn from '../CenterColumn/CenterColumn'
 import GoogleAdUnit_SideBar from '../../integrations/Google/GoogleAds/Units/GoogleAdUnit_SideBar/GoogleAdUnit_SideBar'

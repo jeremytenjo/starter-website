@@ -51,10 +51,6 @@ export default function useAuth(
     onSignInError: ({ error }) => {
       if (error.code !== 'auth/popup-closed-by-user') {
         props.onSignInError && props.onSignInError(error)
-        snackbar.show({
-          severity: 'error',
-          message: 'Error signing in, please try again.',
-        })
       }
     },
     onSignOut: () => {

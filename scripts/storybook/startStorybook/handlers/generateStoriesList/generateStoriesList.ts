@@ -2,7 +2,7 @@ import path from 'path'
 
 import glob from '../../../../../devtools/utils/node/glob.js'
 import createFile from '../../../../../devtools/utils/node/createFile.js'
-import { PayloadTypes } from '../../startStorybook'
+import type { PayloadTypes } from '../../startStorybook'
 
 export default async function generateStoriesList(payload: PayloadTypes) {
   const storiesWithFullPaths = await glob({

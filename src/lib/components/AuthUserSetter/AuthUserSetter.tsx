@@ -73,11 +73,23 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
             text={`Sign in as`}
             sx={{
               fontSize: '19px',
-              mb: 3,
               fontWeight: 600,
+              mb: auth.user?.displayName ? 0 : 3,
               textAlign: 'center',
             }}
           />
+
+          {auth.user?.displayName && (
+            <Text
+              text={auth.user.displayName}
+              sx={{
+                fontSize: '14px',
+                mb: 3,
+                textAlign: 'center',
+              }}
+            />
+          )}
+
           <List<UserSchema>
             data={userStubs || []}
             ListItemComponent={({ itemData = {} }) => {
@@ -116,7 +128,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
                   {isSignedIn && (
                     <Button
                       onClick={auth.signOut}
-                      name='sign in'
+                      name='sign out'
                       variant='text'
                       sx={{
                         color: 'primary.dark',
@@ -130,6 +142,19 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
               )
             }}
           />
+
+          {auth.user?.displayName && (
+            <Button
+              onClick={auth.signOut}
+              name='sign out'
+              variant='text'
+              sx={{
+                color: 'black.main',
+              }}
+            >
+              Sign out
+            </Button>
+          )}
 
           {auth.signIn.loading && (
             <>

@@ -59,7 +59,6 @@ export default function useAuth(
     },
     onSignOut: () => {
       props.onSignOut && props.onSignOut()
-      props.onSignOut && props.onSignOut()
     },
   })
 

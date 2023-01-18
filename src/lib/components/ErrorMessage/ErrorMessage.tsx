@@ -15,6 +15,7 @@ export default function ErrorMessage(props: ErrorMessageProps) {
         text={error.replace(/"/g, '')}
         sx={{
           color: 'error.main',
+          textAlign: 'center',
         }}
       />
     </Wrapper>

@@ -16,6 +16,7 @@ export default function ErrorMessage(props: ErrorMessageProps) {
         sx={{
           color: 'error.main',
           textAlign: 'center',
+          fontSize: '14px',
         }}
       />
     </Wrapper>

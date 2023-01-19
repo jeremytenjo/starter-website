@@ -33,7 +33,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
       const email = userStubs.filter((u) => u.uid === props.signInAs)[0].email
       const password = 'password'
 
-      auth.signIn.exec({
+      auth.signIn({
         email,
         password,
       })
@@ -100,7 +100,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
                   {...menuttempoprs}
                   onClick={() => {
                     if (isSignedIn) return
-                    auth.signIn.exec({
+                    auth.signIn({
                       email: itemData.email as string,
                       password: 'password',
                     })
@@ -156,7 +156,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
             </Button>
           )}
 
-          {auth.signIn.loading && (
+          {auth.isSigningIn && (
             <>
               <LinearProgress
                 sx={{
@@ -166,10 +166,10 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
             </>
           )}
 
-          {auth.signIn.error && (
+          {auth.signingInError && (
             <>
               <Text
-                text={auth.signIn.error.toString()}
+                text={auth.signingInError.toString()}
                 sx={{
                   color: 'red',
                   mt: 2,

@@ -7,5 +7,17 @@ module.exports = function webpackFinal({ defaultWebpackConfig }) {
   // updatedConfig.node = {}
   // updatedConfig.node.fs = 'empty'
 
+  // fix next router NextRouter was not mounted error
+  updatedConfig.resolve.alias = {
+    ...updatedConfig.resolve.alias,
+    'next/router': 'next-router-mock',
+  }
+  updatedConfig.resolve.fallback = {
+    url: false,
+    querystring: false,
+    path: false,
+    assert: false,
+  }
+
   return updatedConfig
 }

@@ -2,7 +2,7 @@
 // https://vitest.dev/api/
 const files = [
   {
-    path: ({ name }) => `${name}.test.ts`,
+    path: ({ name }) => `${name}.vitest.ts`,
     template: () => {
       return `// https://vitest.dev/api/
       import { expect, test } from 'vitest'

@@ -11,30 +11,23 @@ const files = [
 
       return `import create from 'zustand'
 
-      type ${upperName}Props = {
-  ${camelCase}: any
-  set${upperName}: (props: any) => any
+type ${upperName}Props = {
+  saving: any
+  setsaving: (props: any) => any
 }
 
-    export const ${camelCase}Store = create<${upperName}Props>((set) => ({
-      ${camelCase}: true,
-      set${upperName}: (newValue) => set(() => {
-        return { ${camelCase}: newValue }
-    }),
-    }))
+export const ${camelCase}Store = create<${upperName}Props>((set) => ({
+  saving: undefined,
+  setsaving: (value) =>
+    set(() => {
+      return { saving: value }
+    })
+}))
 
-    export default function use${upperName}Store() {
-      const store = ${camelCase}Store()
+const use${upperName}Store = ${camelCase}Store
 
-      const update${upperName} = (newValue) => {
-        store.set${upperName}(newValue)
-      }
-
-      return {
-        ${camelCase}: store.${camelCase},
-        update${upperName}
-      }
-    }`
+export default use${upperName}Store
+`
     },
   },
 ]

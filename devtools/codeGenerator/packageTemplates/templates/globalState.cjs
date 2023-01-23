@@ -1,6 +1,10 @@
 const files = [
   {
-    path: ({ name }) => `${name}.ts`,
+    path: ({ name, helpers }) => {
+      const upperName = helpers.changeCase.pascalCase(name)
+
+      return `use${upperName}Store.ts`
+    },
     template: ({ name, helpers }) => {
       const camelCase = helpers.changeCase.camelCase(name)
       const upperName = helpers.changeCase.pascalCase(name)
@@ -8,24 +12,26 @@ const files = [
       return `import create from 'zustand'
 
       type ${upperName}Props = {
-  ${name}: any
+  ${camelCase}: any
   set${upperName}: (props: any) => any
 }
 
-    export const ${upperName}Store = create<${upperName}Props>((set) => ({
+    export const ${camelCase}Store = create<${upperName}Props>((set) => ({
       ${camelCase}: true,
-      set${upperName}: (newValue) => set(() => ({ ${camelCase}: newValue })),
+      set${upperName}: (newValue) => set(() => {
+        return { ${camelCase}: newValue }
+    }),
     }))
 
-    export default function use${upperName}() {
-      const use${upperName}Store = ${upperName}Store()
+    export default function use${upperName}Store() {
+      const store = ${camelCase}Store()
 
       const update${upperName} = (newValue) => {
-        use${upperName}Store.set${upperName}(newValue)
+        store.set${upperName}(newValue)
       }
 
       return {
-        ${camelCase}: use${upperName}Store.${camelCase},
+        ${camelCase}: store.${camelCase},
         update${upperName}
       }
     }`

@@ -28,7 +28,7 @@ export default async function ${name}({ page }: ${propsName}) {
     template: ({ name }) => {
       return `import { test } from '@playwright/test'
 
-      import ${name} from './${name}.test'
+      import ${name} from './${name}.test.js'
       
       test('${name}', async ({ page }) => {
         await ${name}({ page })

@@ -17,6 +17,7 @@ const globalState = require('./templates/globalState.cjs')
 const muiOverride = require('./templates/muiOverride.cjs')
 const muiOverrideWithStory = require('./templates/muiOverrideWithStory.cjs')
 const playwrightTest = require('./templates/playwrightTest.cjs')
+const playwrightTestFile = require('./templates/playwrightTestFile.cjs')
 const data = require('./templates/data.cjs')
 const dataQuery = require('./templates/dataQuery.cjs')
 const dataComponent = require('./templates/dataComponent.cjs')
@@ -59,6 +60,7 @@ module.exports = [
   tsSchema.template,
 
   playwrightTest.template,
+  playwrightTestFile.template,
   vitestTest.template,
 
   page.template,

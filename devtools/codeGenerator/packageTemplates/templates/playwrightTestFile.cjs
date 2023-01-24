@@ -28,6 +28,9 @@ export default async function ${name}({ page }: ${propsName}) {
 const template = {
   type: 'Playwright Test File',
   files,
+  options: {
+    createNamedFolder: false,
+  },
 }
 
 module.exports = {

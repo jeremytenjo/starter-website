@@ -2,7 +2,7 @@ import path from 'path'
 
 import type { PlaywrightTestConfig } from '@playwright/test'
 import { devices } from '@playwright/test'
-import appConfig from '../../../app.config'
+import appConfig from '../../../app.config.js'
 
 /**
  * Read environment variables from file.

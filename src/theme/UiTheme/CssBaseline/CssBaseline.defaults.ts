@@ -84,6 +84,10 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
     border: none;
   }
 
+  textarea {
+    font-family: ${interFont.style.fontFamily};
+  }
+
   textarea:focus, input:focus{
     outline: none;
   }

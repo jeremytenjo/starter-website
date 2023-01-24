@@ -44,7 +44,7 @@ const config: PlaywrightTestConfig = {
     video: 'retain-on-failure',
   },
   webServer: {
-    command: 'npm run dev:for-testing',
+    command: 'npm run dev',
     port: appConfig.nextjs.port,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,

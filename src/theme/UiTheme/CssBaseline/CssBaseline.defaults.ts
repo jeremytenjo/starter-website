@@ -92,6 +92,23 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
     outline: none;
   }
 
+    .text-placeholder {
+    color: #777777;
+  }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #777777;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #777777;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #777777;
+}
+
   // Helpers
   .absoluteCenter {
     position: absolute;

@@ -9,8 +9,13 @@ export default function ErrorMessage(props: ErrorMessageProps) {
   const error =
     props.error instanceof Error ? String(props.error) : JSON.stringify(props.error)
 
-  return (
-    <Wrapper>
+  return error ? (
+    <Box
+      data-id='ErrorMessage'
+      sx={{
+        ...(props.sx || {}),
+      }}
+    >
       <Text
         text={error.replace(/"/g, '')}
         sx={{
@@ -19,14 +24,6 @@ export default function ErrorMessage(props: ErrorMessageProps) {
           fontSize: '14px',
         }}
       />
-    </Wrapper>
-  )
-}
-
-const Wrapper = ({ children }) => {
-  return (
-    <Box data-id='ErrorMessage' sx={{}}>
-      {children}
     </Box>
-  )
+  ) : null
 }

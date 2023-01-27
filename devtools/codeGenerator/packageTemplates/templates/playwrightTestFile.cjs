@@ -12,7 +12,7 @@ type ${propsName} = {
   page: Page
 }
 
-export default async function ${name}({ page }: ${propsName}) {
+export default async function ${name}Test({ page }: ${propsName}) {
   await page.goto('/')
 
   const header = await page.innerText('h1')

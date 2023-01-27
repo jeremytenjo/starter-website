@@ -34,8 +34,10 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
       const password = 'password'
 
       auth.signIn({
-        email,
-        password,
+        emailSignIn: {
+          email,
+          password,
+        },
       })
     }
   }, [props.signInAs])
@@ -101,8 +103,10 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
                   onClick={() => {
                     if (isSignedIn) return
                     auth.signIn({
-                      email: itemData.email as string,
-                      password: 'password',
+                      emailSignIn: {
+                        email: itemData.email as string,
+                        password: 'password',
+                      },
                     })
                   }}
                   sx={{

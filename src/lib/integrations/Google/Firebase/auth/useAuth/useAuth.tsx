@@ -1,4 +1,4 @@
-import type { User } from 'firebase/auth'
+import type { UserCredential } from 'firebase/auth'
 import { signInWithPopup } from 'firebase/auth'
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider } from 'firebase/auth'
 import useFirebaseAuth, {
@@ -29,7 +29,7 @@ type UseAuthProps<UserSchema> = {
 const signInFetcher = async (props: SignInFetcherProps) => {
   // auth
   const auth = getAuth()
-  let firebaseUser: User | undefined | any = undefined
+  let firebaseUser: UserCredential | undefined
 
   if (props.emailSignIn) {
     const email = props.emailSignIn.email

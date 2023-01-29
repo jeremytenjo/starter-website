@@ -50,11 +50,13 @@ const getStoryTemplate = ({
   storiesDefaultArgs,
 }) => {
   const isFunction = type === 'function'
+  const isFunctionWithComponent = type === 'Function with Component'
   const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
   const returnName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Return`
   const storyPrefix = getStoryPrefix({ folderPath })
   const pascalCase = helpers.changeCase.pascalCase(name)
   const componentFunctionName = isFunction ? name : pascalCase
+  const importName = isFunctionWithComponent ? pascalCase : name
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
@@ -68,7 +70,7 @@ ${
   importOverride ||
   `import ${componentFunctionName}, { type ${propsName} ${
     isFunction ? `, type ${returnName}` : ''
-  } } from '../${name}'`
+  } } from '../${importName}'`
 }
 
 const defaultArgs: ${propsName} = {

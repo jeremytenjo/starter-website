@@ -5,7 +5,8 @@ const files = [
       return `${helpers.changeCase.camelCase(name)}.ts`
     },
     template: ({ name, helpers }) => {
-      const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
+      const camelCase = helpers.changeCase.camelCase(name)
+      const propsName = `${helpers.changeCase.pascalCase(name).split(' ').join('')}Props`
       const returnName = `${helpers.changeCase
         .capitalCase(name)
         .split(' ')
@@ -13,13 +14,13 @@ const files = [
 
       return `export type ${propsName} = {name: string}
     
-    export default async function ${name}(props: ${propsName}) {
+    export default async function ${camelCase}(props: ${propsName}) {
       const data = 'hi'
       
       return { data }
     }
     
-    export type ${returnName} = ReturnType<typeof ${name}>
+    export type ${returnName} = ReturnType<typeof ${camelCase}>
     `
     },
   },

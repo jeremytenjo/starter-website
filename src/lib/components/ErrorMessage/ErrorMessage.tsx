@@ -9,7 +9,7 @@ export default function ErrorMessage(props: ErrorMessageProps) {
   const error =
     props.error instanceof Error ? String(props.error) : JSON.stringify(props.error)
 
-  return error ? (
+  return error && error !== 'null' ? (
     <Box
       data-id='ErrorMessage'
       sx={{

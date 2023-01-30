@@ -2,16 +2,16 @@
 import React from 'react'
 import PixelPerfect from '@useweb/pixel-perfect'
 
-import AuthUserSetter, { type AuthUserSetterProps } from '../AuthUserSetter'
+import ErrorMessage, { type ErrorMessageProps } from '../ErrorMessage'
 
-import Docs from './AuthUserSetter.docs'
+import Docs from './ErrorMessage.docs'
 
-const defaultArgs: AuthUserSetterProps = {
-  open: true,
+const defaultArgs: ErrorMessageProps = {
+  error: 'ErrorMessage',
 }
 
 export default {
-  title: 'lib/components/AuthUserSetter',
+  title: 'lib/components/basic/Error Message',
   args: defaultArgs,
   // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
   parameters: {
@@ -36,18 +36,18 @@ const Template = (args: typeof defaultArgs) => {
           },
         ]}
       />
-      <AuthUserSetter {...args} />
+      <ErrorMessage {...args} />
     </>
   )
 }
 
 export const Default = {
-  render: (args) => {
+  render: (args: ErrorMessageProps) => {
     return <Template {...args} />
   },
 }
 
-// const variantArgs: AuthUserSetterProps = {
+// const variantArgs: ErrorMessageProps = {
 //  name: 'World',
 // }
 

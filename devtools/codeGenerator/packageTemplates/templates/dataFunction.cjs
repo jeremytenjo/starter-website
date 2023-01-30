@@ -4,20 +4,21 @@ const files = [
     path: ({ name }) => `${name}.ts`,
     template: ({ name, helpers }) => {
       const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
+      const camelCase = helpers.changeCase.camelCase(name)
 
       return `import task from '../utils/node/task/task'
 
 export type ${propsName} = {name: string}
 
-      export default async function ${name}(props: ${propsName}) {
+      export default async function ${camelCase}(props: ${propsName}) {
         return await task({
-          title: '${name}',
-          fn: async () => await ${name}Fn(props),
+          title: '${camelCase}',
+          fn: async () => await ${camelCase}Fn(props),
         })
       }
       
     
-     async function ${name}Fn(props: ${propsName}) {
+     async function ${camelCase}Fn(props: ${propsName}) {
       console.log(props)
       const data = 'hi'
       

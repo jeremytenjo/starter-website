@@ -10,6 +10,7 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
 
       return `import task from '@useweb/task'
 
@@ -17,7 +18,7 @@ const files = [
 
       export type ${pascalName}Props = any
       
-      export default async function ${name}(props: ${pascalName}Props): ${pascalName}Return {
+      export default async function ${camelCase}(props: ${pascalName}Props): ${pascalName}Return {
         const task1Data = await task({
           title: 'task1',
           fn: async () => {
@@ -42,21 +43,22 @@ const files = [
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const resultSchema = `${pascalName}ResultSchema`
+      const camelCase = helpers.changeCase.camelCase(name)
 
       return `import useAsync from '@useweb/use-async'
 
-      import ${name}, { type ${pascalName}Props, type ${pascalName}Return } from '../${name}'
+      import ${camelCase}, { type ${pascalName}Props, type ${pascalName}Return } from '../${camelCase}'
 
       export type ExecProps = ${pascalName}Props
       
       export type ${resultSchema} = ${pascalName}Return
 
       export default function use${pascalName}() {
-        const ${name}Fn = useAsync<ExecProps, ${resultSchema}>({
-          fn: ${name}
+        const ${camelCase}Fn = useAsync<ExecProps, ${resultSchema}>({
+          fn: ${camelCase}
         })
       
-        return ${name}Fn
+        return ${camelCase}Fn
       }    
       
       `

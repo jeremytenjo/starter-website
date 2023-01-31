@@ -29,8 +29,9 @@ const files = [
 
   // stubs
   {
-    path: ({ name }) => {
-      return `${name}.stubs.ts`
+    path: ({ name, helpers }) => {
+      const camelCase = helpers.changeCase.camelCase(name)
+      return `${camelCase}.stubs.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -47,6 +48,19 @@ const files = [
       
       export default ${pascalName}Stubs
 `
+    },
+  },
+
+  // config
+  {
+    path: ({ name, helpers }) => {
+      const camelCase = helpers.changeCase.camelCase(name)
+      return `${camelCase}.config.ts`
+    },
+    template: ({ name, helpers }) => {
+      const camelCase = helpers.changeCase.camelCase(name)
+
+      return `export const ${camelCase}CollectionName = ${camelCase}`
     },
   },
 

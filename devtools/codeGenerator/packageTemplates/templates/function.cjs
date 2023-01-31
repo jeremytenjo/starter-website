@@ -12,9 +12,13 @@ const files = [
         .split(' ')
         .join('')}Return`
 
-      return `export type ${propsName} = {name: string}
+      return `import assert from '@useweb/assert'
+      
+export type ${propsName} = {name: string}
     
     export default async function ${camelCase}(props: ${propsName}) {
+      assert({ props })
+
       const data = 'hi'
       
       return { data }

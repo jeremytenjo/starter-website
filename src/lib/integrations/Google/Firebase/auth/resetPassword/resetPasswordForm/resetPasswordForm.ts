@@ -4,10 +4,7 @@ import assert from '../../../../../../utils/misc/assert/assert'
 export type ResetPasswordFormProps = { email: string }
 
 export default async function resetPasswordForm(props: ResetPasswordFormProps) {
-  assert({
-    condition: !!props.email,
-    name: 'email',
-  })
+  assert({ props })
 
   const auth = getAuth()
   await sendPasswordResetEmail(auth, props.email)

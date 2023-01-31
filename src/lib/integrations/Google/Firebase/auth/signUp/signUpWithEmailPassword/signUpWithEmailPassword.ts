@@ -18,10 +18,7 @@ export type SignUpWithEmailPasswordProps = {
 export default async function signUpWithEmailPassword(
   props: SignUpWithEmailPasswordProps,
 ) {
-  assert({
-    condition: Boolean(props.email && props.password),
-    name: 'email or password',
-  })
+  assert({ props })
 
   // create auth user
   const auth = getAuth()

@@ -10,10 +10,8 @@ export type SavePrivateUserDataProps = {
 }
 
 export default async function savePrivateUserData(props: SavePrivateUserDataProps) {
-  assert({
-    condition: props.privateUserData && props.uid,
-    name: 'privateUserData, id',
-  })
+  assert({ props })
+
   await setDoc(doc(db, 'usersPrivateData', props.uid), props.privateUserData, {
     merge: true,
   })

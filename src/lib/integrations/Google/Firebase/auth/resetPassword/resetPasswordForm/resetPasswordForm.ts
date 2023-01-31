@@ -1,5 +1,5 @@
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
-import assert from '../../../../../../utils/misc/assert/assert'
+import assert from '@useweb/assert'
 
 export type ResetPasswordFormProps = { email: string }
 

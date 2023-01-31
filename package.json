@@ -55,6 +55,7 @@
     "@prismicio/next": "1.0.2",
     "@prismicio/react": "2.4.4",
     "@prismicio/slice-simulator-react": "0.2.2",
+    "@useweb/assert": "1.0.0",
     "@useweb/async-tester": "2.32.0",
     "@useweb/click-to-component": "2.6.0",
     "@useweb/fetch-tester": "1.30.0",

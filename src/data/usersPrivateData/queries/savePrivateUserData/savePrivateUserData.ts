@@ -1,7 +1,7 @@
 import { setDoc, doc } from 'firebase/firestore'
 import { db } from '../../../../lib/integrations/Google/Firebase/firebase'
+import assert from '@useweb/assert'
 
-import assert from '../../../../lib/utils/misc/assert/assert'
 import type UsersPrivateDatumSchema from '../../usersPrivateDatum.schema'
 
 export type SavePrivateUserDataProps = {

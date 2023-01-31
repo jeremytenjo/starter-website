@@ -7,8 +7,7 @@ import {
   query,
   where,
 } from 'firebase/firestore'
-
-import assert from '../../../../../../utils/misc/assert/assert'
+import assert from '@useweb/assert'
 
 export type SignUpWithEmailPasswordProps = {
   email: string

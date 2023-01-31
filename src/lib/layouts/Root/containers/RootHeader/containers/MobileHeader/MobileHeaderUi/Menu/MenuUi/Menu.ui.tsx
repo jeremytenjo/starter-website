@@ -65,7 +65,13 @@ const Trigger = ({ onClick }) => {
 
 const Modal = ({ open, activeLink, links, closeDialog, onLinkClick, logoSrc }) => {
   return (
-    <Dialog fullScreen open={open} onClose={closeDialog}>
+    <Dialog
+      open={open}
+      onClose={closeDialog}
+      muiDialogProps={{
+        fullScreen: true,
+      }}
+    >
       <Box
         sx={{
           p: 3,

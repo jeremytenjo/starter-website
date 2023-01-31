@@ -141,6 +141,19 @@ export default function useAuth(
 ) {
   const auth = useFirebaseAuth<UserSchema, SignInFetcherProps, SignUpFetcherProps>({
     auth: getAuth(),
+    defaultUserCreator: async ({ authUser }) => {
+      const email: string = authUser.email as any
+      const username = email.split('@')[0]
+      const newFirestoreDefaultUserData: UserSchema = {
+        uid: authUser.uid,
+        displayName: username,
+        email,
+        photoURL: authUser.photoURL || '',
+        emailVerified: false,
+      }
+
+      return newFirestoreDefaultUserData
+    },
     // sign in
     signInFetcher,
     onSignIn: ({ result }) => {

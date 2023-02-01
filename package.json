@@ -42,7 +42,8 @@
     "helpers:figma-to-code:fromFigmaUrl": "node --experimental-json-modules --loader ts-node/esm node_modules/.bin/figma-to-code --enquireFigmaUrl -c ./devtools/figmaToCode/figma-to-code.config.ts && npm run tests:ts-types",
     "helpers:figma-to-code:getFigmaNodeScreenshot": "node --experimental-json-modules --loader ts-node/esm node_modules/.bin/figma-to-code --getFigmaNodeScreenshot -c ./devtools/figmaToCode/figma-to-code.config.ts && npm run tests:ts-types",
     "helpers:figma-to-code:enquire": "node --experimental-json-modules --loader ts-node/esm node_modules/.bin/figma-to-code --enquire -c ./devtools/figmaToCode/figma-to-code.config.ts && npm run tests:ts-types",
-    "helpers:remove-empty-folders": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/files/removeEmptyFoldersInSrc/run.ts"
+    "helpers:remove-empty-folders": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/files/removeEmptyFoldersInSrc/run.ts",
+    "helpers:generate-blurred-public-images-copies": "node --experimental-json-modules --loader ts-node/esm ./devtools/helpers/assets/generateBlurredPublicImagesCopies/run.ts"
   },
   "dependencies": {
     "@emotion/cache": "11.10.5",
@@ -78,7 +79,6 @@
     "firebase": "9.9.4",
     "firebase-admin": "11.0.1",
     "next": "13.1.1",
-    "plaiceholder": "2.4.0",
     "react": "18.2.0",
     "react-code-blocks": "0.0.9-0",
     "react-dom": "18.2.0",
@@ -103,7 +103,7 @@
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.33.1",
-    "@useweb/starter-website-code-gen-templates": "6.27.13",
+    "@useweb/starter-website-code-gen-templates": "6.28.4",
     "@vitejs/plugin-react": "2.0.1",
     "babel-loader": "8.2.5",
     "capture-website": "3.0.0",
@@ -130,6 +130,7 @@
     "node-watch": "0.7.3",
     "npm-check-updates": "16.0.5",
     "ora": "6.1.2",
+    "plaiceholder": "2.5.0",
     "pluralize": "8.0.0",
     "prettier": "2.7.1",
     "prismic-ts-codegen": "0.1.5",

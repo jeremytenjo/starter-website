@@ -5,12 +5,12 @@ const files = [
   ...playwrighttestfile.files,
   {
     path: ({ name }) => `${name}.e2e.ts`,
-    template: ({ name }) => {
+    template: ({ name, helpers }) => {
       return `import { test } from '@playwright/test'
 
       import ${name} from './${name}.test.js'
       
-      test('${name}', async ({ page }) => {
+      test('${helpers.changeCase.sentenceCase(name)}', async ({ page }) => {
         await ${name}({ page })
       })
       

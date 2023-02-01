@@ -1,7 +1,7 @@
 import React from 'react'
 import type { BoxProps } from '@useweb/ui/Box'
-import Box from '@useweb/ui/Box'
 import Text from '@useweb/ui/Text'
+import Alert from '@useweb/ui/Alert'
 
 export type ErrorMessageProps = { error: any; sx?: BoxProps['sx'] }
 
@@ -10,8 +10,9 @@ export default function ErrorMessage(props: ErrorMessageProps) {
     props.error instanceof Error ? String(props.error) : JSON.stringify(props.error)
 
   return error && error !== 'null' ? (
-    <Box
+    <Alert
       data-id='ErrorMessage'
+      severity='error'
       sx={{
         ...(props.sx || {}),
       }}
@@ -20,10 +21,11 @@ export default function ErrorMessage(props: ErrorMessageProps) {
         text={error.replace(/"/g, '').replace('Error:', '')}
         sx={{
           color: 'error.main',
-          textAlign: 'center',
+          textAlign: ['center', , 'left'],
           fontSize: '14px',
+          maxWidth: '400px',
         }}
       />
-    </Box>
+    </Alert>
   ) : null
 }

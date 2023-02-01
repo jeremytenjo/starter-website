@@ -3,30 +3,45 @@ const functionWithComponentName = 'Function with Component'
 const files = [
   {
     path: ({ name, helpers, type }) => {
-      const namePascalCase = helpers.changeCase.pascalCase(name)
+      const pascalCase = helpers.changeCase.pascalCase(name)
       const prefix = type === functionWithComponentName ? 'ui/' : ''
 
-      return `${prefix}${namePascalCase}.tsx`
+      return `${prefix}${pascalCase}.tsx`
     },
-    template: ({ name, helpers, slots = {} }) => {
-      const namePascalCase = helpers.changeCase.pascalCase(name)
-      const propsName = `${namePascalCase}Props`
+    template: ({ name, helpers, slots = {}, type }) => {
+      const pascalCase = helpers.changeCase.pascalCase(name)
+      const propsName = `${pascalCase}Props`
+      const camelCase = helpers.changeCase.camelCase(name)
+      const isFunctionWithComponent = type === 'Function with Component'
+
       return `import React from 'react'       
     import Box from '@useweb/ui/Box'
 
+    ${
+      isFunctionWithComponent
+        ? `import use${pascalCase} from '../use${pascalCase}/use${pascalCase}'`
+        : ''
+    }
+
     export type ${propsName} = { name?: string }
   
-    export default function ${namePascalCase}(props: ${propsName}) {
+    export default function ${pascalCase}(props: ${propsName}) {
+      ${
+        isFunctionWithComponent
+          ? `const ${camelCase} = use${pascalCase}()
+console.log(${camelCase})`
+          : ''
+      }
       return (
         <Wrapper>
-          ${namePascalCase}
+          ${pascalCase}
           ${slots?.localComponents?.localComponentsDeclarations || ''}
         </Wrapper>
       );
     }
 
     const Wrapper = ({ children }) => {
-      return <Box data-id='${namePascalCase}' sx={{}}>{children}</Box>
+      return <Box data-id='${pascalCase}' sx={{}}>{children}</Box>
     }
 
     ${slots?.localComponents?.localComponents || ''}

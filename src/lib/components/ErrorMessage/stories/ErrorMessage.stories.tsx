@@ -1,8 +1,7 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 import PixelPerfect from '@useweb/pixel-perfect'
-
-import ErrorMessage, { type ErrorMessageProps } from '../ErrorMessage'
+import ErrorMessage, { type ErrorMessageProps } from '@useweb/ui/ErrorMessage'
 
 import Docs from './ErrorMessage.docs'
 

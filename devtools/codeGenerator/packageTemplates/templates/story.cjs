@@ -70,7 +70,7 @@ ${
   importOverride ||
   `import ${componentFunctionName}, { type ${propsName} ${
     isFunction ? `, type ${returnName}` : ''
-  } } from ${isFunctionWithComponent ? `../../${camelCase}` : `../${camelCase}`}`
+  } } from ${isFunctionWithComponent ? `'../../${camelCase}'` : `'../${camelCase}'`}`
 }
 
 const defaultArgs: ${propsName} = {

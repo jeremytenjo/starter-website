@@ -4,14 +4,18 @@ const files = [
   {
     path: ({ name, helpers, type }) => {
       const pascalCase = helpers.changeCase.pascalCase(name)
-      const prefix = type === functionWithComponentName ? 'ui/' : ''
+      const isFunctionWithComponent = type === functionWithComponentName
 
-      return `${prefix}${pascalCase}.tsx`
+      const prefix = isFunctionWithComponent ? 'ui/' : ''
+      const componentNameAffix = isFunctionWithComponent ? `Ui` : ''
+      const componentName = `${pascalCase}${componentNameAffix}`
+
+      return `${prefix}${componentName}.tsx`
     },
     template: ({ name, helpers, slots = {}, type }) => {
       const pascalCase = helpers.changeCase.pascalCase(name)
       const camelCase = helpers.changeCase.camelCase(name)
-      const isFunctionWithComponent = type === 'Function with Component'
+      const isFunctionWithComponent = type === functionWithComponentName
       const componentNameAffix = isFunctionWithComponent ? `Ui` : ''
       const componentName = `${pascalCase}${componentNameAffix}`
       const propsName = `${componentName}Props`

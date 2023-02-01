@@ -1,9 +1,11 @@
-const functionwithstory = require('./functionWithStory.cjs')
+const functions = require('./function.cjs')
+const story = require('./story.cjs')
 const componentwithstory = require('./componentWithStory.cjs')
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
-  ...functionwithstory.template.files,
+  ...functions.files,
+  ...story.functionWithComponentStoryFiles,
   ...componentwithstory.template.files,
   {
     path: ({ name, helpers }) => {

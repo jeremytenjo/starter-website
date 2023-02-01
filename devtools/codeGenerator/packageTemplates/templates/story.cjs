@@ -146,10 +146,14 @@ const componentStory = ({ type }) => {
 
 const componentStoryFiles = [componentStory({ type: 'component' })]
 const functionStoryFiles = [componentStory({ type: 'function' })]
+const functionWithComponentStoryFiles = [
+  componentStory({ type: 'Function with Component' }),
+]
 
 module.exports = {
   componentStoryFiles,
   functionStoryFiles,
+  functionWithComponentStoryFiles,
   docsTemplate,
   getStoryTemplate,
   getStoryPrefix,

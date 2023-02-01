@@ -5,6 +5,7 @@ const componentwithstory = require('./componentWithStory.cjs')
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   ...functions.files,
+  ...story.functionStoryFiles,
   ...story.functionWithComponentStoryFiles,
   ...componentwithstory.template.files,
   {

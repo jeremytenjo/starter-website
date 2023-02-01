@@ -49,8 +49,9 @@ const getStoryTemplate = ({
   importOverride,
   storiesDefaultArgs,
 }) => {
-  const isFunction = type === 'function'
   const isFunctionWithComponent = type === 'Function with Component'
+  const titleNamePrefix = isFunctionWithComponent ? `ui/` : ''
+  const isFunction = type === 'function'
   const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
   const returnName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Return`
   const storyPrefix = getStoryPrefix({ folderPath })
@@ -70,7 +71,7 @@ ${
   importOverride ||
   `import ${componentFunctionName}, { type ${propsName} ${
     isFunction ? `, type ${returnName}` : ''
-  } } from ${isFunctionWithComponent ? `'../../${camelCase}'` : `'../${camelCase}'`}`
+  } } from '../${componentFunctionName}'`
 }
 
 const defaultArgs: ${propsName} = {
@@ -78,7 +79,7 @@ const defaultArgs: ${propsName} = {
 }
 
 export default {
-  title: '${storyPrefix}/${changeCase.capitalCase(name)}',
+  title: '${storyPrefix}/${titleNamePrefix}${changeCase.capitalCase(name)}',
   args: defaultArgs,
 }
 
@@ -132,11 +133,9 @@ export const Default = {
 `
 }
 
-const componentStory = ({ type }) => {
+const componentStory = ({ type, prefix = '' }) => {
   return {
-    path: ({ name, type }) => {
-      const prefix = type === functionWithComponentName ? 'ui/' : ''
-
+    path: ({ name }) => {
       return `${prefix}stories/${name}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) =>
@@ -147,7 +146,7 @@ const componentStory = ({ type }) => {
 const componentStoryFiles = [componentStory({ type: 'component' })]
 const functionStoryFiles = [componentStory({ type: 'function' })]
 const functionWithComponentStoryFiles = [
-  componentStory({ type: 'Function with Component' }),
+  componentStory({ type: 'Function with Component', prefix: 'ui/' }),
 ]
 
 module.exports = {

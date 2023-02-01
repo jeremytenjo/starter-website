@@ -60,7 +60,7 @@ const getStoryTemplate = ({
   const componentFunctionName = `${
     isFunction ? camelCase : pascalCase
   }${componentNameAffix}`
-  const propsName = `${componentFunctionName}Props`
+  const propsName = `${pascalCase}${componentNameAffix}Props`
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'

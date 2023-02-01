@@ -10,9 +10,11 @@ const files = [
     },
     template: ({ name, helpers, slots = {}, type }) => {
       const pascalCase = helpers.changeCase.pascalCase(name)
-      const propsName = `${pascalCase}Props`
       const camelCase = helpers.changeCase.camelCase(name)
       const isFunctionWithComponent = type === 'Function with Component'
+      const componentNameAffix = isFunctionWithComponent ? `Ui` : ''
+      const componentName = `${pascalCase}${componentNameAffix}`
+      const propsName = `${componentName}Props`
 
       return `import React from 'react'       
     import Box from '@useweb/ui/Box'
@@ -25,7 +27,7 @@ const files = [
 
     export type ${propsName} = { name?: string }
   
-    export default function ${pascalCase}(props: ${propsName}) {
+    export default function ${componentName}(props: ${propsName}) {
       ${
         isFunctionWithComponent
           ? `const ${camelCase} = use${pascalCase}()
@@ -34,14 +36,14 @@ console.log(${camelCase})`
       }
       return (
         <Wrapper>
-          ${pascalCase}
+          ${componentName}
           ${slots?.localComponents?.localComponentsDeclarations || ''}
         </Wrapper>
       );
     }
 
     const Wrapper = ({ children }) => {
-      return <Box data-id='${pascalCase}' sx={{}}>{children}</Box>
+      return <Box data-id='${componentName}' sx={{}}>{children}</Box>
     }
 
     ${slots?.localComponents?.localComponents || ''}

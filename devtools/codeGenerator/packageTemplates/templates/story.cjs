@@ -51,13 +51,16 @@ const getStoryTemplate = ({
 }) => {
   const isFunctionWithComponent = type === 'Function with Component'
   const titleNamePrefix = isFunctionWithComponent ? `ui/` : ''
+  const componentNameAffix = isFunctionWithComponent ? `Ui` : ''
   const isFunction = type === 'function'
-  const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
   const returnName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Return`
   const storyPrefix = getStoryPrefix({ folderPath })
   const pascalCase = helpers.changeCase.pascalCase(name)
   const camelCase = helpers.changeCase.camelCase(name)
-  const componentFunctionName = isFunction ? camelCase : pascalCase
+  const componentFunctionName = `${
+    isFunction ? camelCase : pascalCase
+  }${componentNameAffix}`
+  const propsName = `${componentFunctionName}Props`
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'

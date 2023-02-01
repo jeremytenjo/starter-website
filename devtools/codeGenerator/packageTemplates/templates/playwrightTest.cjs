@@ -4,14 +4,20 @@ const playwrighttestfile = require('./playwrightTestFile.cjs')
 const files = [
   ...playwrighttestfile.files,
   {
-    path: ({ name }) => `${name}.e2e.ts`,
+    path: ({ name, helpers }) => {
+      const camelCase = helpers.changeCase.camelCase(name)
+
+      return `${camelCase}.e2e.ts`
+    },
     template: ({ name, helpers }) => {
+      const camelCase = helpers.changeCase.camelCase(name)
+
       return `import { test } from '@playwright/test'
 
-      import ${name} from './${name}.test.js'
+      import ${camelCase} from './${camelCase}.test.js'
       
       test('${helpers.changeCase.sentenceCase(name)}', async ({ page }) => {
-        await ${name}({ page })
+        await ${camelCase}({ page })
       })
       
       `

@@ -1,7 +1,11 @@
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   {
-    path: ({ name }) => `${name}.test.ts`,
+    path: ({ name, helpers }) => {
+      const camelCase = helpers.changeCase.camelCase(name)
+
+      return `${camelCase}.test.ts`
+    },
     template: ({ name, helpers }) => {
       const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
       const camelCase = helpers.changeCase.camelCase(name)

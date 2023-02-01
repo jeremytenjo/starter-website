@@ -56,8 +56,7 @@ const getStoryTemplate = ({
   const storyPrefix = getStoryPrefix({ folderPath })
   const pascalCase = helpers.changeCase.pascalCase(name)
   const camelCase = helpers.changeCase.camelCase(name)
-  const componentFunctionName = isFunction ? name : pascalCase
-  const importName = isFunctionWithComponent ? pascalCase : name
+  const componentFunctionName = isFunction ? camelCase : pascalCase
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
@@ -71,13 +70,11 @@ ${
   importOverride ||
   `import ${componentFunctionName}, { type ${propsName} ${
     isFunction ? `, type ${returnName}` : ''
-  } } from ${
-    isFunction && isFunctionWithComponent ? `../../${camelCase}` : `../${importName}`
-  }`
+  } } from ${isFunctionWithComponent ? `../../${camelCase}` : `../${camelCase}`}`
 }
 
 const defaultArgs: ${propsName} = {
- ${!storiesDefaultArgs ? `name: '${name}',` : storiesDefaultArgs}
+ ${!storiesDefaultArgs ? `name: '${componentFunctionName}',` : storiesDefaultArgs}
 }
 
 export default {
@@ -89,7 +86,7 @@ const Template = (args: typeof defaultArgs) => {
   ${
     isFunction
       ? `const fn = async (triggerProps = {}) => {
-        return await ${name}({ ...args, ...triggerProps })
+        return await ${componentFunctionName}({ ...args, ...triggerProps })
       }`
       : ''
   }

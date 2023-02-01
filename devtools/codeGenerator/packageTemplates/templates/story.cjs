@@ -55,6 +55,7 @@ const getStoryTemplate = ({
   const returnName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Return`
   const storyPrefix = getStoryPrefix({ folderPath })
   const pascalCase = helpers.changeCase.pascalCase(name)
+  const camelCase = helpers.changeCase.camelCase(name)
   const componentFunctionName = isFunction ? name : pascalCase
   const importName = isFunctionWithComponent ? pascalCase : name
 
@@ -70,7 +71,9 @@ ${
   importOverride ||
   `import ${componentFunctionName}, { type ${propsName} ${
     isFunction ? `, type ${returnName}` : ''
-  } } from '../${importName}'`
+  } } from ${
+    isFunction && isFunctionWithComponent ? `../../${camelCase}` : `../${importName}`
+  }`
 }
 
 const defaultArgs: ${propsName} = {

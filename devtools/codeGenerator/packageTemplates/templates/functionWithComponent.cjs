@@ -18,11 +18,13 @@ const files = [
       const pascalCase = helpers.changeCase.pascalCase(name)
       const camelCase = helpers.changeCase.camelCase(name)
 
-      return `import useAsync from '@useweb/use-async'
+      return `import useAsync, { type UseAsyncProps } from '@useweb/use-async'
 import ${camelCase}Fn, { type ${pascalCase}Props } from '../${camelCase}'
 
-export default function use${pascalCase}() {
-  const ${camelCase} = useAsync<${pascalCase}Props, any>({ fn: ${camelCase}Fn })
+type Use${pascalCase}Props = Omit<UseAsyncProps, 'fn'>
+
+export default function use${pascalCase}(props = {} as Use${pascalCase}Props) {
+  const ${camelCase} = useAsync<${pascalCase}Props, any>({ fn: ${camelCase}Fn, ...props })
 
   return ${camelCase}
 }

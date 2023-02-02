@@ -38,7 +38,7 @@ export default async function runPlayWright() {
     console.clear()
     const selectedTest = await prompt.run()
     console.log('')
-    singTestCommand = `${selectedTest} --headed`
+    singTestCommand = `${selectedTest} --headed --debug`
   }
 
   await runPlaywrightTests({

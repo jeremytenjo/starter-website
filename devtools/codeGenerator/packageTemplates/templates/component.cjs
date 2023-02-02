@@ -22,7 +22,7 @@ const files = [
 
       return `import React from 'react'       
     import Box from '@useweb/ui/Box'
-
+${isFunctionWithComponent ? `import ErrorMessage from '@useweb/ui/ErrorMessage'` : ''}
     ${
       isFunctionWithComponent
         ? `import use${pascalCase} from '../use${pascalCase}/use${pascalCase}'`
@@ -41,6 +41,7 @@ console.log(${camelCase})`
       return (
         <Wrapper>
           ${componentName}
+          ${isFunctionWithComponent ? `<ErrorMessage error={${camelCase}.error} />` : ''}
           ${slots?.localComponents?.localComponentsDeclarations || ''}
         </Wrapper>
       );

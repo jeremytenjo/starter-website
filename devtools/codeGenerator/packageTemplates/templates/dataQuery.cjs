@@ -393,7 +393,7 @@ export default function useGet${pascalName}(
       }
       
       export default function ${pascalName}(props: ${pascalName}Props) {
-        const ${camelCase} = ${useName}({...props.UseProps})
+        const ${camelCase} = ${useName}(props.UseProps)
       
         return (
           <Wrapper>

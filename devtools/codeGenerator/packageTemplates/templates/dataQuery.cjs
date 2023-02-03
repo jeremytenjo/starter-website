@@ -560,7 +560,7 @@ export default function useGet${pascalName}(
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
-      import Text from '@useweb/ui/Text'
+      import ErrorMessage from '@useweb/ui/ErrorMessage'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
       import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
@@ -571,17 +571,9 @@ export default function useGet${pascalName}(
         UseDataUiComponentProps<${nameSinglePascal}Schema>['error']
       
       export default function ${pascalName}Error(props: ${pascalName}ErrorProps) {
-        const error =
-        props.error instanceof Error ? String(props.error) : JSON.stringify(props.error)
-
         return (
           <Wrapper>
-            <Text
-              text={error}
-              sx={{
-                color: 'red',
-              }}
-            />
+            <ErrorMessage error={props.error} />
           </Wrapper>
         )
       }

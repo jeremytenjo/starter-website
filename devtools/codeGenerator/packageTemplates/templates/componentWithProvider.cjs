@@ -2,75 +2,87 @@ const story = require('./story.cjs')
 
 const files = [
   {
-    path: ({ name }) => `stories/${name}.stories.tsx`,
+    path: ({ name, helpers }) => {
+      const pascalCase = helpers.changeCase.pascalCase(name)
+
+      return `stories/${pascalCase}.stories.tsx`
+    },
     template: ({ name, helpers, folderPath, slots = {} }) => {
-      const namePascalCase = helpers.changeCase.pascalCase(name)
+      const pascalCase = helpers.changeCase.pascalCase(name)
 
       return story.getStoryTemplate({
         name: `${name}`,
         type: 'component',
         helpers,
         folderPath,
-        importOverride: `import { type ${namePascalCase}DataProps as ${namePascalCase}Props } from '../use${namePascalCase}Data/use${namePascalCase}Data'
-        import ${namePascalCase} from '../${namePascalCase}'
+        importOverride: `import { type ${pascalCase}DataProps as ${pascalCase}Props } from '../use${pascalCase}Data/use${pascalCase}Data'
+        import ${pascalCase} from '../${pascalCase}'
         ${slots?.importOverride ? slots?.importOverride : ''}`,
         storiesDefaultArgs: slots.storiesDefaultArgs,
       })
     },
   },
   {
-    path: ({ name }) => `use${name}Data/use${name}Data.tsx`,
+    path: ({ name, helpers }) => {
+      const pascalCase = helpers.changeCase.pascalCase(name)
+
+      return `use${pascalCase}Data/use${pascalCase}Data.tsx`
+    },
     template: ({ name, helpers, slots = {} }) => {
-      const namePascalCase = `${helpers.changeCase.pascalCase(name)}Data`
+      const pascalCase = `${helpers.changeCase.pascalCase(name)}Data`
 
       return `import React, { createContext, useContext } from 'react'
 
       ${slots?.useDataImports || ''}
 
-      export type ${namePascalCase}Props = ${slots?.useDataTypeImportName || 'any'}
+      export type ${pascalCase}Props = ${slots?.useDataTypeImportName || 'any'}
       
-      export type ${namePascalCase}Return = ${namePascalCase}Props
+      export type ${pascalCase}Return = ${pascalCase}Props
       
-      export const ${namePascalCase}Context = createContext<${namePascalCase}Return>(undefined as any)
+      export const ${pascalCase}Context = createContext<${pascalCase}Return>(undefined as any)
 
-      type ${namePascalCase}ProviderProps = {
+      type ${pascalCase}ProviderProps = {
         children: any
-        props: ${namePascalCase}Props
+        props: ${pascalCase}Props
       }
       
-      export const ${namePascalCase}Provider = (props: ${namePascalCase}ProviderProps) => {
-        const data: ${namePascalCase}Return = {
+      export const ${pascalCase}Provider = (props: ${pascalCase}ProviderProps) => {
+        const data: ${pascalCase}Return = {
           ...props.props,
         }
       
         return (
-          <${namePascalCase}Context.Provider value={data}>{props.children}</${namePascalCase}Context.Provider>
+          <${pascalCase}Context.Provider value={data}>{props.children}</${pascalCase}Context.Provider>
         )
       }
       
-      const use${namePascalCase} = () => useContext(${namePascalCase}Context)
+      const use${pascalCase} = () => useContext(${pascalCase}Context)
       
-      export default use${namePascalCase}
+      export default use${pascalCase}
       
       `
     },
   },
   {
-    path: ({ name }) => `${name}.tsx`,
+    path: ({ name, helpers }) => {
+      const pascalCase = helpers.changeCase.pascalCase(name)
+
+      return `${pascalCase}.tsx`
+    },
     template: ({ name, helpers }) => {
-      const namePascalCase = helpers.changeCase.pascalCase(name)
+      const pascalCase = helpers.changeCase.pascalCase(name)
 
       return `import React from 'react'
 
-      import { ${namePascalCase}DataProvider } from './use${namePascalCase}Data/use${namePascalCase}Data'
-      import ${namePascalCase}Ui from './ui/${namePascalCase}Ui'
-      import { type ${namePascalCase}DataProps } from './use${namePascalCase}Data/use${namePascalCase}Data'
+      import { ${pascalCase}DataProvider } from './use${pascalCase}Data/use${pascalCase}Data'
+      import ${pascalCase}Ui from './ui/${pascalCase}Ui'
+      import { type ${pascalCase}DataProps } from './use${pascalCase}Data/use${pascalCase}Data'
       
-      export default function ${namePascalCase}(props: ${namePascalCase}DataProps) {
+      export default function ${pascalCase}(props: ${pascalCase}DataProps) {
         return (
-          <${namePascalCase}DataProvider props={props}>
-            <${namePascalCase}Ui />
-          </${namePascalCase}DataProvider>
+          <${pascalCase}DataProvider props={props}>
+            <${pascalCase}Ui />
+          </${pascalCase}DataProvider>
         )
       }
       `
@@ -78,16 +90,16 @@ const files = [
   },
   {
     path: ({ name, helpers }) => {
-      const namePascalCase = helpers.changeCase.pascalCase(name)
-      return `ui/${namePascalCase}Ui.tsx`
+      const pascalCase = helpers.changeCase.pascalCase(name)
+      return `ui/${pascalCase}Ui.tsx`
     },
     template: ({ name, helpers }) => {
-      const namePascalCase = helpers.changeCase.pascalCase(name)
+      const pascalCase = helpers.changeCase.pascalCase(name)
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
       
-      export default function ${namePascalCase}Ui() {
+      export default function ${pascalCase}Ui() {
         return (
           <Wrapper>
             ${name}
@@ -97,7 +109,7 @@ const files = [
       
       const Wrapper = ({ children }) => {
         return (
-          <Box data-id='${namePascalCase}' sx={{}}>
+          <Box data-id='${pascalCase}' sx={{}}>
             {children}
           </Box>
         )

@@ -16,7 +16,8 @@ const Template = (args) => {
 export const Default = Template.bind({}) as any
 
 const defaultArgs: PopoverProps = {
-  open: true,
+  trigger: <div>trigger popover</div>,
+  children: <div>Hello popover</div>,
 }
 
 Default.args = defaultArgs

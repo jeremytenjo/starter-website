@@ -7,7 +7,6 @@ import Avatar from '@useweb/ui/Avatar'
 import MenuItem from '@useweb/ui/MenuItem'
 import Dialog from '@useweb/ui/Dialog'
 import useKeyPress from '@useweb/use-key-press'
-import Box from '@useweb/ui/Box'
 import Button from '@useweb/ui/Button'
 import IconButton from '@useweb/ui/IconButton'
 import useAuth from '../../../integrations/Google/Firebase/auth/useAuth/useAuth'
@@ -71,6 +70,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
       >
         <List<UserSchema>
           data={userStubs || []}
+          listItemKeyName='uid'
           ListItemComponent={({ itemData = {} }) => {
             const isSignedIn = auth?.user?.uid === itemData.uid
 

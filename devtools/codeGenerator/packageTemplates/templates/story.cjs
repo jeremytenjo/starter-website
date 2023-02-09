@@ -125,13 +125,11 @@ export const Default = {
   },
 }
 
-// const variantArgs: ${propsName} = {
-//  name: 'World',
-// }
-
 // export const Variant = {
 //  ...Default,
-//  args: variantArgs
+//  args: {
+//  ...defaultArgs,
+// } as ${propsName}
 // }
 `
 }

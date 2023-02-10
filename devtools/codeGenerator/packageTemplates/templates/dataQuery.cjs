@@ -602,7 +602,6 @@ export default function useGet${pascalName}(
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       import React, { useEffect } from 'react'
-      import PixelPerfect from '@useweb/pixel-perfect'
       
       import ${pascalName}Stubs from '../../../../../${lowercaseFirstLetter(
         splitCamelCase(name),
@@ -630,19 +629,7 @@ export default function useGet${pascalName}(
       export const ${pascalName}Example = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
+            <>                
                 {/* pass fetcher payload via UseProps.getOptions.fetcherPayload */}
                 <${pascalName} />
             </>
@@ -654,20 +641,7 @@ export default function useGet${pascalName}(
       export const ${pascalName}WithData = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
+            <>      
               <${pascalName}Data_ {...commonProps} data={${pascalName}Stubs} />
             </>
           )
@@ -678,20 +652,7 @@ export default function useGet${pascalName}(
       export const ${pascalName}EmptyData = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
+            <>      
               <${pascalName}EmptyData_ {...commonProps} />
             </>
           )
@@ -702,20 +663,7 @@ export default function useGet${pascalName}(
       export const ${pascalName}Loading = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
+            <>      
               <${pascalName}Loading_ {...commonProps} />
             </>
           )
@@ -726,20 +674,7 @@ export default function useGet${pascalName}(
       export const ${pascalName}Error = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
+            <>      
               <${pascalName}Error_
                 {...commonProps}
                 error={new Error('${pascalName} failed')}

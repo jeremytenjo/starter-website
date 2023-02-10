@@ -632,7 +632,6 @@ export default use${componentName}
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-import PixelPerfect from '@useweb/pixel-perfect'
 
 import ${pascalName}Stubs from '../../../../../${stubsName}'
 import ${componentName}, { type ${componentName}Props } from '../../${componentName}/${componentName}'
@@ -647,18 +646,6 @@ export default {
 const Template = (args: typeof defaultArgs) => {
   return (
     <>
-      <PixelPerfect
-        assets={[
-          {
-            width: 0,
-            url: '',
-          },
-          {
-            width: 1920,
-            url: '',
-          },
-        ]}
-      />
       <${componentName} {...args} />
     </>
   )
@@ -855,20 +842,8 @@ export const Default = {
       export const ${componentName}Example = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-                {/* pass fetcher payload via UseProps.getOptions.fetcherPayload */}
+            <>               
+               {/* pass fetcher payload via UseProps.getOptions.fetcherPayload */}
                 <${componentName} />
             </>
           )
@@ -879,20 +854,7 @@ export const Default = {
       export const ${componentName}WithData = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
+            <>      
               <${componentName}Data_ {...commonProps} data={${componentName}Stubs} />
             </>
           )
@@ -903,20 +865,7 @@ export const Default = {
       export const ${componentName}EmptyData = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
+            <>      
               <${componentName}EmptyData_ {...commonProps} />
             </>
           )
@@ -927,20 +876,7 @@ export const Default = {
       export const ${componentName}Loading = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
+            <>      
               <${componentName}Loading_ {...commonProps} />
             </>
           )
@@ -951,20 +887,7 @@ export const Default = {
       export const ${componentName}Error = {
         render: () => {
           return (
-            <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
+            <>      
               <${componentName}Error_
                 {...commonProps}
                 error={new Error('${componentName} failed')}

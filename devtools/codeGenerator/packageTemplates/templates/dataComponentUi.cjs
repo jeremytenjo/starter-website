@@ -17,7 +17,6 @@ const files = [
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       import React from 'react'
-      import PixelPerfect from '@useweb/pixel-perfect'
       
       import ${pascalName}Stubs from '../../../${name}.stubs'
       import ${pascalName} from '../${pascalName}'
@@ -34,18 +33,6 @@ const files = [
         render: () => {
           return (
             <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
               <${pascalName} />
             </>
           )
@@ -57,19 +44,6 @@ const files = [
         render: () => {
           return (
             <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
               <${pascalName}Result_ {...commonProps} result={${pascalName}Stubs as any} />
             </>
           )
@@ -81,19 +55,6 @@ const files = [
         render: () => {
           return (
             <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
               <${pascalName}Loading_ {...commonProps} />
             </>
           )
@@ -105,19 +66,6 @@ const files = [
         render: () => {
           return (
             <>
-              <PixelPerfect
-                assets={[
-                  {
-                    width: 0,
-                    url: '',
-                  },
-                  {
-                    width: 1920,
-                    url: '',
-                  },
-                ]}
-              />
-      
               <${pascalName}Error_
                 {...commonProps}
                 error={new Error('${pascalName} failed')}

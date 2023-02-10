@@ -21,7 +21,9 @@ export default async function addFirestoreEmulatorData({ db }) {
         if (collection.name === 'users') {
           db.collection(collection.name).doc(collectionData.uid).set(collectionData)
         } else {
-          db.collection(collection.name).add(collectionData)
+          if (collectionData?.id) {
+            db.collection(collection.name).doc(collectionData.id).set(collectionData)
+          } else db.collection(collection.name).add(collectionData)
         }
       })
     })

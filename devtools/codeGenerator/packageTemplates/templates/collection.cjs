@@ -329,6 +329,7 @@ export default function useGet${pascalName}(
       // updater      
       export const update${pascalName} = async (props: ${propsName}) => {
         console.log(props)
+        return undefined
       }
       
       // hook

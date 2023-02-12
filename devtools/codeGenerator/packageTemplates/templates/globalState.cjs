@@ -18,9 +18,9 @@ type ${upperName}Props = {
 
 export const ${camelCase}Store = create<${upperName}Props>((set) => ({
   saving: undefined,
-  setsaving: (value) =>
+  setsaving: (payload) =>
     set(() => {
-      return { saving: value }
+      return { saving: payload }
     })
 }))
 

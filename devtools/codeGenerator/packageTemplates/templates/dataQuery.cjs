@@ -628,11 +628,11 @@ export default function useGet${pascalName}(
       
       // full example
       export const ${pascalName}Example = {
-        render: () => {
+        render: (args) => {
           return (
             <>                
                 {/* pass fetcher payload via UseProps.getOptions.fetcherPayload */}
-                <${pascalName} />
+                <${pascalName} {...args} />
             </>
           )
         },

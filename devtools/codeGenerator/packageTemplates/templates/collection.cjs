@@ -841,11 +841,11 @@ export const Default = {
       
       // full example
       export const ${componentName}Example = {
-        render: () => {
+        render: (args) => {
           return (
             <>               
                {/* pass fetcher payload via UseProps.getOptions.fetcherPayload */}
-                <${componentName} />
+                <${componentName} {...args} />
             </>
           )
         },

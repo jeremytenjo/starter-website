@@ -222,7 +222,10 @@ export default function useGet${pascalName}(
 
       // creator
       export const create${pascalName} = async (props: ${propsName}) => {
-        const newItem: ${schemaName} | undefined = undefined
+        if (!props.newItem) {
+          throw new Error('Missing newItem prop')
+        }
+        const newItem: ${schemaName} = props.newItem
 
         return { newItem }
       }

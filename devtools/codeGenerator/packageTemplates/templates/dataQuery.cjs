@@ -229,6 +229,8 @@ export default function useGet${pascalName}(
 
         return { newItem }
       }
+
+      export type Create${pascalName}Return = ReturnType<typeof create${pascalName}>
       
       // hook
       type useCreate${pascalName}Props = UseDataProps<${schemaName}>['create']

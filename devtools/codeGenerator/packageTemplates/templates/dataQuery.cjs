@@ -35,13 +35,14 @@ const files = [
       const camelCase = helpers.changeCase.camelCase(name)
       const schemaName = getSchemaName(name)
       const getpropsName = `Get${pascalName}Props`
+      const createpropsName = `Create${pascalName}PayloadProps`
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
       
       import type ${schemaName} from '../../../${getSchemaImportName(name)}'
       
       import useGet${pascalName}, { type ${getpropsName} } from './useGet${pascalName}/useGet${pascalName}'
-      import useCreate${pascalName} from './useCreate${pascalName}/useCreate${pascalName}'
+      import useCreate${pascalName}, { type ${createpropsName} } from './useCreate${pascalName}/useCreate${pascalName}'
       import useUpdate${pascalName} from './useUpdate${pascalName}/useUpdate${pascalName}'
       import useRemove${pascalName} from './useRemove${pascalName}/useRemove${pascalName}'
       
@@ -60,7 +61,7 @@ const files = [
         const update = useUpdate${pascalName}(props?.updateOptions)
         const remove = useRemove${pascalName}(props?.removeOptions)
       
-        const ${camelCase} = useData<${schemaName}, ${getpropsName}>({
+        const ${camelCase} = useData<${schemaName}, ${getpropsName}, ${createpropsName}>({
           id: '${camelCase}',
           get,
           create,
@@ -95,7 +96,7 @@ const files = [
       // create
       import {
         create${pascalName},
-        type Create${pascalName}Props,
+        type Create${pascalName}PayloadProps,
       } from '../use${pascalName}/useCreate${pascalName}/useCreate${pascalName}'
       // update
       import {
@@ -122,7 +123,7 @@ const files = [
       
       // export const Create${pascalName} = {
       //   render: () => {
-      //     const payload: Create${pascalName}Props = {}
+      //     const payload: Create${pascalName}PayloadProps = {}
       //     const fn = async () => create${pascalName}(payload)
       //     return <AsyncTester fn={fn} autoExec />
       //   },
@@ -211,17 +212,17 @@ export default function useGet${pascalName}(
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const schemaName = getSchemaName(name)
-      const propsName = `Create${pascalName}Props`
+      const propsName = `Create${pascalName}PayloadProps`
 
       return `
       import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
-      export type ${propsName} = CreatorProps<${schemaName}>
+      export type ${propsName} = any
 
       // creator
-      export const create${pascalName} = async (props: ${propsName}) => {
+      export const create${pascalName} = async (props: CreatorProps<${schemaName}, ${propsName}>) => {
         if (!props.newItem) {
           throw new Error('Missing newItem prop')
         }

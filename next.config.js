@@ -16,7 +16,13 @@ export default async () => {
       nextjsPort: String(appConfig.nextjs.port),
     },
     images: {
-      domains: ['images.prismic.io', 'i.pravatar.cc', 's3-alpha-sig.figma.com'],
+      domains: [
+        'images.prismic.io',
+        'i.pravatar.cc',
+        's3-alpha-sig.figma.com',
+        'localhost',
+        'firebasestorage.googleapis.com',
+      ],
     },
   })
 

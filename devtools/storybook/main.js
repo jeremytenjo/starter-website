@@ -11,6 +11,9 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
   ],
+  features: {
+    interactionsDebugger: true, // 👈 Enable playback controls
+  },
   webpackFinal: async (defaultWebpackConfig) => {
     return webpackFinal({ defaultWebpackConfig })
   },

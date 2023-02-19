@@ -36,6 +36,8 @@ const files = [
       const schemaName = getSchemaName(name)
       const getpropsName = `Get${pascalName}Props`
       const createpropsName = `Create${pascalName}PayloadProps`
+      const propsUpdaterName = `Update${pascalName}UpadaterProps`
+      const removePropsName = `Remove${pascalName}RemoverProps`
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
       
@@ -43,8 +45,8 @@ const files = [
       
       import useGet${pascalName}, { type ${getpropsName} } from './useGet${pascalName}/useGet${pascalName}'
       import useCreate${pascalName}, { type ${createpropsName} } from './useCreate${pascalName}/useCreate${pascalName}'
-      import useUpdate${pascalName} from './useUpdate${pascalName}/useUpdate${pascalName}'
-      import useRemove${pascalName} from './useRemove${pascalName}/useRemove${pascalName}'
+      import useUpdate${pascalName}, { type ${propsUpdaterName} } from './useUpdate${pascalName}/useUpdate${pascalName}'
+      import useRemove${pascalName}, { type ${removePropsName} } from './useRemove${pascalName}/useRemove${pascalName}'
       
       export type Use${pascalName}Props = {
         getOptions?: UseDataProps<${schemaName}, ${getpropsName}>['get']
@@ -61,7 +63,7 @@ const files = [
         const update = useUpdate${pascalName}(props?.updateOptions)
         const remove = useRemove${pascalName}(props?.removeOptions)
       
-        const ${camelCase} = useData<${schemaName}, ${getpropsName}, ${createpropsName}>({
+        const ${camelCase} = useData<${schemaName}, ${getpropsName}, ${createpropsName}, ${propsUpdaterName}, ${removePropsName}>({
           id: '${camelCase}',
           get,
           create,
@@ -271,12 +273,15 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
       const schemaName = getSchemaName(name)
       const propsName = `Update${pascalName}Props`
+      const propsUpdaterName = `Update${pascalName}UpadaterProps`
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
-      export type ${propsName} = UpdaterProps<${schemaName}>
+      export type ${propsUpdaterName} = any
+
+      type ${propsName} = UpdaterProps<${schemaName}, ${propsUpdaterName}>
       
       // updater      
       export const update${pascalName} = async (props: ${propsName}) => {
@@ -323,12 +328,15 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
       const schemaName = getSchemaName(name)
       const propsName = `Remove${pascalName}Props`
+      const removePropsName = `Remove${pascalName}RemoverProps`
 
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
-      export type ${propsName} = RemoverProps<${schemaName}>
+      export type ${removePropsName} = any
+
+      type ${propsName} = RemoverProps<${schemaName}, ${removePropsName}>
       
       // remover
       export const remove${pascalName} = async (props: ${propsName}) => {

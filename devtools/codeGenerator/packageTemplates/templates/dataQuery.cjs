@@ -36,8 +36,8 @@ const files = [
       const schemaName = getSchemaName(name)
       const getpropsName = `Get${pascalName}Props`
       const createpropsName = `Create${pascalName}PayloadProps`
-      const propsUpdaterName = `Update${pascalName}UpadaterProps`
-      const removePropsName = `Remove${pascalName}RemoverProps`
+      const propsUpdaterName = `Update${pascalName}PayloadProps`
+      const removePropsName = `Remove${pascalName}PayloadProps`
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
       
@@ -103,12 +103,12 @@ const files = [
       // update
       import {
         update${pascalName},
-        type Update${pascalName}Props,
+        type Update${pascalName}PayloadProps,
       } from '../use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}'
       // remove
       import {
         remove${pascalName},
-        type Remove${pascalName}Props,
+        type Remove${pascalName}PayloadProps,
       } from '../use${pascalName}/useRemove${pascalName}/useRemove${pascalName}'
       
       export default {
@@ -133,7 +133,7 @@ const files = [
       
       // export const Update${pascalName} = {
       //   render: () => {
-      //     const payload: Update${pascalName}Props = {}
+      //     const payload: Update${pascalName}PayloadProps = {}
       //     const fn = async () => update${pascalName}(payload)
       //     return <AsyncTester fn={fn} autoExec />
       //   },
@@ -141,7 +141,7 @@ const files = [
       
       // export const Remove${pascalName} = {
       //   render: () => {
-      //     const payload: Remove${pascalName}Props = {}
+      //     const payload: Remove${pascalName}PayloadProps = {}
       //     const fn = async () => remove${pascalName}(payload)
       //     return <AsyncTester fn={fn} autoExec />
       //   },
@@ -273,7 +273,7 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
       const schemaName = getSchemaName(name)
       const propsName = `Update${pascalName}Props`
-      const propsUpdaterName = `Update${pascalName}UpadaterProps`
+      const propsUpdaterName = `Update${pascalName}PayloadProps`
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
 
@@ -328,15 +328,15 @@ export default function useGet${pascalName}(
       const pascalName = helpers.changeCase.pascalCase(name)
       const schemaName = getSchemaName(name)
       const propsName = `Remove${pascalName}Props`
-      const removePropsName = `Remove${pascalName}RemoverProps`
+      const removePropsName = `Remove${pascalName}PayloadProps`
 
-      return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
+      return `import { type UseDataProps, type PayloadProps } from '@useweb/use-data'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
       export type ${removePropsName} = any
 
-      type ${propsName} = RemoverProps<${schemaName}, ${removePropsName}>
+      type ${propsName} = PayloadProps<${schemaName}, ${removePropsName}>
       
       // remover
       export const remove${pascalName} = async (props: ${propsName}) => {

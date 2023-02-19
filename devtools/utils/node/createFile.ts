@@ -29,7 +29,7 @@ export default async function createFile({
   const formateed = nojs
     ? fileContent
     : prettier.format(noTimestamp ? fileContent : addTimestamp(fileContent), {
-        ...prettierConfig,
+        ...(prettierConfig as any),
         parser: 'babel',
       })
 

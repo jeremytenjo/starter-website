@@ -1,12 +1,13 @@
 //https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
-import PixelPerfect from '@useweb/pixel-perfect'
+
 import ErrorMessage, { type ErrorMessageProps } from '@useweb/ui/ErrorMessage'
 
 import Docs from './ErrorMessage.docs'
 
 const defaultArgs: ErrorMessageProps = {
   error: 'ErrorMessage',
+  message: 'ErrorMessage',
 }
 
 export default {
@@ -23,18 +24,6 @@ export default {
 const Template = (args: typeof defaultArgs) => {
   return (
     <>
-      <PixelPerfect
-        assets={[
-          {
-            width: 0,
-            url: '',
-          },
-          {
-            width: 1920,
-            url: '',
-          },
-        ]}
-      />
       <ErrorMessage {...args} />
     </>
   )

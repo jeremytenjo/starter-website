@@ -50,9 +50,9 @@ const files = [
       
       export type Use${pascalName}Props = {
         getOptions?: UseDataProps<${schemaName}, ${getpropsName}>['get']
-        createOptions?: UseDataProps<${schemaName}>['create']
-        updateOptions?: UseDataProps<${schemaName}>['update']
-        removeOptions?: UseDataProps<${schemaName}>['remove']
+        createOptions?: UseDataProps<${schemaName}, ${createpropsName}>['create']
+        updateOptions?: UseDataProps<${schemaName}, ${propsUpdaterName}>['update']
+        removeOptions?: UseDataProps<${schemaName}, ${removePropsName}>['remove']
       }
       
       export default function use${pascalName}(

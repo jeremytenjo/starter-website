@@ -70,7 +70,7 @@
     "@useweb/ui-theme": "2.60.0",
     "@useweb/use-async": "7.4.0",
     "@useweb/use-async-ui": "1.5.0",
-    "@useweb/use-data": "18.1.2",
+    "@useweb/use-data": "18.7.1",
     "@useweb/use-data-ui": "1.5.2",
     "@useweb/use-event-listener": "1.4.0",
     "@useweb/use-fetch": "1.6.0",

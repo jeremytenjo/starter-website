@@ -15,8 +15,7 @@ const files = [
         type: 'component',
         helpers,
         folderPath,
-        importOverride: `import { type ${pascalCase}DataProps as ${pascalCase}Props } from '../use${pascalCase}Data/use${pascalCase}Data'
-        import ${pascalCase} from '../${pascalCase}'
+        importOverride: `import ${pascalCase}, { type ${pascalCase}Props } from '../${pascalCase}'
         ${slots?.importOverride ? slots?.importOverride : ''}`,
         storiesDefaultArgs: slots.storiesDefaultArgs,
       })
@@ -73,40 +72,22 @@ const files = [
       const pascalCase = helpers.changeCase.pascalCase(name)
 
       return `import React from 'react'
+      import Box from '@useweb/ui/Box'
 
-      import { ${pascalCase}DataProvider } from './use${pascalCase}Data/use${pascalCase}Data'
-      import ${pascalCase}Ui from './ui/${pascalCase}Ui'
-      import { type ${pascalCase}DataProps } from './use${pascalCase}Data/use${pascalCase}Data'
+      import { ${pascalCase}DataProvider, type ${pascalCase}DataProps } from './use${pascalCase}Data/use${pascalCase}Data'
+
+      export type ${pascalCase}Props = ${pascalCase}DataProps
       
-      export default function ${pascalCase}(props: ${pascalCase}DataProps) {
+      export default function ${pascalCase}(props: ${pascalCase}Props) {
         return (
           <${pascalCase}DataProvider props={props}>
-            <${pascalCase}Ui />
+            <Wrapper>
+              ${pascalCase}
+            </Wrapper>
           </${pascalCase}DataProvider>
         )
       }
-      `
-    },
-  },
-  {
-    path: ({ name, helpers }) => {
-      const pascalCase = helpers.changeCase.pascalCase(name)
-      return `ui/${pascalCase}Ui.tsx`
-    },
-    template: ({ name, helpers }) => {
-      const pascalCase = helpers.changeCase.pascalCase(name)
 
-      return `import React from 'react'
-      import Box from '@useweb/ui/Box'
-      
-      export default function ${pascalCase}Ui() {
-        return (
-          <Wrapper>
-            ${name}
-          </Wrapper>
-        )
-      }
-      
       const Wrapper = ({ children }) => {
         return (
           <Box data-id='${pascalCase}' sx={{}}>
@@ -114,11 +95,10 @@ const files = [
           </Box>
         )
       }
-      
       `
     },
   },
-  story.docsTemplate(),
+  // story.docsTemplate(),
 ]
 
 const template = {

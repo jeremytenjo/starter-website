@@ -79,7 +79,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
           width: ['300px', , '400px'],
         }}
         title={
-          auth.user.displayName ? `Signed in as ${auth.user.displayName}` : 'Sign in'
+          auth.user?.displayName ? `Signed in as ${auth.user.displayName}` : 'Sign in'
         }
       >
         <List<UserSchema>

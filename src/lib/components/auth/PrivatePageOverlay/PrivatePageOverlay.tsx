@@ -19,10 +19,10 @@ export default function PrivatePageOverlay({ title = 'Sign in' }) {
   }
 
   useEffect(() => {
-    if (auth.isSignOutAfterInitialAuthAttempt) {
+    if (auth.isUserSignedOutAfterInitialAuthAttempt) {
       toggleOverlay()
     }
-  }, [auth.isSignOutAfterInitialAuthAttempt])
+  }, [auth.isUserSignedOutAfterInitialAuthAttempt])
 
   return show ? (
     <Box

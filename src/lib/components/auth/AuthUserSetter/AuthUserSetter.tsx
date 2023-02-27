@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Text from '@useweb/ui/Text'
 import List from '@useweb/ui/List'
+import Text from '@useweb/ui/Text'
 import userStubs from '../../../../data/users/users.stubs'
 import type UserSchema from '../../../../data/users/user.schema'
 import Avatar from '@useweb/ui/Avatar'
@@ -11,6 +11,7 @@ import Button from '@useweb/ui/Button'
 import IconButton from '@useweb/ui/IconButton'
 import useAuth from '../../../integrations/Google/Firebase/auth/useAuth/useAuth'
 import LinearProgress from '@useweb/ui/LinearProgress'
+import ErrorMessage from '@useweb/ui/ErrorMessage'
 
 export type AuthUserSetterProps = { open?: boolean; signInAs?: string; children?: any }
 
@@ -51,12 +52,18 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
         onClick={() => setOpenDialog((s) => !s)}
         sx={{
           position: 'fixed',
-          bottom: '10px',
+          bottom: '15px',
           left: '40px',
           display: [, , 'none'],
         }}
       >
-        u
+        <Avatar
+          src={auth?.user?.photoURL}
+          sx={{
+            width: '30px',
+            height: '30px',
+          }}
+        />
       </IconButton>
 
       <Dialog
@@ -66,12 +73,14 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
         wrapperSx={{
           width: ['300px', , '400px'],
         }}
-        title={`Signed in as ${auth.user.displayName || ''}`}
+        title={
+          auth.user.displayName ? `Signed in as ${auth.user.displayName}` : 'Sign in'
+        }
       >
         <List<UserSchema>
           data={userStubs || []}
           listItemKeyName='uid'
-          ListItemComponent={({ itemData = {} }) => {
+          ListItemComponent={({ itemData }) => {
             const isSignedIn = auth?.user?.uid === itemData.uid
 
             return (
@@ -99,12 +108,14 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
               >
                 <Avatar src={itemData.photoURL} />
 
-                <Text
-                  text={itemData.displayName}
-                  sx={{
-                    color: isSignedIn ? 'primary.dark' : 'black.main',
-                  }}
-                />
+                {itemData && (
+                  <Text
+                    text={itemData?.displayName}
+                    sx={{
+                      color: isSignedIn ? 'primary.dark' : 'black.main',
+                    }}
+                  />
+                )}
 
                 {isSignedIn && (
                   <Button
@@ -124,19 +135,6 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
           }}
         />
 
-        {auth.user?.displayName && (
-          <Button
-            onClick={auth.signOut}
-            name='sign out'
-            variant='text'
-            sx={{
-              color: 'black.main',
-            }}
-          >
-            Sign out
-          </Button>
-        )}
-
         {auth.isSigningIn && (
           <>
             <LinearProgress
@@ -147,17 +145,10 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
           </>
         )}
 
-        {auth.signingInError && (
-          <>
-            <Text
-              text={auth.signingInError.toString()}
-              sx={{
-                color: 'red',
-                mt: 2,
-              }}
-            />
-          </>
-        )}
+        <ErrorMessage
+          error={auth.signingInError}
+          message={auth.signingInError.toString()}
+        />
       </Dialog>
     </>
   )

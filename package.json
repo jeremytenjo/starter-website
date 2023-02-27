@@ -63,7 +63,7 @@
     "@useweb/click-to-component": "2.6.0",
     "@useweb/fetch-tester": "1.30.0",
     "@useweb/figma-to-code": "2.29.1",
-    "@useweb/firebase": "8.15.0",
+    "@useweb/firebase": "8.16.1",
     "@useweb/pixel-perfect": "6.0.6",
     "@useweb/task": "2.0.1",
     "@useweb/ui": "6.51.2",

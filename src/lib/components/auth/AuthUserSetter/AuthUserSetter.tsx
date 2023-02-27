@@ -58,6 +58,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
         }}
       >
         <Avatar
+          title={`Signed in as ${auth?.user?.displayName} (${auth?.user?.uid})`}
           src={auth?.user?.photoURL}
           sx={{
             width: '30px',

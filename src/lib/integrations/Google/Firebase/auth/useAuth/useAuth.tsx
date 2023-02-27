@@ -178,3 +178,5 @@ export default function useAuth(
 
   return auth
 }
+
+export type UseAuthReturn = ReturnType<typeof useAuth>

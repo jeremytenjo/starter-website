@@ -27,6 +27,7 @@ export default async function runPlayWright() {
     const tests = await glob({
       pattern: path.join(process.cwd(), 'src', '**', '*.e2e.ts'),
     })
+
     const testsNames = tests.map((t) => t.split('/').pop())
     const prompt = new Select({
       name: 'selectedTest',
@@ -65,6 +66,6 @@ const runPlaywrightTests = async (props: RunPlaywrightTestsProps) => {
   const options = `${props.headed ? '--headed' : ''}`
 
   shell(
-    `npx playwright test ${props.singTestCommand} ${options} --config=devtools/testing/playwright/playwright.config.ts`,
+    `npx playwright test ${props.singTestCommand} --reporter=line ${options} --config=devtools/testing/playwright/playwright.config.ts`,
   )
 }

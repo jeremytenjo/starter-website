@@ -27,7 +27,7 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
   }
 
   body::-webkit-scrollbar {
-    width: 8px;
+    width: 3px;
   }
 
   body::-webkit-scrollbar-thumb {

@@ -1,15 +1,25 @@
 import path from 'path'
 // https://github.com/enquirer/enquirer
 import enquirer from 'enquirer'
+import tcpPortUsed from 'tcp-port-used'
 
 import watchFolder from '../../../../utils/node/watchFolder.js'
 import shell from '../../../../utils/node/shell.js'
 import getCommandLineArgs from '../../../../utils/node/getCommandLineArgs.js'
 import glob from '../../../../utils/node/glob.js'
+import appConfig from '../../../../../app.config.js'
+import log from '../../../../utils/node/log.js'
 
 const { Select } = enquirer as any
 
 export default async function runPlayWright() {
+  if (!(await tcpPortUsed.check(appConfig.nextjs.port))) {
+    console.clear()
+    log('Please run `npm run dev` first', {
+      error: true,
+    })
+  }
+
   const { watch, singleTest } = getCommandLineArgs([
     {
       name: 'watch',

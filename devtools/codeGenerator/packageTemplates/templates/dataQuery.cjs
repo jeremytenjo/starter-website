@@ -58,7 +58,7 @@ const files = [
       export default function use${pascalName}(
         props: Use${pascalName}Props = {},
       ) {
-        const get = useGet${pascalName}(props?.getOptions)
+        const get = useGet${pascalName}({...props?.getOptions})
         const create = useCreate${pascalName}(props?.createOptions)
         const update = useUpdate${pascalName}(props?.updateOptions)
         const remove = useRemove${pascalName}(props?.removeOptions)

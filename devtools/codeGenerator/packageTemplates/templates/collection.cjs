@@ -444,11 +444,11 @@ export default function useGet${pascalName}(
       import ${componentName}Error from './${componentName}Error/${componentName}Error'
       
       export type ${componentName}Props = {
-        UseProps?: Use${pascalName}Props
+        config?: Use${pascalName}Props
       }
       
       export default function ${componentName}(props: ${componentName}Props) {
-        const ${camelCase} = ${useName}(props.UseProps)
+        const ${camelCase} = ${useName}(props.config)
       
         return (
           <Wrapper>
@@ -827,7 +827,7 @@ export const Default = {
       import ${componentName}Error_ from '../${componentName}Error/${componentName}Error'
       
       const defaultArgs: ${componentName}Props = {
-        UseProps: {
+        config: {
           getOptions: {
             onGet: ({ result }) => console.log({ result }),
           },
@@ -844,7 +844,7 @@ export const Default = {
         render: (args) => {
           return (
             <>               
-               {/* pass fetcher payload via UseProps.getOptions.fetcherPayload */}
+               {/* pass fetcher payload via config.getOptions.fetcherPayload */}
                 <${componentName} {...args} />
             </>
           )

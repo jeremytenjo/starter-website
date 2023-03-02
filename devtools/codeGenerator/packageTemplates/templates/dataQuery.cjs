@@ -404,11 +404,11 @@ export default function useGet${pascalName}(
       import ${pascalName}Error from './${pascalName}Error/${pascalName}Error'
       
       export type ${pascalName}Props = {
-        UseProps?: Use${pascalName}Props
+        config?: Use${pascalName}Props
       }
       
       export default function ${pascalName}List(props: ${pascalName}Props) {
-        const ${camelCase} = ${useName}(props.UseProps)
+        const ${camelCase} = ${useName}(props.config)
       
         return (
           <Wrapper>
@@ -628,7 +628,7 @@ export default function useGet${pascalName}(
       import ${pascalName}Error_ from '../${pascalName}Error/${pascalName}Error'
       
       const defaultArgs: ${pascalName}Props = {
-        UseProps: {
+        config: {
           getOptions: {
             onGet: ({ result }) => console.log({ result }),
           },
@@ -645,7 +645,7 @@ export default function useGet${pascalName}(
         render: (args) => {
           return (
             <>                
-                {/* pass fetcher payload via UseProps.getOptions.fetcherPayload */}
+                {/* pass fetcher payload via config.getOptions.fetcherPayload */}
                 <${pascalName} {...args} />
             </>
           )

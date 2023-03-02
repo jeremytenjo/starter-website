@@ -616,7 +616,7 @@ export default function useGet${pascalName}(
       const storyPrefix = getStoryPrefix({ folderPath })
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
-      import React, { useEffect } from 'react'
+      import React from 'react'
       
       import ${pascalName}Stubs from '../../../../../${lowercaseFirstLetter(
         splitCamelCase(name),

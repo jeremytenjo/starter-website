@@ -70,7 +70,7 @@
     "@useweb/ui-theme": "2.61.0",
     "@useweb/use-async": "7.4.0",
     "@useweb/use-async-ui": "1.5.0",
-    "@useweb/use-data": "19.3.2",
+    "@useweb/use-data": "20.0.0",
     "@useweb/use-data-ui": "1.5.4",
     "@useweb/use-event-listener": "1.4.0",
     "@useweb/use-fetch": "1.6.0",
@@ -85,6 +85,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "7.34.2",
     "react-json-view": "1.21.3",
+    "swr": "2.0.4",
     "zustand": "4.1.1"
   },
   "devDependencies": {

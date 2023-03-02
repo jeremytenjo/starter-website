@@ -407,7 +407,7 @@ export default function useGet${pascalName}(
         UseProps?: Use${pascalName}Props
       }
       
-      export default function ${pascalName}(props: ${pascalName}Props) {
+      export default function ${pascalName}List(props: ${pascalName}Props) {
         const ${camelCase} = ${useName}(props.UseProps)
       
         return (

@@ -58,7 +58,7 @@ const files = [
     template: ({ name, helpers }) => {
       const camelCase = helpers.changeCase.camelCase(name)
 
-      return `export const ${camelCase}CollectionName = ${camelCase}`
+      return `export const ${camelCase}CollectionName = '${camelCase}'`
     },
   },
 

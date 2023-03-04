@@ -330,13 +330,13 @@ export default function useGet${pascalName}(
       const propsName = `Remove${pascalName}Props`
       const removePropsName = `Remove${pascalName}PayloadProps`
 
-      return `import { type UseDataProps, type PayloadProps } from '@useweb/use-data'
+      return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
       export type ${removePropsName} = any
 
-      type ${propsName} = PayloadProps<${schemaName}, ${removePropsName}>
+      type ${propsName} = RemoverProps<${schemaName}, ${removePropsName}>
       
       // remover
       export const remove${pascalName} = async (props: ${propsName}) => {
@@ -588,7 +588,7 @@ export default function useGet${pascalName}(
       export default function ${pascalName}Error(props: ${pascalName}ErrorProps) {
         return (
           <Wrapper>
-            <ErrorMessage error={props.error} />
+            <ErrorMessage error={props.error} message='Error loading ${name}' />
           </Wrapper>
         )
       }

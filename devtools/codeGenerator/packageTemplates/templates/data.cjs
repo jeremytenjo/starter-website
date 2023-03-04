@@ -18,9 +18,9 @@ const files = [
       const schemaName = `${nameSinglePascal}Schema`
 
       return `
-      // TODO add ${nameSinglePascal} Schema
-
-      type ${schemaName} = any
+      type ${schemaName} = {
+        id: string
+      }
       
       export default ${schemaName}
       `
@@ -42,9 +42,7 @@ const files = [
       return `
       import type ${schemaName} from './${lowercaseFirstLetter(nameSingle)}.schema'
           
-      const ${pascalName}Stubs: ${schemaName}[] = [
-        // TODO add ${pascalName} stubs
-      ]
+      const ${pascalName}Stubs: ${schemaName}[] = []
       
       export default ${pascalName}Stubs
 `

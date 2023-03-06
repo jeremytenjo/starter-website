@@ -406,11 +406,11 @@ export default function useGet${pascalName}(
       import ${ListComponentName}Error from './${ListComponentName}Error/${ListComponentName}Error'
       
       export type ${ListComponentName}Props = {
-        config?: Use${pascalName}Props
+        dataConfig?: Use${pascalName}Props
       }
       
       export default function ${ListComponentName}(props: ${ListComponentName}Props) {
-        const ${camelCase} = ${useName}(props.config)
+        const ${camelCase} = ${useName}(props.dataConfig)
       
         return (
           <Wrapper>
@@ -640,7 +640,7 @@ export default function useGet${pascalName}(
       import ${ListComponentName}Error_ from '../${ListComponentName}Error/${ListComponentName}Error'
       
       const defaultArgs: ${ListComponentName}Props = {
-        config: {
+        dataConfig: {
           getOptions: {
             onGet: ({ result }) => console.log({ result }),
           },
@@ -657,7 +657,7 @@ export default function useGet${pascalName}(
         render: (args) => {
           return (
             <>                
-                {/* pass fetcher payload via config.getOptions.fetcherPayload */}
+                {/* pass fetcher payload via dataConfig.getOptions.fetcherPayload */}
                 <${ListComponentName} {...args} />
             </>
           )

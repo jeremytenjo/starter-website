@@ -444,11 +444,11 @@ export default function useGet${pascalName}(
       import ${componentName}Error from './${componentName}Error/${componentName}Error'
       
       export type ${componentName}Props = {
-        config?: Use${pascalName}Props
+        dataConfig?: Use${pascalName}Props
       }
       
       export default function ${componentName}(props: ${componentName}Props) {
-        const ${camelCase} = ${useName}(props.config)
+        const ${camelCase} = ${useName}(props.dataConfig)
       
         return (
           <Wrapper>

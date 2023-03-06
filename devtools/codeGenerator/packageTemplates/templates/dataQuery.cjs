@@ -648,7 +648,7 @@ export default function useGet${pascalName}(
       }
       
       export default {
-        title: '${storyPrefix}/${ListComponentName}/ui/${ListComponentName}',
+        title: '${storyPrefix}/${pascalName}/ui/${ListComponentName}',
         args: defaultArgs,
       }
       

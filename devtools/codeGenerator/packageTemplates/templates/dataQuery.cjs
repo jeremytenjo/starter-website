@@ -164,6 +164,7 @@ const files = [
 
       return `
 import { type UseDataProps } from '@useweb/use-data'
+import assert from '@useweb/assert'
 
 import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
@@ -171,6 +172,7 @@ import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 export type ${propsName} = any
 
 export const get${pascalName} = async (props: ${propsName}) => {
+  assert({ props })
   const ${name}: ${schemaName}[] = []
 
   return ${name}

@@ -60,7 +60,7 @@
     "@prismicio/slice-simulator-react": "0.2.2",
     "@useweb/assert": "1.0.1",
     "@useweb/async-tester": "2.41.0",
-    "@useweb/click-to-component": "2.6.0",
+    "@useweb/click-to-component": "2.6.1",
     "@useweb/fetch-tester": "1.30.0",
     "@useweb/figma-to-code": "2.29.1",
     "@useweb/firebase": "8.18.0",

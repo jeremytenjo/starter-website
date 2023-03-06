@@ -377,11 +377,13 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const ListComponentName = `${pascalName}List`
 
-      return `ui/${pascalName}/${pascalName}.tsx`
+      return `ui/${ListComponentName}/${ListComponentName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const ListComponentName = `${pascalName}List`
       const useName = `use${pascalName}`
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
@@ -398,26 +400,26 @@ export default function useGet${pascalName}(
         name,
       )}'
       
-      import ${pascalName}Data from './${pascalName}Data/${pascalName}Data'
-      import ${pascalName}EmptyData from './${pascalName}EmptyData/${pascalName}EmptyData'
-      import ${pascalName}Loading from './${pascalName}Loading/${pascalName}Loading'
-      import ${pascalName}Error from './${pascalName}Error/${pascalName}Error'
+      import ${ListComponentName}Data from './${ListComponentName}Data/${ListComponentName}Data'
+      import ${ListComponentName}EmptyData from './${ListComponentName}EmptyData/${ListComponentName}EmptyData'
+      import ${ListComponentName}Loading from './${ListComponentName}Loading/${ListComponentName}Loading'
+      import ${ListComponentName}Error from './${ListComponentName}Error/${ListComponentName}Error'
       
-      export type ${pascalName}Props = {
+      export type ${ListComponentName}Props = {
         config?: Use${pascalName}Props
       }
       
-      export default function ${pascalName}List(props: ${pascalName}Props) {
+      export default function ${ListComponentName}(props: ${ListComponentName}Props) {
         const ${camelCase} = ${useName}(props.config)
       
         return (
           <Wrapper>
             <UseDataUi<${nameSinglePascal}Schema>
               asyncFunctionVariable={${camelCase}}
-              data={${pascalName}Data}
-              emptyData={${pascalName}EmptyData}
-              loading={${pascalName}Loading}
-              error={${pascalName}Error}
+              data={${ListComponentName}Data}
+              emptyData={${ListComponentName}EmptyData}
+              loading={${ListComponentName}Loading}
+              error={${ListComponentName}Error}
             />
           </Wrapper>
         )
@@ -425,7 +427,7 @@ export default function useGet${pascalName}(
       
       const Wrapper = ({ children }) => {
         return (
-          <Box data-id='${pascalName}' sx={{}}>
+          <Box data-id='${ListComponentName}' sx={{}}>
             {children}
           </Box>
         )
@@ -438,13 +440,15 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const ListComponentName = `${pascalName}List`
 
-      return `ui/${pascalName}/${pascalName}Data/${pascalName}Data.tsx`
+      return `ui/${ListComponentName}/${ListComponentName}Data/${ListComponentName}Data.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const ListComponentName = `${pascalName}List`
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
@@ -455,9 +459,9 @@ export default function useGet${pascalName}(
         name,
       )}'
       
-      export type ${pascalName}DataProps = UseDataUiComponentProps<${nameSinglePascal}Schema>['data']
+      export type ${ListComponentName}DataProps = UseDataUiComponentProps<${nameSinglePascal}Schema>['data']
       
-      export default function ${pascalName}Data(props: ${pascalName}DataProps) {
+      export default function ${ListComponentName}Data(props: ${ListComponentName}DataProps) {
         return (
           <Wrapper>
             <List<${nameSinglePascal}Schema>
@@ -472,7 +476,7 @@ export default function useGet${pascalName}(
       
       const Wrapper = ({ children }) => {
         return (
-          <Box data-id='${pascalName}Data' sx={{}}>
+          <Box data-id='${ListComponentName}Data' sx={{}}>
             {children}
           </Box>
         )
@@ -484,13 +488,15 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const ListComponentName = `${pascalName}List`
 
-      return `ui/${pascalName}/${pascalName}EmptyData/${pascalName}EmptyData.tsx`
+      return `ui/${ListComponentName}/${ListComponentName}EmptyData/${ListComponentName}EmptyData.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const ListComponentName = `${pascalName}List`
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
@@ -500,16 +506,16 @@ export default function useGet${pascalName}(
         name,
       )}'
       
-      export type ${pascalName}EmptyDataProps =
+      export type ${ListComponentName}EmptyDataProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
       
-      export default function ${pascalName}EmptyData(props: ${pascalName}EmptyDataProps) {
-        return <Wrapper>${pascalName}EmptyData</Wrapper>
+      export default function ${ListComponentName}EmptyData(props: ${ListComponentName}EmptyDataProps) {
+        return <Wrapper>${ListComponentName}EmptyData</Wrapper>
       }
       
       const Wrapper = ({ children }) => {
         return (
-          <Box data-id='${pascalName}EmptyData' sx={{}}>
+          <Box data-id='${ListComponentName}EmptyData' sx={{}}>
             {children}
           </Box>
         )
@@ -522,13 +528,15 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const ListComponentName = `${pascalName}List`
 
-      return `ui/${pascalName}/${pascalName}Loading/${pascalName}Loading.tsx`
+      return `ui/${ListComponentName}/${ListComponentName}Loading/${ListComponentName}Loading.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const ListComponentName = `${pascalName}List`
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
@@ -539,10 +547,10 @@ export default function useGet${pascalName}(
         name,
       )}'
       
-      export type ${pascalName}LoadingProps =
+      export type ${ListComponentName}LoadingProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['loading']
       
-      export default function ${pascalName}Loading(props: ${pascalName}LoadingProps) {
+      export default function ${ListComponentName}Loading(props: ${ListComponentName}LoadingProps) {
         return (
           <Wrapper>
             <LinearProgress />
@@ -552,7 +560,7 @@ export default function useGet${pascalName}(
       
       const Wrapper = ({ children }) => {
         return (
-          <Box data-id='${pascalName}Loading' sx={{}}>
+          <Box data-id='${ListComponentName}Loading' sx={{}}>
             {children}
           </Box>
         )
@@ -565,13 +573,15 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const ListComponentName = `${pascalName}List`
 
-      return `ui/${pascalName}/${pascalName}Error/${pascalName}Error.tsx`
+      return `ui/${ListComponentName}/${ListComponentName}Error/${ListComponentName}Error.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const ListComponentName = `${pascalName}List`
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
@@ -582,10 +592,10 @@ export default function useGet${pascalName}(
         name,
       )}'
       
-      export type ${pascalName}ErrorProps =
+      export type ${ListComponentName}ErrorProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['error']
       
-      export default function ${pascalName}Error(props: ${pascalName}ErrorProps) {
+      export default function ${ListComponentName}Error(props: ${ListComponentName}ErrorProps) {
         return (
           <Wrapper>
             <ErrorMessage error={props.error} message='Error loading ${name}' />
@@ -595,7 +605,7 @@ export default function useGet${pascalName}(
       
       const Wrapper = ({ children }) => {
         return (
-          <Box data-id='${pascalName}Error' sx={{}}>
+          <Box data-id='${ListComponentName}Error' sx={{}}>
             {children}
           </Box>
         )
@@ -608,12 +618,14 @@ export default function useGet${pascalName}(
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const ListComponentName = `${pascalName}List`
 
-      return `ui/${pascalName}/stories/${name}.stories.tsx`
+      return `ui/${ListComponentName}/stories/${ListComponentName}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const storyPrefix = getStoryPrefix({ folderPath })
+      const ListComponentName = `${pascalName}List`
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       import React from 'react'
@@ -621,13 +633,13 @@ export default function useGet${pascalName}(
       import ${pascalName}Stubs from '../../../../../${lowercaseFirstLetter(
         splitCamelCase(name),
       )}.stubs'
-      import ${pascalName}, { type ${pascalName}Props } from '../${pascalName}'
-      import ${pascalName}Data_ from '../${pascalName}Data/${pascalName}Data'
-      import ${pascalName}EmptyData_ from '../${pascalName}EmptyData/${pascalName}EmptyData'
-      import ${pascalName}Loading_ from '../${pascalName}Loading/${pascalName}Loading'
-      import ${pascalName}Error_ from '../${pascalName}Error/${pascalName}Error'
+      import ${ListComponentName}, { type ${ListComponentName}Props } from '../${ListComponentName}'
+      import ${ListComponentName}Data_ from '../${ListComponentName}Data/${ListComponentName}Data'
+      import ${ListComponentName}EmptyData_ from '../${ListComponentName}EmptyData/${ListComponentName}EmptyData'
+      import ${ListComponentName}Loading_ from '../${ListComponentName}Loading/${ListComponentName}Loading'
+      import ${ListComponentName}Error_ from '../${ListComponentName}Error/${ListComponentName}Error'
       
-      const defaultArgs: ${pascalName}Props = {
+      const defaultArgs: ${ListComponentName}Props = {
         config: {
           getOptions: {
             onGet: ({ result }) => console.log({ result }),
@@ -636,63 +648,63 @@ export default function useGet${pascalName}(
       }
       
       export default {
-        title: '${storyPrefix}/${pascalName}/ui/${pascalName}',
+        title: '${storyPrefix}/${ListComponentName}/ui/${ListComponentName}',
         args: defaultArgs,
       }
       
       // full example
-      export const ${pascalName}Example = {
+      export const ${ListComponentName}Example = {
         render: (args) => {
           return (
             <>                
                 {/* pass fetcher payload via config.getOptions.fetcherPayload */}
-                <${pascalName} {...args} />
+                <${ListComponentName} {...args} />
             </>
           )
         },
       }
       
       // data
-      export const ${pascalName}WithData = {
+      export const ${ListComponentName}WithData = {
         render: () => {
           return (
             <>      
-              <${pascalName}Data_ {...commonProps} data={${pascalName}Stubs} />
+              <${ListComponentName}Data_ {...commonProps} data={${pascalName}Stubs} />
             </>
           )
         },
       }
       
       // empty data
-      export const ${pascalName}EmptyData = {
+      export const ${ListComponentName}EmptyData = {
         render: () => {
           return (
             <>      
-              <${pascalName}EmptyData_ {...commonProps} />
+              <${ListComponentName}EmptyData_ {...commonProps} />
             </>
           )
         },
       }
       
       // loading
-      export const ${pascalName}Loading = {
+      export const ${ListComponentName}Loading = {
         render: () => {
           return (
             <>      
-              <${pascalName}Loading_ {...commonProps} />
+              <${ListComponentName}Loading_ {...commonProps} />
             </>
           )
         },
       }
       
       // error
-      export const ${pascalName}Error = {
+      export const ${ListComponentName}Error = {
         render: () => {
           return (
             <>      
-              <${pascalName}Error_
+              <${ListComponentName}Error_
                 {...commonProps}
-                error={new Error('${pascalName} failed')}
+                error={new Error('${ListComponentName} failed')}
               />
             </>
           )

@@ -102,8 +102,6 @@ const files = [
         type ${propName},
       } from '../${getFunction}'
       
-      import Docs from './${getFunction}.docs'
-      
       const defaultArgs: ${propName} = {
         name: '${getFunction}',
       }

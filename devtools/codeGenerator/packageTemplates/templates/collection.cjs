@@ -164,6 +164,9 @@ const files = [
       
       export default {
         title: '${storyPrefix}/${pascalName}',
+        parameters: {
+          signInAs: false,
+        },
       }
       
       export const Get${pascalName} = {
@@ -837,6 +840,9 @@ export const Default = {
       export default {
         title: '${storyPrefix}/${componentName}/ui/${componentName}',
         args: defaultArgs,
+        parameters: {
+          signInAs: false,
+        },
       }
       
       // full example

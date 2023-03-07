@@ -26,6 +26,9 @@ const files = [
       
       export default {
         title: '${storyPrefix}/${name}/ui/${pascalName}',
+        parameters: {
+          signInAs: false,
+        },
       }
       
       // full example

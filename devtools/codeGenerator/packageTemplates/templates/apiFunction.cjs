@@ -53,6 +53,9 @@ const files = [
         args: {
           payload: body
         },
+        parameters: {
+          signInAs: false,
+        },
       }
       
       const fetcher = async (args) => {

@@ -366,7 +366,7 @@ const files = [
         render: () => {
           return (
             <>      
-              <${ListComponentName}Loading_ {...commonProps} />
+              <${ListComponentName}Loading_ />
             </>
           )
         },

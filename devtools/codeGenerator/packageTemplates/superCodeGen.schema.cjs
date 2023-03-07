@@ -20,6 +20,7 @@ const playwrightTest = require('./templates/playwrightTest.cjs')
 const playwrightTestFile = require('./templates/playwrightTestFile.cjs')
 const data = require('./templates/data.cjs')
 const dataQuery = require('./templates/dataQuery.cjs')
+const dataQueryUi = require('./templates/dataQueryUi.cjs')
 const dataComponent = require('./templates/dataComponent.cjs')
 const dataPrismic = require('./templates/dataPrismic.cjs')
 const dataVariant = require('./templates/dataVariant.cjs')
@@ -49,6 +50,7 @@ module.exports = [
   collection.template,
   data.template,
   dataQuery.template,
+  dataQueryUi.template,
   componentWithProvider.template,
   dataComponent.template,
   dataComponentUi.template,

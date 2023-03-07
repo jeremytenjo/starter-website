@@ -80,6 +80,9 @@ const defaultArgs: ${propsName} = {
 export default {
   title: '${storyPrefix}/${titleNamePrefix}${changeCase.capitalCase(name)}',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: typeof defaultArgs) => {

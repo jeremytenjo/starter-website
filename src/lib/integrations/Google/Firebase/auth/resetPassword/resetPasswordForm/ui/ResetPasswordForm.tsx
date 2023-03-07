@@ -3,7 +3,8 @@ import Form from '@useweb/ui/Form'
 import TextField from '@useweb/ui/TextField'
 import useResetPasswordForm from '../useResetPasswordForm/useResetPassword'
 import Text from '@useweb/ui/Text'
-import ErrorMessage from '../../../../../../../components/basic/ErrorMessage/ErrorMessage'
+import ErrorMessage from '@useweb/ui/ErrorMessage'
+
 import AccountAccessCta from '../../../common/AccountAccessCTA/AccountAccessCta'
 
 export default function ResetPasswordForm() {
@@ -41,11 +42,10 @@ export default function ResetPasswordForm() {
         <Text text={`Password reset email sent`} sx={{}} />
       )}
 
-      {resetPasswordForm.error && (
-        <ErrorMessage
-          error={'Error resetting password, please refresh the page and try again.'}
-        />
-      )}
+      <ErrorMessage
+        error={resetPasswordForm.error}
+        message={'Error resetting password, please refresh the page and try again.'}
+      />
     </Form>
   )
 }

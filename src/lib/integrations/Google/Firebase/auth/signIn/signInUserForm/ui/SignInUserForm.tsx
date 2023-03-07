@@ -3,8 +3,8 @@ import Form from '@useweb/ui/Form'
 import TextField from '@useweb/ui/TextField'
 import Text from '@useweb/ui/Text'
 import Link from '@useweb/ui/Link'
+import ErrorMessage from '@useweb/ui/ErrorMessage'
 
-import ErrorMessage from '../../../../../../../components/basic/ErrorMessage/ErrorMessage'
 import useAuth from '../../../useAuth/useAuth'
 import { useRouter } from 'next/router'
 import useSnackbar from '@useweb/ui/Snackbar'
@@ -92,7 +92,8 @@ export default function SignInUserForm(props: SignInUserFormProps) {
 
         {auth.signingInError && (
           <ErrorMessage
-            error={'You have entered an invalid username/email or password'}
+            error={auth.signingInError}
+            message={'You have entered an invalid username/email or password'}
           />
         )}
         <Link href={'/reset-password'}>

@@ -3,8 +3,8 @@ import Form from '@useweb/ui/Form'
 import TextField from '@useweb/ui/TextField'
 import Text from '@useweb/ui/Text'
 import { useRouter } from 'next/router'
+import ErrorMessage from '@useweb/ui/ErrorMessage'
 
-import ErrorMessage from '../../../../../../../../components/basic/ErrorMessage/ErrorMessage'
 import GoogleButton from '../../../../../../../../components/auth/GoogleButton/GoogleButton'
 import AccountAccessCta from '../../../../common/AccountAccessCTA/AccountAccessCta'
 import useAuth from '../../../../useAuth/useAuth'
@@ -84,7 +84,10 @@ export default function SignUpUserForm() {
         <AccountAccessCta loading={auth.signUp.loading} text='Continue with Email' />
 
         {auth.signUp.error && (
-          <ErrorMessage error={getFirebaseErrorMessage({ error: auth.signUp.error })} />
+          <ErrorMessage
+            error={getFirebaseErrorMessage({ error: auth.signUp.error })}
+            message={getFirebaseErrorMessage({ error: auth.signUp.error })}
+          />
         )}
       </Form>
     </>

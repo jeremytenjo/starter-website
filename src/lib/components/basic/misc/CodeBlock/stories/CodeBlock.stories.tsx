@@ -3,8 +3,6 @@ import React from 'react'
 
 import CodeBlock, { type CodeBlockProps } from '../CodeBlock'
 
-import Docs from './CodeBlock.docs.mdx'
-
 const defaultArgs: CodeBlockProps = {
   code: `
   import prismicClient from '../../../lib/utils/prismic/prismicClient/prismicClient'
@@ -24,12 +22,6 @@ const defaultArgs: CodeBlockProps = {
 export default {
   title: 'lib/components/basic/misc/CodeBlock',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: CodeBlockProps) => {

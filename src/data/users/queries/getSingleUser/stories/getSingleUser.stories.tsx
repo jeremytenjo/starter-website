@@ -8,8 +8,6 @@ import getSingleUser, {
 } from '../getSingleUser'
 import userStubs from '../../../users.stubs'
 
-import Docs from './getSingleUser.docs'
-
 const defaultArgs: GetSingleUserProps = {
   uid: userStubs[0].uid,
 }
@@ -17,12 +15,6 @@ const defaultArgs: GetSingleUserProps = {
 export default {
   title: 'data/users/getSingleUser',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: typeof defaultArgs) => {

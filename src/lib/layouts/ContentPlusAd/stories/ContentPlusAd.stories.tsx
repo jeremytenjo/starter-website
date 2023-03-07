@@ -3,8 +3,6 @@ import React from 'react'
 
 import ContentPlusAd, { type ContentPlusAdProps } from '../ContentPlusAd'
 
-import Docs from './ContentPlusAd.docs'
-
 const defaultArgs: ContentPlusAdProps = {
   children: 'Hello',
 }
@@ -12,12 +10,6 @@ const defaultArgs: ContentPlusAdProps = {
 export default {
   title: 'lib/layouts/ContentPlusAd',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: ContentPlusAdProps) => {

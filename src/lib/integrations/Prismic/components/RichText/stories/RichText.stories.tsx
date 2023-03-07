@@ -3,8 +3,6 @@ import React from 'react'
 
 import RichText, { type RichTextProps } from '../RichText'
 
-import Docs from './RichText.docs.mdx'
-
 const defaultArgs: RichTextProps = {
   field: [
     {
@@ -75,12 +73,6 @@ const defaultArgs: RichTextProps = {
 export default {
   title: 'lib/integrations/prismic/components/RichText',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: RichTextProps) => {

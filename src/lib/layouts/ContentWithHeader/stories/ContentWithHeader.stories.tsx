@@ -3,8 +3,6 @@ import React from 'react'
 
 import ContentWithHeader, { type ContentWithHeaderProps } from '../ContentWithHeader'
 
-import Docs from './ContentWithHeader.docs'
-
 const defaultArgs: ContentWithHeaderProps = {
   title: 'ContentWithHeader',
   content: 'content',
@@ -13,12 +11,6 @@ const defaultArgs: ContentWithHeaderProps = {
 export default {
   title: 'lib/layouts/ContentWithHeader',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: ContentWithHeaderProps) => {

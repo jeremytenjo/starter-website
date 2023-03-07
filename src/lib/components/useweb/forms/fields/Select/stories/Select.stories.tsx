@@ -4,8 +4,6 @@ import Form from '@useweb/ui/Form'
 import Button from '@mui/material/Button'
 import Select, { type SelectProps } from '@useweb/ui/Select'
 
-import Docs from './Select.docs.mdx'
-
 const defaultArgs: SelectProps = {
   name: 'season',
   label: 'Season',
@@ -24,12 +22,6 @@ const defaultArgs: SelectProps = {
 export default {
   title: 'lib/components/useweb/forms/Select',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args) => {

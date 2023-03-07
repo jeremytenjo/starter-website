@@ -4,8 +4,6 @@ import PixelPerfect from '@useweb/pixel-perfect'
 
 import AuthUserSetter, { type AuthUserSetterProps } from '../AuthUserSetter'
 
-import Docs from './AuthUserSetter.docs'
-
 const defaultArgs: AuthUserSetterProps = {
   open: true,
 }
@@ -13,12 +11,6 @@ const defaultArgs: AuthUserSetterProps = {
 export default {
   title: 'lib/components/auth/Auth User Setter',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: typeof defaultArgs) => {

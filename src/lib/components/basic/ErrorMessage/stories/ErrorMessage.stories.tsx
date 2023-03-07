@@ -3,8 +3,6 @@ import React from 'react'
 
 import ErrorMessage, { type ErrorMessageProps } from '@useweb/ui/ErrorMessage'
 
-import Docs from './ErrorMessage.docs'
-
 const defaultArgs: ErrorMessageProps = {
   error: 'ErrorMessage',
   message: 'ErrorMessage',
@@ -13,12 +11,6 @@ const defaultArgs: ErrorMessageProps = {
 export default {
   title: 'lib/components/basic/Error Message',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: typeof defaultArgs) => {

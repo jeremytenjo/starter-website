@@ -6,8 +6,6 @@ import CodeBlock from '../../../../../components/basic/misc/CodeBlock/CodeBlock'
 import capitalizeFirstLetter from '../../../../../utils/strings/capitalizeFirstLetter/capitalizeFirstLetter'
 import getPrismicData, { type GetPrismicDataProps } from '../getPrismicData'
 
-import Docs from './getPrismicData.docs.mdx'
-
 const defaultArgs: GetPrismicDataProps = {
   contentType: 'product',
 }
@@ -15,12 +13,6 @@ const defaultArgs: GetPrismicDataProps = {
 export default {
   title: 'lib/integrations/prismic/getPrismicData',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args: GetPrismicDataProps) => {

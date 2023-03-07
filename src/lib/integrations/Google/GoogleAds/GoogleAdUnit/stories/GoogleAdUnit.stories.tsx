@@ -3,8 +3,6 @@ import React from 'react'
 
 import GoogleAdUnit, { type GoogleAdUnitProps } from '../GoogleAdUnit'
 
-import Docs from './GoogleAdUnit.docs.mdx'
-
 const defaultArgs: GoogleAdUnitProps = {
   dataAdFormat: '',
   dataAdLayoutKey: '',
@@ -14,12 +12,6 @@ const defaultArgs: GoogleAdUnitProps = {
 export default {
   title: 'lib/components/integrations/google/googleAds/GoogleAdUnit',
   args: defaultArgs,
-  // https://storybook.js.org/docs/react/writing-docs/docs-page#remixing-docspage-using-doc-blocks
-  parameters: {
-    docs: {
-      page: Docs,
-    },
-  },
 }
 
 const Template = (args) => {

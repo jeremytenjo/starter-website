@@ -16,7 +16,7 @@ export default {
   },
 }
 
-const Template = (args: typeof defaultArgs) => {
+const Template = () => {
   return (
     <>
       <PixelPerfect
@@ -31,7 +31,7 @@ const Template = (args: typeof defaultArgs) => {
           },
         ]}
       />
-      <SignInUserForm {...args} />
+      <SignInUserForm />
     </>
   )
 }

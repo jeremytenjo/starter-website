@@ -11,6 +11,9 @@ const defaultArgs: ErrorMessageProps = {
 export default {
   title: 'lib/components/basic/Error Message',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: typeof defaultArgs) => {

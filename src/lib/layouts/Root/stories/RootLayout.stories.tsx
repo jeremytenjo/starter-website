@@ -11,6 +11,9 @@ const defaultArgs: RootLayoutProps = {
 export default {
   title: 'lib/layouts/Root/RootLayout',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args) => {

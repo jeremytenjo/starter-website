@@ -13,6 +13,9 @@ const defaultArgs: GetPrismicDataProps = {
 export default {
   title: 'lib/integrations/prismic/getPrismicData',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: GetPrismicDataProps) => {

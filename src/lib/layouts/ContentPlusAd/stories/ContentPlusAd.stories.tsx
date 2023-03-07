@@ -10,6 +10,9 @@ const defaultArgs: ContentPlusAdProps = {
 export default {
   title: 'lib/layouts/ContentPlusAd',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: ContentPlusAdProps) => {

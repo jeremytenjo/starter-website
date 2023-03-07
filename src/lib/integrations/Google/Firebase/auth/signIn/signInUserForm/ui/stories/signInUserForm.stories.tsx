@@ -11,6 +11,9 @@ const defaultArgs = {
 export default {
   title: 'lib/integrations/Google/Firebase/auth/Sign In User Form',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: typeof defaultArgs) => {

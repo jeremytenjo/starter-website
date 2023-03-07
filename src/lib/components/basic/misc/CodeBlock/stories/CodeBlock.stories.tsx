@@ -22,6 +22,9 @@ const defaultArgs: CodeBlockProps = {
 export default {
   title: 'lib/components/basic/misc/CodeBlock',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: CodeBlockProps) => {

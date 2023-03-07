@@ -9,6 +9,9 @@ const defaultArgs: GoogleButtonProps = {}
 export default {
   title: 'lib/components/auth/Google Button',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: typeof defaultArgs) => {

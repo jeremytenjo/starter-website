@@ -11,6 +11,9 @@ const defaultArgs: ContentWithHeaderProps = {
 export default {
   title: 'lib/layouts/ContentWithHeader',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: ContentWithHeaderProps) => {

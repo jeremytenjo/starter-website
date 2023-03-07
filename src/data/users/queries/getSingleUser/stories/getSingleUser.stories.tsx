@@ -15,6 +15,9 @@ const defaultArgs: GetSingleUserProps = {
 export default {
   title: 'data/users/getSingleUser',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: typeof defaultArgs) => {

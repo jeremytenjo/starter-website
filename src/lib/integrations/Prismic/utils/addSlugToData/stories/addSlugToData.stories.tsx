@@ -13,6 +13,9 @@ const defaultArgs: AddSlugToDataProps = {
 export default {
   title: 'lib/integrations/prismic/utils/addSlugToData',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: AddSlugToDataProps) => {

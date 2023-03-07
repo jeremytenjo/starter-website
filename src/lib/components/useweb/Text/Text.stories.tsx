@@ -9,6 +9,9 @@ const defaultArgs: TextProps = { text: 'hello', variant: 'h1' }
 export default {
   title: 'lib/components/useweb/Text',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 export const Default = {

@@ -11,6 +11,9 @@ const defaultArgs: AuthUserSetterProps = {
 export default {
   title: 'lib/components/auth/Auth User Setter',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: typeof defaultArgs) => {

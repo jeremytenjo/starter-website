@@ -15,6 +15,9 @@ const defaultArgs: SignUpWithEmailPasswordProps = {
 export default {
   title: 'lib/integrations/Google/Firebase/auth/Sign Up With Email Password',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: typeof defaultArgs) => {

@@ -73,6 +73,9 @@ const defaultArgs: RichTextProps = {
 export default {
   title: 'lib/integrations/prismic/components/RichText',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args: RichTextProps) => {

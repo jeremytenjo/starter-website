@@ -22,6 +22,9 @@ const defaultArgs: SelectProps = {
 export default {
   title: 'lib/components/useweb/forms/Select',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args) => {

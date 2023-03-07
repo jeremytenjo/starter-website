@@ -12,6 +12,9 @@ const defaultArgs: GoogleAdUnitProps = {
 export default {
   title: 'lib/components/integrations/google/googleAds/GoogleAdUnit',
   args: defaultArgs,
+  parameters: {
+    signInAs: false,
+  },
 }
 
 const Template = (args) => {

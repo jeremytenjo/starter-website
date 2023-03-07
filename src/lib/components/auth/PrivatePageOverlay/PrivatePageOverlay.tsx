@@ -44,7 +44,7 @@ export default function PrivatePageOverlay({ title = 'Sign in' }) {
         pb: '150px',
       }}
     >
-      asdf
+      {title}
     </Box>
   ) : null
 }

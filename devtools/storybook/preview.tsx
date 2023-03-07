@@ -16,6 +16,7 @@ const theme = create({
 })
 
 export const decorators = [
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (Story, metadata) => {
     // const signInAs = metadata?.parameters?.signInAs
 

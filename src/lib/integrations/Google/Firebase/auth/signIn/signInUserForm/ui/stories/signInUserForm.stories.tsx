@@ -31,7 +31,7 @@ const Template = (args: typeof defaultArgs) => {
           },
         ]}
       />
-      <SignInUserForm />
+      <SignInUserForm {...args} />
     </>
   )
 }

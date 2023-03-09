@@ -1,11 +1,12 @@
 import React from 'react'
 import Box, { type BoxProps } from '@useweb/ui/Box'
+import type { TextProps } from '@useweb/ui/Text'
 import Text from '@useweb/ui/Text'
 
 export type ContentWithHeaderProps = {
   sx?: object
   title?: string
-  titleTag?: string
+  titleTag?: TextProps['tag']
   titleSx?: BoxProps['sx']
   headerSx?: BoxProps['sx']
   content: any

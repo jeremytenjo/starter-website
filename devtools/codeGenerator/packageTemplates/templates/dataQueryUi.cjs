@@ -98,7 +98,7 @@ const files = [
       import Box from '@useweb/ui/Box'
       import List from '@useweb/ui/List'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
-      import BoxWithSkeleton from '@useweb/ui/BoxWithSkeleton'
+      import Skeleton from '@useweb/ui/Skeleton'
       import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
         name,
       )}'
@@ -128,9 +128,9 @@ const files = [
       export function ${ListComponentName}Item(props: { ${nameSingle}?: ${nameSinglePascal}Schema; loading?: boolean }) {
         return (
           <Box data-id='${ListComponentName}Item' sx={{}}>
-            <BoxWithSkeleton loading={props.loading}>
+            <Skeleton loading={props.loading}>
               ${ListComponentName}Item
-            </BoxWithSkeleton>
+            </Skeleton>
           </Box>
         )
       }

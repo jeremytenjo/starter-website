@@ -109,7 +109,7 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
   color: #777777;
 }
 
-// import BoxWithSkeleton from '@useweb/ui/BoxWithSkeleton'
+// import Skeleton from '@useweb/ui/Skeleton'
 @keyframes react-loading-skeleton {
   100% {
       transform: translateX(100%);

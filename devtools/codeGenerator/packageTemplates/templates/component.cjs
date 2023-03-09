@@ -22,6 +22,7 @@ const files = [
 
       return `import React from 'react'       
     import Box from '@useweb/ui/Box'
+    import Text from '@useweb/ui/Text'
 ${isFunctionWithComponent ? `import ErrorMessage from '@useweb/ui/ErrorMessage'` : ''}
     ${
       isFunctionWithComponent
@@ -40,7 +41,7 @@ console.log(${camelCase})`
       }
       return (
         <Wrapper>
-          ${componentName}
+          <Text text={'${componentName}'} tag='p' sx={{}} />
           ${isFunctionWithComponent ? `<ErrorMessage error={${camelCase}.error} />` : ''}
           ${slots?.localComponents?.localComponentsDeclarations || ''}
         </Wrapper>

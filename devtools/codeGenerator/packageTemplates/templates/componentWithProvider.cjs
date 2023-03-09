@@ -73,7 +73,7 @@ const files = [
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
-
+      import Text from '@useweb/ui/Text'
       import { ${pascalCase}DataProvider, type ${pascalCase}DataProps } from './use${pascalCase}Data/use${pascalCase}Data'
 
       export type ${pascalCase}Props = ${pascalCase}DataProps
@@ -82,7 +82,7 @@ const files = [
         return (
           <${pascalCase}DataProvider props={props}>
             <Wrapper>
-              ${pascalCase}
+              <Text text={'${pascalCase}'} tag='p' sx={{}} />
             </Wrapper>
           </${pascalCase}DataProvider>
         )

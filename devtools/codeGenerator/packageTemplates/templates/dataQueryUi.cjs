@@ -177,6 +177,7 @@ const files = [
                   text={'${ListComponentName}EmptyData'}
                   sx={{
                     color: 'grey.dark',
+                    fontSize: '14px',
                   }}
                 />
               </Wrapper>

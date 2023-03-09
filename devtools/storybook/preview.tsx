@@ -19,6 +19,7 @@ export const decorators = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (Story, metadata) => {
     // const signInAs = metadata?.parameters?.signInAs
+    // const ignoreAuthUserSetter = metadata?.parameters?.ignoreAuthUserSetter
 
     return (
       <>
@@ -33,7 +34,7 @@ export const decorators = [
                 minHeight: '100vh',
               }}
             >
-              {/* <AuthUserSetter signInAs={signInAs}> */}
+              {/* <AuthUserSetter signInAs={signInAs} ignoreAuthUserSetter={ignoreAuthUserSetter}> */}
               <Story />
               {/* </AuthUserSetter> */}
             </Box>

@@ -348,6 +348,9 @@ const files = [
             </>
           )
         },
+        parameters: {
+          ignoreAuthUserSetter: true,
+        },
       }
       
       // empty data
@@ -359,6 +362,9 @@ const files = [
             </>
           )
         },
+        parameters: {
+          ignoreAuthUserSetter: true,
+        },
       }
       
       // loading
@@ -369,6 +375,9 @@ const files = [
               <${ListComponentName}Loading_ />
             </>
           )
+        },
+        parameters: {
+          ignoreAuthUserSetter: true,
         },
       }
       
@@ -383,6 +392,9 @@ const files = [
               />
             </>
           )
+        },
+        parameters: {
+          ignoreAuthUserSetter: true,
         },
       }
       

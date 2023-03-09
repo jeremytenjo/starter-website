@@ -13,7 +13,13 @@ import useAuth from '../../../integrations/Google/Firebase/auth/useAuth/useAuth'
 import LinearProgress from '@useweb/ui/LinearProgress'
 import ErrorMessage from '@useweb/ui/ErrorMessage'
 
-export type AuthUserSetterProps = { open?: boolean; signInAs?: string; children?: any }
+export type AuthUserSetterProps = {
+  open?: boolean
+  signInAs?: string
+  children?: any
+  // to test in real devices in local network
+  ignoreAuthUserSetter?: boolean
+}
 
 export default function AuthUserSetter(props: AuthUserSetterProps) {
   const [openDialog, setOpenDialog] = useState(props.open)
@@ -26,7 +32,11 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
     },
   })
 
-  const renderChildren = props.signInAs ? auth.user : true
+  const renderChildren = props.ignoreAuthUserSetter
+    ? true
+    : props.signInAs
+    ? auth.user
+    : true
 
   useEffect(() => {
     if (props.signInAs) {

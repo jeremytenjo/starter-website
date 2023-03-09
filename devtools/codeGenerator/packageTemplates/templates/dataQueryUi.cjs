@@ -161,6 +161,7 @@ const files = [
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
+      import Text from '@useweb/ui/Text'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
       import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
@@ -171,7 +172,14 @@ const files = [
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
       
       export default function ${ListComponentName}EmptyData(props: ${ListComponentName}EmptyDataProps) {
-        return <Wrapper>${ListComponentName}EmptyData</Wrapper>
+        return <Wrapper>
+                <Text
+                  text={'${ListComponentName}EmptyData'}
+                  sx={{
+                    color: 'grey.dark',
+                  }}
+                />
+              </Wrapper>
       }
       
       const Wrapper = ({ children }) => {

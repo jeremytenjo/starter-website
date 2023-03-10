@@ -68,7 +68,12 @@ const files = [
       }
       
       export const Test = (args) => {
-        return <AsyncTester 
+        return <AsyncTester<
+        any,
+        {
+          payload: ${upperNameNoSpace}Props['body']
+        }
+        >
           // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)
           fn={async () => fetcher(args)} 
           autoExec 

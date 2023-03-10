@@ -35,5 +35,9 @@ export default async function nextApi(props: NextApiProps): Promise<NextApiRetur
     },
   ).then((res) => res.json())
 
+  if (data.error) {
+    throw new Error(data.error)
+  }
+
   return data
 }

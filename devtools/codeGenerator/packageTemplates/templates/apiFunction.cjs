@@ -68,7 +68,11 @@ const files = [
       }
       
       export const Test = (args) => {
-        return <AsyncTester fn={async () => fetcher(args)} autoExec />
+        return <AsyncTester 
+          // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)
+          fn={async () => fetcher(args)} 
+          autoExec 
+        />
       }
       `
     },

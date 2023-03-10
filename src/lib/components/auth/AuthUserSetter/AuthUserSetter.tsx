@@ -68,12 +68,13 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
         }}
       >
         <Avatar
-          title={
-            !auth?.user
-              ? 'Click to sign in'
-              : `Signed in as ${auth?.user?.displayName} (${auth?.user?.uid})`
-          }
           src={auth?.user?.photoURL}
+          alt={auth?.user?.displayName}
+          avatarProps={{
+            title: !auth?.user
+              ? 'Click to sign in'
+              : `Signed in as ${auth?.user?.displayName} (${auth?.user?.uid})`,
+          }}
           sx={{
             width: '30px',
             height: '30px',
@@ -121,7 +122,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
                   height: 'fit-content',
                 }}
               >
-                <Avatar src={itemData.photoURL} />
+                <Avatar src={itemData.photoURL} alt={itemData.displayName} />
 
                 {itemData && (
                   <Text

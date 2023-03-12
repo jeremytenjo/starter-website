@@ -63,6 +63,7 @@ const getStoryTemplate = ({
   const propsName = `${pascalCase}${componentNameAffix}Props`
 
   return `//https://storybook.js.org/docs/react/writing-docs/docs-page
+  // https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs?ref=storybook-blog
 import React from 'react'
 ${isFunction ? `import AsyncTester from '@useweb/async-tester'` : ``}
 

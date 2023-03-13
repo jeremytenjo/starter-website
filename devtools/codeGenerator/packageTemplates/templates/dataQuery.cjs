@@ -199,7 +199,10 @@ export default function useGet${pascalName}(
     },
 
     onGetError: (error) => {
-      console.error('useGet${pascalName}', error)
+      logError({
+        error: error.error,
+        fnName: 'useGet${pascalName}'
+      })
       props?.onGetError && props.onGetError(error)
     },
   }

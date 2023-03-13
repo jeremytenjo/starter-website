@@ -26,6 +26,7 @@ export default async function logError(props: LogErrorProps) {
     //   params: {
     //     description: errorMessage,
     //     fatal: false,
+    //     functionName: props.fnName,
     //   },
     // })
   }

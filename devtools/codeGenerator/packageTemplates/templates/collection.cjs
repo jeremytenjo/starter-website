@@ -701,6 +701,7 @@ export const Default = {
 
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
+      import EmptyMessage from '@useweb/ui/EmptyMessage'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
       import type ${nameSinglePascal}Schema from '../../../${getSchemaImportName(name)}'
@@ -709,7 +710,7 @@ export const Default = {
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
       
       export default function ${componentName}EmptyData(props: ${componentName}EmptyDataProps) {
-        return <Wrapper>${componentName}EmptyData</Wrapper>
+        return <Wrapper><EmptyMessage subTitle='${componentName}EmptyData' /></Wrapper>
       }
       
       const Wrapper = ({ children }) => {

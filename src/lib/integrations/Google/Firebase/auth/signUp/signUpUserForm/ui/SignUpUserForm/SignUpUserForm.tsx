@@ -8,6 +8,7 @@ import ErrorMessage from '@useweb/ui/ErrorMessage'
 import GoogleButton from '../../../../../../../../components/auth/GoogleButton/GoogleButton'
 import AccountAccessCta from '../../../../common/AccountAccessCTA/AccountAccessCta'
 import useAuth from '../../../../useAuth/useAuth'
+import logError from '../../../../../../../../utils/loggers/logError/logError'
 
 export type SignUpUserFormProps = any
 
@@ -96,7 +97,10 @@ export default function SignUpUserForm() {
 
 const getFirebaseErrorMessage = ({ error }) => {
   const stringError = String(error)
-  console.error(stringError)
+  logError({
+    error: stringError,
+    fnName: 'SignUpUserForm',
+  })
 
   switch (stringError) {
     case 'FirebaseError: Firebase: Error (auth/email-already-in-use).':

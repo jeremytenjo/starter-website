@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import logError from '../../../../../utils/loggers/logError/logError'
 
 import LaunchEmailSubmitUi from './LaunchEmailSubmitUi/LaunchEmailSubmit.ui'
 
@@ -24,7 +25,10 @@ export default function LaunchEmailSubmit() {
       if (res.success) {
         setIsSuccess(true)
       } else {
-        console.error(res.error)
+        logError({
+          error: res.error,
+          fnName: 'LaunchEmailSubmit',
+        })
         setIsSuccess(false)
       }
     } catch (error) {

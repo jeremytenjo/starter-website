@@ -12,12 +12,18 @@ const files = [
     template: ({ name, helpers }) => {
       const camelCase = helpers.changeCase.camelCase(name)
 
-      return `import { test } from '@playwright/test'
+      return `import { test, expect } from '@playwright/test'
 
       import ${camelCase} from './${camelCase}.test.js'
       
       test('${helpers.changeCase.sentenceCase(name)}', async ({ page }) => {
+        const consoleErrors: Error[] = []
+        page.on('pageerror', (err) => {
+          consoleErrors.push(err)
+        })
+
         await ${camelCase}({ page })
+        expect(consoleErrors.length).toBe(0)
       })
       
       `

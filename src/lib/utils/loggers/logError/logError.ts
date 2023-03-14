@@ -16,7 +16,7 @@ export default async function logError(props: LogErrorProps) {
 
   if (!props.supressError) {
     console.log('')
-    console.log(props.fnName)
+    console.error(props.fnName)
     console.error(errorMessage)
   }
 

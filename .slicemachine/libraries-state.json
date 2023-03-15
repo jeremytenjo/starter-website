@@ -1,5 +1,78 @@
 {
   "slices": {
-    "components": {}
+    "components": {
+      "public_header": {
+        "library": "slices",
+        "id": "public_header",
+        "name": "PublicHeader",
+        "description": "PublicHeader",
+        "model": {
+          "id": "public_header",
+          "type": "SharedSlice",
+          "name": "PublicHeader",
+          "description": "PublicHeader",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "PublicHeader",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "This is where it all begins..."
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Queen",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Ex veniam duis mollit Lorem. Aute do sint sint culpa irure. Officia nostrud aute excepteur enim irure cupidatat tempor duis.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "public_header"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "jsx"
+        },
+        "screenshotPaths": {}
+      }
+    }
   }
 }

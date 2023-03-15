@@ -1,7 +1,7 @@
 import * as prismic from '@prismicio/client'
 
-const prismicProjectName = undefined
-const accessToken = undefined
+const prismicProjectName = process.env.NEXT_PUBLIC_PRISMIC_PROJECT_NAME || undefined
+const accessToken = process.env.NEXT_PUBLIC_PRISMIC_ACCESS_TOKEN || undefined
 const apiEndpoint = `https://${prismicProjectName}.prismic.io/api/v2`
 const repositoryName = prismic.getRepositoryName(apiEndpoint)
 

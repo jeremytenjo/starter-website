@@ -1,7 +1,10 @@
 import path from 'path'
+import dotenv from 'dotenv'
 
 import doesFolderOrFileExist from '../../../../../../../../devtools/utils/node/doesFolderOrFileExist.js'
 import log from '../../../../../../../../devtools/utils/node/log.js'
+
+dotenv.config({ path: '.env.local' })
 
 export type IsPrismicConfiguredProps = { name: string }
 

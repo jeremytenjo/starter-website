@@ -1,0 +1,26 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {}
+    ],
+    "primary": {
+      "title": [
+        {
+          "type": "heading1",
+          "text": "Queen",
+          "spans": []
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Ex veniam duis mollit Lorem. Aute do sint sint culpa irure. Officia nostrud aute excepteur enim irure cupidatat tempor duis.",
+          "spans": []
+        }
+      ]
+    },
+    "slice_type": "public_header"
+  }
+]

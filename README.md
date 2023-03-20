@@ -34,3 +34,5 @@ npm run dev
 Quickly create [MUI svg icons](https://mui.com/components/icons/#createsvgicon)
 
 1. run `npm run helpers:create-icon`
+
+> Use node v16.15.0

@@ -49,6 +49,10 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
           password,
         },
       })
+
+      return () => {
+        auth.signOut()
+      }
     }
   }, [props.signInAs])
 

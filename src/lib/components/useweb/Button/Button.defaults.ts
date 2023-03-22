@@ -36,6 +36,7 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
     },
   },
   variants: [
+    // Light
     {
       props: {
         variant: 'light',

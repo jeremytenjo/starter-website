@@ -11,9 +11,38 @@ const lightVariantStyles = {
     backgroundColor: colors.primary.light,
   },
 }
+const blackVariantStyles = {
+  color: colors.white.main,
+  backgroundColor: colors.black.main,
+  '&:hover, &:focus, &:active': {
+    backgroundColor: colors.black.main,
+  },
+}
+const severeVariantStyles = {
+  color: colors.error.dark,
+  backgroundColor: colors.error.light,
+  '&:hover, &:active, &:focus': {
+    boxShadow: 'none',
+    backgroundColor: colors.error.light,
+  },
+}
 
 const variantSmallStyles = {
   fontSize: '0.8125rem',
+}
+
+const outlinedBase = {
+  color: colors.primary.dark,
+  border: '2px solid transparent',
+  borderColor: colors.primary.dark,
+  '&:hover': {
+    border: '2px solid transparent',
+    borderColor: colors.primary.dark,
+    backgroundColor: colors.primary.light,
+  },
+}
+const outlinedSmall = {
+  height: '35px',
 }
 
 const defaults: ComponentDefaultsProps<ButtonProps> = {
@@ -36,6 +65,46 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
     },
   },
   variants: [
+    // Outlined
+    {
+      props: {
+        variant: 'outlined',
+      },
+      style: {
+        ...outlinedBase,
+      },
+    },
+    {
+      props: {
+        variant: 'outlined',
+        size: 'small',
+      },
+      style: {
+        ...outlinedBase,
+        ...outlinedSmall,
+      },
+    },
+
+    // Black
+    {
+      props: {
+        variant: 'black',
+      },
+      style: {
+        ...blackVariantStyles,
+      },
+    },
+    {
+      props: {
+        variant: 'black',
+        size: 'small',
+      },
+      style: {
+        ...blackVariantStyles,
+        ...variantSmallStyles,
+      },
+    },
+
     // Light
     {
       props: {
@@ -55,12 +124,34 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
         ...variantSmallStyles,
       },
     },
+
+    // Severe
+    {
+      props: {
+        variant: 'severe',
+      },
+      style: {
+        ...severeVariantStyles,
+      },
+    },
+    {
+      props: {
+        variant: 'severe',
+        size: 'small',
+      },
+      style: {
+        ...severeVariantStyles,
+        ...variantSmallStyles,
+      },
+    },
   ],
 }
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     light: true
+    severe: true
+    black: true
   }
 }
 

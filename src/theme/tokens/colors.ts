@@ -16,6 +16,8 @@ const colors = {
   },
   error: {
     main: '#d93025',
+    light: '#FFBBBB',
+    dark: '#3A0000',
   },
   themeColor: '',
   backgroundColor: '',

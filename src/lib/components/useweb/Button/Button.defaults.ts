@@ -20,10 +20,10 @@ const blackVariantStyles = {
 }
 const severeVariantStyles = {
   color: colors.error.dark,
-  backgroundColor: colors.error.light,
+  backgroundColor: 'transparent',
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
-    backgroundColor: colors.error.light,
+    backgroundColor: 'transparent',
   },
 }
 

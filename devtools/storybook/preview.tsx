@@ -3,6 +3,11 @@ import { create } from '@storybook/theming'
 import { SnackbarProvider } from '@useweb/ui/Snackbar'
 import ClickToComponent from '@useweb/click-to-component'
 import Box from '@useweb/ui/Box'
+import { configure } from '@storybook/testing-library'
+
+configure({
+  testIdAttribute: 'data-id',
+})
 
 // import Prismic from '../../src/lib/integrations/Prismic/Prismic'
 // import Firebase from '../../src/lib/integrations/Google/Firebase/firebase'

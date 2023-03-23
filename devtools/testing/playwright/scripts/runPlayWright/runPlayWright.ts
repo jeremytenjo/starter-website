@@ -20,13 +20,17 @@ export default async function runPlayWright() {
     })
   }
 
-  const { watch, singleTest } = getCommandLineArgs([
+  const { watch, singleTest, ui } = getCommandLineArgs([
     {
       name: 'watch',
       type: Boolean,
     },
     {
       name: 'singleTest',
+      type: Boolean,
+    },
+    {
+      name: 'ui',
       type: Boolean,
     },
   ])
@@ -53,6 +57,7 @@ export default async function runPlayWright() {
   }
 
   await runPlaywrightTests({
+    ui,
     headed: watch,
     singTestCommand,
   })
@@ -70,10 +75,11 @@ export default async function runPlayWright() {
 type RunPlaywrightTestsProps = {
   headed: boolean
   singTestCommand: string
+  ui: boolean
 }
 
 const runPlaywrightTests = async (props: RunPlaywrightTestsProps) => {
-  const options = `${props.headed ? '--headed' : ''}`
+  const options = `${props.headed ? '--headed' : ''} ${props.ui ? '--ui' : ''}`
 
   shell(
     `npx playwright test ${props.singTestCommand} --reporter=line ${options} --config=devtools/testing/playwright/playwright.config.ts`,

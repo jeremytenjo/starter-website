@@ -6,9 +6,7 @@
 module.exports = [
   '../../src/apiFunctions/exampleApi/stories/exampleApi.stories.tsx',
   '../../src/data/users/queries/getSingleUser/stories/getSingleUser.stories.tsx',
-  '../../src/lib/components/auth/AuthUserSetter/stories/AuthUserSetter.stories.tsx',
   '../../src/lib/components/auth/GoogleButton/stories/GoogleButton.stories.tsx',
-  '../../src/lib/components/auth/PrivatePageOverlay/stories/PrivatePageOverlay.stories.tsx',
   '../../src/lib/components/basic/ErrorMessage/stories/ErrorMessage.stories.tsx',
   '../../src/lib/components/basic/misc/CodeBlock/stories/CodeBlock.stories.tsx',
   '../../src/lib/components/useweb/Alert/stories/Alert.stories.tsx',
@@ -20,8 +18,6 @@ module.exports = [
   '../../src/lib/components/useweb/Menu/stories/Menu.stories.tsx',
   '../../src/lib/components/useweb/Popover/stories/Popover.stories.tsx',
   '../../src/lib/components/useweb/Snackbar/stories/Snackbar.stories.tsx',
-  '../../src/lib/integrations/Google/Firebase/auth/signIn/signInUserForm/ui/stories/signInUserForm.stories.tsx',
-  '../../src/lib/integrations/Google/Firebase/auth/signUp/signUpUserForm/ui/SignUpUserForm/stories/signUpUserForm.stories.tsx',
   '../../src/lib/integrations/Google/Firebase/auth/signUp/signUpWithEmailPassword/stories/signUpWithEmailPassword.stories.tsx',
   '../../src/lib/integrations/Google/GoogleAds/GoogleAdUnit/stories/GoogleAdUnit.stories.tsx',
   '../../src/lib/integrations/Prismic/components/RichText/stories/RichText.stories.tsx',

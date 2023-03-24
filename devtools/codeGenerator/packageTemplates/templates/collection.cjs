@@ -659,7 +659,7 @@ export default {
   args: defaultArgs
 }
 
-const Template = (args: typeof defaultArgs) => {
+const Template = (args: ${componentName}Props) => {
   return (
     <>
       <${componentName} {...args} />

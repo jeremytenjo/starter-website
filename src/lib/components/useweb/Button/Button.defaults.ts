@@ -19,7 +19,7 @@ const blackVariantStyles = {
   },
 }
 const severeVariantStyles = {
-  color: colors.error.dark,
+  color: colors.error.main,
   backgroundColor: 'transparent',
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
@@ -49,6 +49,7 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
   defaultProps: {
     variant: 'contained',
     name: 'default name',
+    size: 'small',
   },
   styleOverrides: {
     root: {

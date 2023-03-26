@@ -42,7 +42,11 @@ console.log(${camelCase})`
       return (
         <Wrapper>
           <Text text={'${componentName}'} tag='p' sx={{}} />
-          ${isFunctionWithComponent ? `<ErrorMessage error={${camelCase}.error} />` : ''}
+          ${
+            isFunctionWithComponent
+              ? `<ErrorMessage error={${camelCase}.error} message='Error' />`
+              : ''
+          }
           ${slots?.localComponents?.localComponentsDeclarations || ''}
         </Wrapper>
       );

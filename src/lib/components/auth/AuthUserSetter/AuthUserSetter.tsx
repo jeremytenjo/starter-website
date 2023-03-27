@@ -67,7 +67,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
         sx={{
           position: 'fixed',
           bottom: '15px',
-          left: '40px',
+          right: '40px',
           display: [, , 'none'],
         }}
       >

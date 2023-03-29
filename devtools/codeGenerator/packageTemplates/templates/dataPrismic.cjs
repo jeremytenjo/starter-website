@@ -114,6 +114,7 @@ const files = [
         },
       }
       
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const Template = (args: ${propName}) => {
         const fn = async () => ${getFunction}(args)
       

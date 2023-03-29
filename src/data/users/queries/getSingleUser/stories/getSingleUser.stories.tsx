@@ -20,6 +20,7 @@ export default {
   },
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Template = (args: typeof defaultArgs) => {
   const fn = async (triggerProps = {}) => {
     return await getSingleUser({ ...args, ...triggerProps })

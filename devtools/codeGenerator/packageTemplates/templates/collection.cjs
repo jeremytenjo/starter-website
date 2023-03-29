@@ -659,6 +659,7 @@ export default {
   args: defaultArgs
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Template = (args: ${componentName}Props) => {
   return (
     <>
@@ -709,6 +710,7 @@ export const Default = {
       export type ${componentName}EmptyDataProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
       
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       export default function ${componentName}EmptyData(props: ${componentName}EmptyDataProps) {
         return <Wrapper><EmptyMessage subTitle='${componentName}EmptyData' /></Wrapper>
       }

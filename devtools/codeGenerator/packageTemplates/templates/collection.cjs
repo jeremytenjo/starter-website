@@ -147,20 +147,20 @@ const files = [
         type Get${pascalName}Props,
       } from '../use${pascalName}/useGet${pascalName}/useGet${pascalName}'
       // create
-      import {
-        create${pascalName},
-        type Create${pascalName}Props,
-      } from '../use${pascalName}/useCreate${pascalName}/useCreate${pascalName}'
+      // import {
+      //   create${pascalName},
+      //   type Create${pascalName}Props,
+      // } from '../use${pascalName}/useCreate${pascalName}/useCreate${pascalName}'
       // update
-      import {
-        update${pascalName},
-        type Update${pascalName}Props,
-      } from '../use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}'
+      // import {
+      //   update${pascalName},
+      //   type Update${pascalName}Props,
+      // } from '../use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}'
       // remove
-      import {
-        remove${pascalName},
-        type Remove${pascalName}Props,
-      } from '../use${pascalName}/useRemove${pascalName}/useRemove${pascalName}'
+      // import {
+      //   remove${pascalName},
+      //   type Remove${pascalName}Props,
+      // } from '../use${pascalName}/useRemove${pascalName}/useRemove${pascalName}'
       
       export default {
         title: '${storyPrefix}/${pascalName}',

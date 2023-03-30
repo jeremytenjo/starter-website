@@ -20,7 +20,7 @@ const Wrapper = ({ children }) => {
         height: '41px',
         color: 'primary.main',
         backgroundColor: 'primary.main',
-        borderRadius: '10px',
+        borderRadius: '6px',
         gridAutoFlow: 'column',
         gridGap: '10px',
         alignItems: 'center',

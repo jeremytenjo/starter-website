@@ -53,7 +53,7 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
   },
   styleOverrides: {
     root: {
-      borderRadius: '10px',
+      borderRadius: '6px',
       fontWeight: 'bold',
       boxShadow: 'none',
       width: '100%',

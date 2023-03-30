@@ -8,7 +8,11 @@ const defaults: ComponentDefaultsProps<DialogProps> = {
     root: {
       '& .MuiPaper-root': {
         boxShadow: '0px 9px 38px rgba(0, 0, 0, 0.06)',
-        borderRadius: '20px',
+        borderRadius: '8px',
+      },
+      '& .dialog_header p': {
+        fontSize: '16px',
+        fontWeight: '600',
       },
       '& .MuiDialog-scrollPaper': {
         background: 'rgb(255 255 255 / 33%)',

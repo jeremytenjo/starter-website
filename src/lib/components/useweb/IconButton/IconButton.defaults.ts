@@ -1,5 +1,5 @@
 // https://mui.com/customization/theme-components/#global-style-overrides
-// import in src/theme/mui/MuiProvider.jsx
+// import in src/theme/UiTheme/UiTheme.jsx
 import { type ComponentDefaultsProps } from '@useweb/ui-theme'
 import { type IconButtonProps } from '@useweb/ui/IconButton'
 
@@ -9,7 +9,7 @@ const defaults: ComponentDefaultsProps<IconButtonProps> = {
       width: '40px',
       height: '40px',
       ':hover': {
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255, 255, 255, 0.4)',
       },
     },
   },

@@ -169,6 +169,11 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
     backdrop-filter: blur(8px);
   }
 
+  // componets 
+  .MuiPickersDay-root.Mui-selected {
+    color: white !important;
+  }
+
 `,
 }
 

@@ -64,7 +64,7 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
   styleOverrides: {
     root: {
       borderRadius: '6px',
-      fontWeight: 'bold',
+      fontWeight: '600',
       boxShadow: 'none',
       width: '100%',
       color: 'white',

@@ -19,11 +19,21 @@ const blackVariantStyles = {
   },
 }
 const severeVariantStyles = {
-  color: colors.error.main,
-  backgroundColor: 'transparent',
+  color: colors.white.main,
+  backgroundColor: colors.error.main,
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
-    backgroundColor: 'transparent',
+    backgroundColor: colors.error.main,
+  },
+}
+const whiteVariantStyles = {
+  color: colors.black.main,
+  backgroundColor: colors.white.main,
+  border: '1px solid transparent',
+  borderColor: colors.grey.med,
+  '&:hover, &:active, &:focus': {
+    boxShadow: 'none',
+    backgroundColor: colors.white.main,
   },
 }
 
@@ -145,6 +155,26 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
         ...variantSmallStyles,
       },
     },
+
+    // white
+    {
+      props: {
+        variant: 'white',
+      },
+      style: {
+        ...whiteVariantStyles,
+      },
+    },
+    {
+      props: {
+        variant: 'white',
+        size: 'small',
+      },
+      style: {
+        ...whiteVariantStyles,
+        ...variantSmallStyles,
+      },
+    },
   ],
 }
 
@@ -153,6 +183,7 @@ declare module '@mui/material/Button' {
     light: true
     severe: true
     black: true
+    white: true
   }
 }
 

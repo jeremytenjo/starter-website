@@ -10,12 +10,18 @@ const lightVariantStyles = {
   '&:hover, &:focus, &:active': {
     backgroundColor: colors.primary.light,
   },
+  '&.Mui-disabled': {
+    color: colors.primary.dark,
+  },
 }
 const blackVariantStyles = {
   color: colors.white.main,
   backgroundColor: colors.black.main,
   '&:hover, &:focus, &:active': {
     backgroundColor: colors.black.main,
+  },
+  '&.Mui-disabled': {
+    color: colors.white.main,
   },
 }
 const severeVariantStyles = {
@@ -24,6 +30,9 @@ const severeVariantStyles = {
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
     backgroundColor: colors.error.main,
+  },
+  '&.Mui-disabled': {
+    color: colors.white.main,
   },
 }
 const whiteVariantStyles = {
@@ -34,6 +43,9 @@ const whiteVariantStyles = {
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
     backgroundColor: colors.white.main,
+  },
+  '&.Mui-disabled': {
+    color: colors.black.main,
   },
 }
 
@@ -57,7 +69,7 @@ const outlinedSmall = {
 
 const defaults: ComponentDefaultsProps<ButtonProps> = {
   defaultProps: {
-    variant: 'contained',
+    variant: 'black',
     name: 'default name',
     size: 'small',
   },
@@ -68,13 +80,12 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       boxShadow: 'none',
       width: '100%',
       color: 'white',
-      textTransform: 'none' as const,
       '&.Mui-disabled': {
-        color: 'lightgrey',
+        color: 'white',
       },
+      textTransform: 'none' as const,
       '&:hover, &:active, &:focus': {
         boxShadow: 'none',
-        backgroundColor: 'primary.main',
       },
     },
   },

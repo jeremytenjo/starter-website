@@ -4,13 +4,6 @@ import { type ComponentDefaultsProps } from '@useweb/ui-theme'
 import { type ButtonProps } from '@useweb/ui/Button'
 import colors from '../../../../theme/tokens/colors'
 
-const lightVariantStyles = {
-  color: colors.primary.dark,
-  backgroundColor: colors.primary.light,
-  '&:hover, &:focus, &:active': {
-    backgroundColor: colors.primary.light,
-  },
-}
 const blackVariantStyles = {
   color: colors.white.main,
   backgroundColor: colors.black.main,
@@ -119,26 +112,6 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       },
     },
 
-    // Light
-    {
-      props: {
-        variant: 'light',
-      },
-      style: {
-        ...lightVariantStyles,
-      },
-    },
-    {
-      props: {
-        variant: 'light',
-        size: 'small',
-      },
-      style: {
-        ...lightVariantStyles,
-        ...variantSmallStyles,
-      },
-    },
-
     // Severe
     {
       props: {
@@ -183,7 +156,6 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
-    light: true
     severe: true
     black: true
     white: true

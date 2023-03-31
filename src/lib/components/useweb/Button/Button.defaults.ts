@@ -10,18 +10,12 @@ const lightVariantStyles = {
   '&:hover, &:focus, &:active': {
     backgroundColor: colors.primary.light,
   },
-  '&.Mui-disabled': {
-    color: colors.primary.dark,
-  },
 }
 const blackVariantStyles = {
   color: colors.white.main,
   backgroundColor: colors.black.main,
   '&:hover, &:focus, &:active': {
     backgroundColor: colors.black.main,
-  },
-  '&.Mui-disabled': {
-    color: colors.white.main,
   },
 }
 const severeVariantStyles = {
@@ -30,9 +24,6 @@ const severeVariantStyles = {
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
     backgroundColor: colors.error.main,
-  },
-  '&.Mui-disabled': {
-    color: colors.white.main,
   },
 }
 const whiteVariantStyles = {
@@ -43,9 +34,6 @@ const whiteVariantStyles = {
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
     backgroundColor: colors.white.main,
-  },
-  '&.Mui-disabled': {
-    color: colors.black.main,
   },
 }
 
@@ -80,10 +68,11 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       boxShadow: 'none',
       width: '100%',
       color: 'white',
-      '&.Mui-disabled': {
-        color: 'white',
-      },
       textTransform: 'none' as const,
+      '&.Mui-disabled': {
+        color: colors.black.main,
+        backgroundColor: colors.grey.med,
+      },
       '&:hover, &:active, &:focus': {
         boxShadow: 'none',
       },

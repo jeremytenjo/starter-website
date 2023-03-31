@@ -91,7 +91,7 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
         onClose={() => setOpenDialog(false)}
         data-id='AuthUserSetter'
         wrapperSx={{
-          width: ['300px', , '400px'],
+          width: '100%',
         }}
         title={
           auth.user?.displayName ? `Signed in as ${auth.user.displayName}` : 'Sign in'

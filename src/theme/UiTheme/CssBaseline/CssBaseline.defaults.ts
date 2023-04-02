@@ -172,9 +172,11 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
   // componets 
   .MuiPickersDay-root.Mui-selected {
     color: white !important;
+    background-color: ${colors.black.main} !important;
   }
   .MuiPickersYear-yearButton.Mui-selected {
     color: white !important;
+    background-color: ${colors.black.main} !important;
   }
 
 `,

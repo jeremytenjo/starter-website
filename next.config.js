@@ -22,6 +22,7 @@ export default async () => {
         's3-alpha-sig.figma.com',
         'localhost',
         'firebasestorage.googleapis.com',
+        'lh3.googleusercontent.com',
       ],
     },
   })

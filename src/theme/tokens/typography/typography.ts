@@ -66,7 +66,7 @@ const variants = {
   },
   body1: {
     fontWeight: 400,
-    fontSize: '1rem',
+    fontSize: '14px',
     lineHeight: 1.5,
     letterSpacing: '0.00938em',
   },

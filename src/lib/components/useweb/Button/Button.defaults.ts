@@ -31,7 +31,10 @@ const whiteVariantStyles = {
 }
 
 const variantSmallStyles = {
-  fontSize: '0.8125rem',
+  fontSize: '13px',
+  height: 'fit-content',
+  lineHeight: '1.4',
+  padding: '6px 16px',
 }
 
 const outlinedBase = {

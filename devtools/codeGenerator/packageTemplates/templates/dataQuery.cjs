@@ -169,6 +169,7 @@ const files = [
       return `
 import { type UseDataProps } from '@useweb/use-data'
 import assert from '@useweb/assert'
+import logError from '@/src/lib/utils/loggers/logError/logError'
 
 import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
@@ -227,6 +228,7 @@ export default function useGet${pascalName}(
 
       return `
       import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
+      import logError from '@/src/lib/utils/loggers/logError/logError'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
@@ -288,6 +290,7 @@ export default function useGet${pascalName}(
       const propsUpdaterName = `Update${pascalName}PayloadProps`
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
+      import logError from '@/src/lib/utils/loggers/logError/logError'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
@@ -346,7 +349,8 @@ export default function useGet${pascalName}(
       const removePropsName = `Remove${pascalName}PayloadProps`
 
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
-
+      import logError from '@/src/lib/utils/loggers/logError/logError'
+      
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
       export type ${removePropsName} = any

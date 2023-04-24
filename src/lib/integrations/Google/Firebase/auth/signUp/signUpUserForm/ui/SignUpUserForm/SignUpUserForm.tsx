@@ -4,11 +4,11 @@ import TextField from '@useweb/ui/TextField'
 import Text from '@useweb/ui/Text'
 import { useRouter } from 'next/router'
 import ErrorMessage from '@useweb/ui/ErrorMessage'
+import logError from '@/src/lib/utils/loggers/logError/logError'
 
 import GoogleButton from '../../../../../../../../components/auth/GoogleButton/GoogleButton'
 import AccountAccessCta from '../../../../common/AccountAccessCTA/AccountAccessCta'
 import useAuth from '../../../../useAuth/useAuth'
-import logError from '../../../../../../../../utils/loggers/logError/logError'
 
 export type SignUpUserFormProps = any
 

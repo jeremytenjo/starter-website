@@ -1,3 +1,5 @@
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+
 module.exports = function webpackFinal({ defaultWebpackConfig }) {
   const updatedConfig = defaultWebpackConfig
   // fixes Module parse failed: Unexpected character '�' - https://github.com/lovell/sharp/issues/2350
@@ -18,6 +20,8 @@ module.exports = function webpackFinal({ defaultWebpackConfig }) {
     path: false,
     assert: false,
   }
+
+  updatedConfig.resolve.plugins.push(new TsconfigPathsPlugin({}))
 
   return updatedConfig
 }

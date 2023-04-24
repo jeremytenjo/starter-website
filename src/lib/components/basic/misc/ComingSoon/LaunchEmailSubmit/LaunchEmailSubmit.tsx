@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logError from '../../../../../utils/loggers/logError/logError'
+import logError from '@/src/lib/utils/loggers/logError/logError'
 
 import LaunchEmailSubmitUi from './LaunchEmailSubmitUi/LaunchEmailSubmit.ui'
 

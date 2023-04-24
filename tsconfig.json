@@ -19,6 +19,7 @@
     "baseUrl": "./",
     "types": ["node"],
     "paths": {
+      "@/*": ["*"],
       "*": ["devtools/ts/declaredModules/*"]
     },
     "incremental": true,
@@ -34,7 +35,8 @@
     "devtools/ts/declaredModules/*",
     "scripts/storybook/startStorybook",
     ".sliceMachine",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "playwright.config.ts"
   ],
   "exclude": ["node_modules", "devtools/codeGenerator/appGenerator/test/testApp"]
 }

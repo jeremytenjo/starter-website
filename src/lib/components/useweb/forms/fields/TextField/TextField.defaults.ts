@@ -8,7 +8,7 @@ const defaults: ComponentDefaultsProps<TextFieldProps> = {
   styleOverrides: {
     root: {
       '& .useweb_TextField_label': {
-        color: colors.black.main,
+        color: colors.grey[700],
         fontWeight: 500,
         fontSize: '13px',
       },

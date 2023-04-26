@@ -1,15 +1,15 @@
-import React from 'react';
-import GoogleIcon from '../../icons/GoogleIcon';
-import Button from '@useweb/ui/Button';
+import React from 'react'
+import GoogleIcon from '../../icons/GoogleIcon'
+import Button from '@useweb/ui/Button'
 
 export type GoogleButtonProps = {
-  onClick?: any;
-};
+  onClick?: any
+}
 
 export default function GoogleButton(props: GoogleButtonProps) {
   return (
     <Button
-      name="continue with google"
+      name='continue with google'
       onClick={props.onClick || null}
       sx={{
         backgroundColor: 'white.main',
@@ -32,5 +32,5 @@ export default function GoogleButton(props: GoogleButtonProps) {
       <GoogleIcon />
       Continue with Google
     </Button>
-  );
+  )
 }

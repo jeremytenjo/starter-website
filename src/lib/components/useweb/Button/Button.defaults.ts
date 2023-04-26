@@ -1,8 +1,8 @@
 // https://mui.com/customization/theme-components/#global-style-overrides
 // import in src/theme/UiTheme/UiTheme.jsx
-import { type ComponentDefaultsProps } from '@useweb/ui-theme';
-import { type ButtonProps } from '@useweb/ui/Button';
-import colors from '../../../../theme/tokens/colors';
+import { type ComponentDefaultsProps } from '@useweb/ui-theme'
+import { type ButtonProps } from '@useweb/ui/Button'
+import colors from '../../../../theme/tokens/colors'
 
 const blackVariantStyles = {
   color: colors.white.main,
@@ -10,7 +10,7 @@ const blackVariantStyles = {
   '&:hover, &:focus, &:active': {
     backgroundColor: colors.black.main,
   },
-};
+}
 const severeVariantStyles = {
   color: colors.white.main,
   backgroundColor: colors.error.main,
@@ -18,7 +18,7 @@ const severeVariantStyles = {
     boxShadow: 'none',
     backgroundColor: colors.error.main,
   },
-};
+}
 const whiteVariantStyles = {
   color: colors.black.main,
   backgroundColor: colors.white.main,
@@ -28,14 +28,14 @@ const whiteVariantStyles = {
     boxShadow: 'none',
     backgroundColor: colors.white.main,
   },
-};
+}
 
 const variantSmallStyles = {
   fontSize: '13px',
   height: 'fit-content',
   lineHeight: '1.4',
   padding: '6px 16px',
-};
+}
 
 const outlinedBase = {
   color: colors.primary.dark,
@@ -46,10 +46,10 @@ const outlinedBase = {
     borderColor: colors.primary.dark,
     backgroundColor: colors.primary.light,
   },
-};
+}
 const outlinedSmall = {
   height: '35px',
-};
+}
 
 const defaults: ComponentDefaultsProps<ButtonProps> = {
   defaultProps: {
@@ -155,14 +155,14 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       },
     },
   ],
-};
+}
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
-    severe: true;
-    black: true;
-    white: true;
+    severe: true
+    black: true
+    white: true
   }
 }
 
-export default defaults;
+export default defaults

@@ -27,9 +27,9 @@ const colors = {
   },
   themeColor: '',
   backgroundColor: '',
-};
+}
 
-colors.themeColor = colors.black.main;
-colors.backgroundColor = colors.white.main;
+colors.themeColor = colors.black.main
+colors.backgroundColor = colors.white.main
 
-export default colors;
+export default colors

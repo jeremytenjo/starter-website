@@ -1,15 +1,15 @@
-import React from 'react';
-import Button from '@useweb/ui/Button';
+import React from 'react'
+import Button from '@useweb/ui/Button'
 
-export type AccountAccessCtaProps = { loading?: boolean; text: string };
+export type AccountAccessCtaProps = { loading?: boolean; text: string }
 
 export default function AccountAccessCta(props: AccountAccessCtaProps) {
   return (
     <Button
       name={`${props.text} button`}
-      type="submit"
+      type='submit'
       disabled={props.loading}
-      variant="outlined"
+      variant='outlined'
       sx={{
         borderWidth: '2px',
         borderStyle: 'solid',
@@ -20,5 +20,5 @@ export default function AccountAccessCta(props: AccountAccessCtaProps) {
     >
       {props.loading ? 'Loading...' : props.text}
     </Button>
-  );
+  )
 }

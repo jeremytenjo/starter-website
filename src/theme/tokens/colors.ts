@@ -7,7 +7,7 @@ const colors = {
   gradient: {
     primary: 'linear-gradient(83.6deg, #5D59FF 8.71%, #9076FF 98.37%)',
   },
-  grey: {
+  gray: {
     main: '#454545',
     light: '#F9F9F9',
     dark: '#5E5E5E',
@@ -27,9 +27,9 @@ const colors = {
   },
   themeColor: '',
   backgroundColor: '',
-}
+};
 
-colors.themeColor = colors.black.main
-colors.backgroundColor = colors.white.main
+colors.themeColor = colors.black.main;
+colors.backgroundColor = colors.white.main;
 
-export default colors
+export default colors;

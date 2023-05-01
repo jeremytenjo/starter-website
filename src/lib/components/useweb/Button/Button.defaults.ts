@@ -23,7 +23,7 @@ const whiteVariantStyles = {
   color: colors.black.main,
   backgroundColor: colors.white.main,
   border: '1px solid transparent',
-  borderColor: colors.gray.med,
+  borderColor: colors.gray[300],
   '&:hover, &:active, &:focus': {
     boxShadow: 'none',
     backgroundColor: colors.white.main,

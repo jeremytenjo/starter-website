@@ -13,7 +13,7 @@ export default function AccountAccessCta(props: AccountAccessCtaProps) {
       sx={{
         borderWidth: '2px',
         borderStyle: 'solid',
-        borderColor: 'gray.med',
+        borderColor: 'gray.200',
         color: 'black.main',
         fontWeight: 600,
       }}

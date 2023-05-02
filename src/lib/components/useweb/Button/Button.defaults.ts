@@ -67,7 +67,7 @@ const defaults: ComponentDefaultsProps<ButtonProps> = {
       textTransform: 'none' as const,
       '&.Mui-disabled': {
         color: `${colors.black.main} !important`,
-        backgroundColor: `${colors.gray.med} !important`,
+        backgroundColor: `${colors.gray[200]} !important`,
       },
       '&:hover, &:active, &:focus': {
         boxShadow: 'none',

@@ -15,7 +15,7 @@ export default function GoogleButton(props: GoogleButtonProps) {
         backgroundColor: 'white.main',
         borderWidth: '2px',
         borderStyle: 'solid',
-        borderColor: 'gray.med',
+        borderColor: 'gray.200',
         color: 'black.main',
         display: 'flex',
         gap: 2,

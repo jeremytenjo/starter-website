@@ -10,7 +10,9 @@ const colors = {
   gray: {
     main: '#454545',
     dark: '#5E5E5E',
-    med: '#E7E7E7',
+    '25': '#FCFCFD',
+    '50': '#F9FAFB',
+    '200': '#EAECF0',
     '300': '#D1D5DB',
     '400': '#f1f1f1',
     '500': '#667085',

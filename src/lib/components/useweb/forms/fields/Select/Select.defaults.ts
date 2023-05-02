@@ -8,7 +8,7 @@ const defaults: ComponentDefaultsProps<SelectProps> = {
   styleOverrides: {
     root: {
       borderRadius: '6px',
-      borderColor: colors.gray.med,
+      borderColor: colors.gray[200],
       borderWidth: '1px',
       borderStyle: 'solid',
       backgroundColor: colors.white.main,

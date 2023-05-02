@@ -8,7 +8,7 @@ import colors from '../../../../theme/tokens/colors'
 const defaults: ComponentDefaultsProps<DividerProps> = {
   styleOverrides: {
     root: {
-      backgroundColor: colors.gray.light,
+      backgroundColor: colors.gray['50'],
     },
   },
 }

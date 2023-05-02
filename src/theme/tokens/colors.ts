@@ -9,7 +9,6 @@ const colors = {
   },
   gray: {
     main: '#454545',
-    light: '#F9F9F9',
     dark: '#5E5E5E',
     med: '#E7E7E7',
     '300': '#D1D5DB',

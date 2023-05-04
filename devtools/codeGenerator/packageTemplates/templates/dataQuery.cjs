@@ -229,6 +229,8 @@ export default function useGet${pascalName}(
       return `
       import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
       import logError from '@/src/lib/utils/loggers/logError/logError'
+      import { collection, getDocs, query, where } from 'firebase/firestore'
+      import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 

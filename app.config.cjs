@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   // TODO update site info
   siteInfo: {
     name: 'Website_Starter',
@@ -8,6 +8,9 @@ export default {
   },
   nextjs: {
     port: 3001,
+  },
+  firebase: {
+    enabled: true,
   },
   devtools: {
     storybook: {

@@ -1,6 +1,6 @@
 import path from 'path'
 
-import appConfig from '../../app.config.js'
+import appConfig from '../../app.config.cjs'
 import firebaseJson from '../../firebase.json' assert { type: 'json' }
 import shellDashboard, {
   type CommandProps,
@@ -9,9 +9,7 @@ import readFile from '../../devtools/utils/node/readFile.js'
 
 import getDevScriptArgs from './handlers/getDevScriptArgs/getDevScriptArgs.js'
 import generatePrismicTypes from './handlers/generatePrismicTypes/generatePrismicTypes.js'
-
-const addFirestoreData = firebaseJson?.emulators?.firestore?.port
-const addAuthData = firebaseJson?.emulators?.auth?.port
+import log from '../../devtools/utils/node/log.js'
 
 export default async function dev() {
   const devScriptArgs = await getDevScriptArgs()
@@ -81,34 +79,22 @@ export default async function dev() {
     if (!emulatorPorts.length) {
       throw new Error('Missing emulator ports in firebase.json')
     }
-
-    const startAuthEmulator = Boolean(addAuthData) && devScriptArgs.signedIn
-    // https://firebase.google.com/docs/emulator-suite/install_and_configure#startup
-    let commandArgs = 'emulators:start --only'
-
-    if (addFirestoreData) {
-      commandArgs = `${commandArgs} firestore`
-    }
-
-    if (startAuthEmulator) {
-      commandArgs = `${commandArgs},auth`
-    }
-
-    commands.push({
-      label: `Firebase Emulators`,
-      command: {
-        root: 'firebase',
-        args: commandArgs,
-      },
-      ports: emulatorPorts,
-      color: '#FF825A',
-      onCommandRunning: async () => {
-        const addEmulatorData = await import(
-          './handlers/addEmulatorData/addEmulatorData.js'
+    try {
+      const getFirebaseCommand = (
+        await import(
+          './handlers/getFirebaseEmulatorCommand/getFirebaseEmulatorCommand.js'
         )
-        addEmulatorData.default({ addAuth: startAuthEmulator })
-      },
-    })
+      ).default
+      const firebaseCommand = await getFirebaseCommand({
+        devScriptArgs,
+        emulatorPorts,
+      })
+      firebaseCommand && commands.push(firebaseCommand)
+    } catch (error) {
+      log('Error running getFirebaseCommand ', {
+        error: true,
+      })
+    }
   }
 
   // run commands

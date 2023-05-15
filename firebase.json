@@ -1,6 +1,6 @@
 {
   "functions": {
-    "source": "functions",
+    "source": "firebaseFunctions",
     "runtime": "nodejs16"
   },
   "firestore": {
@@ -17,6 +17,9 @@
     },
     "firestore": {
       "port": 9002
+    },
+    "functions": {
+      "port": 5002
     }
   },
   "hosting": {

@@ -1,4 +1,4 @@
-import appConfig from './app.config.js'
+import appConfig from './app.config.cjs'
 
 export default {
   siteUrl: appConfig.siteInfo.domain,

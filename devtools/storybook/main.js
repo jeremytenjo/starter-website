@@ -2,7 +2,11 @@ const webpackFinal = require('./storybookWebpack/webpackFinal.js')
 const stories = require('./storiesList.cjs')
 
 module.exports = {
-  stories: [...stories, '../../slices/**/*.stories.@(|ts|tsx)'],
+  stories: [
+    ...stories,
+    '../../slices/**/*.stories.@(|ts|tsx)',
+    '../../firebaseFunctions/**/*.stories.@(|ts|tsx)',
+  ],
   staticDirs: ['../../public'],
   framework: '@storybook/nextjs',
   core: { builder: 'webpack5', disableTelemetry: true },

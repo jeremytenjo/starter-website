@@ -1,4 +1,4 @@
-import appConfig from '../../../../../app.config'
+import appConfig from '../../../../../app.config.cjs'
 
 export default function isProductionSite() {
   if (typeof window === 'undefined') return false

@@ -1,0 +1,15 @@
+# Firebase Functions
+
+```js
+import useFirebaseFunction from '@useweb/firebase/useFirebaseFunction'
+
+...
+
+const fn = useFirebaseFunction({name: 'helloWorld', payload: {
+    title: 'hello title'
+}})
+
+...
+
+fn.exec()
+```

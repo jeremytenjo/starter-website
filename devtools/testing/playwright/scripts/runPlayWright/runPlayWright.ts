@@ -7,7 +7,7 @@ import watchFolder from '../../../../utils/node/watchFolder.js'
 import shell from '../../../../utils/node/shell.js'
 import getCommandLineArgs from '../../../../utils/node/getCommandLineArgs.js'
 import glob from '../../../../utils/node/glob.js'
-import appConfig from '../../../../../app.config.js'
+import appConfig from '../../../../../app.config.cjs'
 import log from '../../../../utils/node/log.js'
 
 const { Select } = enquirer as any

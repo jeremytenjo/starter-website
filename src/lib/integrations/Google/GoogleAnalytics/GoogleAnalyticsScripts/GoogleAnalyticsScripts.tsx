@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Script from 'next/script'
 
 import * as gtag from '../utils/gtag/gtag'
-import appConfig from '../../../../../../app.config'
+import appConfig from '../../../../../../app.config.cjs'
 
 function useGoogleAnalyticsPageView({ measurementId }) {
   const router = useRouter()

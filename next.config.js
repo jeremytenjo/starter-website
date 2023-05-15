@@ -1,6 +1,6 @@
 import withBundleAnalyzer from '@next/bundle-analyzer'
 
-import appConfig from './app.config.js'
+import appConfig from './app.config.cjs'
 
 const withBundleAnalyzerFn = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',

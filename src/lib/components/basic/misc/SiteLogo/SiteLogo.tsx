@@ -2,7 +2,7 @@ import React from 'react'
 import Link, { type LinkProps } from '@useweb/ui/Link'
 import Image, { type ImageProps } from '@useweb/ui/Image'
 
-import appConfig from '../../../../../../app.config'
+import appConfig from '../../../../../../app.config.cjs'
 import { useRootLayoutData } from '../../../../layouts/Root/RootLayout'
 
 export type SiteLogoProps = Omit<ImageProps, 'alt'> & {

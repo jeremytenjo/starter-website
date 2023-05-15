@@ -14,8 +14,15 @@ export const firebaseFunctionExample = functions
   .https.onRequest(async (req, res) => {
     res.set('Access-Control-Allow-Origin', appConfig.siteInfo.domain)
 
+    let payload: any = {}
+
     try {
-      const payload = JSON.parse(req.body)
+      payload = JSON.parse(req.body)
+    } catch (e) {
+      payload = req.body
+    }
+
+    try {
       const result = await firebaseFunctionExample_firebase(payload)
       res.status(200).json(result)
     } catch (error: any) {

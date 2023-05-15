@@ -9,8 +9,8 @@ configure({
   testIdAttribute: 'data-id',
 })
 
+import Firebase from '../../src/lib/integrations/Google/Firebase/firebase'
 // import Prismic from '../../src/lib/integrations/Prismic/Prismic'
-// import Firebase from '../../src/lib/integrations/Google/Firebase/firebase'
 // import AuthUserSetter from '../../src/lib/components/AuthUserSetter/AuthUserSetter'
 
 import StorybookTheme from './theme/storybookTheme'
@@ -31,21 +31,21 @@ export const decorators = [
         {process.env.NODE_ENV === 'development' && <ClickToComponent />}
 
         {/* <Prismic disablePreview> */}
-        {/* <Firebase> */}
-        <SnackbarProvider>
-          <StorybookTheme>
-            <Box
-              sx={{
-                minHeight: '100vh',
-              }}
-            >
-              {/* <AuthUserSetter signInAs={signInAs} ignoreAuthUserSetter={ignoreAuthUserSetter}> */}
-              <Story />
-              {/* </AuthUserSetter> */}
-            </Box>
-          </StorybookTheme>
-        </SnackbarProvider>
-        {/* </Firebase> */}
+        <Firebase>
+          <SnackbarProvider>
+            <StorybookTheme>
+              <Box
+                sx={{
+                  minHeight: '100vh',
+                }}
+              >
+                {/* <AuthUserSetter signInAs={signInAs} ignoreAuthUserSetter={ignoreAuthUserSetter}> */}
+                <Story />
+                {/* </AuthUserSetter> */}
+              </Box>
+            </StorybookTheme>
+          </SnackbarProvider>
+        </Firebase>
         {/* </Prismic> */}
       </>
     )

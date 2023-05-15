@@ -10,8 +10,8 @@ configure({
 })
 
 import Firebase from '../../src/lib/integrations/Google/Firebase/firebase'
+import AuthUserSetter from '../../src/lib/components/auth/AuthUserSetter/AuthUserSetter'
 // import Prismic from '../../src/lib/integrations/Prismic/Prismic'
-// import AuthUserSetter from '../../src/lib/components/AuthUserSetter/AuthUserSetter'
 
 import StorybookTheme from './theme/storybookTheme'
 
@@ -23,8 +23,8 @@ const theme = create({
 export const decorators = [
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (Story, metadata) => {
-    // const signInAs = metadata?.parameters?.signInAs
-    // const ignoreAuthUserSetter = metadata?.parameters?.ignoreAuthUserSetter
+    const signInAs = metadata?.parameters?.signInAs
+    const ignoreAuthUserSetter = metadata?.parameters?.ignoreAuthUserSetter
 
     return (
       <>
@@ -39,9 +39,12 @@ export const decorators = [
                   minHeight: '100vh',
                 }}
               >
-                {/* <AuthUserSetter signInAs={signInAs} ignoreAuthUserSetter={ignoreAuthUserSetter}> */}
-                <Story />
-                {/* </AuthUserSetter> */}
+                <AuthUserSetter
+                  signInAs={signInAs}
+                  ignoreAuthUserSetter={ignoreAuthUserSetter}
+                >
+                  <Story />
+                </AuthUserSetter>
               </Box>
             </StorybookTheme>
           </SnackbarProvider>

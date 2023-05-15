@@ -15,7 +15,7 @@ const args: ArgsProps = {
 }
 
 export default {
-  title: 'Firebase Functions/firebaseFunctionExample',
+  title: 'Cloud Functions/firebase/firebaseFunctionExample',
   args,
 }
 

@@ -13,7 +13,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const data = await exampleApi(body)
-
     res.status(200).json({ data })
   } catch (error: any) {
     console.log('exampleApi API:', error)

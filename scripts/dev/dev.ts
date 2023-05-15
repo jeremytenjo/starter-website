@@ -91,7 +91,7 @@ export default async function dev() {
       })
       firebaseCommand && commands.push(firebaseCommand)
     } catch (error) {
-      log('Error running getFirebaseCommand ', {
+      log(`Error running getFirebaseCommand - ${String(error)}`, {
         error: true,
       })
     }

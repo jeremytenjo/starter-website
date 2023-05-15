@@ -1,5 +1,6 @@
 import type { CommandProps } from '../../../../devtools/utils/terminal/shellDashboard'
 import appConfig from '../../../../app.config.cjs'
+import shell from '../../../../devtools/utils/node/shell.js'
 
 export type GetFirebaseEmulatorCommandProps = {
   emulatorPorts: number[]
@@ -47,6 +48,7 @@ export default async function getFirebaseEmulatorCommand(
     onCommandRunning: async () => {
       const addEmulatorData = await import('../addEmulatorData/addEmulatorData.js')
       addEmulatorData.default({ addAuth: startAuthEmulator })
+      shell('npm run functions:build-watch')
     },
   }
 }

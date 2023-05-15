@@ -17,9 +17,9 @@ export const firebaseFunctionExample = functions
     let payload: any = {}
 
     try {
-      payload = JSON.parse(req.body)
+      payload = JSON.parse(req.body).data
     } catch (e) {
-      payload = req.body
+      payload = req.body.data
     }
 
     try {

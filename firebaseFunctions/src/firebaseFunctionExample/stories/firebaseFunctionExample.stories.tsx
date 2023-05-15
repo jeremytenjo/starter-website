@@ -5,12 +5,9 @@ import FirebaseFunctionDashboard, {
 
 import type { FirebaseFunctionExampleProps } from '../firebaseFunctionExample'
 
-type FindStreamLinkArgsProps = FirebaseFunctionTesterProps<
-  any,
-  FirebaseFunctionExampleProps
->
+type ArgsProps = FirebaseFunctionTesterProps<any, FirebaseFunctionExampleProps>
 
-const args: FindStreamLinkArgsProps = {
+const args: ArgsProps = {
   functionName: 'firebaseFunctionExample',
   payload: {
     name: 'jeremy',
@@ -23,7 +20,7 @@ export default {
 }
 
 export const Default = {
-  render: (args: FindStreamLinkArgsProps) => {
+  render: (args: ArgsProps) => {
     return <FirebaseFunctionDashboard {...args} />
   },
 }

@@ -9,7 +9,7 @@ export type FirebaseFunctionExampleProps = {
 export default async function firebase_firebaseFunctionExample({
   payload,
 }: FirebaseFunctionExampleProps) {
-  const streamLink = await firebaseFunctionExample(payload)
+  const res = await firebaseFunctionExample(payload)
 
-  return streamLink
+  return res
 }

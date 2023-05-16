@@ -53,6 +53,7 @@ const config: PlaywrightTestConfig = {
   },
 
   /* Configure projects for major browsers */
+  // https://playwright.dev/docs/test-projects
   projects: [
     {
       name: 'chromium',

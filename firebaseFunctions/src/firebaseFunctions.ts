@@ -1,4 +1,4 @@
-import * as functions from 'firebase-functions'
+import { onRequest } from 'firebase-functions/v2/https'
 
 import appConfig from '../../app.config.cjs'
 
@@ -6,12 +6,12 @@ import firebaseFunctionExample_firebase from './firebaseFunctionExample/firebase
 
 // https://firebase.google.com/docs/functions/get-started
 
-export const firebaseFunctionExample = functions
-  .runWith({
+export const firebaseFunctionExample = onRequest(
+  {
     timeoutSeconds: 15,
-    memory: '1GB',
-  })
-  .https.onRequest(async (req, res) => {
+    memory: '1GiB',
+  },
+  async (req, res) => {
     res.set('Access-Control-Allow-Origin', appConfig.siteInfo.domain)
 
     let payload: any = {}
@@ -31,4 +31,5 @@ export const firebaseFunctionExample = functions
         error: error.toString(),
       })
     }
-  })
+  },
+)

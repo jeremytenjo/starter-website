@@ -12,14 +12,16 @@ export default async function getFirebaseEmulatorCommand(
 ): Promise<CommandProps | false> {
   if (!appConfig.firebase.enabled) return false
 
-  const firebaseJson = (
+  const firebaseJson: any = (
     await import('../../../../firebase.json', {
       assert: { type: 'json' },
     })
   ).default
+
   const addFirestoreData = firebaseJson?.emulators?.firestore?.port
   const addAuthData = firebaseJson?.emulators?.auth?.port
   const enableEmulatedFunctions = firebaseJson?.emulators?.functions?.port
+  const enableFirebaseStorage = firebaseJson?.emulators?.storage?.port
 
   const startAuthEmulator = Boolean(addAuthData) && props.devScriptArgs.signedIn
   // https://firebase.google.com/docs/emulator-suite/install_and_configure#startup
@@ -37,6 +39,10 @@ export default async function getFirebaseEmulatorCommand(
     commandArgs = `${commandArgs},functions`
   }
 
+  if (enableFirebaseStorage) {
+    commandArgs = `${commandArgs},storage`
+  }
+
   return {
     label: `Firebase Emulators`,
     command: {
@@ -48,7 +54,7 @@ export default async function getFirebaseEmulatorCommand(
     onCommandRunning: async () => {
       const addEmulatorData = await import('../addEmulatorData/addEmulatorData.js')
       addEmulatorData.default({ addAuth: startAuthEmulator })
-      shell('npm run functions:build-watch')
+      shell('npm run functions:dev')
     },
   }
 }

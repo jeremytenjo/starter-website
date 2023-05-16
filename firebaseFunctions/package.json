@@ -1,5 +1,5 @@
 {
-  "name": "functions",
+  "name": "firebase-functions",
   "private": true,
   "type": "module",
   "engines": {
@@ -8,12 +8,8 @@
   },
   "main": "build/index.js",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
-    "chrome-aws-lambda": "^10.1.0",
     "firebase-admin": "^11.8.0",
-    "firebase-functions": "4.4.0",
-    "playwright": "^1.25.0",
-    "playwright-core": "^1.25.0"
+    "firebase-functions": "4.4.0"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.3.3"

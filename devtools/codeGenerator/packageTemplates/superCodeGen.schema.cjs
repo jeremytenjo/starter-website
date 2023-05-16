@@ -27,7 +27,7 @@ const dataVariant = require('./templates/dataVariant.cjs')
 const reactContext = require('./templates/ReactContext.cjs')
 const vitestTest = require('./templates/vitestTest.cjs')
 const script = require('./templates/script.cjs')
-const apiFunction = require('./templates/apiFunction.cjs')
+const nextApiFunction = require('./templates/nextApiFunction.cjs')
 const tsSchema = require('./templates/tsSchema.cjs')
 const collection = require('./templates/collection.cjs')
 const dataComponentUi = require('./templates/dataComponentUi.cjs')
@@ -45,7 +45,7 @@ module.exports = [
   functionWithComponent.template,
   dataFunction.template,
 
-  apiFunction.template,
+  nextApiFunction.template,
 
   collection.template,
   data.template,

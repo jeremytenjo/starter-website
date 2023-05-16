@@ -128,7 +128,7 @@ const files = [
 ]
 
 const template = {
-  type: 'API Function',
+  type: 'Next API Function',
   files,
   options: {
     outputInRootFolder: true,

@@ -14,7 +14,7 @@ import log from '../../devtools/utils/node/log.js'
 export default async function dev() {
   const devScriptArgs = await getDevScriptArgs()
   const emulatorPorts: number[] = []
-  const waitForPortsMessage = 'Waiting for emulator data'
+  const waitForEmulatorPortsMessage = 'Waiting for emulator data'
 
   const firebaserc = await readFile(path.join(process.cwd(), '.firebaserc'))
   const noProjectDefinedInFirebaserc = firebaserc.includes('""')
@@ -26,10 +26,10 @@ export default async function dev() {
   const startStorybook = !devScriptArgs.onlyApp
   const startFirebaseEmulators =
     !noProjectDefinedInFirebaserc && firebaseJson.emulators && !devScriptArgs.onlyApp
-  const waitForPorts = startFirebaseEmulators
+  const waitForEmulatorPorts = startFirebaseEmulators
     ? {
         ports: emulatorPorts,
-        message: waitForPortsMessage,
+        message: waitForEmulatorPortsMessage,
       }
     : undefined
 
@@ -43,7 +43,7 @@ export default async function dev() {
 
   // nextjs
   if (startApp) {
-    const nextjsCommand = {
+    const nextjsCommand: CommandProps = {
       label: 'Nextjs',
       command: {
         root: 'node',
@@ -54,14 +54,14 @@ export default async function dev() {
       },
       ports: [appConfig.nextjs.port],
       color: '#01BF81',
-      waitForPorts,
+      waitForPorts: waitForEmulatorPorts,
     }
     commands.push(nextjsCommand)
   }
 
   // storybok
   if (startStorybook) {
-    const storybookCommand = {
+    const storybookCommand: CommandProps = {
       label: `Storybook`,
       command: {
         root: 'npm',
@@ -69,7 +69,7 @@ export default async function dev() {
       },
       ports: [appConfig.devtools.storybook.port],
       color: '#FF4785',
-      waitForPorts,
+      waitForPorts: waitForEmulatorPorts,
     }
     commands.push(storybookCommand)
   }

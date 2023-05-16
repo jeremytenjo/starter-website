@@ -13,7 +13,7 @@ console.clear()
 
 export type Props = {
   commands: CommandProps[]
-  onCommandsRunning?: () => null
+  onCommandsRunning?: () => any
 }
 
 export type CommandProps = {
@@ -33,6 +33,8 @@ export type CommandProps = {
   enableQRCode?: boolean
   onCommandRunning?: () => any
   onOutput?: (output: string) => any
+  onCommandEnd?: () => any
+  onCommandError?: () => any
 }
 
 let commandsRunningTriggered = false
@@ -101,6 +103,8 @@ export default async function shellDashboard({ commands, onCommandsRunning }: Pr
       index = 1,
       onCommandRunning = () => null,
       onOutput = () => null,
+      onCommandEnd = () => null,
+      onCommandError = () => null,
     }: CommandProps) => {
       const shellRef = React.useRef<any>(null)
       const [output, setOutput] = React.useState('')
@@ -136,6 +140,7 @@ export default async function shellDashboard({ commands, onCommandsRunning }: Pr
 
         const commandArgs = command?.args?.split(' ') || ['']
         const shell = spawn(command.root, commandArgs)
+        shell.stdout.on('close', () => onCommandEnd())
         // https://www.npmjs.com/package/qrcode-terminal
 
         // https://www.freecodecamp.org/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/
@@ -154,6 +159,7 @@ export default async function shellDashboard({ commands, onCommandsRunning }: Pr
 
         shell.stdout.on('error', (error) => {
           setError(error.toString())
+          onCommandError && onCommandError()
         })
 
         shellRef.current = shell

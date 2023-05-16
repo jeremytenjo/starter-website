@@ -39,7 +39,7 @@ export default async function runPlayWright() {
 
   if (singleTest) {
     const tests = await glob({
-      pattern: path.join(process.cwd(), 'src', '**', '*.e2e.ts'),
+      pattern: path.join(process.cwd(), '**', '*.e2e.ts'),
     })
 
     const testsNames = tests.map((t) => t.split('/').pop())

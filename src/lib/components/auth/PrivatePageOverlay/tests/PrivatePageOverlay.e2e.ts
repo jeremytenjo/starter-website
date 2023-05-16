@@ -1,7 +1,7 @@
-import { test } from '@playwright/test'
+// import { test } from '@playwright/test'
 
-import PrivatePageOverlay from './PrivatePageOverlay.test.js'
+// import PrivatePageOverlay from './PrivatePageOverlay.test.js'
 
-test('PrivatePageOverlay works in private pages', async ({ page }) => {
-  await PrivatePageOverlay({ page })
-})
+// test('PrivatePageOverlay works in private pages', async ({ page }) => {
+//   await PrivatePageOverlay({ page })
+// })

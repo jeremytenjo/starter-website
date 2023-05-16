@@ -47,7 +47,7 @@ const files = [
   },
   // Story
   {
-    path: ({ name }) => `stories/${name}.stories.ts`,
+    path: ({ name }) => `stories/${name}.stories.tsx`,
     template: ({ name, helpers }) => {
       const pascalCase = helpers.changeCase.pascalCase(name)
       const propsName = `${pascalCase}Props`

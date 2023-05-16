@@ -13,7 +13,8 @@ import appConfig from '../../../app.config.cjs'
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: path.join(process.cwd(), 'src'),
+  testDir: path.join(process.cwd()),
+  testIgnore: '**/node_modules/**',
   testMatch: /.*\.e2e\.ts/,
   fullyParallel: true,
   /* Maximum time one test can run for. */

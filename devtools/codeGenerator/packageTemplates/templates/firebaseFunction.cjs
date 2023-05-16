@@ -4,8 +4,8 @@ const files = [
   {
     path: ({ name }) => `${name}.ts`,
     template: ({ name, helpers }) => {
-      const pascalCase = helpers.changeCase.pascalCase(name)
-      const propsName = `${pascalCase}Props`
+      const pascalCase = helpers.changeCase.pascalCase(name);
+      const propsName = `${pascalCase}Props`;
 
       return `export type ${propsName} = {
         name: string
@@ -17,15 +17,15 @@ const files = [
         return {
           hello: props.name,
         }
-      }`
+      }`;
     },
   },
   // Firebase Index
   {
     path: ({ name }) => `${name}.firebase.ts`,
     template: ({ name, helpers }) => {
-      const pascalCase = helpers.changeCase.pascalCase(name)
-      const propsName = `${pascalCase}Props`
+      const pascalCase = helpers.changeCase.pascalCase(name);
+      const propsName = `${pascalCase}Props`;
 
       return `
       import ${name}, {
@@ -42,19 +42,19 @@ const files = [
         const res = await ${name}(payload)
       
         return res
-      }`
+      }`;
     },
   },
   // Story
   {
     path: ({ name }) => `stories/${name}.stories.tsx`,
     template: ({ name, helpers }) => {
-      const pascalCase = helpers.changeCase.pascalCase(name)
-      const propsName = `${pascalCase}Props`
+      const pascalCase = helpers.changeCase.pascalCase(name);
+      const propsName = `${pascalCase}Props`;
 
       return `
       import React from 'react'
-import FirebaseFunctionDashboard, {
+import FirebaseFunctionTester, {
   type FirebaseFunctionTesterProps,
 } from '@useweb/firebase-function-tester'
 
@@ -76,19 +76,19 @@ export default {
 
 export const Default = {
   render: (args: ArgsProps) => {
-    return <FirebaseFunctionDashboard {...args} />
+    return <FirebaseFunctionTester {...args} />
   },
-}`
+}`;
     },
   },
-]
+];
 
 const template = {
   type: 'Firebase Function',
   files,
-}
+};
 
 module.exports = {
   files,
   template,
-}
+};

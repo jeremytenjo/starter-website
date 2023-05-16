@@ -1,5 +1,5 @@
 import React from 'react'
-import FirebaseFunctionDashboard, {
+import FirebaseFunctionTester, {
   type FirebaseFunctionTesterProps,
 } from '@useweb/firebase-function-tester'
 
@@ -21,6 +21,6 @@ export default {
 
 export const Default = {
   render: (args: ArgsProps) => {
-    return <FirebaseFunctionDashboard {...args} />
+    return <FirebaseFunctionTester {...args} />
   },
 }

@@ -3,11 +3,11 @@
 const files = [
   {
     path: ({ name }) => `${name}.vitest.ts`,
-    template: () => {
+    template: ({ name }) => {
       return `// https://vitest.dev/api/
       import { expect, test } from 'vitest'
       
-      test('first test', () => {
+      test('${name}', () => {
         expect(true).toBe(true)
       })
       

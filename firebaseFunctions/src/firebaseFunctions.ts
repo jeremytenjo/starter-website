@@ -5,6 +5,7 @@ import appConfig from '../../app.config.cjs'
 import firebaseFunctionExample_firebase from './firebaseFunctionExample/firebaseFunctionExample.js'
 
 // https://firebase.google.com/docs/functions/get-started
+// https://console.firebase.google.com/project/projectname/functions
 
 export const firebaseFunctionExample = onRequest(
   {

@@ -7,30 +7,24 @@ import firebaseFunctionExample_firebase from './firebaseFunctionExample/firebase
 // https://firebase.google.com/docs/functions/get-started
 // https://console.firebase.google.com/project/projectname/functions
 
-export const firebaseFunctionExample = onRequest(
-  {
-    timeoutSeconds: 15,
-    memory: '1GiB',
-  },
-  async (req, res) => {
-    res.set('Access-Control-Allow-Origin', appConfig.siteInfo.domain)
+export const firebaseFunctionExample = onRequest(async (req, res) => {
+  res.set('Access-Control-Allow-Origin', appConfig.siteInfo.domain)
 
-    let payload: any = {}
+  let payload: any = {}
 
-    try {
-      payload = JSON.parse(req.body)?.data
-    } catch (e) {
-      payload = req.body?.data
-    }
+  try {
+    payload = JSON.parse(req.body)?.data
+  } catch (e) {
+    payload = req.body?.data
+  }
 
-    try {
-      const result = await firebaseFunctionExample_firebase(payload)
-      res.status(200).json(result)
-    } catch (error: any) {
-      console.error(new Error(error))
-      res.status(500).json({
-        error: error.toString(),
-      })
-    }
-  },
-)
+  try {
+    const result = await firebaseFunctionExample_firebase(payload)
+    res.status(200).json(result)
+  } catch (error: any) {
+    console.error(new Error(error))
+    res.status(500).json({
+      error: error.toString(),
+    })
+  }
+})

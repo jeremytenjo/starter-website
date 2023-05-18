@@ -7,7 +7,7 @@ const files = [
       return `// https://vitest.dev/api/
       import { expect, test } from 'vitest'
       
-      test('${name}', () => {
+      test('${name}', async () => {
         expect(true).toBe(true)
       })
       

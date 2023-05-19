@@ -292,6 +292,7 @@ export default function useGet${pascalName}(
       const propsUpdaterName = `Update${pascalName}PayloadProps`
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
+      import type { UpdaterReturn } from '@useweb/use-data/build/types/handlers/useUpdate'
       import logError from '@/src/lib/utils/loggers/logError/logError'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
@@ -301,7 +302,7 @@ export default function useGet${pascalName}(
       type ${propsName} = UpdaterProps<${schemaName}, ${propsUpdaterName}>
       
       // updater      
-      export const update${pascalName} = async (props: ${propsName}) => {
+      export const update${pascalName} = async (props: ${propsName}): Promise<UpdaterReturn<${schemaName}>> => {
         console.log(props)
         return undefined
       }

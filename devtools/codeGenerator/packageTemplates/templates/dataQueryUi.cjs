@@ -17,6 +17,8 @@ const getSchemaImportName = (rawName) => {
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
+  // List component
+
   // ui main
   {
     path: ({ name, helpers }) => {
@@ -405,6 +407,138 @@ const files = [
       const commonProps = {
         exec: () => null,
       }
+      `
+    },
+  },
+  // Form component
+  // TODO
+
+  // Remove Dialog component
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const RemoveComponentName = `${pascalName}RemoveDialog`
+
+      return `ui/${RemoveComponentName}/${RemoveComponentName}.tsx`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+
+      return `import React from 'react'
+      import Box from '@useweb/ui/Box'
+      import ConfirmationButton from '@useweb/ui/ConfirmationButton'
+      import use${pascalName} from '../../use${pascalName}/use${pascalName}'
+      import useSnackbar from '@useweb/ui/Snackbar'
+      
+      export type ${pascalName}RemoveDialogProps = { id: string }
+      
+      export default function ${pascalName}RemoveDialog(props: ${pascalName}RemoveDialogProps) {
+        const snackbar = useSnackbar()
+        const ${name} = use${pascalName}({
+          removeOptions: {
+            onRemove() {
+              snackbar.show({
+                message: '${nameSinglePascal} removed',
+                severity: 'success',
+              })
+            },
+          },
+        })
+      
+        return (
+          <Wrapper>
+            <ConfirmationButton
+              fn={{
+                fn: async () => {
+                  if (!props.id) throw new Error('No id provided')
+      
+                  return await ${name}.remove.exec({
+                    id: props.id,
+                  })
+                },
+              }}
+              acceptButtonProps={{
+                acceptText: 'Remove ${nameSinglePascal}',
+              }}
+              triggerButtonProps={{
+                name: 'remove ${nameSingle}',
+                label: 'Remove ${nameSinglePascal}',
+                variant: 'severe',
+                sx: {
+                  width: 'fit-content',
+                  whiteSpace: 'nowrap',
+                },
+              }}
+              dialogProps={{
+                title: 'Remove ${nameSinglePascal}',
+                children: <>Remove ${nameSinglePascal}?</>,
+              }}
+            />
+          </Wrapper>
+        )
+      }
+      
+      const Wrapper = ({ children }) => {
+        return (
+          <Box data-id='${pascalName}RemoveDialog' sx={{}}>
+            {children}
+          </Box>
+        )
+      }
+      `
+    },
+  },
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const RemoveComponentName = `${pascalName}RemoveDialog`
+
+      return `ui/${RemoveComponentName}/stories/${RemoveComponentName}.stories.tsx`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `//https://storybook.js.org/docs/react/writing-docs/docs-page
+      // https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs?ref=storybook-blog
+      import React from 'react'
+      
+      import ${pascalName}RemoveDialog, { type ${pascalName}RemoveDialogProps } from '../${pascalName}RemoveDialog'
+      
+      const defaultArgs: ${pascalName}RemoveDialogProps = {
+        id: '1',
+      }
+      
+      export default {
+        title: 'data/${name}/queries/${pascalName}/ui/${pascalName} Remove Dialog',
+        args: defaultArgs,
+        parameters: {
+          signInAs: 'brand1',
+        },
+      }
+      
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const Template = (args: ${pascalName}RemoveDialogProps) => {
+        return (
+          <>
+            <${pascalName}RemoveDialog {...args} />
+          </>
+        )
+      }
+      
+      export const Default = {
+        render: (args: ${pascalName}RemoveDialogProps) => {
+          return <Template {...args} />
+        },
+      }
+      
+      // export const Variant = {
+      //  ...Default,
+      //  args: {
+      //  ...defaultArgs,
+      // } as ${pascalName}RemoveDialogProps
+      // }
       `
     },
   },

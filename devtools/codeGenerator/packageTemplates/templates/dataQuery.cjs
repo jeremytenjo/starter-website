@@ -352,8 +352,10 @@ export default function useGet${pascalName}(
       const removePropsName = `Remove${pascalName}PayloadProps`
 
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
+      import { doc, deleteDoc } from 'firebase/firestore'
       import logError from '@/src/lib/utils/loggers/logError/logError'
-      
+
+      import { ${name}CollectionName } from '../../../../${name}.config'
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
 
       export type ${removePropsName} = any
@@ -362,7 +364,8 @@ export default function useGet${pascalName}(
       
       // remover
       export const remove${pascalName} = async (props: ${propsName}) => {
-        console.log(props)
+        if (!props.removedItemId) throw new Error('No id provided to remove${pascalName}')
+        await deleteDoc(doc(db, ${name}CollectionName, props.removedItemId as string))
       }
       
       // hook

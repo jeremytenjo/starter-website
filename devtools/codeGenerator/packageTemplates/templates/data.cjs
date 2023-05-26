@@ -20,6 +20,8 @@ const files = [
       return `
       type ${schemaName} = {
         id: string
+        uid: string
+        name: string
       }
       
       export default ${schemaName}

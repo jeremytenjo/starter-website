@@ -121,7 +121,9 @@ const files = [
       
       export const Get${pascalName} = {
         render: () => {
-          const payload: Get${pascalName}Props = {}
+          const payload: Get${pascalName}Props = {
+            uid: '1',
+          }
           const fn = async () => get${pascalName}(payload)
           return <AsyncTester fn={fn} autoExec />
         },
@@ -193,7 +195,7 @@ export const get${pascalName} = async (props: ${propsName}) => {
     ${name}.push(doc.data() as ${schemaName})
   })
 
-  return games
+  return ${name}
 }
 
 // hook
@@ -400,7 +402,7 @@ export default function useGet${pascalName}(
       // remover
       export const remove${pascalName} = async (props: ${propsName}) => {
         if (!props.removedItemId) throw new Error('No id provided to remove${pascalName}')
-        
+
         await deleteDoc(doc(db, ${name}CollectionName, props.removedItemId as string))
       }
       

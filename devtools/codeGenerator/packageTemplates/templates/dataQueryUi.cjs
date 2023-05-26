@@ -411,7 +411,169 @@ const files = [
     },
   },
   // Form component
-  // TODO
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const componentName = `${pascalName}Form`
+
+      return `ui/${componentName}/${componentName}.tsx`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+
+      return `import React, { useMemo, useState } from 'react'
+      import Button from '@useweb/ui/Button'
+      import Dialog from '@useweb/ui/Dialog'
+      import Box from '@useweb/ui/Box'
+      import use${pascalName} from '../../use${pascalName}/use${pascalName}'
+      import Form, { ResetForm } from '@useweb/ui/Form'
+      import TextField from '@useweb/ui/TextField'
+      import type ${nameSinglePascal}Schema from '../../../../${nameSingle}.schema'
+      import useAuth from '../../../../../../lib/integrations/Google/Firebase/auth/useAuth/useAuth'
+      import ErrorMessage from '@useweb/ui/ErrorMessage'
+      
+      export type ${pascalName}FormProps = { ${nameSingle}Id?: string }
+      
+      export default function ${pascalName}Form(props: ${pascalName}FormProps) {
+        const auth = useAuth()
+      
+        const ${name} = use${pascalName}({
+          getOptions: {
+            fetcherPayload: {
+              uid: auth.user?.uid,
+            },
+          },
+        })
+      
+        const defaultValues = useMemo(() => {
+          const existing${nameSinglePascal} = ${name}.get?.data?.find((${nameSingle}) => ${nameSingle}.id === props.${nameSingle}Id)
+          return existing${nameSinglePascal}
+        }, [${name}.get?.data])
+      
+        const onSubmit = (formData: ${nameSinglePascal}Schema) => {
+          if (Boolean(defaultValues)) {
+            ${name}.update.exec({
+              value: {
+                ...defaultValues,
+                ...formData,
+              },
+            })
+          } else {
+            ${name}.create.exec({
+              newItem: {
+                ...formData,
+                uid: auth.user?.uid,
+              },
+            })
+          }
+        }
+      
+        return (
+          <Form data-id='${pascalName}Form' onSubmit={onSubmit} defaultValues={defaultValues}>
+            <ResetForm resetIfTrue={Boolean(defaultValues)} values={defaultValues} />
+      
+            <Box data-id='${pascalName}FormFields' sx={{}}>
+              <TextField<${nameSinglePascal}Schema> name='name' label='Name' />
+            </Box>
+      
+            <ErrorMessage
+              error={${name}.create.error}
+              message='Error saving. Please refresh page and try again.'
+              sx={{
+                mt: 2,
+              }}
+            />
+      
+            <Button
+              type='submit'
+              name='Submit ${pascalName} Form'
+              sx={{ mt: 2, width: ['100%', 'fit-content'] }}
+            >
+              Save
+            </Button>
+          </Form>
+        )
+      }
+      
+      export function ${pascalName}FormDialog(props: ${pascalName}FormProps) {
+        const [open, setOpen] = useState(false)
+      
+        return (
+          <>
+            <Button
+              name='Add ${nameSinglePascal}'
+              sx={{
+                width: 'fit-content',
+              }}
+              onClick={() => setOpen(true)}
+            >
+              Add ${nameSinglePascal}
+            </Button>
+      
+            <Dialog open={open} onClose={() => setOpen(false)}>
+              <${pascalName}Form {...props} />
+            </Dialog>
+          </>
+        )
+      }
+      `
+    },
+  },
+  {
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const componentName = `${pascalName}Form`
+
+      return `ui/${componentName}/stories/${componentName}.stories.tsx`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const nameSingle = pluralize.singular(name)
+      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+
+      return `//https://storybook.js.org/docs/react/writing-docs/docs-page
+      // https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs?ref=storybook-blog
+      import React from 'react'
+      
+      import ${pascalName}Form, { type ${pascalName}FormProps } from '../${pascalName}Form'
+      
+      const defaultArgs: ${pascalName}FormProps = {}
+      
+      export default {
+        title: 'data/${name}/queries/${pascalName}/ui/${pascalName} Form',
+        args: defaultArgs,
+        parameters: {
+          signInAs: 'brand1',
+        },
+      }
+      
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const Template = (args: ${pascalName}FormProps) => {
+        return (
+          <>
+            <${pascalName}Form {...args} />
+          </>
+        )
+      }
+      
+      export const Create = {
+        render: (args: ${pascalName}FormProps) => {
+          return <Template {...args} />
+        },
+      }
+      
+      export const Update = {
+        ...Create,
+        args: {
+          ...defaultArgs,
+          ${nameSingle}Id: '1',
+        } as ${pascalName}FormProps,
+      }
+      `
+    },
+  },
 
   // Remove Dialog component
   {

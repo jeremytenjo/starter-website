@@ -169,18 +169,31 @@ const files = [
       return `
 import { type UseDataProps } from '@useweb/use-data'
 import assert from '@useweb/assert'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import logError from '@/src/lib/utils/loggers/logError/logError'
+import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
 import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
+import { ${name}CollectionName } from '../../../../${name}.config'
 
 // fetcher
-export type ${propsName} = any
+export type ${propsName} = {
+  uid: string
+}
 
 export const get${pascalName} = async (props: ${propsName}) => {
   assert({ props })
   const ${name}: ${schemaName}[] = []
 
-  return ${name}
+  const q = query(collection(db, ${name}CollectionName), where('uid', '==', props.uid))
+
+  const querySnapshot = await getDocs(q)
+
+  querySnapshot.forEach((doc) => {
+    ${name}.push(doc.data() as ${schemaName})
+  })
+
+  return games
 }
 
 // hook
@@ -228,11 +241,12 @@ export default function useGet${pascalName}(
 
       return `
       import { type UseDataProps, type CreatorProps } from '@useweb/use-data'
+      import { collection, doc, setDoc } from 'firebase/firestore'
       import logError from '@/src/lib/utils/loggers/logError/logError'
-      import { collection, getDocs, query, where } from 'firebase/firestore'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
+      import { ${name}CollectionName } from '../../../../${name}.config'
 
       export type ${propsName} = any
 
@@ -241,8 +255,19 @@ export default function useGet${pascalName}(
         if (!props.newItem) {
           throw new Error('Missing newItem prop')
         }
-        const newItem: ${schemaName} = props.newItem
-
+      
+        if (!props.newItem.uid) {
+          throw new Error('Missing newItem.uid prop')
+        }
+      
+        const newDocRef = doc(collection(db, ${name}CollectionName))
+        const newItem: ${schemaName} = {
+          ...props.newItem,
+          id: newDocRef.id,
+        }
+      
+        await setDoc(newDocRef, newItem)
+      
         return { newItem }
       }
 
@@ -293,9 +318,12 @@ export default function useGet${pascalName}(
 
       return `import { type UseDataProps, type UpdaterProps } from '@useweb/use-data'
       import type { UpdaterReturn } from '@useweb/use-data/build/types/handlers/useUpdate'
+      import { doc, updateDoc } from 'firebase/firestore'
       import logError from '@/src/lib/utils/loggers/logError/logError'
+      import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
+      import { ${name}CollectionName } from '../../../../${name}.config'
 
       export type ${propsUpdaterName} = any
 
@@ -303,8 +331,14 @@ export default function useGet${pascalName}(
       
       // updater      
       export const update${pascalName} = async (props: ${propsName}): Promise<UpdaterReturn<${schemaName}>> => {
-        console.log(props)
-        return undefined
+        if (!props.value.id) {
+          throw new Error("missing 'id' property on value")
+        }
+        const ref = doc(db, ${name}CollectionName, props.value.id)
+      
+        await updateDoc(ref, props.value)
+      
+        return { updatedItem: props.value }
       }
       
       // hook
@@ -354,6 +388,7 @@ export default function useGet${pascalName}(
       return `import { type UseDataProps, type RemoverProps } from '@useweb/use-data'
       import { doc, deleteDoc } from 'firebase/firestore'
       import logError from '@/src/lib/utils/loggers/logError/logError'
+      import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
       import { ${name}CollectionName } from '../../../../${name}.config'
       import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
@@ -365,6 +400,7 @@ export default function useGet${pascalName}(
       // remover
       export const remove${pascalName} = async (props: ${propsName}) => {
         if (!props.removedItemId) throw new Error('No id provided to remove${pascalName}')
+        
         await deleteDoc(doc(db, ${name}CollectionName, props.removedItemId as string))
       }
       

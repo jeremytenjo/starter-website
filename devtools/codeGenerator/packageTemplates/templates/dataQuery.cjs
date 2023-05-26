@@ -29,7 +29,7 @@ const files = [
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
 
-      return `use${pascalName}/use${pascalName}.ts`
+      return `queries/${pascalName}/use${pascalName}/use${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -81,8 +81,10 @@ const files = [
 
   // stories
   {
-    path: ({ name }) => {
-      return `stories/${name}.stories.tsx`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `queries/${pascalName}/stories/${name}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -161,7 +163,7 @@ const files = [
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
 
-      return `use${pascalName}/useGet${pascalName}/useGet${pascalName}.ts`
+      return `queries/${pascalName}/use${pascalName}/useGet${pascalName}/useGet${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -234,7 +236,7 @@ export default function useGet${pascalName}(
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
 
-      return `use${pascalName}/useCreate${pascalName}/useCreate${pascalName}.ts`
+      return `queries/${pascalName}/use${pascalName}/useCreate${pascalName}/useCreate${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -310,7 +312,7 @@ export default function useGet${pascalName}(
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
 
-      return `use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}.ts`
+      return `queries/${pascalName}/use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -379,7 +381,7 @@ export default function useGet${pascalName}(
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
 
-      return `use${pascalName}/useRemove${pascalName}/useRemove${pascalName}.ts`
+      return `queries/${pascalName}/use${pascalName}/useRemove${pascalName}/useRemove${pascalName}.ts`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)

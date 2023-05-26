@@ -25,7 +25,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const ListComponentName = `${pascalName}List`
 
-      return `ui/${ListComponentName}/${ListComponentName}.tsx`
+      return `queries/${pascalName}/ui/${ListComponentName}/${ListComponentName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -88,7 +88,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const ListComponentName = `${pascalName}List`
 
-      return `ui/${ListComponentName}/${ListComponentName}Data/${ListComponentName}Data.tsx`
+      return `queries/${pascalName}/ui/${ListComponentName}/${ListComponentName}Data/${ListComponentName}Data.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -153,7 +153,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const ListComponentName = `${pascalName}List`
 
-      return `ui/${ListComponentName}/${ListComponentName}EmptyData/${ListComponentName}EmptyData.tsx`
+      return `queries/${pascalName}/ui/${ListComponentName}/${ListComponentName}EmptyData/${ListComponentName}EmptyData.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -197,7 +197,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const ListComponentName = `${pascalName}List`
 
-      return `ui/${ListComponentName}/${ListComponentName}Loading/${ListComponentName}Loading.tsx`
+      return `queries/${pascalName}/ui/${ListComponentName}/${ListComponentName}Loading/${ListComponentName}Loading.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -253,7 +253,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const ListComponentName = `${pascalName}List`
 
-      return `ui/${ListComponentName}/${ListComponentName}Error/${ListComponentName}Error.tsx`
+      return `queries/${pascalName}/ui/${ListComponentName}/${ListComponentName}Error/${ListComponentName}Error.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -298,7 +298,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const ListComponentName = `${pascalName}List`
 
-      return `ui/${ListComponentName}/stories/${ListComponentName}.stories.tsx`
+      return `queries/${pascalName}/ui/${ListComponentName}/stories/${ListComponentName}.stories.tsx`
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -416,7 +416,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const componentName = `${pascalName}Form`
 
-      return `ui/${componentName}/${componentName}.tsx`
+      return `queries/${pascalName}/ui/${componentName}/${componentName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -528,12 +528,11 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const componentName = `${pascalName}Form`
 
-      return `ui/${componentName}/stories/${componentName}.stories.tsx`
+      return `queries/${pascalName}/ui/${componentName}/stories/${componentName}.stories.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
-      const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       // https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs?ref=storybook-blog
@@ -583,7 +582,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const RemoveComponentName = `${pascalName}RemoveDialog`
 
-      return `ui/${RemoveComponentName}/${RemoveComponentName}.tsx`
+      return `queries/${pascalName}/ui/${RemoveComponentName}/${RemoveComponentName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
@@ -659,7 +658,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const RemoveComponentName = `${pascalName}RemoveDialog`
 
-      return `ui/${RemoveComponentName}/stories/${RemoveComponentName}.stories.tsx`
+      return `queries/${pascalName}/ui/${RemoveComponentName}/stories/${RemoveComponentName}.stories.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)

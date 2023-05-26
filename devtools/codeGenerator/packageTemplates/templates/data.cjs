@@ -1,4 +1,5 @@
 const pluralize = require('pluralize')
+const dataQuery = require('./dataQuery.cjs')
 
 function lowercaseFirstLetter(string) {
   return string.charAt(0).toLowerCase() + string.slice(1)
@@ -73,6 +74,8 @@ const files = [
       return `Use this folder to add 'Data Queries'`
     },
   },
+
+  ...dataQuery.files,
 ]
 
 const template = {

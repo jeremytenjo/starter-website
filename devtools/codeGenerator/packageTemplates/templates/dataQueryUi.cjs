@@ -475,7 +475,9 @@ const files = [
             <ResetForm resetIfTrue={Boolean(defaultValues)} values={defaultValues} />
       
             <Box data-id='${pascalName}FormFields' sx={{}}>
-              <TextField<${nameSinglePascal}Schema> name='name' label='Name' />
+              <TextField<${nameSinglePascal}Schema> name='name' label='Name' sx={{
+                width: '100%',
+              }} />
             </Box>
       
             <ErrorMessage

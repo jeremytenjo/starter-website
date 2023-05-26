@@ -32,8 +32,8 @@ export const decorators = [
 
         {/* <Prismic disablePreview> */}
         <Firebase>
-          <SnackbarProvider>
-            <StorybookTheme>
+          <StorybookTheme>
+            <SnackbarProvider>
               <Box
                 sx={{
                   minHeight: '100vh',
@@ -46,8 +46,8 @@ export const decorators = [
                   <Story />
                 </AuthUserSetter>
               </Box>
-            </StorybookTheme>
-          </SnackbarProvider>
+            </SnackbarProvider>
+          </StorybookTheme>
         </Firebase>
         {/* </Prismic> */}
       </>

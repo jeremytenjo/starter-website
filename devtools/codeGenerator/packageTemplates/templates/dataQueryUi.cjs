@@ -580,7 +580,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const RemoveComponentName = `${pascalName}RemoveDialog`
+      const RemoveComponentName = `${pascalName}RemoveButton`
 
       return `queries/${pascalName}/ui/${RemoveComponentName}/${RemoveComponentName}.tsx`
     },
@@ -595,9 +595,9 @@ const files = [
       import use${pascalName} from '../../use${pascalName}/use${pascalName}'
       import useSnackbar from '@useweb/ui/Snackbar'
       
-      export type ${pascalName}RemoveDialogProps = { id: string }
+      export type ${pascalName}RemoveButtonProps = { id: string }
       
-      export default function ${pascalName}RemoveDialog(props: ${pascalName}RemoveDialogProps) {
+      export default function ${pascalName}RemoveButton(props: ${pascalName}RemoveButtonProps) {
         const snackbar = useSnackbar()
         const ${name} = use${pascalName}({
           removeOptions: {
@@ -645,7 +645,7 @@ const files = [
       
       const Wrapper = ({ children }) => {
         return (
-          <Box data-id='${pascalName}RemoveDialog' sx={{}}>
+          <Box data-id='${pascalName}RemoveButton' sx={{}}>
             {children}
           </Box>
         )
@@ -656,7 +656,7 @@ const files = [
   {
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
-      const RemoveComponentName = `${pascalName}RemoveDialog`
+      const RemoveComponentName = `${pascalName}RemoveButton`
 
       return `queries/${pascalName}/ui/${RemoveComponentName}/stories/${RemoveComponentName}.stories.tsx`
     },
@@ -667,9 +667,9 @@ const files = [
       // https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs?ref=storybook-blog
       import React from 'react'
       
-      import ${pascalName}RemoveDialog, { type ${pascalName}RemoveDialogProps } from '../${pascalName}RemoveDialog'
+      import ${pascalName}RemoveButton, { type ${pascalName}RemoveButtonProps } from '../${pascalName}RemoveButton'
       
-      const defaultArgs: ${pascalName}RemoveDialogProps = {
+      const defaultArgs: ${pascalName}RemoveButtonProps = {
         id: '1',
       }
       
@@ -682,16 +682,16 @@ const files = [
       }
       
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const Template = (args: ${pascalName}RemoveDialogProps) => {
+      const Template = (args: ${pascalName}RemoveButtonProps) => {
         return (
           <>
-            <${pascalName}RemoveDialog {...args} />
+            <${pascalName}RemoveButton {...args} />
           </>
         )
       }
       
       export const Default = {
-        render: (args: ${pascalName}RemoveDialogProps) => {
+        render: (args: ${pascalName}RemoveButtonProps) => {
           return <Template {...args} />
         },
       }
@@ -700,7 +700,7 @@ const files = [
       //  ...Default,
       //  args: {
       //  ...defaultArgs,
-      // } as ${pascalName}RemoveDialogProps
+      // } as ${pascalName}RemoveButtonProps
       // }
       `
     },

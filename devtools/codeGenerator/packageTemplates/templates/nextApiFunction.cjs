@@ -112,8 +112,8 @@ const files = [
             console.log(' ')
             console.log('${name} API Response:')
             console.log(' ')
-            
-            res.status(200).json({ data })
+
+            res.status(200).json({ data, error: undefined })
           } catch (error: any) {
             console.log(' ')
             console.log('${name} API Error:')

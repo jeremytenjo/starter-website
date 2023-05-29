@@ -23,7 +23,7 @@ export const firebaseFunctionExample = onRequest(async (req, res) => {
     res.status(200).json(result)
   } catch (error: any) {
     console.error(new Error(error))
-    res.status(500).json({
+    res.status(200).json({
       error: error.toString(),
     })
   }

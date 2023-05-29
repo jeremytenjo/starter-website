@@ -112,14 +112,14 @@ const files = [
             console.log(' ')
             console.log('${name} API Response:')
             console.log(' ')
-            console.log(JSON.stringify(data))
-        
+            
             res.status(200).json({ data })
           } catch (error: any) {
             console.log(' ')
             console.log('${name} API Error:')
             console.log(' ')
             console.log(error)
+
             res.status(200).json({ error: String(error) })
           }
         }`

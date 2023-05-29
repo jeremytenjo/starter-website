@@ -6,7 +6,7 @@ export type NextApiProps<PayloadProps> = {
   formData?: FormData
 }
 
-export type NextApiReturn<DataSchema> = { data: DataSchema; error?: any }
+export type NextApiReturn<DataSchema> = { data: DataSchema; error: any }
 
 // can't be in node_modules because it would not have access to procce.env or import.meta
 export default async function nextApi<DataSchema = any, PayloadProps = any>(
@@ -36,7 +36,7 @@ export default async function nextApi<DataSchema = any, PayloadProps = any>(
   }
 
   const body = JSON.stringify(props.payload)
-  const data = await fetch(
+  const response: NextApiReturn<DataSchema> = await fetch(
     url,
     props.payload && {
       method: 'post',
@@ -47,9 +47,5 @@ export default async function nextApi<DataSchema = any, PayloadProps = any>(
     },
   ).then((res) => res.json())
 
-  if (data.error) {
-    throw new Error(data.error)
-  }
-
-  return data
+  return response
 }

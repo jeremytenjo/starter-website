@@ -120,7 +120,7 @@ const files = [
             console.log('${name} API Error:')
             console.log(' ')
             console.log(error)
-            res.status(500).json({ error: error.toString() })
+            res.status(200).json({ error: String(error) })
           }
         }`
     },

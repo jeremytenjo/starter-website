@@ -9,7 +9,7 @@ const defaults: ComponentDefaultsProps<DialogProps> = {
       '& .MuiPaper-root': {
         boxShadow: '0px 9px 38px rgba(0, 0, 0, 0.06)',
         borderRadius: '8px',
-        minWidth: '360px',
+        minWidth: [, '360px'],
       },
       '& .dialog_header p': {
         fontSize: '16px',

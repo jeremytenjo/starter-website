@@ -69,7 +69,7 @@
     "@useweb/fetch-tester": "1.31.0",
     "@useweb/fetching-ui": "7.0.5",
     "@useweb/figma-to-code": "2.29.1",
-    "@useweb/firebase": "8.25.4",
+    "@useweb/firebase": "8.25.5",
     "@useweb/firebase-function-tester": "5.1.12",
     "@useweb/object-to-array": "2.0.0",
     "@useweb/pixel-perfect": "6.0.6",

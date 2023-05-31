@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  
   "engines": {
     "node": ">=16.15.0",
     "npm": ">=6.0.0"

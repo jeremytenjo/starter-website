@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  
   "engines": {
     "node": ">=16.15.0",
     "npm": ">=6.0.0"
@@ -69,14 +70,14 @@
     "@useweb/fetch-tester": "1.31.0",
     "@useweb/fetching-ui": "7.0.5",
     "@useweb/figma-to-code": "2.29.1",
-    "@useweb/firebase": "8.25.3",
+    "@useweb/firebase": "8.25.4",
     "@useweb/firebase-function-tester": "5.1.12",
     "@useweb/object-to-array": "2.0.0",
     "@useweb/pixel-perfect": "6.0.6",
     "@useweb/task": "2.0.1",
     "@useweb/ui": "6.84.5",
     "@useweb/ui-theme": "2.64.0",
-    "@useweb/use-async": "7.6.6",
+    "@useweb/use-async": "7.6.7",
     "@useweb/use-async-ui": "1.5.0",
     "@useweb/use-data": "20.4.4",
     "@useweb/use-data-ui": "1.8.0",

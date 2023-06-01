@@ -7,44 +7,23 @@ const files = [
     path: () => `index.tsx`,
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name).split(' ').join('')
-      const providerName = `${upperName}PropsProvider`
-      const propsName = `${helpers.changeCase.pascalCase(name).split(' ').join('')}Props`
 
       return `import React from 'react' 
 import Head from 'next/head'
 
 import ${upperName}Content from '../../pagesContent/${upperName}/${upperName}'
-import { ${providerName} } from '../../pagesContent/${upperName}/use${upperName}Props/use${upperName}Props'
-import getrootLayoutData from '../../data/_root/getRootData/getRootData'
-import RootLayout, { type RootLayoutProps } from '../../lib/layouts/Root/RootLayout'
+import RootLayout from '../../lib/layouts/Root/RootLayout'
 
-export type ${propsName} = {
-  rootLayoutData: RootLayoutProps
-}
-
-export default function ${upperName}Page(props: ${propsName}) {
+export default function ${upperName}Page() {
   return <>
    <Head>
      <title>${upperName}</title>
    </Head>
   
-   <RootLayout rootLayoutData={props.rootLayoutData}>
-    <${providerName} pageProps={props} >
+   <RootLayout>
       <${upperName}Content />
-    </${providerName}>
    </RootLayout>
-
   </>
-}
-
-export async function getStaticProps({ params = {}, previewData }) {
-  const rootLayoutData = await getrootLayoutData({ previewData })
-
-  return {
-    props: {
-      rootLayoutData,
-    },
-  }
 }`
     },
   },

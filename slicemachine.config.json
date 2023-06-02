@@ -1,0 +1,7 @@
+{
+  "apiEndpoint": "https://starter-website-jt.prismic.io/api/v2",
+  "repositoryName": "starter-website-jt",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"],
+  "localSliceSimulatorURL": "http://localhost:3001/slice-simulator"
+}

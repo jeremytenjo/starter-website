@@ -16,7 +16,7 @@ export default async function getIsPrismicConfigured() {
   )
   if (prismicConfigExists) {
     const prismicConfig = await import(
-      '../../../../../../../../src/services/prismic/prismic.config.js'
+      '../../../../../../../../src/lib/integrations/Prismic/prismic.config.js'
     )
     const accessToken = Boolean(prismicConfig.default.accessToken)
     if (!accessToken) {

@@ -37,7 +37,9 @@ export default async function dev() {
 
   // prismic
   try {
-    const prismicConfig = await import('../../src/services/prismic/prismic.config.js')
+    const prismicConfig = await import(
+      '../../src/lib/integrations/Prismic/prismic.config.js'
+    )
     if (prismicConfig.default.accessToken) generatePrismicTypes()
   } catch (error) {}
 

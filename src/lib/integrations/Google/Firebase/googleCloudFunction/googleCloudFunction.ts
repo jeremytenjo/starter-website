@@ -4,7 +4,7 @@ import {
   type GoogleCloudFunctionProps as GoogleCloudFunctionPropsLib,
 } from '@useweb/firebase/useFirebaseFunction'
 
-import firebaseConfig from '../../../../../services/google/firebase/firebase.config'
+import firebaseConfig from '../firebase.config'
 
 export type GoogleCloudFunctionProps = {
   name: string

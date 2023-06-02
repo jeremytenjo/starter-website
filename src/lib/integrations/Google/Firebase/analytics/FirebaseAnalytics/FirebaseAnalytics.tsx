@@ -1,7 +1,7 @@
 import React from 'react'
 import Script from 'next/script'
 import { useGaPageView } from '../events/gaPageView/gaPageView'
-import firebaseConfig from '../../../../../../services/google/firebase/firebase.config'
+import firebaseConfig from '../../firebase.config'
 import appConfig from '../../../../../../../app.config.cjs'
 
 const isDev = process.env.NODE_ENV == 'development'

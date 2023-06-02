@@ -1,6 +1,6 @@
 import React from 'react'
 
-import prismicConfig from '../../../services/prismic/prismic.config'
+import prismicConfig from './prismic.config'
 
 import PrismicProvider from './utils/PrismicProvider/PrismicProvider'
 import PrismicScript from './utils/PrismicScript/PrismicScript'

@@ -2,7 +2,7 @@ import React from 'react'
 import type { GoogleAdUnitProps as GoogleAdUnitPropsUseweb } from '@useweb/ui/GoogleAdUnit'
 import GoogleAdUnitUseweb from '@useweb/ui/GoogleAdUnit'
 
-import googleAdsConfig from '../../../../../services/google/googleAds/googleAds.config'
+import googleAdsConfig from '../googleAds.config'
 import isProductionSite from '../../../../utils/env/isProductionSite/isProductionSite'
 
 export type GoogleAdUnitProps = Omit<GoogleAdUnitPropsUseweb, 'isProd' | 'dataAdClient'>

@@ -5,7 +5,7 @@ import nextApi from '../../../lib/utils/nextjs/nextApi/nextApi'
 import { type ExampleApiProps } from '../exampleApi'
 
 export default {
-  title: 'Cloud Functions/next api/firebaseFunctionExample',
+  title: 'Cloud Functions/next/firebaseFunctionExample',
   args: {
     payload: {
       name: 'Ralph',

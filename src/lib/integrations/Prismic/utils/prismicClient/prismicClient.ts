@@ -1,7 +1,7 @@
 import * as prismic from '@prismicio/client'
 import { enableAutoPreviews } from '@prismicio/next'
 
-import prismicConfig from '../../../../../services/prismic/prismic.config'
+import prismicConfig from '../../prismic.config'
 
 type CreateClientProps = {
   previewData?: any

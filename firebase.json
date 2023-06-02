@@ -4,11 +4,11 @@
     "runtime": "nodejs16"
   },
   "firestore": {
-    "rules": "src/services/google/firebase/firestore/firestore.rules",
-    "indexes": "src/services/google/firebase/firestore/firestore.indexes.json"
+    "rules": "src/lib/integrations/Google/Firebase/firestore/firestore.rules",
+    "indexes": "src/lib/integrations/Google/Firebase/firestore/firestore.indexes.json"
   },
   "storage": {
-    "rules": "src/services/google/firebase/storage/storage.rules"
+    "rules": "src/lib/integrations/Google/Firebase/storage/storage.rules"
   },
   "emulators": {
     "ui": {

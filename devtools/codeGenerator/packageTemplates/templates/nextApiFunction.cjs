@@ -49,7 +49,7 @@ const files = [
       }
       
       export default {
-        title: 'Cloud Functions/next api/${upperName}',
+        title: 'Cloud Functions/next/${upperName}',
         args: {
           payload: body
         },

@@ -1,7 +1,7 @@
 import type { Config } from 'prismic-ts-codegen'
 
 const config: Config = {
-  output: './src/services/prismic/codegen/prismic.codegen.types.ts',
+  output: './src/lib/integrations/Prismic/codegen/prismic.codegen.types.ts',
   models: ['./customtypes/**/index.json', './slices/**/model.json'],
 }
 

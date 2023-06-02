@@ -7,7 +7,7 @@ import { connectAuthEmulator, getAuth } from 'firebase/auth'
 // import { getStorage, connectStorageEmulator } from 'firebase/storage'
 
 import firebaseJson from '../../../../../firebase.json'
-import firebaseConfig from '../../../../services/google/firebase/firebase.config'
+import firebaseConfig from './firebase.config'
 
 const firebaseApp = initializeApp(firebaseConfig)
 export const db = getFirestore(firebaseApp)

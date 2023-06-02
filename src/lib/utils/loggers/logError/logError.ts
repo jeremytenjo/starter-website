@@ -1,5 +1,6 @@
 import assert from '@useweb/assert'
-// import firebaseAnalyticsLogger from '../../../integrations/Google/Firebase/analytics/events/_common/firebaseAnalyticsLogger/firebaseAnalyticsLogger'
+
+import gaError from '../../../integrations/Google/Firebase/analytics/events/gaError/gaError'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -21,14 +22,10 @@ export default async function logError(props: LogErrorProps) {
   }
 
   if (isProd) {
-    // firebaseAnalyticsLogger({
-    //   eventName: 'exception',
-    //   params: {
-    //     description: errorMessage,
-    //     fatal: false,
-    //     functionName: props.fnName,
-    //   },
-    // })
+    gaError({
+      fnName: props.fnName,
+      description: errorMessage,
+    })
   }
 }
 

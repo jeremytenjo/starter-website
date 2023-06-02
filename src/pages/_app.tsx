@@ -8,8 +8,8 @@ import appConfig from '../../app.config.cjs'
 import ClickToComponent from '../lib/components/useweb/ClickToComponent/ClickToComponent'
 import Theme from '../theme/theme'
 import createEmotionCache from '../theme/UiTheme/utils/createEmotionCache'
-import GoogleAnalytics from '../lib/integrations/Google/GoogleAnalytics/GoogleAnalytics'
-import GoogleAds from '../lib/integrations/Google/GoogleAds/GoogleAds'
+import FirebaseAnalytics from '../lib/integrations/Google/Firebase/analytics/FirebaseAnalytics/FirebaseAnalytics'
+// import GoogleAds from '../lib/integrations/Google/GoogleAds/GoogleAds'
 import GoogleSearchConsole from '../lib/integrations/Google/GoogleSearchConsole/components/GoogleSearchConsole'
 import Firebase from '../lib/integrations/Google/Firebase/firebase'
 // import Prismic from '../lib/integrations/Prismic/Prismic'
@@ -25,8 +25,8 @@ export default function MyApp(props) {
     <>
       <ClickToComponent />
       <GoogleSearchConsole />
-      <GoogleAnalytics />
-      <GoogleAds />
+      <FirebaseAnalytics />
+      {/* <GoogleAds /> */}
 
       <Head>
         <meta property='og:image:alt' content={`${appConfig.siteInfo.name} logo`} />

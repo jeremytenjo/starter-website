@@ -4,7 +4,7 @@ const stories = require('./storiesList.cjs')
 module.exports = {
   stories: [
     ...stories,
-    '../../slices/**/*.stories.@(|ts|tsx)',
+    '../../src/lib/integrations/Prismic/slices/**/*.stories.@(|ts|tsx)',
     '../../firebaseFunctions/**/*.stories.@(|ts|tsx)',
   ],
   staticDirs: ['../../public'],

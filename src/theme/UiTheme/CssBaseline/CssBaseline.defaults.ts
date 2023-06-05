@@ -86,6 +86,7 @@ const defaults: ComponentDefaultsProps<CssBaselineProps> = {
 
   textarea {
     font-family: ${interFont.style.fontFamily};
+    resize: vertical;
   }
 
   textarea:focus, input:focus{

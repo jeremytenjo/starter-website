@@ -80,6 +80,7 @@ const defaultArgs: ${propsName} = {
 
 export default {
   title: '${storyPrefix}/${titleNamePrefix}${changeCase.capitalCase(name)}',
+  ${!isFunction ? `component: ${componentFunctionName},` : ''}
   args: defaultArgs,
   parameters: {
     signInAs: false,

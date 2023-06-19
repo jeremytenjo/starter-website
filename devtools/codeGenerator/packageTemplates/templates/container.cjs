@@ -1,83 +1,138 @@
+const { getStoryPrefix } = require('./story.cjs')
+
 const files = [
   {
-    path: ({ name }) => `${name}.tsx`,
-    template: ({ name, slots = {} }) => {
-      const noChildContainers = !slots?.childContainers
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `${pascalName}.tsx`
+    },
+    template: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const uiName = `${pascalName}Ui`
 
       return `import React from 'react'
-    
-    import ${name}Ui${renderIfTrue(
-        noChildContainers,
-        `, { type ${name}UiProps }`,
-      )} from './${name}Ui/${name}.ui'
-    
-    export default function ${name}() {
-      ${renderIfTrue(
-        noChildContainers,
-        `const uiProps: ${name}UiProps = {
-          title: '${name}'
-         }`,
-      )}
+      import Box from '@useweb/ui/Box'
+      import Text from '@useweb/ui/Text'
+      import Skeleton from '@useweb/ui/Skeleton'
+      import ErrorMessage from '@useweb/ui/ErrorMessage'
+      
+      export default function ${pascalName}() {
+      // use hooks to get data       
+        const data = {title: '${pascalName}'}
 
-
-
-      ${noChildContainers ? `return <${name}Ui {...uiProps} />` : `return <${name}Ui />`}
-
-    }`
+        return (
+          <${uiName}
+            data={data}
+            loading={false}
+            error={false}
+          />
+        )
+      }
+      
+      export type ${uiName}Props = {
+        data: any
+        loading: boolean
+        error: any
+      }
+      
+      export function ${uiName}(props: ${uiName}Props) {
+        if (props.error) {
+          return (
+            <ErrorMessage
+              error={props.error}
+              message='Error loading, please refresh and try again.'
+            />
+          )
+        }
+      
+        return (
+          <Wrapper>
+            <Skeleton loading={props.loading}>
+              <Text text={props.data?.title} tag='p' sx={{}} />
+            </Skeleton>
+          </Wrapper>
+        )
+      }
+      
+      const Wrapper = ({ children }) => {
+        return (
+          <Box data-id='${pascalName}' sx={{}}>
+            {children}
+          </Box>
+        )
+      }
+      `
     },
   },
   {
-    path: ({ name }) => `${name}Ui/${name}.ui.tsx`,
-    template: ({ name, helpers, slots = {} }) => {
-      const noChildContainers = !slots?.childContainers
-      const propsName = `${helpers.changeCase
-        .capitalCase(name)
-        .split(' ')
-        .join('')}UiProps`
+    path: ({ name, helpers }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+
+      return `stories/${pascalName}.stories.tsx`
+    },
+    template: ({ name, helpers, folderPath }) => {
+      const pascalName = helpers.changeCase.pascalCase(name)
+      const uiName = `${pascalName}Ui`
+      const storyPrefix = getStoryPrefix({ folderPath })
 
       return `import React from 'react'
-    import Box from '@useweb/ui/Box'
-
-    ${slots?.childContainers?.importStatements || ''}
-
-    ${renderIfTrue(
-      noChildContainers,
-      `export type ${propsName} = {
-      title: string
-    }`,
-    )}
-
-
-    export default function ${name}Ui(${renderIfTrue(
-        noChildContainers,
-        `props: ${propsName}`,
-      )}) {        
-      return (
-        <Wrapper>
-          ${renderIfTrue(noChildContainers, `<Title {...props} />`)}
-          ${slots?.localComponents?.localComponentsDeclarations || ''}
-          ${slots?.childContainers?.importedComponents || ''}
-        </Wrapper>
-      )
-    }
-    
-    const Wrapper = ({ children }) => {
-      return <Box data-id='${name}' sx={{}}>{children}</Box>
-    }
-
-    ${renderIfTrue(
-      noChildContainers,
-      `const Title = (props: ${propsName}) => {
-      return (
-        <Box data-id='Title' sx={{}}>
-          {props.title}
-        </Box>
-      )
-    }`,
-    )}
-
-    ${slots?.localComponents?.localComponents || ''}
-
+      import type { Meta, StoryObj } from '@storybook/react'
+      
+      import {
+        ${uiName},
+        type ${uiName}Props,
+      } from '../${pascalName}'
+      
+      const defaultArgs: ${uiName}Props = {
+        data: { title: '${pascalName}' },
+        loading: false,
+        error: false,
+      }
+      
+      const meta: Meta<typeof ${uiName}> = {
+        title:
+          '${storyPrefix}/${pascalName}/ui',
+        component: ${uiName},
+        args: defaultArgs,
+      }
+      export default meta
+      
+      type Story = StoryObj<typeof ${uiName}>
+      
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const Template = (args: ${uiName}Props) => {
+        return (
+          <>
+            <${uiName} {...args} />
+          </>
+        )
+      }
+      
+      export const Default: Story = {
+        render: (args: ${uiName}Props) => {
+          return <Template {...args} />
+        },
+      }
+      
+      export const Loading: Story = {
+        render: (args: ${uiName}Props) => {
+          return <Template {...args} />
+        },
+        args: {
+          loading: true,
+        },
+      }
+      
+      export const Error: Story = {
+        render: (args: ${uiName}Props) => {
+          return <Template {...args} />
+        },
+        args: {
+          error: 'Error',
+        },
+      }
+      
     `
     },
   },
@@ -91,8 +146,4 @@ const template = {
 module.exports = {
   files,
   template,
-}
-
-const renderIfTrue = (condition, string) => {
-  return condition ? string : ``
 }

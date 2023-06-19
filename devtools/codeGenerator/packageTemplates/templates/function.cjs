@@ -17,7 +17,7 @@ const files = [
 export type ${propsName} = {name: string}
     
     export default async function ${camelCase}(props: ${propsName}) {
-      assert({ props })
+      assert<${propsName}>({ props, requiredProps: [] })
 
       const data = 'hi'
       

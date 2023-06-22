@@ -186,7 +186,7 @@ export type ${propsName} = {
 }
 
 export const get${pascalName} = async (props: ${propsName}) => {
-  assert<${propsName}>({ props, requiredProps: [] })
+  assert<${propsName}> ({ props, requiredProps: [] })
   const ${name}: ${schemaName}[] = []
 
   const q = query(collection(db, ${name}CollectionName), where('uid', '==', props.uid))

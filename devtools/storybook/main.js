@@ -11,8 +11,14 @@ module.exports = {
   framework: '@storybook/nextjs',
   core: { builder: 'webpack5', disableTelemetry: true },
   addons: [
+    {
+      // https://storybook.js.org/docs/react/essentials/introduction#disabling-addons
+      name: '@storybook/addon-essentials',
+      options: {
+        actions: false,
+      },
+    },
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@storybook/addon-interactions',
   ],
   features: {

@@ -100,7 +100,6 @@
   "devDependencies": {
     "@babel/core": "7.18.10",
     "@next/bundle-analyzer": "13.0.6",
-    "@playwright/test": "1.32.0",
     "@prismicio/types": "0.2.3",
     "@slicemachine/adapter-next": "0.2.1",
     "@storybook/addon-actions": "7.0.18",
@@ -110,6 +109,7 @@
     "@storybook/addon-links": "7.0.18",
     "@storybook/blocks": "7.0.0-beta.19",
     "@storybook/builder-webpack5": "7.0.18",
+    "@playwright/test": "1.35.1",
     "@storybook/components": "7.0.0-beta.19",
     "@storybook/jest": "0.1.0",
     "@storybook/nextjs": "7.0.18",

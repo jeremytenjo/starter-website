@@ -3,12 +3,15 @@
 const files = [
   {
     path: ({ name }) => `${name}.vitest.ts`,
-    template: ({ name }) => {
+    template: () => {
       return `// https://vitest.dev/api/
       import { expect, test } from 'vitest'
       
-      test('${name}', async () => {
-        expect(true).toBe(true)
+      test('Success', async () => {
+        const expected = 0
+        const result = 0
+      
+        expect(result).toBe(expected)
       })
       
       `

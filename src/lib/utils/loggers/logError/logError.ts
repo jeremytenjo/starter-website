@@ -7,6 +7,7 @@ const isProd = process.env.NODE_ENV === 'production'
 export type LogErrorProps = {
   error: Error | string
   fnName: string
+  fatal?: boolean
   supressError?: boolean
 }
 
@@ -25,6 +26,7 @@ export default async function logError(props: LogErrorProps) {
     gaError({
       fnName: props.fnName,
       description: errorMessage,
+      fatal: props.fatal,
     })
   }
 }

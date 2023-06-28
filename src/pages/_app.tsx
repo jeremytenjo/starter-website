@@ -12,6 +12,7 @@ import FirebaseAnalytics from '../lib/integrations/Google/Firebase/analytics/Fir
 // import GoogleAds from '../lib/integrations/Google/GoogleAds/GoogleAds'
 import GoogleSearchConsole from '../lib/integrations/Google/GoogleSearchConsole/components/GoogleSearchConsole'
 import Firebase from '../lib/integrations/Google/Firebase/firebase'
+import GlobalErrorLogger from '../lib/utils/loggers/logError/GlobalErrorLogger/GlobalErrorLogger'
 // import Prismic from '../lib/integrations/Prismic/Prismic'
 // import AuthUserSetterMounter from '../lib/components/AuthUserSetter/AuthUserSetterMounter'
 
@@ -46,18 +47,20 @@ export default function MyApp(props) {
         />
       </Head>
 
-      <Firebase>
-        <CacheProvider value={emotionCache}>
-          <Theme>
-            {/* <Prismic> */}
-            <SnackbarProvider>
-              {/* <AuthUserSetterMounter /> */}
-              <Component {...pageProps} />
-            </SnackbarProvider>
-            {/* </Prismic> */}
-          </Theme>
-        </CacheProvider>
-      </Firebase>
+      <GlobalErrorLogger>
+        <Firebase>
+          <CacheProvider value={emotionCache}>
+            <Theme>
+              {/* <Prismic> */}
+              <SnackbarProvider>
+                {/* <AuthUserSetterMounter /> */}
+                <Component {...pageProps} />
+              </SnackbarProvider>
+              {/* </Prismic> */}
+            </Theme>
+          </CacheProvider>
+        </Firebase>
+      </GlobalErrorLogger>
     </>
   )
 }

@@ -68,7 +68,6 @@ export default function AuthUserSetter(props: AuthUserSetterProps) {
           position: 'fixed',
           bottom: '15px',
           right: '40px',
-          display: [, , auth.user?.uid ? 'none' : 'block'],
         }}
       >
         <Avatar

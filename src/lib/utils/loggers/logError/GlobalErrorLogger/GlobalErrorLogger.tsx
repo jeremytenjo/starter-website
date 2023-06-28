@@ -1,14 +1,13 @@
 import React from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import Button from '@useweb/ui/Button'
-import Link from '@useweb/ui/Link'
 import ErrorMessage from '@useweb/ui/ErrorMessage'
 import Box from '@useweb/ui/Box'
 import logError from '../logError'
 
 export type GlobalErrorLoggerProps = { children: any }
 
-function Fallback({ error }) {
+function Fallback({ error, resetErrorBoundary }) {
   return (
     <Box
       sx={{
@@ -27,8 +26,12 @@ function Fallback({ error }) {
         try again later or contact support if the problem persists.'
       />
 
-      <Button name='Go back home' sx={{ mt: 2, width: 'fit-content' }}>
-        <Link href={`/`}>Go back Home</Link>
+      <Button
+        name='Go back home'
+        onClick={() => resetErrorBoundary()}
+        sx={{ mt: 2, width: 'fit-content' }}
+      >
+        Go back Home
       </Button>
     </Box>
   )
@@ -43,8 +46,12 @@ const onError = (error: Error) => {
 }
 
 export default function GlobalErrorLogger(props: GlobalErrorLoggerProps) {
+  const onReset = () => {
+    window.location.href = '/'
+  }
+
   return (
-    <ErrorBoundary FallbackComponent={Fallback} onError={onError}>
+    <ErrorBoundary FallbackComponent={Fallback} onError={onError} onReset={onReset}>
       {props.children}
     </ErrorBoundary>
   )

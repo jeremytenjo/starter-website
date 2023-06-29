@@ -13,9 +13,9 @@ export const firebaseFunctionExample = onRequest(async (req, res) => {
   let payload: any = {}
 
   try {
-    payload = JSON.parse(req.body)?.data
+    payload = JSON.parse(req.body)
   } catch (e) {
-    payload = req.body?.data
+    payload = req.body
   }
 
   try {

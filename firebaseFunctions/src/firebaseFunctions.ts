@@ -19,7 +19,7 @@ export const firebaseFunctionExample = onRequest(async (req, res) => {
   }
 
   try {
-    const data = await firebaseFunctionExample_firebase(payload)
+    const data = await firebaseFunctionExample_firebase({ req, payload })
     res.status(200).json({ data, error: undefined })
   } catch (error: any) {
     console.error(new Error(error))

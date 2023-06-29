@@ -8,10 +8,10 @@ export type FirebaseFunctionExampleProps = {
   payload: Props
 }
 
-export default async function firebase_firebaseFunctionExample({
-  payload,
-}: FirebaseFunctionExampleProps) {
-  const res = await firebaseFunctionExample(payload)
+export default async function firebase_firebaseFunctionExample(
+  props: FirebaseFunctionExampleProps,
+) {
+  const res = await firebaseFunctionExample(props.payload)
 
   return res
 }

@@ -27,5 +27,6 @@ module.exports = [
   '../../src/lib/layouts/ContentWithHeader/stories/ContentWithHeader.stories.tsx',
   '../../src/lib/layouts/Root/stories/RootLayout.stories.tsx',
   '../../src/lib/utils/breakbpoints/useMediaQuery/stories/useMediaQuery.stories.tsx',
+  '../../src/lib/utils/loggers/logError/GlobalErrorLogger/stories/GlobalErrorLogger.stories.tsx',
   '../../src/theme/tokens/stories/tokens.stories.tsx',
 ]

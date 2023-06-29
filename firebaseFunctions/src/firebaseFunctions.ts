@@ -2,7 +2,7 @@ import { onRequest } from 'firebase-functions/v2/https'
 
 import appConfig from '../../app.config.cjs'
 
-import firebaseFunctionExample_firebase from './firebaseFunctionExample/firebaseFunctionExample.js'
+import firebaseFunctionExample_firebase from './firebaseFunctionExample/firebaseFunctionExample.firebase.js'
 
 // https://firebase.google.com/docs/functions/get-started
 // https://console.firebase.google.com/project/projectname/functions

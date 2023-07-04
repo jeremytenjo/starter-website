@@ -19,7 +19,7 @@ const files = [
       
       export default function ${pascalName}() {
       // use hooks to get data       
-        const data = {title: '${pascalName}'}
+        const data = '${pascalName}'
 
         return (
           <${uiName}
@@ -49,7 +49,7 @@ const files = [
         return (
           <Wrapper>
             <Skeleton loading={props.loading}>
-              <Text text={props.data?.title} tag='p' sx={{}} />
+              <Text text={props.data} tag='p' sx={{}} />
             </Skeleton>
           </Wrapper>
         )
@@ -85,7 +85,7 @@ const files = [
       } from '../${pascalName}'
       
       const defaultArgs: ${uiName}Props = {
-        data: { title: '${pascalName}' },
+        data: '${pascalName}',
         loading: false,
         error: false,
       }

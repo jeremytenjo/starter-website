@@ -92,7 +92,7 @@ const files = [
       
       const meta: Meta<typeof ${uiName}> = {
         title:
-          '${storyPrefix}/${pascalName}/ui',
+          '${storyPrefix}/${pascalName}/${pascalName}Ui',
         component: ${uiName},
         args: defaultArgs,
       }

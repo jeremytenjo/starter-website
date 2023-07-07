@@ -12,6 +12,7 @@ const colors = {
     dark: '#5E5E5E',
     '25': '#FCFCFD',
     '50': '#F9FAFB',
+    '100': '#EDEFF1',
     '200': '#EAECF0',
     '300': '#D1D5DB',
     '400': '#f1f1f1',

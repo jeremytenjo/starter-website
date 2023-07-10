@@ -8,8 +8,8 @@ const files = [
       import { expect, test } from 'vitest'
       
       test('Success', async () => {
-        const expected = 0
         const result = 0
+        const expected = 0
       
         expect(result).toBe(expected)
       })

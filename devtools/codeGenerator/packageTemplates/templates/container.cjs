@@ -95,6 +95,9 @@ const files = [
           '${storyPrefix}/${pascalName}/${pascalName}Ui',
         component: ${uiName},
         args: defaultArgs,
+        parameters: {
+          signInAs: false,
+        },
       }
       export default meta
       

@@ -11,7 +11,7 @@ export default function ResetPasswordForm() {
   const resetPasswordForm = useResetPasswordForm()
 
   return (
-    <Form
+    <Form<any>
       data-id='ResetPasswordForm'
       sx={{
         display: 'grid',
@@ -22,7 +22,7 @@ export default function ResetPasswordForm() {
         gridGap: '20px',
         justifyItems: 'center',
       }}
-      onSubmit={(formValues) => {
+      onSubmit={({ values: formValues }) => {
         resetPasswordForm.exec(formValues)
       }}
     >

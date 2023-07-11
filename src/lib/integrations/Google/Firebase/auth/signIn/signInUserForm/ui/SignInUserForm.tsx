@@ -45,7 +45,7 @@ export default function SignInUserForm(props: SignInUserFormProps) {
         }}
       />
 
-      <Form
+      <Form<any>
         data-id='SignInUserForm'
         sx={{
           display: 'grid',
@@ -56,7 +56,7 @@ export default function SignInUserForm(props: SignInUserFormProps) {
           gridGap: '20px',
           justifyItems: 'center',
         }}
-        onSubmit={(formValues) => {
+        onSubmit={({ values: formValues }) => {
           auth.signIn({ emailSignIn: formValues })
         }}
       >

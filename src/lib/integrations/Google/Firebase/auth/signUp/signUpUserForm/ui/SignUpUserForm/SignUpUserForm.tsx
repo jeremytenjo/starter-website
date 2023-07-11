@@ -31,7 +31,7 @@ export default function SignUpUserForm() {
         }}
       />
 
-      <Form
+      <Form<any>
         data-id='SignUpUserForm'
         sx={{
           display: 'grid',
@@ -42,7 +42,7 @@ export default function SignUpUserForm() {
           gridGap: '20px',
           justifyItems: 'center',
         }}
-        onSubmit={(formProps) => {
+        onSubmit={({ values: formProps }) => {
           auth.signUp.exec({ emailPasswordData: formProps })
         }}
       >

@@ -1,5 +1,6 @@
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 // https://vitest.dev/api/
+
 const testFile = {
   path: ({ name, helpers }) => `${helpers.changeCase.camelCase(name)}.vitest.ts`,
   template: ({ name }) => {
@@ -7,10 +8,9 @@ const testFile = {
     import { expect, test } from 'vitest'
     import ${name} from '../${name}'
 
-  
     test('Success', async () => {
       const result = ${name}({})
-
+    
       const expected: ReturnType<typeof ${name}> = {}
     
       expect(result).toStrictEqual(expected)
@@ -18,6 +18,11 @@ const testFile = {
     
     `
   },
+}
+
+const testFile_useExternal = {
+  path: ({ name, helpers }) => `tests/${helpers.changeCase.camelCase(name)}.vitest.ts`,
+  template: testFile.template,
 }
 
 const files = [testFile]
@@ -30,5 +35,5 @@ const template = {
 module.exports = {
   files,
   template,
-  testFile,
+  testFile_useExternal,
 }

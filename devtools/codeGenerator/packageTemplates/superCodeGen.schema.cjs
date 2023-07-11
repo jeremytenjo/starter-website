@@ -8,6 +8,7 @@ const functions = require('./templates/function.cjs')
 const functionStory = require('./templates/functionStory.cjs')
 const functionWithStory = require('./templates/functionWithStory.cjs')
 const functionWithComponent = require('./templates/functionWithComponent.cjs')
+const functionWithVitest = require('./templates/functionWithVitest.cjs')
 const componentWithProvider = require('./templates/componentWithProvider.cjs')
 const dataFunction = require('./templates/dataFunction.cjs')
 const container = require('./templates/container.cjs')
@@ -45,6 +46,7 @@ module.exports = [
   functionStory.template,
   functionWithStory.template,
   functionWithComponent.template,
+  functionWithVitest.template,
   dataFunction.template,
   reactHook.template,
 

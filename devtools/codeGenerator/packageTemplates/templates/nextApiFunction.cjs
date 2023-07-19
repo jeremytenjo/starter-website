@@ -102,7 +102,7 @@ const files = [
       export default async function ${camelCase}(
         props: ${pascalCase}Props,
       ): Promise<${pascalCase}Return> {
-        assert<${pascalCase}Props>({ props, requiredProps: ['name'] })
+        assert<${pascalCase}Props,>({ props, requiredProps: ['name'] })
       
         return {
           hello: props.name,
@@ -158,10 +158,10 @@ const files = [
       return `import React from 'react'
         import AsyncTester from '@useweb/async-tester'
         
-        import nextApi from '../../../lib/utils/nextjs/nextApi/nextApi'
-        import { type ${upperNameNoSpace}Props } from '../${name}'
+        import nextApi from '@/src/lib/utils/nextjs/nextApi/nextApi'
+        import { type ${upperNameNoSpace}Props } from '../${name}.raw'
   
-        const body: ${upperNameNoSpace}Props['body'] = {
+        const body: ${upperNameNoSpace}Props = {
           name: '${upperNameNoSpace}',
         }
         

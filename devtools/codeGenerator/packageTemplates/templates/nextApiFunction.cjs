@@ -188,7 +188,7 @@ const files = [
           return <AsyncTester<
           any,
           {
-            payload: ${upperNameNoSpace}Props['body']
+            payload: ${upperNameNoSpace}Props
           }
           >
             // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)

@@ -29,60 +29,6 @@ const files = [
     },
   },
 
-  // api function story
-  {
-    path: ({ name }) => {
-      return `src/apiFunctions/${name}/stories/${name}.stories.tsx`
-    },
-    template: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name)
-      const upperNameNoSpace = upperName.split(' ').join('')
-
-      return `import React from 'react'
-      import AsyncTester from '@useweb/async-tester'
-      
-      import nextApi from '../../../lib/utils/nextjs/nextApi/nextApi'
-      import { type ${upperNameNoSpace}Props } from '../${name}'
-
-      const body: ${upperNameNoSpace}Props['body'] = {
-        name: '${upperNameNoSpace}',
-      }
-      
-      export default {
-        title: 'Cloud Functions/next/${upperName}',
-        args: {
-          payload: body
-        },
-        parameters: {
-          signInAs: false,
-        },
-      }
-      
-      const fetcher = async (args) => {
-        const data = await nextApi({
-          name: '${name}',
-          payload: args.payload,
-        })
-      
-        return data
-      }
-      
-      export const Test = (args) => {
-        return <AsyncTester<
-        any,
-        {
-          payload: ${upperNameNoSpace}Props['body']
-        }
-        >
-          // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)
-          fn={async () => fetcher(args)} 
-          autoExec 
-        />
-      }
-      `
-    },
-  },
-
   // vercel api function
   {
     path: ({ name }) => {
@@ -123,6 +69,60 @@ const files = [
             res.status(200).json({ error: String(error) })
           }
         }`
+    },
+  },
+
+  // api function story
+  {
+    path: ({ name }) => {
+      return `src/apiFunctions/${name}/stories/${name}.stories.tsx`
+    },
+    template: ({ name, helpers }) => {
+      const upperName = helpers.changeCase.capitalCase(name)
+      const upperNameNoSpace = upperName.split(' ').join('')
+
+      return `import React from 'react'
+        import AsyncTester from '@useweb/async-tester'
+        
+        import nextApi from '../../../lib/utils/nextjs/nextApi/nextApi'
+        import { type ${upperNameNoSpace}Props } from '../${name}'
+  
+        const body: ${upperNameNoSpace}Props['body'] = {
+          name: '${upperNameNoSpace}',
+        }
+        
+        export default {
+          title: 'Cloud Functions/next/${upperName}',
+          args: {
+            payload: body
+          },
+          parameters: {
+            signInAs: false,
+          },
+        }
+        
+        const fetcher = async (args) => {
+          const data = await nextApi({
+            name: '${name}',
+            payload: args.payload,
+          })
+        
+          return data
+        }
+        
+        export const Test = (args) => {
+          return <AsyncTester<
+          any,
+          {
+            payload: ${upperNameNoSpace}Props['body']
+          }
+          >
+            // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)
+            fn={async () => fetcher(args)} 
+            autoExec 
+          />
+        }
+        `
     },
   },
 ]

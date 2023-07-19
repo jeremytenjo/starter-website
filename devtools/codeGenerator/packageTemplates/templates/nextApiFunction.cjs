@@ -1,34 +1,6 @@
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 
 const files = [
-  // api function
-  {
-    path: ({ name }) => {
-      return `src/apiFunctions/${name}/${name}.ts`
-    },
-    template: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name)
-      const upperNameNoSpace = upperName.split(' ').join('')
-      return `import type { NextApiRequest } from 'next'
-
-      export type ${upperNameNoSpace}Props = {
-        req?: NextApiRequest
-        body: { name?: string }
-      }
-      
-      export default async function ${name}(props: ${upperNameNoSpace}Props) {
-        try {
-          const data = 'hello ${name}'
-      
-          return data
-        } catch (error: any) {
-          throw new Error(error)
-        }
-      }
-      `
-    },
-  },
-
   // vercel api function
   {
     path: ({ name }) => {
@@ -37,7 +9,7 @@ const files = [
     template: ({ name }) => {
       return `import type { NextApiRequest, NextApiResponse } from 'next'
   
-        import ${name} from '../../apiFunctions/${name}/${name}'
+        import ${name} from '../../apiFunctions/${name}/${name}.vercel'
         
         export default async function handler(req: NextApiRequest, res: NextApiResponse) {
           console.log(' ')
@@ -69,6 +41,108 @@ const files = [
             res.status(200).json({ error: String(error) })
           }
         }`
+    },
+  },
+
+  // vercel function
+  {
+    path: ({ name }) => {
+      return `src/apiFunctions/${name}/${name}.vercel.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalCase = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
+
+      return `import type { NextApiRequest } from 'next'
+      import ${camelCase}, {
+        type ${pascalCase}Props,
+      } from './${camelCase}.raw'
+      
+      export type ${pascalCase}VercelProps = {
+        req?: NextApiRequest
+        body: ${pascalCase}Props
+      }
+      
+      export default async function ${camelCase}_vercel(
+        props: ${pascalCase}VercelProps,
+      ) {
+        try {
+          const data = await ${camelCase}({
+            name: props.body.name,
+          })
+      
+          return data
+        } catch (error: any) {
+          throw new Error(error)
+        }
+      }
+        `
+    },
+  },
+
+  // raw function
+  {
+    path: ({ name }) => {
+      return `src/apiFunctions/${name}/${name}.raw.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalCase = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
+
+      return `import assert from '@useweb/assert'
+
+      export type ${pascalCase}Props = {
+        name: string
+      }
+      
+      export type ${pascalCase}Return = {
+        hello: string
+      }
+      
+      export default async function ${camelCase}(
+        props: ${pascalCase}Props,
+      ): Promise<${pascalCase}Return> {
+        assert<${pascalCase}Props>({ props, requiredProps: ['name'] })
+      
+        return {
+          hello: props.name,
+        }
+      }
+        `
+    },
+  },
+
+  // client function
+  {
+    path: ({ name }) => {
+      return `src/apiFunctions/${name}/${name}.client.ts`
+    },
+    template: ({ name, helpers }) => {
+      const pascalCase = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
+
+      return `import nextApi from '@/src/lib/utils/nextjs/nextApi/nextApi'
+
+      import type {
+        ${pascalCase}Props,
+        ${pascalCase}Return,
+      } from './${camelCase}.raw'
+      
+      type Return = {
+        data: ${pascalCase}Return
+      }
+      
+      export default async function ${camelCase}Client(
+        props: ${pascalCase}Props,
+      ): Promise<Return> {
+        const res: Return = await nextApi<any, ${pascalCase}Props>({
+          name: '${camelCase}',
+          payload: props,
+        })
+      
+        return res
+      }
+      `
     },
   },
 

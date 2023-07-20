@@ -1,7 +1,7 @@
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 
 const files = [
-  // vercel api function
+  // next api function
   {
     path: ({ name }) => {
       return `src/pages/api/${name}.ts`
@@ -9,7 +9,7 @@ const files = [
     template: ({ name }) => {
       return `import type { NextApiRequest, NextApiResponse } from 'next'
   
-        import ${name} from '../../apiFunctions/${name}/${name}.vercel'
+        import ${name} from '../../apiFunctions/${name}/${name}.next'
         
         export default async function handler(req: NextApiRequest, res: NextApiResponse) {
           console.log(' ')
@@ -44,10 +44,10 @@ const files = [
     },
   },
 
-  // vercel function
+  // next function
   {
     path: ({ name }) => {
-      return `src/apiFunctions/${name}/${name}.vercel.ts`
+      return `src/apiFunctions/${name}/${name}.next.ts`
     },
     template: ({ name, helpers }) => {
       const pascalCase = helpers.changeCase.pascalCase(name)
@@ -63,12 +63,12 @@ const files = [
         body: ${pascalCase}Props
       }
       
-      export default async function ${camelCase}_vercel(
+      export default async function ${camelCase}_next(
         props: ${pascalCase}VercelProps,
       ) {
         try {
           const data = await ${camelCase}({
-            name: props.body.name,
+            ...props.body,
           })
       
           return data

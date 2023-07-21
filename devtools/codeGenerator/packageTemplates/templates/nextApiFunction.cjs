@@ -127,6 +127,8 @@ const files = [
         ${pascalCase}Props,
         ${pascalCase}Return,
       } from './${camelCase}.raw'
+
+      export type { ${pascalCase}Props, ${pascalCase}Return }
       
       type Return = {
         data: ${pascalCase}Return

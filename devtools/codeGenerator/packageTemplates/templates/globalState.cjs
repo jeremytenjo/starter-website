@@ -11,12 +11,12 @@ const files = [
 
       return `import create from 'zustand'
 
-type ${upperName}Props = {
+type ${upperName}StoreProps = {
   saving: any
   setsaving: (props: any) => any
 }
 
-export const ${camelCase}Store = create<${upperName}Props>((set) => ({
+export const ${camelCase}Store = create<${upperName}StoreProps>((set) => ({
   saving: undefined,
   setsaving: (payload) =>
     set(() => {

@@ -30,7 +30,7 @@ export const get${pascalCase}Id = (
   props: Use${propsName},
 ) => {
   return props.buyerUid && props.creatorUid && props.gameId
-    ? ${'${name}/${props.creatorUid}/${props.gameId}/${props.buyerUid}'} 
+    ? ${'"${name}/${props.creatorUid}/${props.gameId}/${props.buyerUid}"'} 
     : undefined
 }
 

@@ -155,49 +155,44 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const upperName = helpers.changeCase.capitalCase(name)
-      const upperNameNoSpace = upperName.split(' ').join('')
 
       return `import React from 'react'
-        import AsyncTester from '@useweb/async-tester'
-        
-        import nextApi from '@/src/lib/utils/nextjs/nextApi/nextApi'
-        import { type ${upperNameNoSpace}Props } from '../${name}.raw'
-  
-        const body: ${upperNameNoSpace}Props = {
-          name: '${upperNameNoSpace}',
-        }
-        
-        export default {
-          title: 'Cloud Functions/next/${upperName}',
-          args: {
-            payload: body
-          },
-          parameters: {
-            signInAs: false,
-          },
-        }
-        
-        const fetcher = async (args) => {
-          const data = await nextApi({
-            name: '${name}',
-            payload: args.payload,
-          })
-        
-          return data
-        }
-        
-        export const Test = (args) => {
-          return <AsyncTester<
-          any,
-          {
-            payload: ${upperNameNoSpace}Props
-          }
+      import AsyncTester from '@useweb/async-tester'
+      
+      import ${name}, { type ${upperName}Props } from '../${name}.client'
+      
+      const args: ${upperName}Props = {
+        name: 'hello',
+      }
+      
+      export default {
+        title: 'Cloud Functions/next/${name}',
+        args,
+        parameters: {
+          signInAs: false,
+        },
+      }
+      
+      const fetcher = async (args: ${upperName}Props) => {
+        const data = await ${name}(args)
+      
+        return data
+      }
+      
+      export const Test = (args: ${upperName}Props) => {
+        return (
+          <AsyncTester<
+            any,
+            {
+              payload: ${upperName}Props
+            }
           >
             // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)
-            fn={async () => fetcher(args)} 
-            autoExec 
+            fn={async () => fetcher(args)}
+            autoExec
           />
-        }
+        )
+      }
         `
     },
   },

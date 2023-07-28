@@ -58,13 +58,13 @@ const files = [
         type ${pascalCase}Props,
       } from './${camelCase}.raw'
       
-      export type ${pascalCase}VercelProps = {
+      export type ${pascalCase}NextProps = {
         req?: NextApiRequest
         body: ${pascalCase}Props
       }
       
       export default async function ${camelCase}_next(
-        props: ${pascalCase}VercelProps,
+        props: ${pascalCase}NextProps,
       ) {
         try {
           const data = await ${camelCase}({

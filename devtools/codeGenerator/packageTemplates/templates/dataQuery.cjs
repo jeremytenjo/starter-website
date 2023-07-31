@@ -55,6 +55,14 @@ const files = [
         updateOptions?: UseDataProps<${schemaName}, ${propsUpdaterName}>['update']
         removeOptions?: UseDataProps<${schemaName}, ${removePropsName}>['remove']
       }
+
+      type Get${pascalName}IdProps = any
+      
+      export const get${pascalName}Id = (props: Get${pascalName}IdProps) => {
+        const id = '${name}'
+      
+        return { id }
+      }
       
       export default function use${pascalName}(
         props: Use${pascalName}Props = {},
@@ -65,7 +73,7 @@ const files = [
         const remove = useRemove${pascalName}(props?.removeOptions)
       
         const ${camelCase} = useData<${schemaName}, ${getpropsName}, ${createpropsName}, ${propsUpdaterName}, ${removePropsName}>({
-          id: '${camelCase}',
+          id: get${pascalName}Id().id,
           get,
           create,
           update,
@@ -260,8 +268,8 @@ export default function useGet${pascalName}(
           throw new Error('Missing newItem prop')
         }
       
-        if (!props.newItem.uid) {
-          throw new Error('Missing newItem.uid prop')
+        if (!props.newItem.id) {
+          throw new Error('Missing newItem.id prop')
         }
       
         const newDocRef = doc(collection(db, ${name}CollectionName))

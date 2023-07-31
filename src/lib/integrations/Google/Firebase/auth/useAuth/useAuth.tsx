@@ -169,7 +169,7 @@ export default function useAuth(
     // sign up
     signUpFetcher,
     onSignUp() {
-      props.onSignUp && props.onSignUp()
+      props.onSignUp && props.onSignUp({})
     },
     onSignOut: () => {
       props.onSignOut && props.onSignOut()

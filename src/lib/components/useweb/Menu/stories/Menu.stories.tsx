@@ -16,7 +16,9 @@ const Template = (args) => {
 export const Default = Template.bind({}) as any
 
 const defaultArgs: MenuProps = {
-  open: true,
+  id: 'Menu',
+  triggerComponent: <button>Menu</button>,
+  items: [],
 }
 
 Default.args = defaultArgs

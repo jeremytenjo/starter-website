@@ -154,14 +154,14 @@ const files = [
       return `src/apiFunctions/${name}/stories/${name}.stories.tsx`
     },
     template: ({ name, helpers }) => {
-      const upperName = helpers.changeCase.capitalCase(name)
+      const pascalCase = helpers.changeCase.pascalCase(name)
 
       return `import React from 'react'
       import AsyncTester from '@useweb/async-tester'
       
-      import ${name}, { type ${upperName}Props } from '../${name}.client'
+      import ${name}, { type ${pascalCase}Props } from '../${name}.client'
       
-      const args: ${upperName}Props = {
+      const args: ${pascalCase}Props = {
         name: 'hello',
       }
       
@@ -173,18 +173,18 @@ const files = [
         },
       }
       
-      const fetcher = async (args: ${upperName}Props) => {
+      const fetcher = async (args: ${pascalCase}Props) => {
         const data = await ${name}(args)
       
         return data
       }
       
-      export const Test = (args: ${upperName}Props) => {
+      export const Test = (args: ${pascalCase}Props) => {
         return (
           <AsyncTester<
             any,
             {
-              payload: ${upperName}Props
+              payload: ${pascalCase}Props
             }
           >
             // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)

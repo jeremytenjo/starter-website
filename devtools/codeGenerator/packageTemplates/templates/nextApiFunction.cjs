@@ -12,11 +12,7 @@ const files = [
         import ${name} from '../../apiFunctions/${name}/${name}.next'
         
         export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-          console.log(' ')
-          console.log(' ')
           console.log('${name} API Started')
-          console.log(' ')
-
           let body: any = {}
         
           try {
@@ -27,17 +23,11 @@ const files = [
         
           try {
             const data = await ${name}({ body, req })
-            console.log(' ')
             console.log('${name} API Response:')
-            console.log(' ')
-
             res.status(200).json({ data, error: undefined })
           } catch (error: any) {
-            console.log(' ')
             console.log('${name} API Error:')
-            console.log(' ')
             console.log(error)
-
             res.status(200).json({ error: String(error) })
           }
         }`

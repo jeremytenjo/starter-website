@@ -13,8 +13,17 @@ const files = [
       const camelCase = helpers.changeCase.camelCase(name)
 
       return `import { test, expect } from '@playwright/test'
+      import resetFirebaseEmulatorDataClientFetch from 'resetFirebaseEmulatorDataClientFetch'
 
       import ${camelCase} from './${camelCase}.test.js'
+
+      test.beforeEach(async () => {
+        await resetFirebaseEmulatorDataClientFetch()
+      })
+      
+      test.afterAll(async () => {
+        await resetFirebaseEmulatorDataClientFetch()
+      })
       
       test('${helpers.changeCase.sentenceCase(name)}', async ({ page }) => {
         const consoleErrors: Error[] = []

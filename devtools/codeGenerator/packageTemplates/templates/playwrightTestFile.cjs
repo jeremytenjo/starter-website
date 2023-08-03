@@ -4,7 +4,7 @@ const files = [
     path: ({ name, helpers }) => {
       const camelCase = helpers.changeCase.camelCase(name)
 
-      return `${camelCase}.test.ts`
+      return `${camelCase}.tests.ts`
     },
     template: ({ name, helpers }) => {
       const propsName = `${helpers.changeCase

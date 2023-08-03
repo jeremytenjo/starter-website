@@ -15,7 +15,7 @@ const files = [
       return `import { test, expect } from '@playwright/test'
       import resetFirebaseEmulatorDataClientFetch from 'resetFirebaseEmulatorDataClientFetch.fetch'
 
-      import ${camelCase} from './${camelCase}.test.js'
+      import ${camelCase} from './${camelCase}.tests.js'
 
       test.beforeEach(async () => {
         await resetFirebaseEmulatorDataClientFetch()

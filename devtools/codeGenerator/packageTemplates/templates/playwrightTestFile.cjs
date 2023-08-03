@@ -7,7 +7,10 @@ const files = [
       return `${camelCase}.test.ts`
     },
     template: ({ name, helpers }) => {
-      const propsName = `${helpers.changeCase.capitalCase(name).split(' ').join('')}Props`
+      const propsName = `${helpers.changeCase
+        .capitalCase(name)
+        .split(' ')
+        .join('')}TestProps`
       const camelCase = helpers.changeCase.camelCase(name)
 
       return `// https://playwright.dev/docs/selectors

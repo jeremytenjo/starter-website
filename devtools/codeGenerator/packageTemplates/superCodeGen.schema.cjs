@@ -20,6 +20,7 @@ const muiOverride = require('./templates/muiOverride.cjs')
 const muiOverrideWithStory = require('./templates/muiOverrideWithStory.cjs')
 const playwrightTest = require('./templates/playwrightTest.cjs')
 const playwrightTestFile = require('./templates/playwrightTestFile.cjs')
+const playwrightTestCommon = require('./templates/playwrightTestCommon.cjs')
 const data = require('./templates/data.cjs')
 const dataQuery = require('./templates/dataQuery.cjs')
 const dataQueryUi = require('./templates/dataQueryUi.cjs')
@@ -71,6 +72,7 @@ module.exports = [
 
   playwrightTest.template,
   playwrightTestFile.template,
+  playwrightTestCommon.template,
   vitestTest.template,
 
   page.template,

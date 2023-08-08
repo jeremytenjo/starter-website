@@ -13,7 +13,7 @@ const files = [
       const camelCase = helpers.changeCase.camelCase(name)
 
       return `import { test, expect } from '@playwright/test'
-      import resetFirebaseEmulatorDataClientFetch from 'resetFirebaseEmulatorDataClientFetch.fetch'
+      import resetFirebaseEmulatorDataClientFetch from 'resetFirebaseEmulatorData.fetch'
 
       import ${camelCase} from './${camelCase}.tests.js'
 

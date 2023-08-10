@@ -120,17 +120,17 @@ const files = [
 
       export type { ${pascalCase}Props, ${pascalCase}Return }
       
-      type Return = {
-        data: ${pascalCase}Return
-      }
-      
       export default async function ${camelCase}Client(
         props: ${pascalCase}Props,
-      ): Promise<Return> {
-        const res: Return = await nextApi<any, ${pascalCase}Props>({
+      ) {
+        const res = await nextApi<${pascalCase}Return, ${pascalCase}Props>({
           name: '${camelCase}',
           payload: props,
         })
+
+        if (res.error) {
+          throw new Error(res.error)
+        }
       
         return res
       }

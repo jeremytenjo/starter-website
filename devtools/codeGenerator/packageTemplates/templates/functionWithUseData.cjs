@@ -26,7 +26,7 @@ import logError from '@/src/lib/utils/loggers/logError/logError'
 export type Use${propsName} =
   Partial<${propsName}>
 
-export const get${pascalCase}Id = (
+export const get${pascalCase}DataId = (
   props: Use${propsName},
 ) => {
   return props.buyerUid && props.creatorUid && props.gameId
@@ -41,7 +41,7 @@ export default function use${pascalCase}(
     Awaited<${returnName}>,
     ${propsName}
   >({
-    id: get${pascalCase}Id(props),
+    id: get${pascalCase}DataId(props),
     get: {
       fetcher: async () => {
         const ${name}Res = await _${name}(

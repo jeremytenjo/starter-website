@@ -111,7 +111,9 @@ const files = [
       const pascalCase = helpers.changeCase.pascalCase(name)
       const camelCase = helpers.changeCase.camelCase(name)
 
-      return `import nextApi from '@/src/lib/utils/nextjs/nextApi/nextApi'
+      return `import useData from '@useweb/use-data'
+      import nextApi from '@/src/lib/utils/nextjs/nextApi/nextApi'
+      import logError from '@/src/lib/utils/loggers/logError/logError'
 
       import type {
         ${pascalCase}Props,
@@ -134,6 +136,31 @@ const files = [
       
         return res
       }
+
+      export const use${pascalCase} = (props: {}) => {
+        const _${camelCase} = useData<
+          ${pascalCase}Return,
+          ${pascalCase}Props
+        >({
+          id: props.connectedAccountId
+            ? '${camelCase}/props'
+            : undefined,
+          get: {
+            fetcher: async () => {
+              const { data } = await ${camelCase}Client({})
+      
+              return [data]
+            },
+            onGetError({ error }) {
+              logError({
+                error,
+                fnName: 'use${pascalCase}',
+              })
+            },
+          },
+        })
+      
+        return _${camelCase}
       `
     },
   },

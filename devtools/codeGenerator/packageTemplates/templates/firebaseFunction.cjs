@@ -69,12 +69,13 @@ const files = [
       const pascalCase = helpers.changeCase.pascalCase(name)
       const propsName = `${pascalCase}Props`
 
-      return `
+      return `import type { Request } from 'firebase-functions/v2/https'
       import ${name}, {
         type ${propsName} as Props,
       } from './${name}.js'
       
       export type ${propsName} = {
+        req: Request
         payload: Props
       }
       

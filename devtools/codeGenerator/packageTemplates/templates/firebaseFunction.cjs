@@ -79,10 +79,8 @@ const files = [
         payload: Props
       }
       
-      export default async function firebase_${name}({
-        payload,
-      }: ${propsName}) {
-        const res = await ${name}(payload)
+      export default async function firebase_${name}(props: ${propsName}) {
+        const res = await ${name}(props.payload)
       
         return res
       }`

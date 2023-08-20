@@ -125,9 +125,11 @@ const files = [
       export default async function ${camelCase}Client(
         props: ${pascalCase}Props,
       ) {
+        const { fetchFn, ...payload } = props || {}
         const res = await nextApi<${pascalCase}Return, ${pascalCase}Props>({
           name: '${camelCase}',
-          payload: props,
+          payload,
+          fetchFn
         })
 
         if (res.error) {

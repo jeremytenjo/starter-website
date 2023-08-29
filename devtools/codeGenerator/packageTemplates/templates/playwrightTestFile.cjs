@@ -20,6 +20,8 @@ type ${propsName} = {
   page: Page
 }
 
+// common variables
+
 // tests
 export async function ${camelCase}Test({ page }: ${propsName}) {
   await page.goto('/')

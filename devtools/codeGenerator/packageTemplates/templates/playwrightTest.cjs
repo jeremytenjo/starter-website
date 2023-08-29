@@ -21,10 +21,6 @@ const files = [
         await resetFirebaseEmulatorDataClientFetch()
       })
       
-      test.afterAll(async () => {
-        await resetFirebaseEmulatorDataClientFetch()
-      })
-      
       test('${helpers.changeCase.sentenceCase(name)}', async ({ page }) => {
         const consoleErrors: Error[] = []
         page.on('pageerror', (err) => {

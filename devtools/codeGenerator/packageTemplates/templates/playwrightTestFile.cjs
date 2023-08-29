@@ -20,12 +20,15 @@ type ${propsName} = {
   page: Page
 }
 
-export default async function ${camelCase}Test({ page }: ${propsName}) {
+// tests
+export async function ${camelCase}Test({ page }: ${propsName}) {
   await page.goto('/')
 
   const header = await page.innerText('h1')
   expect(header).toBe('Home Page')
 }
+
+// common functions
 
       
       `

@@ -3,9 +3,12 @@ const files = [
   {
     path: ({ name }) => `${name}.ts`,
     template: ({ name }) => {
-      return `    
+      return `import { spinner, intro, outro } from '@clack/prompts'
+
     export default async function ${name}() {
+      intro('${name}')
       console.log('hello')
+      outro('Done ✨')
     }`
     },
   },

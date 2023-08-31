@@ -23,7 +23,7 @@ type ${propsName} = {
 // common variables
 
 // tests
-export async function ${camelCase}({ page }: ${propsName}) {
+export async function ${camelCase}_({ page }: ${propsName}) {
   await page.goto('/')
 
   const header = await page.innerText('h1')

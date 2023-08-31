@@ -11,7 +11,7 @@ const files = [
 
       export type ${pascalCase}Props = { page: Page }
       
-      export default async function ${name}(props: ${pascalCase}Props) {
+      export async function ${name}(props: ${pascalCase}Props) {
         // await
       }
       

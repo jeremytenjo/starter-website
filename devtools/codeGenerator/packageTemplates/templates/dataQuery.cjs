@@ -14,7 +14,8 @@ const getSchemaName = (rawName) => {
 }
 
 const getConfigImportPath = (rawName) => {
-  return `@/src/data/${rawName}/${rawName}.config.js`
+  const nameCamelCase = changeCase.camelCase(rawName)
+  return `@/src/data/${rawName}/${nameCamelCase}.config.js`
 }
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties

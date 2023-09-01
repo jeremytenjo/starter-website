@@ -9,7 +9,8 @@ const getSchemaImportPath = (rawName) => {
 }
 
 const getStubsImportPath = (rawName) => {
-  return `@/src/data/${rawName}/${rawName}.stubs.js`
+  const nameCamelCase = changeCase.camelCase(rawName)
+  return `@/src/data/${rawName}/${nameCamelCase}.stubs.js`
 }
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties

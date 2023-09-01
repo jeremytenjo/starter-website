@@ -1,6 +1,6 @@
 {
   "name": "@useweb/starter-website-code-gen-templates",
-  "version": "8.13.15",
+  "version": "8.13.16",
   "type": "module",
   "main": "superCodeGen.schema.cjs",
   "scripts": {

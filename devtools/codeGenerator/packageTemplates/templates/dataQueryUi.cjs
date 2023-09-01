@@ -420,7 +420,7 @@ const files = [
       import Form, { ResetForm } from '@useweb/ui/Form'
       import type ${nameSinglePascal}Schema from '${getSchemaImportPath(name)}'
       import useAuth from '@/src/lib/integrations/Google/Firebase/auth/useAuth/useAuth.js'
-      
+
       import use${pascalName} from '../../use${pascalName}/use${pascalName}.js'
       
       export type ${pascalName}FormProps = { ${nameSingleCamel}Id?: string }
@@ -453,7 +453,7 @@ const files = [
             ${name}.create.exec({
               newItem: {
                 ...formData.values,
-                uid: auth.user?.id,
+                id: auth.user?.id,
               },
             })
           }

@@ -5,12 +5,13 @@ const { getStoryPrefix } = require('./story.cjs')
 
 const getSchemaImportPath = (rawName) => {
   const singularName = pluralize.singular(changeCase.camelCase(rawName))
-  return `@/src/data/${rawName}/${singularName}.schema.js`
+  const nameCamelCase = changeCase.camelCase(rawName)
+  return `@/src/data/${nameCamelCase}/${singularName}.schema.js`
 }
 
 const getStubsImportPath = (rawName) => {
   const nameCamelCase = changeCase.camelCase(rawName)
-  return `@/src/data/${rawName}/${nameCamelCase}.stubs.js`
+  return `@/src/data/${nameCamelCase}/${nameCamelCase}.stubs.js`
 }
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties

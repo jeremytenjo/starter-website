@@ -183,6 +183,7 @@ const files = [
       return `
 import { type UseDataProps } from '@useweb/use-data'
 import assert from '@useweb/assert'
+import type { QueryConstraint } from 'firebase/firestore'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import logError from '@/src/lib/utils/loggers/logError/logError'
 import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
@@ -198,8 +199,12 @@ export type ${propsName} = {
 export const get${pascalName} = async (props: ${propsName}) => {
   assert<${propsName},>({ props, requiredProps: [] })
   const ${name}: ${schemaName}[] = []
+  const constraints: QueryConstraint[] = []
+  const coll = query(collection(db, ${name}CollectionName))
 
-  const q = query(collection(db, ${name}CollectionName), where('uid', '==', props.uid))
+  constraints.push(where('uid', '==', props.uid))
+
+  const q = query(coll, ...constraints)
 
   const querySnapshot = await getDocs(q)
 

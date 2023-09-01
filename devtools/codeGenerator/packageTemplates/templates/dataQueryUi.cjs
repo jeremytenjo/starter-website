@@ -421,7 +421,7 @@ const files = [
       import use${pascalName} from '../../use${pascalName}/use${pascalName}.js'
       import type ${nameSinglePascal}Schema from '${getSchemaImportPath(name)}'
 
-      import useAuth from '../../../../../../lib/integrations/Google/Firebase/auth/useAuth/useAuth.js'
+      import useAuth from '@/src/lib/integrations/Google/Firebase/auth/useAuth/useAuth.js'
       
       export type ${pascalName}FormProps = { ${nameSingleCamel}Id?: string }
       

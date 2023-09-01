@@ -442,7 +442,7 @@ const files = [
         const ${name} = use${pascalName}({
           getOptions: {
             fetcherPayload: {
-              uid: auth.user?.uid,
+              id: auth.user?.id,
             },
           },
         })
@@ -452,19 +452,19 @@ const files = [
           return existing${nameSinglePascal}
         }, [${name}.get?.data])
       
-        const onSubmit = (formData: ${nameSinglePascal}Schema) => {
+        const onSubmit = (formData: {values: ${nameSinglePascal}Schema}) => {
           if (Boolean(defaultValues)) {
             ${name}.update.exec({
               value: {
                 ...defaultValues,
-                ...formData,
+                ...formData.values,
               },
             })
           } else {
             ${name}.create.exec({
               newItem: {
-                ...formData,
-                uid: auth.user?.uid,
+                ...formData.values,
+                id: auth.user?.id,
               },
             })
           }

@@ -56,10 +56,12 @@ const files = [
         removeOptions?: UseDataProps<${schemaName}, ${removePropsName}>['remove']
       }
 
-      type Get${pascalName}IdProps = any
+      type Get${pascalName}DataIdProps = {
+        uid: string
+      }
       
-      export const get${pascalName}Id = (props: Get${pascalName}IdProps) => {
-        const id = '${name}'
+      export const get${pascalName}DataId = (props: Get${pascalName}DataIdProps) => {
+        const id = '${name}/${'props.uid'}'
       
         return { id }
       }
@@ -73,7 +75,11 @@ const files = [
         const remove = useRemove${pascalName}(props?.removeOptions)
       
         const ${camelCase} = useData<${schemaName}, ${getpropsName}, ${createpropsName}, ${propsUpdaterName}, ${removePropsName}>({
-          id: get${pascalName}Id().id,
+          id: props.getOptions?.fetcherPayload?.uid
+          ? get${pascalName}DataId({
+              uid: props.getOptions?.fetcherPayload?.uid,
+            }).id
+          : undefined,
           get,
           create,
           update,

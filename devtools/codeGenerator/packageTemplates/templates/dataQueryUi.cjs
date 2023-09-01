@@ -533,7 +533,7 @@ const files = [
       const defaultArgs: ${pascalName}FormProps = {}
       
       export default {
-        title: 'data/${name}/queries/${pascalName}/ui/${pascalName} Form',
+        title: 'data/${name}/queries/${pascalName}/ui/${pascalName}Form',
         args: defaultArgs,
         parameters: {
           signInAs: false,
@@ -664,7 +664,7 @@ const files = [
       }
       
       export default {
-        title: 'data/${name}/queries/${pascalName}/ui/${pascalName} Remove Dialog',
+        title: 'data/${name}/queries/${pascalName}/ui/${pascalName}RemoveDialog',
         args: defaultArgs,
         parameters: {
           signInAs: false,

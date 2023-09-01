@@ -15,6 +15,10 @@ const getSchemaImportPath = (rawName) => {
   return `@/src/data/${rawName}/${singularName}.schema.js`
 }
 
+const getStubsImportPath = (rawName) => {
+  return `@/src/data/${rawName}/${rawName}.stubs.js`
+}
+
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   // List component
@@ -298,9 +302,7 @@ const files = [
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       import React from 'react'
       
-      import ${pascalName}Stubs from '../../../../../${lowercaseFirstLetter(
-        splitCamelCase(name),
-      )}.stubs'
+      import ${pascalName}Stubs from '${getStubsImportPath(name)}'
       import ${ListComponentName}, { type ${ListComponentName}Props } from '../${ListComponentName}.js'
       import ${ListComponentName}Data_ from '../${ListComponentName}Data/${ListComponentName}Data.js'
       import ${ListComponentName}EmptyData_ from '../${ListComponentName}EmptyData/${ListComponentName}EmptyData.js'
@@ -422,7 +424,8 @@ const files = [
       import TextField from '@useweb/ui/TextField'
       import Form, { ResetForm } from '@useweb/ui/Form'
       import use${pascalName} from '../../use${pascalName}/use${pascalName}.js'
-      import type ${nameSinglePascal}Schema from '../../../../${nameSingle}.schema.js'
+      import type ${nameSinglePascal}Schema from '${getSchemaImportPath(name)}'
+
       import useAuth from '../../../../../../lib/integrations/Google/Firebase/auth/useAuth/useAuth.js'
       
       export type ${pascalName}FormProps = { ${nameSingleCamel}Id?: string }
@@ -524,6 +527,7 @@ const files = [
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
+      const nameSingleCamel = helpers.changeCase.camelCase(nameSingle)
 
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
       // https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs?ref=storybook-blog

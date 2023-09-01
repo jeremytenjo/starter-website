@@ -10,9 +10,9 @@ const splitCamelCase = (string) => {
   return string.split(/(?=[A-Z])/).map((s) => s.toLowerCase())[0]
 }
 
-const getSchemaImportName = (rawName) => {
+const getSchemaImportPath = (rawName) => {
   const singularName = pluralize.singular(lowercaseFirstLetter(splitCamelCase(rawName)))
-  return `${singularName}.schema`
+  return `@/src/data/${rawName}/${singularName}.schema.js`
 }
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
@@ -42,9 +42,7 @@ const files = [
       import ${useName}, {
         type Use${pascalName}Props,
       } from '../../${useName}/${useName}'
-      import type ${nameSinglePascal}Schema from '../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '${getSchemaImportPath(name)}'
       
       import ${ListComponentName}Data from './${ListComponentName}Data/${ListComponentName}Data.js'
       import ${ListComponentName}EmptyData from './${ListComponentName}EmptyData/${ListComponentName}EmptyData.js'
@@ -101,9 +99,7 @@ const files = [
       import List from '@useweb/ui/List'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       import Skeleton from '@useweb/ui/Skeleton'
-      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '${getSchemaImportPath(name)}'
       
       export type ${ListComponentName}DataProps = UseDataUiComponentProps<${nameSinglePascal}Schema>['data']
 
@@ -166,9 +162,7 @@ const files = [
       import EmptyMessage from '@useweb/ui/EmptyMessage'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '${getSchemaImportPath(name)}'
       
       export type ${ListComponentName}EmptyDataProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
@@ -211,9 +205,7 @@ const files = [
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       import { ${ListComponentName}Item, listSx } from '../${ListComponentName}Data/${ListComponentName}Data'
 
-      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '${getSchemaImportPath(name)}'
       
       export type ${ListComponentName}LoadingProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['loading']
@@ -266,9 +258,7 @@ const files = [
       import ErrorMessage from '@useweb/ui/ErrorMessage'
       import { type UseDataUiComponentProps } from '@useweb/use-data-ui'
       
-      import type ${nameSinglePascal}Schema from '../../../../../${getSchemaImportName(
-        name,
-      )}'
+      import type ${nameSinglePascal}Schema from '${getSchemaImportPath(name)}'
       
       export type ${ListComponentName}ErrorProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['error']

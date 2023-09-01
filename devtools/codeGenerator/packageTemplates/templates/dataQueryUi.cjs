@@ -1,17 +1,10 @@
 const pluralize = require('pluralize')
+const changeCase = require('change-case')
 
 const { getStoryPrefix } = require('./story.cjs')
 
-function lowercaseFirstLetter(string) {
-  return string.charAt(0).toLowerCase() + string.slice(1)
-}
-
-const splitCamelCase = (string) => {
-  return string.split(/(?=[A-Z])/).map((s) => s.toLowerCase())[0]
-}
-
 const getSchemaImportPath = (rawName) => {
-  const singularName = pluralize.singular(lowercaseFirstLetter(splitCamelCase(rawName)))
+  const singularName = pluralize.singular(changeCase.camelCase(rawName))
   return `@/src/data/${rawName}/${singularName}.schema.js`
 }
 

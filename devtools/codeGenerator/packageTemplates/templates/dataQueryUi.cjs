@@ -412,6 +412,7 @@ const files = [
       const pascalName = helpers.changeCase.pascalCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
+      const nameSingleCamel = helpers.changeCase.camelCase(nameSingle)
 
       return `import React, { useMemo, useState } from 'react'
       import Button from '@useweb/ui/Button'
@@ -424,7 +425,7 @@ const files = [
       import type ${nameSinglePascal}Schema from '../../../../${nameSingle}.schema.js'
       import useAuth from '../../../../../../lib/integrations/Google/Firebase/auth/useAuth/useAuth.js'
       
-      export type ${pascalName}FormProps = { ${nameSingle}Id?: string }
+      export type ${pascalName}FormProps = { ${nameSingleCamel}Id?: string }
       
       export default function ${pascalName}Form(props: ${pascalName}FormProps) {
         const auth = useAuth()
@@ -438,7 +439,7 @@ const files = [
         })
       
         const defaultValues = useMemo(() => {
-          const existing${nameSinglePascal} = ${name}.get?.data?.find((${nameSingle}) => ${nameSingle}.id === props.${nameSingle}Id)
+          const existing${nameSinglePascal} = ${name}.get?.data?.find((${nameSingle}) => ${nameSingle}.id === props.${nameSingleCamel}Id)
           return existing${nameSinglePascal}
         }, [${name}.get?.data])
       
@@ -559,7 +560,7 @@ const files = [
         ...Create,
         args: {
           ...defaultArgs,
-          ${nameSingle}Id: '1',
+          ${nameSingleCamel}Id: '1',
         } as ${pascalName}FormProps,
       }
       `

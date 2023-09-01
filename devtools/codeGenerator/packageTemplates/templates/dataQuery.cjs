@@ -42,12 +42,12 @@ const files = [
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
       
-      import type ${schemaName} from '../../../${getSchemaImportName(name)}'
+      import type ${schemaName} from '../../../${getSchemaImportName(name)}.js'
       
-      import useGet${pascalName}, { type ${getpropsName} } from './useGet${pascalName}/useGet${pascalName}'
-      import useCreate${pascalName}, { type ${createpropsName} } from './useCreate${pascalName}/useCreate${pascalName}'
-      import useUpdate${pascalName}, { type ${propsUpdaterName} } from './useUpdate${pascalName}/useUpdate${pascalName}'
-      import useRemove${pascalName}, { type ${removePropsName} } from './useRemove${pascalName}/useRemove${pascalName}'
+      import useGet${pascalName}, { type ${getpropsName} } from './useGet${pascalName}/useGet${pascalName}.js'
+      import useCreate${pascalName}, { type ${createpropsName} } from './useCreate${pascalName}/useCreate${pascalName}.js'
+      import useUpdate${pascalName}, { type ${propsUpdaterName} } from './useUpdate${pascalName}/useUpdate${pascalName}.js'
+      import useRemove${pascalName}, { type ${removePropsName} } from './useRemove${pascalName}/useRemove${pascalName}.js'
       
       export type Use${pascalName}Props = {
         getOptions?: UseDataProps<${schemaName}, ${getpropsName}>['get']
@@ -111,22 +111,22 @@ const files = [
       import {
         get${pascalName},
         type Get${pascalName}Props,
-      } from '../use${pascalName}/useGet${pascalName}/useGet${pascalName}'
+      } from '../use${pascalName}/useGet${pascalName}/useGet${pascalName}.js'
       // create
       //import {
       //  create${pascalName},
       //  type Create${pascalName}PayloadProps,
-      //} from '../use${pascalName}/useCreate${pascalName}/useCreate${pascalName}'
+      //} from '../use${pascalName}/useCreate${pascalName}/useCreate${pascalName}.js'
       // update
       //import {
       //  update${pascalName},
       //  type Update${pascalName}PayloadProps,
-      //} from '../use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}'
+      //} from '../use${pascalName}/useUpdate${pascalName}/useUpdate${pascalName}.js'
       // remove
       //import {
       //  remove${pascalName},
       //  type Remove${pascalName}PayloadProps,
-      //} from '../use${pascalName}/useRemove${pascalName}/useRemove${pascalName}'
+      //} from '../use${pascalName}/useRemove${pascalName}/useRemove${pascalName}.js'
       
       export default {
         title: '${storyPrefix}/${pascalName}',
@@ -263,8 +263,8 @@ export default function useGet${pascalName}(
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
-      import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
-      import { ${name}CollectionName } from '../../../../${name}.config'
+      import type ${schemaName} from '../../../../${getSchemaImportName(name)}.js'
+      import { ${name}CollectionName } from '../../../../${name}.config.js'
 
       export type ${propsName} = any
 
@@ -340,8 +340,8 @@ export default function useGet${pascalName}(
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
-      import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
-      import { ${name}CollectionName } from '../../../../${name}.config'
+      import type ${schemaName} from '../../../../${getSchemaImportName(name)}.js'
+      import { ${name}CollectionName } from '../../../../${name}.config.js'
 
       export type ${propsUpdaterName} = any
 
@@ -408,8 +408,8 @@ export default function useGet${pascalName}(
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
-      import { ${name}CollectionName } from '../../../../${name}.config'
-      import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
+      import { ${name}CollectionName } from '../../../../${name}.config.js'
+      import type ${schemaName} from '../../../../${getSchemaImportName(name)}.js'
 
       export type ${removePropsName} = any
 

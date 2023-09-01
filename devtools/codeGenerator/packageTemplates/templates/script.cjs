@@ -4,11 +4,14 @@ const files = [
     path: ({ name }) => `${name}.ts`,
     template: ({ name }) => {
       return `import { spinner, intro, outro } from '@clack/prompts'
+      import chalk from 'chalk'
 
     export default async function ${name}() {
-      intro('${name}')
-      console.log('hello')
-      outro('Done ✨')
+      intro(chalk.cyan('${name}'))
+      s.start('${name} start')
+      // functionhere
+      s.stop('${name} complete')    
+      outro(chalk.green('Done'))
     }`
     },
   },

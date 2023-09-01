@@ -4,22 +4,17 @@ const changeCase = require('change-case')
 const { getStoryPrefix } = require('./story.cjs')
 const dataQueryUi = require('./dataQueryUi.cjs')
 
-function lowercaseFirstLetter(string) {
-  return string.charAt(0).toLowerCase() + string.slice(1)
-}
-
 const splitCamelCase = (string) => {
   return string.split(/(?=[A-Z])/).map((s) => s.toLowerCase())[0]
-}
-
-const getSchemaImportName = (rawName) => {
-  const singularName = pluralize.singular(lowercaseFirstLetter(splitCamelCase(rawName)))
-  return `${singularName}.schema`
 }
 
 const getSchemaName = (rawName) => {
   const schemaName = pluralize.singular(changeCase.pascalCase(splitCamelCase(rawName)))
   return `${schemaName}Schema`
+}
+
+const getConfigImportPath = (rawName) => {
+  return `@/src/data/${rawName}/${rawName}.config.js`
 }
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
@@ -42,7 +37,7 @@ const files = [
 
       return `import useData, { type UseDataProps } from '@useweb/use-data'
       
-      import type ${schemaName} from '../../../${getSchemaImportName(name)}.js'
+      import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
       
       import useGet${pascalName}, { type ${getpropsName} } from './useGet${pascalName}/useGet${pascalName}.js'
       import useCreate${pascalName}, { type ${createpropsName} } from './useCreate${pascalName}/useCreate${pascalName}.js'
@@ -61,7 +56,7 @@ const files = [
       }
       
       export const get${pascalName}DataId = (props: Get${pascalName}DataIdProps) => {
-        const id = '${name}/${'${props.uid}'}'
+        const id = ${'`'}${name}/${'${props.uid}'}${'`'}
       
         return { id }
       }
@@ -191,8 +186,8 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 import logError from '@/src/lib/utils/loggers/logError/logError'
 import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
-import type ${schemaName} from '../../../../${getSchemaImportName(name)}'
-import { ${name}CollectionName } from '../../../../${name}.config'
+import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
+import { ${name}CollectionName } from '${getConfigImportPath(name)}'
 
 // fetcher
 export type ${propsName} = {
@@ -263,8 +258,8 @@ export default function useGet${pascalName}(
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
-      import type ${schemaName} from '../../../../${getSchemaImportName(name)}.js'
-      import { ${name}CollectionName } from '../../../../${name}.config.js'
+      import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
+      import { ${name}CollectionName } from '${getConfigImportPath(name)}'
 
       export type ${propsName} = any
 
@@ -340,8 +335,8 @@ export default function useGet${pascalName}(
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
-      import type ${schemaName} from '../../../../${getSchemaImportName(name)}.js'
-      import { ${name}CollectionName } from '../../../../${name}.config.js'
+      import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
+      import { ${name}CollectionName } from '${getConfigImportPath(name)}'
 
       export type ${propsUpdaterName} = any
 
@@ -408,8 +403,8 @@ export default function useGet${pascalName}(
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
 
-      import { ${name}CollectionName } from '../../../../${name}.config.js'
-      import type ${schemaName} from '../../../../${getSchemaImportName(name)}.js'
+      import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
+      import { ${name}CollectionName } from '${getConfigImportPath(name)}'
 
       export type ${removePropsName} = any
 

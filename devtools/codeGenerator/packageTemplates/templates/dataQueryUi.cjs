@@ -705,4 +705,5 @@ const template = {
 module.exports = {
   files,
   template,
+  getSchemaImportPath,
 }

@@ -546,7 +546,7 @@ const files = [
         title: 'data/${name}/queries/${pascalName}/ui/${pascalName} Form',
         args: defaultArgs,
         parameters: {
-          signInAs: 'brand1',
+          signInAs: false,
         },
       }
       
@@ -677,7 +677,7 @@ const files = [
         title: 'data/${name}/queries/${pascalName}/ui/${pascalName} Remove Dialog',
         args: defaultArgs,
         parameters: {
-          signInAs: 'brand1',
+          signInAs: false,
         },
       }
       

@@ -442,7 +442,7 @@ const files = [
         const ${name} = use${pascalName}({
           getOptions: {
             fetcherPayload: {
-              id: auth.user?.id,
+              uid: auth.user?.id,
             },
           },
         })
@@ -464,7 +464,7 @@ const files = [
             ${name}.create.exec({
               newItem: {
                 ...formData.values,
-                id: auth.user?.id,
+                uid: auth.user?.id,
               },
             })
           }

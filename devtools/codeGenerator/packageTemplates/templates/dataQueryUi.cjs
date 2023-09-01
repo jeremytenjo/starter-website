@@ -46,10 +46,10 @@ const files = [
         name,
       )}'
       
-      import ${ListComponentName}Data from './${ListComponentName}Data/${ListComponentName}Data'
-      import ${ListComponentName}EmptyData from './${ListComponentName}EmptyData/${ListComponentName}EmptyData'
-      import ${ListComponentName}Loading from './${ListComponentName}Loading/${ListComponentName}Loading'
-      import ${ListComponentName}Error from './${ListComponentName}Error/${ListComponentName}Error'
+      import ${ListComponentName}Data from './${ListComponentName}Data/${ListComponentName}Data.js'
+      import ${ListComponentName}EmptyData from './${ListComponentName}EmptyData/${ListComponentName}EmptyData.js'
+      import ${ListComponentName}Loading from './${ListComponentName}Loading/${ListComponentName}Loading.js'
+      import ${ListComponentName}Error from './${ListComponentName}Error/${ListComponentName}Error.js'
       
       export type ${ListComponentName}Props = {
         dataConfig?: Use${pascalName}Props
@@ -311,11 +311,11 @@ const files = [
       import ${pascalName}Stubs from '../../../../../${lowercaseFirstLetter(
         splitCamelCase(name),
       )}.stubs'
-      import ${ListComponentName}, { type ${ListComponentName}Props } from '../${ListComponentName}'
-      import ${ListComponentName}Data_ from '../${ListComponentName}Data/${ListComponentName}Data'
-      import ${ListComponentName}EmptyData_ from '../${ListComponentName}EmptyData/${ListComponentName}EmptyData'
-      import ${ListComponentName}Loading_ from '../${ListComponentName}Loading/${ListComponentName}Loading'
-      import ${ListComponentName}Error_ from '../${ListComponentName}Error/${ListComponentName}Error'
+      import ${ListComponentName}, { type ${ListComponentName}Props } from '../${ListComponentName}.js'
+      import ${ListComponentName}Data_ from '../${ListComponentName}Data/${ListComponentName}Data.js'
+      import ${ListComponentName}EmptyData_ from '../${ListComponentName}EmptyData/${ListComponentName}EmptyData.js'
+      import ${ListComponentName}Loading_ from '../${ListComponentName}Loading/${ListComponentName}Loading.js'
+      import ${ListComponentName}Error_ from '../${ListComponentName}Error/${ListComponentName}Error.js'
       
       const defaultArgs: ${ListComponentName}Props = {
         dataConfig: {
@@ -427,12 +427,12 @@ const files = [
       import Button from '@useweb/ui/Button'
       import Dialog from '@useweb/ui/Dialog'
       import Box from '@useweb/ui/Box'
-      import use${pascalName} from '../../use${pascalName}/use${pascalName}'
-      import Form, { ResetForm } from '@useweb/ui/Form'
-      import TextField from '@useweb/ui/TextField'
-      import type ${nameSinglePascal}Schema from '../../../../${nameSingle}.schema'
-      import useAuth from '../../../../../../lib/integrations/Google/Firebase/auth/useAuth/useAuth'
       import ErrorMessage from '@useweb/ui/ErrorMessage'
+      import TextField from '@useweb/ui/TextField'
+      import Form, { ResetForm } from '@useweb/ui/Form'
+      import use${pascalName} from '../../use${pascalName}/use${pascalName}.js'
+      import type ${nameSinglePascal}Schema from '../../../../${nameSingle}.schema.js'
+      import useAuth from '../../../../../../lib/integrations/Google/Firebase/auth/useAuth/useAuth.js'
       
       export type ${pascalName}FormProps = { ${nameSingle}Id?: string }
       
@@ -592,8 +592,8 @@ const files = [
       return `import React from 'react'
       import Box from '@useweb/ui/Box'
       import ConfirmationButton from '@useweb/ui/ConfirmationButton'
-      import use${pascalName} from '../../use${pascalName}/use${pascalName}'
       import useSnackbar from '@useweb/ui/Snackbar'
+      import use${pascalName} from '../../use${pascalName}/use${pascalName}.js'
       
       export type ${pascalName}RemoveButtonProps = { id: string }
       

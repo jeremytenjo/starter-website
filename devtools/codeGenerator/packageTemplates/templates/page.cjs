@@ -11,8 +11,8 @@ const files = [
       return `import React from 'react' 
 import Head from 'next/head'
 
-import ${upperName}Content from '../../pagesContent/${upperName}/${upperName}'
-import RootLayout from '../../lib/layouts/Root/RootLayout'
+import ${upperName}Content from '../../pagesContent/${upperName}/${upperName}.js'
+import RootLayout from '../../lib/layouts/Root/RootLayout.js'
 
 export default function ${upperName}Page() {
   return <>

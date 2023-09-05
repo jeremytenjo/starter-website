@@ -20,7 +20,7 @@ const template = {
 import _${name}, {
   type ${propsName},
   type ${returnName},
-} from '../${name}'
+} from '../${name}.js'
 import logError from '@/src/lib/utils/loggers/logError/logError'
 
 export type Use${propsName} =
@@ -30,7 +30,7 @@ export const get${pascalCase}DataId = (
   props: Use${propsName},
 ) => {
   return props.buyerUid
-    ? "${name}${'/${props.buyerUid}"'} 
+    ? ${'`'}${name}${'/${props.buyerUid}'}${'`'}
     : undefined
 }
 
@@ -48,8 +48,8 @@ export default function use${pascalCase}(
           props as ${propsName},
         )
 
-        if (${name}Res.id) {
-          return [${name}Res]
+        if (${name}Res.data) {
+          return [${name}Res.data]
         }
 
         return []

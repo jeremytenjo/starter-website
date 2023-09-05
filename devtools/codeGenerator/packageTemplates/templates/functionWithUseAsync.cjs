@@ -34,7 +34,7 @@ export default function use${pascalCase}(props = {} as Use${pascalCase}Props) {
 ]
 
 const template = {
-  type: 'useAsync Function',
+  type: 'Function with useAsync',
   files,
 }
 

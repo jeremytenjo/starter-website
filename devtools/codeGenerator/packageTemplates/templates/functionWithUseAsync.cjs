@@ -19,7 +19,7 @@ const files = [
       const camelCase = helpers.changeCase.camelCase(name)
 
       return `import useAsync, { type UseAsyncProps } from '@useweb/use-async'
-import ${camelCase}Fn, { type ${pascalCase}Props } from '../${camelCase}'
+import ${camelCase}Fn, { type ${pascalCase}Props } from '../${camelCase}.js'
 
 type Use${pascalCase}Props = Omit<UseAsyncProps, 'fn'>
 
@@ -34,7 +34,7 @@ export default function use${pascalCase}(props = {} as Use${pascalCase}Props) {
 ]
 
 const template = {
-  type: 'Function with Component',
+  type: 'useAsync Function',
   files,
 }
 

@@ -7,7 +7,7 @@ const componentWithStory = require('./templates/componentWithStory.cjs')
 const functions = require('./templates/function.cjs')
 const functionStory = require('./templates/functionStory.cjs')
 const functionWithStory = require('./templates/functionWithStory.cjs')
-const functionWithComponent = require('./templates/functionWithComponent.cjs')
+const functionWithUseAsync = require('./templates/functionWithUseAsync.cjs')
 const functionWithVitest = require('./templates/functionWithVitest.cjs')
 const functionWithUseData = require('./templates/functionWithUseData.cjs')
 const componentWithProvider = require('./templates/componentWithProvider.cjs')
@@ -47,7 +47,7 @@ module.exports = [
   functions.template,
   functionStory.template,
   functionWithStory.template,
-  functionWithComponent.template,
+  functionWithUseAsync.template,
   functionWithVitest.template,
   functionWithUseData.template,
   dataFunction.template,

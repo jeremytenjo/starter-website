@@ -71,7 +71,7 @@ ${
   importOverride ||
   `import ${componentFunctionName}, { type ${propsName} ${
     isFunction ? `, type ${returnName}` : ''
-  } } from '../${componentFunctionName}'`
+  } } from '../${componentFunctionName}.js'`
 }
 
 const defaultArgs: ${propsName} = {

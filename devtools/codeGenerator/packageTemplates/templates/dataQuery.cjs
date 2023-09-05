@@ -57,7 +57,7 @@ const files = [
       }
       
       export const get${pascalName}DataId = (props: Get${pascalName}DataIdProps) => {
-        const id = ${'`'}${pascalName}/${'${props.uid}'}${'`'}
+        const id = ${'`'}${camelCase}/${'${props.uid}'}${'`'}
       
         return { id }
       }

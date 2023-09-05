@@ -1,13 +1,10 @@
 const functions = require('./function.cjs')
 const story = require('./story.cjs')
-const component = require('./component.cjs')
 
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 const files = [
   ...functions.files,
   ...story.functionStoryFiles,
-  ...story.functionWithComponentStoryFiles,
-  ...component.files,
   {
     path: ({ name, helpers }) => {
       const pascalCase = helpers.changeCase.pascalCase(name)

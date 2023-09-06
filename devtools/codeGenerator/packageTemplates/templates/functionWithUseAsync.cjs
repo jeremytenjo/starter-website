@@ -22,7 +22,7 @@ type Use${pascalCase}Props = Omit<
   UseAsyncProps<any, Awaited<${pascalCase}Return>>,
 , 'fn'>
 
-export default function use${pascalCase}(props = {} as Use${pascalCase}Props) {
+export default function use${pascalCase}(props = Use${pascalCase}Props = {}) {
   const ${camelCase} = useAsync<
   ${pascalCase}Props, 
   Awaited<ReturnType<typeof ${name}>>

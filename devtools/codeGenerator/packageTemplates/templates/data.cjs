@@ -37,7 +37,7 @@ const files = [
       return `${camelCase}.stubs.ts`
     },
     template: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
       const schemaName = `${nameSinglePascal}Schema`
@@ -45,9 +45,9 @@ const files = [
       return `
       import type ${schemaName} from './${lowercaseFirstLetter(nameSingle)}.schema'
           
-      const ${pascalName}Stubs: ${schemaName}[] = []
+      const ${camelCase}Stubs: ${schemaName}[] = []
       
-      export default ${pascalName}Stubs
+      export default ${camelCase}Stubs
 `
     },
   },

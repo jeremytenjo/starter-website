@@ -124,16 +124,17 @@ const files = [
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
       const schemaName = `${pascalName}Schema`
 
       return `
       import type ${schemaName} from './${pascalName}.schema'
           
-      const ${pascalName}Stubs: ${schemaName}[] = [
+      const ${camelCase}Stubs: ${schemaName}[] = [
         // TODO add ${pascalName} stubs
       ]
       
-      export default ${pascalName}Stubs
+      export default ${camelCase}Stubs
 `
     },
   },

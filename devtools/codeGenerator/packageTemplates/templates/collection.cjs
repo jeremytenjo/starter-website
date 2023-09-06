@@ -57,7 +57,7 @@ const files = [
       return `${getStubsName(name)}.ts`
     },
     template: ({ name, helpers }) => {
-      const pascalName = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
       const nameSingle = pluralize.singular(name)
       const nameSinglePascal = helpers.changeCase.pascalCase(nameSingle)
       const schemaName = `${nameSinglePascal}Schema`
@@ -65,15 +65,15 @@ const files = [
       return `
       import type ${schemaName} from './${lowercaseFirstLetter(nameSingle)}.schema'
           
-      const ${pascalName}Stubs: ${schemaName}[] = [
-        // TODO add ${pascalName} stubs
+      const ${camelCase}Stubs: ${schemaName}[] = [
+        // TODO add ${camelCase} stubs
         {
           id: '1',
-          name: '${pascalName}'
+          name: '${camelCase}'
         }
       ]
       
-      export default ${pascalName}Stubs
+      export default ${camelCase}Stubs
 `
     },
   },
@@ -646,6 +646,7 @@ export default use${componentName}
     },
     template: ({ name, helpers, folderPath }) => {
       const pascalName = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
       const componentName = `${pascalName}ListItem`
       const storyPrefix = getStoryPrefix({ folderPath })
       const stubsName = getStubsName(name)
@@ -653,10 +654,10 @@ export default use${componentName}
       return `//https://storybook.js.org/docs/react/writing-docs/docs-page
 import React from 'react'
 
-import ${pascalName}Stubs from '../../../../../${stubsName}'
+import ${camelCase}Stubs from '../../../../../${stubsName}'
 import ${componentName}, { type ${componentName}Props } from '../../${componentName}/${componentName}'
 
-const defaultArgs: ${componentName}Props = ${pascalName}Stubs[0]
+const defaultArgs: ${componentName}Props = ${camelCase}Stubs[0]
 
 export default {
   title: '${storyPrefix}/${pascalName}List/ui/${componentName}',

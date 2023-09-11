@@ -23,11 +23,10 @@ import _${name}, {
 } from '../${name}.js'
 import logError from '@/src/lib/utils/loggers/logError/logError'
 
-export type Use${propsName} =
-  Partial<${propsName}>
+export type Use${propsName} = ${propsName}
 
 export const get${pascalCase}DataId = (
-  props: Use${propsName},
+  props: Partial<Use${propsName}>,
 ) => {
   return props.buyerUid
     ? ${'`'}${name}${'/${props.buyerUid}'}${'`'}

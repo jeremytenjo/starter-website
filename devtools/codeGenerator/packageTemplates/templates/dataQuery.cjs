@@ -196,7 +196,7 @@ export type ${propsName} = {
 }
 
 export const get${pascalName} = async (props: ${propsName}) => {
-  assert<${propsName},>({ props, requiredProps: [] })
+  assert<${propsName},>({ props, requiredProps: ['uid] })
   const ${name}: ${schemaName}[] = []
   const constraints: QueryConstraint[] = []
   const coll = query(collection(db, ${name}CollectionName))

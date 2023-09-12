@@ -28,8 +28,8 @@ export type Use${propsName} = ${propsName}
 export const get${pascalCase}DataId = (
   props: Partial<Use${propsName}>,
 ) => {
-  return props.buyerUid
-    ? ${'`'}${name}${'/${props.buyerUid}'}${'`'}
+  return props.uid
+    ? ${'`'}${name}${'/${props.uid}'}${'`'}
     : undefined
 }
 

@@ -187,7 +187,6 @@ import type { QueryConstraint } from 'firebase/firestore'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import logError from '@/src/lib/utils/loggers/logError/logError'
 import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
-
 import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
 import { ${name}CollectionName } from '${getConfigImportPath(name)}'
 
@@ -263,7 +262,6 @@ export default function useGet${pascalName}(
       import { collection, doc, setDoc } from 'firebase/firestore'
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
-
       import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
       import { ${name}CollectionName } from '${getConfigImportPath(name)}'
 
@@ -340,7 +338,6 @@ export default function useGet${pascalName}(
       import { doc, updateDoc } from 'firebase/firestore'
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
-
       import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
       import { ${name}CollectionName } from '${getConfigImportPath(name)}'
 
@@ -408,7 +405,6 @@ export default function useGet${pascalName}(
       import { doc, deleteDoc } from 'firebase/firestore'
       import logError from '@/src/lib/utils/loggers/logError/logError'
       import { db } from '@/src/lib/integrations/Google/Firebase/firebase'
-
       import type ${schemaName} from '${dataQueryUi.getSchemaImportPath(name)}'
       import { ${name}CollectionName } from '${getConfigImportPath(name)}'
 

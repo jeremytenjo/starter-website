@@ -47,8 +47,8 @@ export default function use${pascalCase}(
           props as ${propsName},
         )
 
-        if (${name}Res.data) {
-          return [${name}Res.data]
+        if (${name}Res) {
+          return [${name}Res]
         }
 
         return []

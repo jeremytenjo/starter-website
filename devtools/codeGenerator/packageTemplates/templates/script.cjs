@@ -11,7 +11,7 @@ const files = [
       const s = spinner()
       s.start('${name} start')
       // functionhere
-      s.stop('${name} complete')    
+      s.stop()    
       outro(chalk.green('Done'))
     }`
     },

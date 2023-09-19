@@ -8,6 +8,7 @@ const files = [
 
     export default async function ${name}() {
       intro(chalk.cyan('${name}'))
+      const s = spinner()
       s.start('${name} start')
       // functionhere
       s.stop('${name} complete')    

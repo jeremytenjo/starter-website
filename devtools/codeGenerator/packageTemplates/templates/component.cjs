@@ -40,7 +40,7 @@ console.log(${camelCase})`
           : ''
       }
       return (
-        <Wrapper>
+        <Box data-id='${componentName}' sx={{}}>
           <Text text={'${componentName}'} tag='p' sx={{}} />
           ${
             isFunctionWithComponent
@@ -48,12 +48,8 @@ console.log(${camelCase})`
               : ''
           }
           ${slots?.localComponents?.localComponentsDeclarations || ''}
-        </Wrapper>
+        </Box>
       );
-    }
-
-    const Wrapper = ({ children }) => {
-      return <Box data-id='${componentName}' sx={{}}>{children}</Box>
     }
 
     ${slots?.localComponents?.localComponents || ''}

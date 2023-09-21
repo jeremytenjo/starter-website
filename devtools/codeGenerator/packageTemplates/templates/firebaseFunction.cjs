@@ -69,21 +69,50 @@ const files = [
       const pascalCase = helpers.changeCase.pascalCase(name)
       const propsName = `${pascalCase}Props`
 
-      return `import type { Request } from 'firebase-functions/v2/https'
-      import ${name}, {
-        type ${propsName} as Props,
-      } from './${name}.js'
+      return `import type { Response } from 'express'
+      import type { Request } from 'firebase-functions/v2/https'
+      import logger from 'firebase-functions/logger'
+      import nodePhError from '../../../src/lib/integrations/PostHog/node/nodePostHog/events/nodePhError/nodePhError.js'
+      import appConfig from '../../../app.config.js'
+      import ${name} from './${name}.js'
       
       export type ${propsName} = {
         req: Request
-        payload: Props
+        res: Response
       }
       
-      export default async function firebase_${name}(props: ${propsName}) {
-        const res = await ${name}(props.payload)
+      export default async function ${name}_firebase(
+        props: ${propsName},
+      ) {
+        if (process.env?.NODE_ENV !== 'development') {
+          props.res.set('Access-Control-Allow-Origin', appConfig.siteInfo.domain)
+          props.res.set('Access-Control-Allow-Origin', appConfig.siteInfo.previewDomain)
+        }
+        try {
+          let payload: any = {}
       
-        return res
-      }`
+          try {
+            payload = JSON.parse(props.req.body)
+          } catch (e) {
+            payload = props.req.body
+          }
+      
+          const data = await ${name}(payload)
+          props.res.status(200).json({ data, error: undefined })
+        } catch (error: any) {
+          logger.error(error)
+      
+          nodePhError({
+            description: error,
+            fnName: '${name}',
+          })
+      
+          props.res.status(500).json({
+            error: error.toString(),
+          })
+        }
+      }
+      `
     },
   },
   // Story

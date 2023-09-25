@@ -47,18 +47,10 @@ const files = [
         }
       
         return (
-          <Wrapper>
+          <Box data-id='${pascalName}' sx={{}}>
             <Skeleton loading={props.loading}>
               <Text text={props.data} tag='p' sx={{}} />
             </Skeleton>
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${pascalName}' sx={{}}>
-            {children}
           </Box>
         )
       }

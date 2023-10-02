@@ -46,6 +46,7 @@ const files = [
       import useRemove${pascalName}, { type ${removePropsName} } from './useRemove${pascalName}/useRemove${pascalName}.js'
       
       export type Use${pascalName}Props = {
+        uid: string | undefined
         getOptions?: UseDataProps<${schemaName}, ${getpropsName}>['get']
         createOptions?: UseDataProps<${schemaName}, ${createpropsName}>['create']
         updateOptions?: UseDataProps<${schemaName}, ${propsUpdaterName}>['update']
@@ -65,15 +66,21 @@ const files = [
       export default function use${pascalName}(
         props: Use${pascalName}Props = {},
       ) {
-        const get = useGet${pascalName}({...props?.getOptions})
+        const get = useGet${pascalName}({ 
+          ...props?.getOptions,
+          fetcherPayload: {
+            ...props.getOptions?.fetcherPayload,
+            uid: props?.uid
+          }
+        })
         const create = useCreate${pascalName}(props?.createOptions)
         const update = useUpdate${pascalName}(props?.updateOptions)
         const remove = useRemove${pascalName}(props?.removeOptions)
       
         const ${camelCase} = useData<${schemaName}, ${getpropsName}, ${createpropsName}, ${propsUpdaterName}, ${removePropsName}>({
-          id: props.getOptions?.fetcherPayload?.uid
+          id: props.uid
           ? get${pascalName}DataId({
-              uid: props.getOptions?.fetcherPayload?.uid,
+              uid: props.uid,
             }).id
           : undefined,
           get,

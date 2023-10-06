@@ -76,13 +76,13 @@ const files = [
       import appConfig from '../../../app.config.js'
       import ${name} from './${name}.js'
       
-      export type ${propsName} = {
+      export type ${propsName}Firebase = {
         req: Request
         res: Response
       }
       
       export default async function ${name}_firebase(
-        props: ${propsName},
+        props: ${propsName}Firebase,
       ) {
         if (process.env?.NODE_ENV !== 'development') {
           props.res.set('Access-Control-Allow-Origin', appConfig.siteInfo.domain)

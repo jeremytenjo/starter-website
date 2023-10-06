@@ -44,13 +44,21 @@ const files = [
       import useCreate${pascalName}, { type ${createpropsName} } from './useCreate${pascalName}/useCreate${pascalName}.js'
       import useUpdate${pascalName}, { type ${propsUpdaterName} } from './useUpdate${pascalName}/useUpdate${pascalName}.js'
       import useRemove${pascalName}, { type ${removePropsName} } from './useRemove${pascalName}/useRemove${pascalName}.js'
+
+      type UseDataPropsValues = UseDataProps<
+        ${schemaName},
+        ${getpropsName},
+        ${createpropsName},
+        ${propsUpdaterName},
+        ${removePropsName}
+      >
       
       export type Use${pascalName}Props = {
         uid: string | undefined
-        getOptions?: UseDataProps<${schemaName}, ${getpropsName}>['get']
-        createOptions?: UseDataProps<${schemaName}, ${createpropsName}>['create']
-        updateOptions?: UseDataProps<${schemaName}, ${propsUpdaterName}>['update']
-        removeOptions?: UseDataProps<${schemaName}, ${removePropsName}>['remove']
+        getOptions?: UseDataPropsValues['get']
+        createOptions?: UseDataPropsValues['create']
+        updateOptions?: UseDataPropsValues['update']
+        removeOptions?: UseDataPropsValues['remove']
       }
 
       type Get${pascalName}DataIdProps = {

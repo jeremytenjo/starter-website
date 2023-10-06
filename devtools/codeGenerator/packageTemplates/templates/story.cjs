@@ -119,7 +119,7 @@ export const Default = {
 //  ...Default,
 //  args: {
 //  ...defaultArgs,
-// } as ${propsName}
+// } satisfies ${propsName}
 // }
 `
 }

@@ -560,7 +560,7 @@ const files = [
         args: {
           ...defaultArgs,
           ${nameSingleCamel}Id: '1',
-        } as ${pascalName}FormProps,
+        } satisfies ${pascalName}FormProps,
       }
       `
     },
@@ -690,7 +690,7 @@ const files = [
       //  ...Default,
       //  args: {
       //  ...defaultArgs,
-      // } as ${pascalName}RemoveButtonProps
+      // } satisfies ${pascalName}RemoveButtonProps
       // }
       `
     },

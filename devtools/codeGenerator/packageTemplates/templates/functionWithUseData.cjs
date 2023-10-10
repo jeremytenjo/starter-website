@@ -28,9 +28,13 @@ export type Use${propsName} = ${propsName}
 export const get${pascalCase}DataId = (
   props: Partial<Use${propsName}>,
 ) => {
-  return props.uid
+  const dataId = props.uid
     ? ${'`'}${name}${'/${props.uid}'}${'`'}
     : undefined
+
+  return {
+    id: dataId,
+  }
 }
 
 export default function use${pascalCase}(
@@ -40,7 +44,7 @@ export default function use${pascalCase}(
     Awaited<${returnName}>,
     ${propsName}
   >({
-    id: get${pascalCase}DataId(props),
+    id: get${pascalCase}DataId(props).id,
     get: {
       fetcher: async () => {
         const ${name}Res = await _${name}(

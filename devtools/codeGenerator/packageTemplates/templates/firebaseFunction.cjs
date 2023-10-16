@@ -71,8 +71,6 @@ const files = [
 
       return `import type { Response } from 'express'
       import type { Request } from 'firebase-functions/v2/https'
-      import logger from 'firebase-functions/logger'
-      import nodePhError from '../../../src/lib/integrations/PostHog/node/nodePostHog/events/nodePhError/nodePhError.js'
       import appConfig from '../../../app.config.js'
       import ${name} from './${name}.js'
       
@@ -100,13 +98,11 @@ const files = [
           const data = await ${name}(payload)
           props.res.status(200).json({ data, error: undefined })
         } catch (error: any) {
-          logger.error(error)
-      
-          nodePhError({
-            description: error,
+          logFirebaseCloudFunctionError({
             fnName: '${name}',
+            description: error,
           })
-      
+
           props.res.status(500).json({
             error: error.toString(),
           })

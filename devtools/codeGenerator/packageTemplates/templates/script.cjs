@@ -10,9 +10,16 @@ const files = [
       intro(chalk.cyan('${name}'))
       const s = spinner()
       s.start('${name} start')
-      // functionhere
-      s.stop()    
-      outro(chalk.green('Done'))
+
+      try {
+        // functionhere
+        
+        s.stop()    
+        outro(chalk.green('Done'))
+      } catch (error) {
+        s.stop()
+        outro(chalk.red(String(error)))
+      }
     }`
     },
   },

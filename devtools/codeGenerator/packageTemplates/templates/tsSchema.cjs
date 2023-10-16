@@ -2,10 +2,7 @@ const files = [
   {
     path: ({ name }) => `${name}Schema/${name}.schema.tsx`,
     template: ({ name }) => {
-      return `type ${name}Schema = any
-      
-      export default ${name}Schema
-      `
+      return `export type ${name}Schema = any`
     },
   },
   {
@@ -18,7 +15,7 @@ const files = [
       const nameLowerCaseFirst = lowerCaseFirst(name)
       const stubName = `${nameLowerCaseFirst}Stubs`
 
-      return `import type ${name}Schema from './${name}.schema'
+      return `import type { ${name}Schema } from './${name}.schema'
 
       const ${stubName}: ${name}Schema[] = []
       

@@ -35,6 +35,7 @@ const tsSchema = require('./templates/tsSchema.cjs')
 const collection = require('./templates/collection.cjs')
 const dataComponentUi = require('./templates/dataComponentUi.cjs')
 const firebaseFunction = require('./templates/firebaseFunction.cjs')
+const firebaseFunctionApiRoutes = require('./templates/firebaseFunctionApiRoutes.cjs')
 const reactHook = require('./templates/reactHook.cjs')
 
 module.exports = [
@@ -55,6 +56,7 @@ module.exports = [
 
   nextApiFunction.template,
   firebaseFunction.template,
+  firebaseFunctionApiRoutes.template,
 
   collection.template,
   data.template,

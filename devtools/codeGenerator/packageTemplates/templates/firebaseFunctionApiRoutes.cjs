@@ -207,7 +207,7 @@ const files = [
       
       type ${fnNamePascalCase}PropsInternal = Omit<API${fnNamePascalCase}Props, 'action' | 'return'>
       
-      export default async function ${fnNameCamelCase}(props: ${fnNamePascalCase}PropsInternal) {
+      export default async function ${fnNameCamelCase}(props: ${fnNamePascalCase}PropsInternal): ${fnNamePascalCase}Return {
         assert<${fnNamePascalCase}PropsInternal>({ props, requiredProps: ['payload'] })
       
         const data = 'hi'
@@ -215,7 +215,9 @@ const files = [
         return { data }
       }
       
-      export type ${fnNamePascalCase}Return = ReturnType<typeof ${fnNameCamelCase}>
+      export type ${fnNamePascalCase}Return = Promise<{
+        data: any
+      }>
       `
     },
   },

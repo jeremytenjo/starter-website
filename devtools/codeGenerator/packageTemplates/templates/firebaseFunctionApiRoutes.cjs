@@ -172,7 +172,7 @@ const files = [
               payload: props.context.payload,
             })
           } catch (error) {
-            throw new Error(${'`'}${exampleRouteName} - ${'${error}`'})
+            throw new Error(${'`${name.actionId}'} - ${'${error}`'})
           }
         }
             
@@ -209,7 +209,11 @@ const files = [
       
       export default async function ${fnNameCamelCase}(props: ${fnNamePascalCase}PropsInternal): ${fnNamePascalCase}Return {
         assert<${fnNamePascalCase}PropsInternal>({ props, requiredProps: ['payload'] })
-      
+        assert<API${fnNamePascalCase}Props['payload']>({
+          props: props.payload,
+          requiredProps: [],
+        })
+
         const data = 'hi'
       
         return { data }

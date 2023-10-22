@@ -153,7 +153,7 @@ const files = [
         ${pascalCase}Return,
         ${pascalCase}RouteSchema,
       } from '../${camelCase}.js'
-      import * as ${exampleRouteName} from './${exampleRouteName}/${exampleRouteName}.js'
+      import * as ${exampleRouteName} from './${exampleRouteName}.js'
       
       export type ${pascalCase}RoutesProps = ${pascalCase}Props
       

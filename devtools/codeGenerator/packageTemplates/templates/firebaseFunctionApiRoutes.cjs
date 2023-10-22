@@ -187,9 +187,7 @@ const files = [
     path: () => {
       return `routes/${exampleRouteName}.ts`
     },
-    template: ({ name, helpers }) => {
-      const camelCase = helpers.changeCase.camelCase(name)
-      const pascalCase = helpers.changeCase.pascalCase(name)
+    template: ({ helpers }) => {
       const fnNameCamelCase = helpers.changeCase.camelCase(exampleRouteName)
       const fnNamePascalCase = helpers.changeCase.pascalCase(exampleRouteName)
 

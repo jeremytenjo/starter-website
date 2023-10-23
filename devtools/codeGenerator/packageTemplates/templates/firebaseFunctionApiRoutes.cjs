@@ -153,7 +153,7 @@ const files = [
         ${pascalCase}Return,
         ${pascalCase}RouteSchema,
       } from '../${camelCase}.js'
-      import * as ${exampleRouteName} from './${exampleRouteName}.js'
+      import * as ${exampleRouteName} from './${exampleRouteName}/${exampleRouteName}.js'
       
       export type ${pascalCase}RoutesProps = ${pascalCase}Props
       
@@ -165,14 +165,14 @@ const files = [
           requiredProps: ['context'],
         })
       
-        if (props.context.route === ${exampleRouteName}.actionId) {
+        if (props.context.route === ${exampleRouteName}.routeId) {
           try {
             return await ${exampleRouteName}.default({
               authUser: props.authUser,
               payload: props.context.payload,
             })
           } catch (error) {
-            throw new Error(${'`${name.actionId}'} - ${'${error}`'})
+            throw new Error(${'`${name.routeId}'} - ${'${error}`'})
           }
         }
             
@@ -185,7 +185,7 @@ const files = [
   // Routes Example
   {
     path: () => {
-      return `routes/${exampleRouteName}.ts`
+      return `routes/${exampleRouteName}/${exampleRouteName}.ts`
     },
     template: ({ helpers }) => {
       const fnNameCamelCase = helpers.changeCase.camelCase(exampleRouteName)
@@ -194,10 +194,10 @@ const files = [
       return `import assert from '@useweb/assert'
       import type { CallableRequest } from 'firebase-functions/v2/https'
       
-      export const actionId = ${'`'}routes/${fnNameCamelCase}${'`'}
+      export const routeId = ${'`'}routes/${fnNameCamelCase}${'`'}
       
       export type API${fnNamePascalCase}Props = {
-        action: typeof actionId
+        route: typeof routeId
         authUser: CallableRequest['auth']
         payload: {
           name: string
@@ -205,7 +205,7 @@ const files = [
         return: Awaited<${fnNamePascalCase}Return>
       }
       
-      type ${fnNamePascalCase}PropsInternal = Omit<API${fnNamePascalCase}Props, 'action' | 'return'>
+      type ${fnNamePascalCase}PropsInternal = Omit<API${fnNamePascalCase}Props, 'route' | 'return'>
       
       export default async function ${fnNameCamelCase}(props: ${fnNamePascalCase}PropsInternal): ${fnNamePascalCase}Return {
         assert<${fnNamePascalCase}PropsInternal>({ props, requiredProps: ['payload'] })
@@ -222,6 +222,56 @@ const files = [
       export type ${fnNamePascalCase}Return = Promise<{
         data: any
       }>
+      `
+    },
+  },
+
+  // Route Example Stories
+  {
+    path: () => {
+      return `routes/${exampleRouteName}/stories/${exampleRouteName}.stories.ts`
+    },
+    template: ({ name, helpers }) => {
+      const fnNameCamelCase = helpers.changeCase.camelCase(exampleRouteName)
+      const fnNamePascalCase = helpers.changeCase.pascalCase(exampleRouteName)
+
+      return `import React from 'react'
+      import AsyncTester from '@useweb/async-tester'
+      import ${name}Client from '../../../${name}.client.js'
+      import type { API${fnNamePascalCase}Props } from '../${fnNameCamelCase}.js'
+      
+      export default {
+        title: 'Cloud Functions/firebase/${name}/routes/${fnNameCamelCase}',
+        parameters: {
+          signInAs: false,
+        },
+      }
+      
+      const Template = () => {
+        const fn = async () => {
+          const res = await ${name}Client<API${fnNamePascalCase}Props>({
+            route: 'routes/${fnNameCamelCase}',
+            payload: {
+              name: 'hello'
+            },
+          })
+      
+          return res
+        }
+      
+        return (
+          <>
+            <AsyncTester<any, any> fn={fn} autoExec />
+          </>
+        )
+      }
+      
+      export const Default = {
+        render: () => {
+          return <Template />
+        },
+      }
+      
       `
     },
   },

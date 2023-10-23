@@ -61,13 +61,14 @@ const files = [
       const camelCase = helpers.changeCase.camelCase(name)
       const pascalCase = helpers.changeCase.pascalCase(name)
 
-      return `import type {
+      return `import useAsync from '@useweb/use-async'
+      import { httpsCallable } from 'firebase/functions'
+      import type {
         RouteSchemaProps,
         ${pascalCase}Props,
         ${pascalCase}Return,
         ${pascalCase}RouteSchema,
       } from './${name}.js'
-      import { httpsCallable } from 'firebase/functions'
       import { functions } from '../../../src/lib/integrations/Google/Firebase/firebase.js'
       
       export type ${pascalCase}ClientProps<RouteSchema extends RouteSchemaProps> = Omit<
@@ -92,6 +93,23 @@ const files = [
       
       export type ${pascalCase}ClientReturn<RouteSchema extends ${pascalCase}RouteSchema> =
         ${pascalCase}Return<RouteSchema>
+
+      export function use${pascalCase}Client<RouteSchema extends ${pascalCase}RouteSchema>(
+        props: ${pascalCase}ClientProps<RouteSchema>,
+      ) {
+        const ${camelCase} = useAsync<${pascalCase}ClientProps<RouteSchema>, any>({
+          fn: async () => await ${camelCase}Client(props),
+          onError({ error }) {
+            logError({
+              error,
+              fnName: 'use${pascalCase}Client',
+            })
+          },
+        })
+      
+        return ${camelCase}
+      }
+      
       `
     },
   },
@@ -205,7 +223,7 @@ const files = [
         return: Awaited<${fnNamePascalCase}Return>
       }
       
-      type ${fnNamePascalCase}PropsInternal = Omit<API${fnNamePascalCase}Props, 'route' | 'return'>
+      export type ${fnNamePascalCase}PropsInternal = Omit<API${fnNamePascalCase}Props, 'route' | 'return'>
       
       export default async function ${fnNameCamelCase}(props: ${fnNamePascalCase}PropsInternal): ${fnNamePascalCase}Return {
         assert<${fnNamePascalCase}PropsInternal>({ props, requiredProps: ['payload'] })

@@ -55,7 +55,7 @@ const files = [
   // API Route Stories
   {
     path: ({ name }) => {
-      return `stories/${name}.stories.ts`
+      return `stories/${name}.stories.tsx`
     },
     template: ({ name, helpers }) => {
       const nameCamelCase = helpers.changeCase.camelCase(name)

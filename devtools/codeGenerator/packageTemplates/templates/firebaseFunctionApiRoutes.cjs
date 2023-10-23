@@ -247,7 +247,7 @@ const files = [
   // Route Example Stories
   {
     path: () => {
-      return `routes/${exampleRouteName}/stories/${exampleRouteName}.stories.ts`
+      return `routes/${exampleRouteName}/stories/${exampleRouteName}.stories.tsx`
     },
     template: ({ name, helpers }) => {
       const fnNameCamelCase = helpers.changeCase.camelCase(exampleRouteName)

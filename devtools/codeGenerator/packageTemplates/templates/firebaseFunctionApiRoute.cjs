@@ -30,7 +30,7 @@ const files = [
       
       export default async function ${nameCamelCase}(
         props: ${namePascalCase}PropsInternal,
-      ) {
+      ): ${namePascalCase}Return {
         assert<${namePascalCase}PropsInternal>({
           props,
           requiredProps: ['payload'],
@@ -39,14 +39,20 @@ const files = [
           props: props.payload,
           requiredProps: ['name'],
         })
+
+        console.log('props', props)
       
-        const data = props.payload.name
-      
-        return { data }
+        return { 
+          data: {
+            success: true,
+          },
+         }
       }
       
       export type ${namePascalCase}Return = Promise<{
-        data: any
+        data: {
+          success: boolean
+        }
       }>
       `
     },

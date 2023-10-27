@@ -73,7 +73,9 @@ const files = [
       }
       
       export default function use${pascalName}(
-        props: Use${pascalName}Props = {},
+        props: Use${pascalName}Props = {
+          uid: undefined,
+        },
       ) {
         const get = useGet${pascalName}({ 
           ...props?.getOptions,

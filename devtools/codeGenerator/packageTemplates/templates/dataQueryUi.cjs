@@ -306,6 +306,7 @@ const files = [
       
       const defaultArgs: ${ListComponentName}Props = {
         dataConfig: {
+          uid: 'user',
           getOptions: {
             onGet: ({ result }) => console.log({ result }),
           },

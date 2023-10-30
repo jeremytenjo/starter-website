@@ -18,7 +18,7 @@ const files = [
     ${slots?.childContainers?.importStatements || ''}
 
 
-export default function ${pascalName}Content() {
+export default function ${pascalName}Page() {
   return (
     <Box data-id='${name}' sx={{}}>
     ${slots?.childContainers?.importedComponents || pascalName}
@@ -38,7 +38,7 @@ export default function ${pascalName}Content() {
       const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
       const componentName = `${pascalName}PageLayout`
 
-      return `${componentName}/${componentName}.tsx`
+      return `layouts/${componentName}/${componentName}.tsx`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name).replaceAll(' ', '')

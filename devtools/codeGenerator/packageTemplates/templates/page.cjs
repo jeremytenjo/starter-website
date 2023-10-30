@@ -14,7 +14,7 @@ import Head from 'next/head'
 import ${upperName}Content from '../../pagesContent/${upperName}/${upperName}.js'
 import RootLayout from '../../lib/layouts/Root/RootLayout.js'
 
-export default function ${upperName}Page() {
+export default function ${upperName}PageRoot() {
   return <>
    <Head>
      <title>${upperName}</title>

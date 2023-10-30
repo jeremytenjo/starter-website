@@ -20,15 +20,12 @@ const files = [
 
 export default function ${pascalName}Content() {
   return (
-    <Wrapper>
+    <Box data-id='${name}' sx={{}}>
     ${slots?.childContainers?.importedComponents || pascalName}
-    </Wrapper>
+    </Box>
   )
 }
 
-  const Wrapper = ({ children }) => {
-    return <Box data-id='${name}' sx={{}}>{children}</Box>
-  }
 `
     },
   },
@@ -55,20 +52,13 @@ export default function ${pascalName}Content() {
       
       export default function ${componentName}(props: ${componentName}Props) {
         return (
-          <Wrapper>
+          <Box data-id='${componentName}' sx={{}}>
             <Text text={'${componentName}'} tag='p' sx={{}} />
             {props.children}
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${componentName}' sx={{}}>
-            {children}
           </Box>
         )
       }
+      
       
 `
     },

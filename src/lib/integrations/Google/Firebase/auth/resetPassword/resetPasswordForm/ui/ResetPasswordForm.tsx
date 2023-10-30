@@ -22,7 +22,7 @@ export default function ResetPasswordForm() {
         gridGap: '20px',
         justifyItems: 'center',
       }}
-      onSubmit={({ values: formValues }) => {
+      onSubmit={({ formValues }) => {
         resetPasswordForm.exec(formValues)
       }}
     >

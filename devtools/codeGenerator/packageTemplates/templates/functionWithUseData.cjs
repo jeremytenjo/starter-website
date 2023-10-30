@@ -38,7 +38,7 @@ export const get${pascalCase}DataId = (
 }
 
 export default function use${pascalCase}(
-  props: Use${propsName},
+  props: Partial<Use${propsName}>,
 ) {
   const ${name} = useData<
     Awaited<${returnName}>,

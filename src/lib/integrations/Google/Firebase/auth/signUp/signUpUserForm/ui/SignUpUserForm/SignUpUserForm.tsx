@@ -42,8 +42,8 @@ export default function SignUpUserForm() {
           gridGap: '20px',
           justifyItems: 'center',
         }}
-        onSubmit={({ values: formProps }) => {
-          auth.signUp.exec({ emailPasswordData: formProps })
+        onSubmit={({ formValues }) => {
+          auth.signUp.exec({ emailPasswordData: formValues })
         }}
       >
         <TextField

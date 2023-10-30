@@ -56,7 +56,7 @@ export default function SignInUserForm(props: SignInUserFormProps) {
           gridGap: '20px',
           justifyItems: 'center',
         }}
-        onSubmit={({ values: formValues }) => {
+        onSubmit={({ formValues }) => {
           auth.signIn({ emailSignIn: formValues })
         }}
       >

@@ -4,7 +4,7 @@ import Form from '@useweb/ui/Form'
 import Button from '@mui/material/Button'
 import Select, { type SelectProps } from '@useweb/ui/Select'
 
-const defaultArgs: SelectProps = {
+const defaultArgs: SelectProps<any, any> = {
   name: 'season',
   label: 'Season',
   options: [

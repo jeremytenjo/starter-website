@@ -24,7 +24,7 @@ const files = [
 export default function ${componentName}() {
   return (
     <${componentName}Layout>
-      <Box data-id='${name}' sx={{}}>
+      <Box data-id='${componentName}' sx={{}}>
       ${slots?.childContainers?.importedComponents || pascalName}
       </Box>
     </${componentName}Layout>

@@ -6,23 +6,28 @@ const files = [
     },
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
-      return `pages/${pascalName}.tsx`
+      return `pages/${pascalName}Page.tsx`
     },
     template: ({ name, helpers, slots = {} }) => {
       const pascalName = helpers.changeCase.pascalCase(name).replaceAll(' ', '')
+      const componentName = `${pascalName}Page`
 
       return `
       import React from 'react'
       import Box from '@useweb/ui/Box'
+      
+      import ${componentName}Layout from '../layouts/${componentName}Layout/${componentName}Layout.js'
 
     ${slots?.childContainers?.importStatements || ''}
 
 
-export default function ${pascalName}Page() {
+export default function ${componentName}() {
   return (
-    <Box data-id='${name}' sx={{}}>
-    ${slots?.childContainers?.importedComponents || pascalName}
-    </Box>
+    <${componentName}Layout>
+      <Box data-id='${name}' sx={{}}>
+      ${slots?.childContainers?.importedComponents || pascalName}
+      </Box>
+    </${componentName}Layout>
   )
 }
 

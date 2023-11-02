@@ -6,7 +6,7 @@ const files = [
     },
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
-      return `${pascalName}.tsx`
+      return `pages/${pascalName}.tsx`
     },
     template: ({ name, helpers, slots = {} }) => {
       const pascalName = helpers.changeCase.pascalCase(name).replaceAll(' ', '')

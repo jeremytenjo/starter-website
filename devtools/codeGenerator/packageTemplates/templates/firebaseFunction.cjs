@@ -101,6 +101,7 @@ const files = [
           logFirebaseCloudFunctionError({
             fnName: '${name}',
             description: error,
+            metadata: error.cause
           })
 
           props.res.status(500).json({

@@ -146,9 +146,7 @@ const files = [
             description: error,
             uid: props.request?.auth?.uid,
             throwHttpsError: true,
-            metadata: {
-              ${camelCase}Props: props,
-            },
+            metadata: error.cause
           })
         }
       }`

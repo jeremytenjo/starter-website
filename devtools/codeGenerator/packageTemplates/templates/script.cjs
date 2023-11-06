@@ -16,9 +16,12 @@ const files = [
         
         s.stop()    
         outro(chalk.green('Done'))
-      } catch (error) {
+      } catch (error: any) {
         s.stop()
         outro(chalk.red(String(error)))
+        {
+          error.cause && outro(chalk.red(JSON.stringify(error.cause, null, 2)))
+        }
       }
     }`
     },

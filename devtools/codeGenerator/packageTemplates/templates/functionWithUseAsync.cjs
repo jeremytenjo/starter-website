@@ -20,12 +20,12 @@ import ${camelCase}Fn, { type ${pascalCase}Props, type ${pascalCase}Return } fro
 
 type Use${pascalCase}Props = Omit<
   UseAsyncProps<any, Awaited<${pascalCase}Return>>,
-, 'fn'>
+ 'fn'>
 
-export default function use${pascalCase}(props = Use${pascalCase}Props = {}) {
+export default function use${pascalCase}(props: Use${pascalCase}Props = {}) {
   const ${camelCase} = useAsync<
   ${pascalCase}Props, 
-  Awaited<ReturnType<typeof ${name}>>
+  Awaited<ReturnType<typeof ${name}Fn>>
   >({ fn: ${camelCase}Fn, ...props })
 
   return ${camelCase}

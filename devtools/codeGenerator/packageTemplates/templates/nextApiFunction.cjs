@@ -138,19 +138,27 @@ const files = [
         return res
       }
 
-      export const use${pascalCase} = (props: {}) => {
+      export const use${pascalCase} = (props: ${pascalCase}Props) => {
         const _${camelCase} = useData<
-          ${pascalCase}Return,
+          ${pascalCase}Return & { id: string },
           ${pascalCase}Props
         >({
-          id: props.connectedAccountId
+          id: props.name
             ? '${camelCase}/props'
             : undefined,
           get: {
             fetcher: async () => {
-              const { data } = await ${camelCase}Client({})
+              const { data } = await ${camelCase}Client(props)
+              if (data) {
+                return [
+                  {
+                    id: '',
+                    ...data,
+                  },
+                ]
+              }
       
-              return [data]
+              return []
             },
             onGetError({ error }) {
               logError({

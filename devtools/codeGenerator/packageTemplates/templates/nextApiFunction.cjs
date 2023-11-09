@@ -1,36 +1,35 @@
 // https://github.com/jeremytenjo/super-code-generator/tree/master#component-type-properties
 
 const files = [
-  // next api function
+  // raw function
   {
     path: ({ name }) => {
-      return `src/pages/api/${name}.ts`
+      return `src/apiFunctions/${name}/${name}.raw.ts`
     },
-    template: ({ name }) => {
-      return `import type { NextApiRequest, NextApiResponse } from 'next'
+    template: ({ name, helpers }) => {
+      const pascalCase = helpers.changeCase.pascalCase(name)
+      const camelCase = helpers.changeCase.camelCase(name)
+
+      return `import assert from '@useweb/assert'
   
-        import ${name} from '../../apiFunctions/${name}/${name}.next'
+        export type ${pascalCase}Props = {
+          name: string
+        }
         
-        export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-          console.log('${name} API Started')
-          let body: any = {}
+        export type ${pascalCase}Return = {
+          hello: string
+        }
         
-          try {
-            body = JSON.parse(req.body)
-          } catch (e) {
-            body = req.body
+        export default async function ${camelCase}(
+          props: ${pascalCase}Props,
+        ): Promise<${pascalCase}Return> {
+          assert<${pascalCase}Props,>({ props, requiredProps: ['name'] })
+        
+          return {
+            hello: props.name,
           }
-        
-          try {
-            const data = await ${name}({ body, req })
-            console.log('${name} API Response:')
-            res.status(200).json({ data, error: undefined })
-          } catch (error: any) {
-            console.log('${name} API Error:')
-            console.log(error)
-            res.status(200).json({ error: String(error) })
-          }
-        }`
+        }
+          `
     },
   },
 
@@ -64,38 +63,6 @@ const files = [
           return data
         } catch (error: any) {
           throw new Error(error)
-        }
-      }
-        `
-    },
-  },
-
-  // raw function
-  {
-    path: ({ name }) => {
-      return `src/apiFunctions/${name}/${name}.raw.ts`
-    },
-    template: ({ name, helpers }) => {
-      const pascalCase = helpers.changeCase.pascalCase(name)
-      const camelCase = helpers.changeCase.camelCase(name)
-
-      return `import assert from '@useweb/assert'
-
-      export type ${pascalCase}Props = {
-        name: string
-      }
-      
-      export type ${pascalCase}Return = {
-        hello: string
-      }
-      
-      export default async function ${camelCase}(
-        props: ${pascalCase}Props,
-      ): Promise<${pascalCase}Return> {
-        assert<${pascalCase}Props,>({ props, requiredProps: ['name'] })
-      
-        return {
-          hello: props.name,
         }
       }
         `
@@ -140,7 +107,7 @@ const files = [
 
       export const use${pascalCase} = (props: ${pascalCase}Props) => {
         const _${camelCase} = useData<
-          ${pascalCase}Return & { id: string },
+          ${pascalCase}Return,
           ${pascalCase}Props
         >({
           id: props.name
@@ -149,16 +116,8 @@ const files = [
           get: {
             fetcher: async () => {
               const { data } = await ${camelCase}Client(props)
-              if (data) {
-                return [
-                  {
-                    id: '',
-                    ...data,
-                  },
-                ]
-              }
       
-              return []
+              return data
             },
             onGetError({ error }) {
               logError({
@@ -221,6 +180,39 @@ const files = [
         )
       }
         `
+    },
+  },
+
+  // next api function
+  {
+    path: ({ name }) => {
+      return `src/pages/api/${name}.ts`
+    },
+    template: ({ name }) => {
+      return `import type { NextApiRequest, NextApiResponse } from 'next'
+    
+          import ${name} from '../../apiFunctions/${name}/${name}.next'
+          
+          export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+            console.log('${name} API Started')
+            let body: any = {}
+          
+            try {
+              body = JSON.parse(req.body)
+            } catch (e) {
+              body = req.body
+            }
+          
+            try {
+              const data = await ${name}({ body, req })
+              console.log('${name} API Response:')
+              res.status(200).json({ data, error: undefined })
+            } catch (error: any) {
+              console.log('${name} API Error:')
+              console.log(error)
+              res.status(200).json({ error: String(error) })
+            }
+          }`
     },
   },
 ]

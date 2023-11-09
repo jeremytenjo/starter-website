@@ -16,6 +16,8 @@ const files = [
       const camelCase = helpers.changeCase.camelCase(name)
 
       return `import useAsync, { type UseAsyncProps } from '@useweb/use-async'
+import logError from '@/src/lib/utils/loggers/logError/logError'
+
 import ${camelCase}Fn, { type ${pascalCase}Props, type ${pascalCase}Return } from '../${camelCase}.js'
 
 type Use${pascalCase}Props = Omit<
@@ -26,7 +28,17 @@ export default function use${pascalCase}(props: Use${pascalCase}Props = {}) {
   const ${camelCase} = useAsync<
   ${pascalCase}Props, 
   Awaited<ReturnType<typeof ${name}Fn>>
-  >({ fn: ${camelCase}Fn, ...props })
+  >({     fn: async (p) => {
+    const data = await ${camelCase}Fn(p)
+    return data
+  },
+  onError({ error }) {
+    logError({
+      error,
+      fnName: 'use${pascalCase}',
+    })
+  },
+  ...props, })
 
   return ${camelCase}
 }

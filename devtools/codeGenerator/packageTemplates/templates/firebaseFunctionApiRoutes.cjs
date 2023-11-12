@@ -103,7 +103,7 @@ const files = [
             logError({
               error,
               fnName: 'use${pascalCase}Client',
-              metadata: props.metadata,
+              metadata: { props },
             })
           },
         })

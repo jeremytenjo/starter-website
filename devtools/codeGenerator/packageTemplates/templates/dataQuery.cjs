@@ -253,7 +253,7 @@ export default function useGet${pascalName}(
       logError({
         error: error.error,
         fnName: 'useGet${pascalName}',
-        metadata: props.metadata,
+        metadata: { props },
       })
       props?.onGetError && props.onGetError(error)
     },
@@ -329,7 +329,7 @@ export default function useGet${pascalName}(
             logError({
               error: error.error, 
               fnName: 'useCreate${pascalName}',
-              metadata: props.metadata,
+              metadata: { props },
             })
             props?.onCreateError && props?.onCreateError(error)
 
@@ -399,7 +399,7 @@ export default function useGet${pascalName}(
             logError({
               error: error.error, 
               fnName: 'useUpdate${pascalName}',
-              metadata: props.metadata,
+              metadata: { props },
             })
             props?.onUpdateError && props.onUpdateError(error)
           },
@@ -463,7 +463,7 @@ export default function useGet${pascalName}(
             logError({
               error: error.error, 
               fnName: 'useRemove${pascalName}',
-              metadata: props.metadata,
+              metadata: { props },
             })
             props?.onRemoveError && props.onRemoveError(error)
           },

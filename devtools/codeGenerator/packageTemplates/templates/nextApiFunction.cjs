@@ -123,6 +123,7 @@ const files = [
               logError({
                 error,
                 fnName: 'use${pascalCase}',
+                metadata: props.metadata,
               })
             },
           },

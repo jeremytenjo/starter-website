@@ -61,6 +61,7 @@ export default function use${pascalCase}(
         logError({
           error,
           fnName: 'use${pascalCase}',
+          metadata: props.metadata,
         })
       },
     },

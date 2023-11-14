@@ -11,6 +11,7 @@ const files = [
 
       return `import assert from '@useweb/assert'
       import type { CallableRequest } from 'firebase-functions/v2/https'
+      import logger from 'firebase-functions/lib/logger'
       
       export const routeId = 'routes/${nameCamelCase}'
       
@@ -40,7 +41,7 @@ const files = [
           requiredProps: ['name'],
         })
 
-        console.log('props', props)
+        logger.info('success', { props })
       
         return { 
           data: {

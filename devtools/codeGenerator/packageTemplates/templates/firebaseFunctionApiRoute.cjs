@@ -11,7 +11,7 @@ const files = [
 
       return `import assert from '@useweb/assert'
       import type { CallableRequest } from 'firebase-functions/v2/https'
-      import logger from 'firebase-functions/lib/logger'
+      import logger from 'firebase-functions/logger'
       
       export const routeId = 'routes/${nameCamelCase}'
       

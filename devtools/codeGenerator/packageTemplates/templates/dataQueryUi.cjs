@@ -430,6 +430,7 @@ const files = [
         const auth = useAuth()
       
         const ${name} = use${pascalName}({
+          uid: auth.user?.id,
           getOptions: {
             fetcherPayload: {
               uid: auth.user?.id,
@@ -442,18 +443,18 @@ const files = [
           return existing${nameSinglePascal}
         }, [${name}.get?.data])
       
-        const onSubmit = (formData: {values: ${nameSinglePascal}Schema}) => {
+        const onSubmit = (formData: {formValues: ${nameSinglePascal}Schema}) => {
           if (Boolean(defaultValues)) {
             ${name}.update.exec({
               value: {
                 ...defaultValues,
-                ...formData.values,
+                ...formData.formValues,
               },
             })
           } else {
             ${name}.create.exec({
               newItem: {
-                ...formData.values,
+                ...formData.formValues,
                 id: auth.user?.id,
               },
             })
@@ -462,7 +463,7 @@ const files = [
       
         return (
           <Form data-id='${pascalName}Form' onSubmit={onSubmit} defaultValues={defaultValues}>
-            <ResetForm resetIfTrue={Boolean(defaultValues)} values={defaultValues} />
+            <ResetForm resetIfTrue={Boolean(defaultValues)} formValues={defaultValues} />
       
             <Box data-id='${pascalName}FormFields' sx={{}}>
               <TextField<${nameSinglePascal}Schema> name='name' label='Name' sx={{
@@ -591,6 +592,7 @@ const files = [
       export default function ${pascalName}RemoveButton(props: ${pascalName}RemoveButtonProps) {
         const snackbar = useSnackbar()
         const ${name} = use${pascalName}({
+          uid: props.id,
           removeOptions: {
             onRemove() {
               snackbar.show({

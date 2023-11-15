@@ -11,7 +11,7 @@ const files = [
       return `import React from 'react' 
 import Head from 'next/head'
 
-import ${upperName}Content from '../../pagesContent/${upperName}/${upperName}.js'
+import ${upperName}Page from '../../pagesContent/${upperName}/pages/${upperName}Page.js'
 import RootLayout from '../../lib/layouts/Root/RootLayout.js'
 
 export default function ${upperName}PageRoot() {
@@ -21,7 +21,7 @@ export default function ${upperName}PageRoot() {
    </Head>
   
    <RootLayout>
-      <${upperName}Content />
+      <${upperName}Page />
    </RootLayout>
   </>
 }`

@@ -12,33 +12,22 @@ const files = [
       const camelCase = helpers.changeCase.camelCase(name)
       const pascalCase = helpers.changeCase.pascalCase(name)
 
-      return `import type { CallableRequest } from 'firebase-functions/v2/https'
-      import ${camelCase}Routes from './routes/${camelCase}.routes.js'
-      
-      export type RouteSchemaProps = {
-        route: string
-        payload: any
-        return: any
-      }
-      
-      export type ${pascalCase}RouteSchema<RouteSchema extends RouteSchemaProps = any> = {
-        authUser: CallableRequest['auth'] | undefined
-        route: RouteSchema['route']
-        payload: RouteSchema['payload']
-        return: {
-          data: RouteSchema['return']
-        }
-      }
+      return `import ${camelCase}Routes from './routes/${camelCase}.routes.js'
+
+      import type {
+        ApiRouteSchema,
+        RouteSchemaProps,
+      } from '@/firebaseFunctions/src/utils/useApiRouteData/useApiRouteData.js'
       
       export type ${pascalCase}Props<RouteSchema extends RouteSchemaProps = any> = {
-        authUser: ${pascalCase}RouteSchema['authUser']
-        context: ${pascalCase}RouteSchema<RouteSchema>
+        authUser: RouteSchemaProps['authUser']
+        context: RouteSchemaProps<RouteSchema>
       }
       
-      export type ${pascalCase}Return<RouteSchema extends ${pascalCase}RouteSchema> =
+      export type ${pascalCase}Return<RouteSchema extends RouteSchemaProps> =
         RouteSchema['return']
       
-      export default async function ${camelCase}<RouteSchema extends ${pascalCase}RouteSchema>(
+      export default async function ${camelCase}<RouteSchema extends RouteSchemaProps>(
         props: ${pascalCase}Props,
       ): Promise<${pascalCase}Return<RouteSchema>> {
         if (props.context.route.startsWith('routes/')) {
@@ -64,12 +53,14 @@ const files = [
       return `import useAsync from '@useweb/use-async'
       import { httpsCallable } from 'firebase/functions'
       import type {
-        RouteSchemaProps,
         ${pascalCase}Props,
         ${pascalCase}Return,
-        ${pascalCase}RouteSchema,
       } from './${name}.js'
       import { functions } from '../../../src/lib/integrations/Google/Firebase/firebase.js'
+
+      import type {
+        RouteSchemaProps,
+      } from '@/firebaseFunctions/src/utils/useApiRouteData/useApiRouteData.js'
       
       export type ${pascalCase}ClientProps<RouteSchema extends RouteSchemaProps> = Omit<
         ${pascalCase}Props<RouteSchema>['context'],
@@ -77,7 +68,7 @@ const files = [
       >
       
       export default async function ${camelCase}Client<
-        RouteSchema extends ${pascalCase}RouteSchema,
+        RouteSchema extends RouteSchemaProps,
       >(
         props: ${pascalCase}ClientProps<RouteSchema>,
       ): Promise<${pascalCase}Return<RouteSchema>> {
@@ -91,10 +82,10 @@ const files = [
         return res.data
       }
       
-      export type ${pascalCase}ClientReturn<RouteSchema extends ${pascalCase}RouteSchema> =
+      export type ${pascalCase}ClientReturn<RouteSchema extends RouteSchemaProps> =
         ${pascalCase}Return<RouteSchema>
 
-      export function use${pascalCase}Client<RouteSchema extends ${pascalCase}RouteSchema>(
+      export function use${pascalCase}Client<RouteSchema extends RouteSchemaProps>(
         props: ${pascalCase}ClientProps<RouteSchema>,
       ) {
         const ${camelCase} = useAsync<${pascalCase}ClientProps<RouteSchema>, any>({
@@ -168,14 +159,19 @@ const files = [
       import type {
         ${pascalCase}Props,
         ${pascalCase}Return,
-        ${pascalCase}RouteSchema,
       } from '../${camelCase}.js'
+
+      import type {
+        ApiRouteSchema,
+        RouteSchemaProps,
+      } from '@/firebaseFunctions/src/utils/useApiRouteData/useApiRouteData.js'
+
       import * as ${exampleRouteName} from './${exampleRouteName}/${exampleRouteName}.js'
       
       export type ${pascalCase}RoutesProps = ${pascalCase}Props
       
       export default async function ${camelCase}Routes<
-        RouteSchema extends ${pascalCase}RouteSchema,
+        RouteSchema extends RouteSchemaProps,
       >(props: ${pascalCase}RoutesProps): Promise<${pascalCase}Return<RouteSchema>> {
         assert<${pascalCase}RoutesProps>({
           props,

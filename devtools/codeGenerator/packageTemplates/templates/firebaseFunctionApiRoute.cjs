@@ -44,16 +44,14 @@ const files = [
         logger.info('success', { props })
       
         return { 
-          data: {
-            success: true,
-          },
+          data: [{ success: true }]
          }
       }
       
       export type ${namePascalCase}Return = Promise<{
         data: {
           success: boolean
-        }
+        }[]
       }>
       `
     },

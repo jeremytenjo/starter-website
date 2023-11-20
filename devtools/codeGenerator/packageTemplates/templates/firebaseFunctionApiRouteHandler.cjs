@@ -18,8 +18,8 @@ const files = [
       
       export default async function ${nameCamelCase}(props: ${namePascalCase}Props) {
         try {
-          assert<${namePascalCase}Props>({ props, requiredProps: ['payload'] })
-          assert<${namePascalCase}Props['payload']>({
+          assert<${namePascalCase}Props>,({ props, requiredProps: ['payload'] })
+          assert<${namePascalCase}Props['payload']>,({
             props: props.payload,
             requiredProps: ['id'],
           })

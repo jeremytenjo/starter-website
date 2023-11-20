@@ -37,6 +37,7 @@ const dataComponentUi = require('./templates/dataComponentUi.cjs')
 const firebaseFunction = require('./templates/firebaseFunction.cjs')
 const firebaseFunctionApiRoutes = require('./templates/firebaseFunctionApiRoutes.cjs')
 const firebaseFunctionApiRoute = require('./templates/firebaseFunctionApiRoute.cjs')
+const firebaseFunctionApiRouteHandler = require('./templates/firebaseFunctionApiRouteHandler.cjs')
 const reactHook = require('./templates/reactHook.cjs')
 
 module.exports = [
@@ -59,6 +60,7 @@ module.exports = [
   firebaseFunction.template,
   firebaseFunctionApiRoutes.template,
   firebaseFunctionApiRoute.template,
+  firebaseFunctionApiRouteHandler.template,
 
   collection.template,
   data.template,

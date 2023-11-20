@@ -186,7 +186,7 @@ const files = [
             })
           } catch (error: any) {
             throw new Error(${'`${name.routeId}'} - ${'${error}`'}, {
-              cause: error.cause,
+              cause: error?.cause,
             })
           }
         }

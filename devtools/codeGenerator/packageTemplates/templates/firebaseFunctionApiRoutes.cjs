@@ -184,8 +184,10 @@ const files = [
               authUser: props.authUser,
               payload: props.context.payload,
             })
-          } catch (error) {
-            throw new Error(${'`${name.routeId}'} - ${'${error}`'})
+          } catch (error: any) {
+            throw new Error(${'`${name.routeId}'} - ${'${error}`'}, {
+              cause: error.cause,
+            })
           }
         }
             

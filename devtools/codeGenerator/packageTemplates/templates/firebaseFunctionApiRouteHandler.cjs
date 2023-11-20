@@ -31,7 +31,11 @@ const files = [
       
           return { data }
         } catch (error) {
-          throw new Error(${'`'}${nameCamelCase} - ${'${String(error)}'}${'`'})
+          throw new Error(${'`'}${nameCamelCase} - ${'${String(error)}'}${'`'}, {
+            cause: {
+              ...props
+            }
+          })
         }
       }
       

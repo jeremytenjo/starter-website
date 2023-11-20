@@ -8,6 +8,7 @@ const files = [
     template: ({ helpers, name }) => {
       const nameCamelCase = helpers.changeCase.camelCase(name)
       const namePascalCase = helpers.changeCase.pascalCase(name)
+      const capitalCase = helpers.changeCase.capitalCase(name)
 
       return `import assert from '@useweb/assert'
       import logger from 'firebase-functions/logger'
@@ -18,15 +19,15 @@ const files = [
       
       export default async function ${nameCamelCase}(props: ${namePascalCase}Props) {
         try {
-          assert<${namePascalCase}Props>,({ props, requiredProps: ['payload'] })
-          assert<${namePascalCase}Props['payload']>,({
+          assert<${namePascalCase}Props,>({ props, requiredProps: ['payload'] })
+          assert<${namePascalCase}Props['payload'],>({
             props: props.payload,
             requiredProps: ['id'],
           })
       
           const data = 'hi'
       
-          logger.info('${nameCamelCase}', { data })
+          logger.info('${capitalCase}', { data })
       
           return { data }
         } catch (error) {

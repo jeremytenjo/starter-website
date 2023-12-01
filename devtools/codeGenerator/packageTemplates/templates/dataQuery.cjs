@@ -220,7 +220,7 @@ export const get${pascalName} = async (props: ${propsName}) => {
   const constraints: QueryConstraint[] = []
   const coll = query(collection(db, ${name}CollectionName))
 
-  constraints.push(where('uid' satisfies keyof ${schemaName}, '==', props.uid))
+  constraints.push(where('uid' satisfies keyof ${schemaName}, '==', props.uid satisfies ${schemaName}['uid']))
 
   const q = query(coll, ...constraints)
 

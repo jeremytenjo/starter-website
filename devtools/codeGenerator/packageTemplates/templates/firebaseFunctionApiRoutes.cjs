@@ -50,7 +50,7 @@ const files = [
       const camelCase = helpers.changeCase.camelCase(name)
       const pascalCase = helpers.changeCase.pascalCase(name)
 
-      return `import useAsync from '@useweb/use-async'
+      return `import useAsync, { type UseAsyncProps } from '@useweb/use-async'
       import { httpsCallable } from 'firebase/functions'
       import type {
         ${pascalCase}Props,
@@ -62,10 +62,12 @@ const files = [
         RouteSchemaProps,
       } from '@/firebaseFunctions/src/utils/useApiRouteData/useApiRouteData.js'
       
-      export type ${pascalCase}ClientProps<RouteSchema extends RouteSchemaProps> = Omit<
-        ${pascalCase}Props<RouteSchema>['context'],
-        'return' | 'authUser'
-      >
+      export type ${pascalCase}ClientProps<RouteSchema extends RouteSchemaProps> = {
+        api: Omit<${pascalCase}Props<RouteSchema>['context'], 'return' | 'authUser'>
+        options?: Partial<
+          UseAsyncProps<${pascalCase}ClientProps<RouteSchema>['api'], RouteSchema['return']>
+        >
+      }
       
       export default async function ${camelCase}Client<
         RouteSchema extends RouteSchemaProps,
@@ -73,11 +75,11 @@ const files = [
         props: ${pascalCase}ClientProps<RouteSchema>,
       ): Promise<${pascalCase}Return<RouteSchema>> {
         const ${name} = httpsCallable<
-          ${pascalCase}ClientProps<RouteSchema>,
+          ${pascalCase}ClientProps<RouteSchema>['api'],
           ${pascalCase}Return<RouteSchema>
         >(functions, '${name}')
       
-        const res = await ${name}(props)
+        const res = await ${name}(props.api)
       
         return res.data
       }
@@ -88,8 +90,9 @@ const files = [
       export function use${pascalCase}Client<RouteSchema extends RouteSchemaProps>(
         props: ${pascalCase}ClientProps<RouteSchema>,
       ) {
-        const ${camelCase} = useAsync<${pascalCase}ClientProps<RouteSchema>, any>({
+        const ${camelCase} = useAsync<${pascalCase}ClientProps<RouteSchema>['api'], RouteSchema['return']>({
           fn: async () => await ${camelCase}Client(props),
+          ...props.options,
           onError({ error }) {
             logError({
               error,
@@ -265,10 +268,12 @@ const files = [
       const Template = () => {
         const fn = async () => {
           const res = await ${name}Client<API${fnNamePascalCase}Props>({
-            route: 'routes/${fnNameCamelCase}',
-            payload: {
-              name: 'hello'
-            },
+            api: {
+              route: 'routes/${fnNameCamelCase}',
+              payload: {
+                name: 'hello'
+              },
+            }
           })
       
           return res

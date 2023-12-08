@@ -2,7 +2,7 @@ const files = [
   {
     parentFolderName: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
-      return pascalName
+      return `${pascalName}/Page`
     },
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')

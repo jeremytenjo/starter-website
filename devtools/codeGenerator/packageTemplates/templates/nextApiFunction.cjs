@@ -17,7 +17,8 @@ const files = [
         }
         
         export type ${pascalCase}Return = {
-          hello: string
+          id: string
+          data: any[]
         }
         
         export default async function ${camelCase}(
@@ -26,7 +27,12 @@ const files = [
           assert<${pascalCase}Props,>({ props, requiredProps: ['name'] })
         
           return {
-            hello: props.name,
+            id: props.name,
+            data: [
+              {
+                name: props.name,
+              }
+            ],
           }
         }
           `
@@ -119,7 +125,7 @@ const files = [
             fetcher: async () => {
               const { data } = await ${camelCase}Client(props)
       
-              return data
+              return [data]
             },
             onGetError({ error }) {
               logError({

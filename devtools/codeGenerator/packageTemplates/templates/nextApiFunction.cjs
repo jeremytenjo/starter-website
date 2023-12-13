@@ -168,25 +168,21 @@ const files = [
         },
       }
       
-      const fetcher = async (args: ${pascalCase}Props) => {
-        const data = await ${name}(args)
-      
-        return data
-      }
-      
-      export const Test = (args: ${pascalCase}Props) => {
-        return (
-          <AsyncTester<
-            any,
-            {
-              payload: ${pascalCase}Props
-            }
-          >
-            // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)
-            fn={async () => fetcher(args)}
-            autoExec
-          />
-        )
+      export const Test = {
+        render: (args: ${pascalCase}Props) => {
+          return (
+            <AsyncTester<
+              any,
+              {
+                payload: ${pascalCase}Props
+              }
+            >
+              // if using triggerComponent change to async(fnArgs)=> fetcher(fnArgs)
+              fn={async () => await ${name}(args)}
+              autoExec
+            />
+          )
+        }
       }
         `
     },

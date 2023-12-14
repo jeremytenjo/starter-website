@@ -85,10 +85,12 @@ const files = [
           const res =
             await rootFunction_Client<API_${namePascalCase}Props>(
               {
-                route: 'routes/${nameCamelCase}',
-                payload: {
-                  name: 'hello',
-                },
+                api: {
+                  route: 'routes/${nameCamelCase}',
+                  payload: {
+                    name: 'hello',
+                  },
+                }
               },
             )
       

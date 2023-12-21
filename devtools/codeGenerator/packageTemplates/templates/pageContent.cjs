@@ -2,7 +2,7 @@ const files = [
   {
     parentFolderName: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
-      return `${pascalName}/Page`
+      return pascalName
     },
     path: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name).split(' ').join('')
@@ -72,7 +72,7 @@ export default function ${componentName}() {
       return pascalName
     },
     path: () => {
-      return `containers/readme.md`
+      return `pages/containers/readme.md`
     },
     template: ({ name, helpers }) => {
       const pascalName = helpers.changeCase.pascalCase(name).replaceAll(' ', '')

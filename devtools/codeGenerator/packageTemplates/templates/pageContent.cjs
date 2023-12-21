@@ -16,7 +16,7 @@ const files = [
       import React from 'react'
       import Box from '@useweb/ui/Box'
       
-      import ${componentName}Layout from '../layouts/${componentName}Layout/${componentName}Layout.js'
+      import ${componentName}Layout from '../../layouts/${componentName}Layout/${componentName}Layout.js'
 
     ${slots?.childContainers?.importStatements || ''}
 

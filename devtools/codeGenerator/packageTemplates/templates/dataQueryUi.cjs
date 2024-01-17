@@ -166,20 +166,13 @@ const files = [
       export type ${ListComponentName}EmptyDataProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
       
-     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      export default function ${ListComponentName}EmptyData(props: ${ListComponentName}EmptyDataProps) {
-        return <Wrapper>
+        export default function ${ListComponentName}EmptyData(props: ${ListComponentName}EmptyDataProps) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        return <Box data-id='${ListComponentName}EmptyData' sx={{}}>
                 <EmptyMessage subTitle='${ListComponentName}EmptyData' />
-              </Wrapper>
+              </Box>
       }
       
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${ListComponentName}EmptyData' sx={{}}>
-            {children}
-          </Box>
-        )
-      }
       `
     },
   },

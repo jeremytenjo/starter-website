@@ -81,20 +81,14 @@ const files = [
       export default function ${pascalCase}(props: ${pascalCase}Props) {
         return (
           <${pascalCase}DataProvider props={props}>
-            <Wrapper>
+          <Box data-id='${pascalCase}' sx={{}}>
               <Text text={'${pascalCase}'} tag='p' sx={{}} />
-            </Wrapper>
+            </Box>
           </${pascalCase}DataProvider>
         )
       }
 
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${pascalCase}' sx={{}}>
-            {children}
-          </Box>
-        )
-      }
+ 
       `
     },
   },

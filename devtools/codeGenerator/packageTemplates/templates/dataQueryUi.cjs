@@ -56,7 +56,7 @@ const files = [
         const ${camelCase} = ${useName}(props.dataConfig)
       
         return (
-          <Wrapper>
+          <Box data-id='${ListComponentName}' sx={{}}>
             <UseDataUi<${nameSinglePascal}Schema>
               asyncFunctionVariable={${camelCase}}
               data={${ListComponentName}Data}
@@ -64,17 +64,10 @@ const files = [
               loading={${ListComponentName}Loading}
               error={${ListComponentName}Error}
             />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${ListComponentName}' sx={{}}>
-            {children}
           </Box>
         )
       }
+
       `
     },
   },
@@ -108,7 +101,7 @@ const files = [
       
       export default function ${ListComponentName}Data(props: ${ListComponentName}DataProps) {
         return (
-          <Wrapper>
+          <Box data-id='${ListComponentName}Data' sx={{}}>
             <List<${nameSinglePascal}Schema>
               data={props.data || []}
               ListItemComponent={({ itemData }) => {
@@ -118,7 +111,7 @@ const files = [
                 ...listSx,
               }}
             />
-          </Wrapper>
+          </Box>
         )
       }
 
@@ -131,14 +124,8 @@ const files = [
           </Box>
         )
       }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${ListComponentName}Data' sx={{}}>
-            {children}
-          </Box>
-        )
-      }`
+
+      `
     },
   },
 
@@ -208,7 +195,7 @@ const files = [
         }))
 
         return (
-          <Wrapper>
+          <Box data-id='${ListComponentName}Loading' sx={{}}>
             <List<any>
               data={array || []}
               ListItemComponent={() => {
@@ -216,17 +203,10 @@ const files = [
               }}
             sx={listSx}
           />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${ListComponentName}Loading' sx={{}}>
-            {children}
           </Box>
         )
       }
+      
       `
     },
   },
@@ -257,19 +237,13 @@ const files = [
       
       export default function ${ListComponentName}Error(props: ${ListComponentName}ErrorProps) {
         return (
-          <Wrapper>
-            <ErrorMessage error={props.error} message='Error loading ${name}' />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
           <Box data-id='${ListComponentName}Error' sx={{}}>
-            {children}
+            <ErrorMessage error={props.error} message='Error loading ${name}' />
           </Box>
         )
       }
+      
+
       `
     },
   },
@@ -597,7 +571,7 @@ const files = [
         })
       
         return (
-          <Wrapper>
+          <Box data-id='${pascalName}RemoveButton' sx={{}}>
             <ConfirmationButton
               fn={{
                 fn: async () => {
@@ -625,17 +599,10 @@ const files = [
                 children: <>Remove ${nameSinglePascal}?</>,
               }}
             />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${pascalName}RemoveButton' sx={{}}>
-            {children}
           </Box>
         )
       }
+      
       `
     },
   },

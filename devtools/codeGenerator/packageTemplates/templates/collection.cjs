@@ -474,7 +474,7 @@ export default function useGet${pascalName}(
         const ${camelCase} = ${useName}(props.dataConfig)
       
         return (
-          <Wrapper>
+          <Box data-id='${componentName}' sx={{}}>
             <UseDataUi<${nameSinglePascal}Schema>
               asyncFunctionVariable={${camelCase}}
               data={${componentName}Data}
@@ -482,17 +482,10 @@ export default function useGet${pascalName}(
               loading={${componentName}Loading}
               error={${componentName}Error}
             />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${componentName}' sx={{}}>
-            {children}
           </Box>
         )
       }
+      
       `
     },
   },
@@ -525,24 +518,18 @@ export default function useGet${pascalName}(
       
       export default function ${componentName}Data(props: ${componentName}DataProps) {
         return (
-          <Wrapper>
+          <Box data-id='${componentName}Data' sx={{}}>
             <List<${nameSinglePascal}Schema>
               data={props.data || []}
               ListItemComponent={({ itemData }) => {
                 return <${listItemComponentName} {...(itemData || {})} />
               }}
             />
-          </Wrapper>
+          </Box>
         )
       }
       
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${componentName}Data' sx={{}}>
-            {children}
-          </Box>
-        )
-      }`
+ `
     },
   },
 
@@ -721,16 +708,10 @@ export const Default = {
       
         export default function ${componentName}EmptyData(props: ${componentName}EmptyDataProps) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        return <Wrapper><EmptyMessage subTitle='${componentName}EmptyData' /></Wrapper>
+        return <Box data-id='${componentName}EmptyData' sx={{}}><EmptyMessage subTitle='${componentName}EmptyData' /></Box>
       }
       
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${componentName}EmptyData' sx={{}}>
-            {children}
-          </Box>
-        )
-      }
+
       `
     },
   },
@@ -761,19 +742,13 @@ export const Default = {
       
       export default function ${componentName}Loading(props: ${componentName}LoadingProps) {
         return (
-          <Wrapper>
-            <LinearProgress />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
           <Box data-id='${componentName}Loading' sx={{}}>
-            {children}
+            <LinearProgress />
           </Box>
         )
       }
+      
+ 
       `
     },
   },
@@ -807,24 +782,18 @@ export const Default = {
         props.error instanceof Error ? String(props.error) : JSON.stringify(props.error)
 
         return (
-          <Wrapper>
+          <Box data-id='${componentName}Error' sx={{}}>
             <Text
               text={error}
               sx={{
                 color: 'red',
               }}
             />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${componentName}Error' sx={{}}>
-            {children}
           </Box>
         )
       }
+      
+
       `
     },
   },

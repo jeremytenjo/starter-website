@@ -112,21 +112,13 @@ const files = [
         const ${name} = use${pascalName}()
       
         return (
-          <Wrapper>
+          <Box data-id='${pascalName}' sx={{}}>
             <UseAsyncUi
               asyncFunctionVariable={${name}}
               result={${pascalName}Result}
               loading={${pascalName}Loading}
               error={${pascalName}Error}
             />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${pascalName}' sx={{}}>
-            {children}
           </Box>
         )
       }
@@ -155,16 +147,10 @@ const files = [
       export type ${pascalName}ResultProps = UseAsyncUiComponentProps<${pascalName}Schema>['result']
       
       export default function ${pascalName}Result(props: ${pascalName}ResultProps) {
-        return <Wrapper>${pascalName}Result</Wrapper>
+        return <Box data-id='${pascalName}Result' sx={{}}>${pascalName}Result</Box>
       }
       
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${pascalName}Result' sx={{}}>
-            {children}
-          </Box>
-        )
-      }`
+    `
     },
   },
 
@@ -191,19 +177,13 @@ const files = [
       
       export default function ${pascalName}Loading(props: ${pascalName}LoadingProps) {
         return (
-          <Wrapper>
-            <LinearProgress />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
           <Box data-id='${pascalName}Loading' sx={{}}>
-            {children}
+            <LinearProgress />
           </Box>
         )
       }
+      
+
       `
     },
   },
@@ -234,24 +214,17 @@ const files = [
         props.error instanceof Error ? String(props.error) : JSON.stringify(props.error)
 
         return (
-          <Wrapper>
+          <Box data-id='${pascalName}Error' sx={{}}>
             <Text
               text={error}
               sx={{
                 color: 'red',
               }}
             />
-          </Wrapper>
-        )
-      }
-      
-      const Wrapper = ({ children }) => {
-        return (
-          <Box data-id='${pascalName}Error' sx={{}}>
-            {children}
           </Box>
         )
       }
+      
       `
     },
   },

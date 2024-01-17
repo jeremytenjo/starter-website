@@ -53,18 +53,14 @@ const files = [
         `props: ${propsName}`,
       )}) {        
       return (
-        <Wrapper>
+        <Box data-id='${name}' sx={{}}>
           ${renderIfTrue(noChildContainers, `<Title {...props} />`)}
           ${slots?.localComponents?.localComponentsDeclarations || ''}
           ${slots?.childContainers?.importedComponents || ''}
-        </Wrapper>
+        </Box>
       )
     }
     
-    const Wrapper = ({ children }) => {
-      return <Box data-id='${name}' sx={{}}>{children}</Box>
-    }
-
     ${renderIfTrue(
       noChildContainers,
       `const Title = (props: ${propsName}) => {

@@ -706,8 +706,10 @@ export const Default = {
       export type ${componentName}EmptyDataProps =
         UseDataUiComponentProps<${nameSinglePascal}Schema>['emptyData']
       
-        export default function ${componentName}EmptyData(props: ${componentName}EmptyDataProps) {
+        export default function ${componentName}EmptyData(
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        props: ${componentName}EmptyDataProps
+        ) {
         return <Box data-id='${componentName}EmptyData' sx={{}}><EmptyMessage subTitle='${componentName}EmptyData' /></Box>
       }
       
